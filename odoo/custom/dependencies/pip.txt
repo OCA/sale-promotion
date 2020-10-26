@@ -1,0 +1,6 @@
+cryptography
+git+https://github.com/OCA/openupgradelib.git@master
+pycryptodome
+pyOpenSSL
+unicodecsv
+unidecode

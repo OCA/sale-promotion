@@ -1,0 +1,174 @@
+version: "2.4"
+
+services:
+  odoo_proxy:
+    image: ghcr.io/tecnativa/docker-whitelist:latest
+    depends_on:
+      - odoo
+    networks: &public
+      default:
+      public:
+    ports:
+      - "127.0.0.1:14899:6899"
+      - "127.0.0.1:14069:8069"
+    environment:
+      PORT: "6899 8069"
+      TARGET: odoo
+
+  odoo:
+    extends:
+      file: common.yaml
+      service: odoo
+    build:
+      args:
+        # To aggregate in development, use `setup-devel.yaml`
+        AGGREGATE: "false"
+        # Export these variables to own files created by odoo in your filesystem
+        UID: "${UID:-1000}"
+        GID: "${GID:-1000}"
+        # No need for this in development
+        PIP_INSTALL_ODOO: "false"
+        CLEAN: "false"
+        COMPILE: "false"
+    environment:
+      DOODBA_ENVIRONMENT: "${DOODBA_ENVIRONMENT-devel}"
+      LIST_DB: "true"
+      DEBUGPY_ENABLE: "${DOODBA_DEBUGPY_ENABLE:-0}"
+      PGDATABASE: &dbname devel
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONOPTIMIZE: ""
+      PYTHONPATH: /opt/odoo/custom/src/odoo
+      SMTP_PORT: "1025"
+      WDB_WEB_PORT: "14984"
+      # To avoid installing demo data export DOODBA_WITHOUT_DEMO=all
+      WITHOUT_DEMO: "${DOODBA_WITHOUT_DEMO-false}"
+    volumes:
+      - ./odoo/custom:/opt/odoo/custom:ro,z
+      - ./odoo/auto:/opt/odoo/auto:rw,z
+    depends_on:
+      - db
+      - proxy_cdnjs_cloudflare_com
+      - proxy_fonts_googleapis_com
+      - proxy_fonts_gstatic_com
+      - proxy_www_google_com
+      - proxy_www_googleapis_com
+      - proxy_www_gravatar_com
+      - smtp
+      - wdb
+    command:
+      - odoo
+      - --limit-memory-soft=0
+      - --limit-time-real-cron=9999999
+      - --limit-time-real=9999999
+      - --workers=0
+      - --dev=reload,qweb,werkzeug,xml
+
+  db:
+    extends:
+      file: common.yaml
+      service: db
+    environment:
+      POSTGRES_DB: *dbname
+      POSTGRES_PASSWORD: odoopassword
+
+  pgweb:
+    image: sosedoff/pgweb
+    networks: *public
+    ports:
+      - "127.0.0.1:14081:8081"
+    environment:
+      DATABASE_URL: postgres://odoo:odoopassword@db:5432/devel?sslmode=disable
+    depends_on:
+      - db
+
+  smtp:
+    extends:
+      file: common.yaml
+      service: smtpfake
+    networks: *public
+    ports:
+      - "127.0.0.1:14025:8025"
+
+  wdb:
+    image: kozea/wdb
+    networks: *public
+    ports:
+      - "127.0.0.1:14984:1984"
+    # HACK https://github.com/Kozea/wdb/issues/136
+    init: true
+
+  # Whitelist outgoing traffic for tests, reports, etc.
+  proxy_cdnjs_cloudflare_com:
+    image: ghcr.io/tecnativa/docker-whitelist:latest
+    networks:
+      default:
+        aliases:
+          - cdnjs.cloudflare.com
+      public:
+    environment:
+      TARGET: cdnjs.cloudflare.com
+      PRE_RESOLVE: 1
+
+  proxy_fonts_googleapis_com:
+    image: ghcr.io/tecnativa/docker-whitelist:latest
+    networks:
+      default:
+        aliases:
+          - fonts.googleapis.com
+      public:
+    environment:
+      TARGET: fonts.googleapis.com
+      PRE_RESOLVE: 1
+
+  proxy_fonts_gstatic_com:
+    image: ghcr.io/tecnativa/docker-whitelist:latest
+    networks:
+      default:
+        aliases:
+          - fonts.gstatic.com
+      public:
+    environment:
+      TARGET: fonts.gstatic.com
+      PRE_RESOLVE: 1
+
+  proxy_www_google_com:
+    image: ghcr.io/tecnativa/docker-whitelist:latest
+    networks:
+      default:
+        aliases:
+          - www.google.com
+      public:
+    environment:
+      TARGET: www.google.com
+      PRE_RESOLVE: 1
+
+  proxy_www_googleapis_com:
+    image: ghcr.io/tecnativa/docker-whitelist:latest
+    networks:
+      default:
+        aliases:
+          - www.googleapis.com
+      public:
+    environment:
+      TARGET: www.googleapis.com
+      PRE_RESOLVE: 1
+
+  proxy_www_gravatar_com:
+    image: ghcr.io/tecnativa/docker-whitelist:latest
+    networks:
+      default:
+        aliases:
+          - www.gravatar.com
+      public:
+    environment:
+      TARGET: www.gravatar.com
+      PRE_RESOLVE: 1
+
+networks:
+  default:
+    internal: true
+  public:
+
+volumes:
+  filestore:
+  db:

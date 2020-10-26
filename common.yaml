@@ -1,0 +1,38 @@
+version: "2.4"
+
+services:
+  odoo:
+    build:
+      context: ./odoo
+      args:
+        ODOO_VERSION: "14.0"
+        UID: "${UID:-1000}"
+        GID: "${GID:-1000}"
+    environment:
+      EMAIL_FROM: ""
+      PGDATABASE: &dbname prod
+      PGUSER: &dbuser "odoo"
+      DB_FILTER: ".*"
+      PROXY_MODE: "true"
+    tty: true
+    volumes:
+      - filestore:/var/lib/odoo:z
+    labels:
+      traefik.backend.buffering.retryExpression: IsNetworkError() && Attempts() < 5
+      traefik.docker.network: "inverseproxy_shared"
+      traefik.frontend.passHostHeader: "true"
+      traefik.port: "8069"
+
+  db:
+    image: ghcr.io/tecnativa/postgres-autoconf:12-alpine
+    shm_size: 512mb
+    environment:
+      POSTGRES_DB: *dbname
+      POSTGRES_USER: *dbuser
+      CONF_EXTRA: |
+        work_mem = 512MB
+    volumes:
+      - db:/var/lib/postgresql/data:z
+
+  smtpfake:
+    image: mailhog/mailhog
