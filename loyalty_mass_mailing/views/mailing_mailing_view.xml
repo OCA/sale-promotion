@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_mail_mass_mailing_form_custom" model="ir.ui.view">
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form" />
+        <field name="arch" type="xml">
+            <label for="mailing_model_id" position="before">
+                <field name="program_id" readonly="1" />
+            </label>
+        </field>
+    </record>
+</odoo>
