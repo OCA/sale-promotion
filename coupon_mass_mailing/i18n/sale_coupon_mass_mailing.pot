@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_coupon_mass_mailing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_coupon_mass_mailing
+#: model:ir.model.fields,field_description:sale_coupon_mass_mailing.field_sale_coupon_program__mailing_count
+msgid "Mailing count"
+msgstr ""
+
+#. module: sale_coupon_mass_mailing
+#: model:ir.model.fields,field_description:sale_coupon_mass_mailing.field_sale_coupon_program__mailing_ids
+#: model_terms:ir.ui.view,arch_db:sale_coupon_mass_mailing.sale_coupon_program_view_form_common_custom
+msgid "Mailings"
+msgstr ""
+
+#. module: sale_coupon_mass_mailing
+#: model:ir.model,name:sale_coupon_mass_mailing.model_mailing_mailing
+msgid "Mass Mailing"
+msgstr ""
+
+#. module: sale_coupon_mass_mailing
+#: model:ir.model.fields,field_description:sale_coupon_mass_mailing.field_mailing_mailing__program_id
+msgid "Program"
+msgstr ""
+
+#. module: sale_coupon_mass_mailing
+#: model:ir.model,name:sale_coupon_mass_mailing.model_sale_coupon_program
+msgid "Sales Coupon Program"
+msgstr ""
