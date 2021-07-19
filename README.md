@@ -15,7 +15,11 @@ Odoo addons for handling promotions on the sales funnel.
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[sale_coupon_mass_mailing](sale_coupon_mass_mailing/) | 13.0.1.0.0 | Sale Coupon Mas Mailing
 
 [//]: # (end addons)
 
