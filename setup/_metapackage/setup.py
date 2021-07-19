@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo13-addon-sale_coupon_mass_mailing',
+        'odoo13-addon-website_sale_coupon_page',
     ],
     classifiers=[
         'Programming Language :: Python',
