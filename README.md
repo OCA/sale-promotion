@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [sale_coupon_mass_mailing](sale_coupon_mass_mailing/) | 13.0.1.0.0 | Sale Coupon Mas Mailing
+[website_sale_coupon_page](website_sale_coupon_page/) | 13.0.1.0.0 | Website Sale Coupon Page
 
 [//]: # (end addons)
 
