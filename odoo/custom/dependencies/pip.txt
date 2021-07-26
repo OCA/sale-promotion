@@ -2,5 +2,6 @@ cryptography
 git+https://github.com/OCA/openupgradelib.git@master
 pycryptodome
 pyOpenSSL
+python-stdnum==1.16
 unicodecsv
 unidecode
