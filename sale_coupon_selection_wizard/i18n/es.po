@@ -1,0 +1,260 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_coupon_selection_wizard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-18 16:03+0000\n"
+"PO-Revision-Date: 2021-11-18 17:18+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.configure
+msgid "<i class=\"fa fa-gift fa-2x\"/> Reward options"
+msgstr "<i class=\"fa fa-gift fa-2x\"/> Regalos opcionales"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.configure
+msgid "<i class=\"fa fa-gift fa-2x\"/> Rewards"
+msgstr "<i class=\"fa fa-gift fa-2x\"/> Regalos"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.configure
+msgid "Add"
+msgstr "Añadir"
+
+#. module: sale_coupon_selection_wizard
+#: code:addons/sale_coupon_selection_wizard/models/sale_order.py:0
+#: model:ir.actions.act_window,name:sale_coupon_selection_wizard.coupon_selection_wizard_action
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.view_order_form
+#, python-format
+msgid "Add a promotion"
+msgstr "Añadir una promoción"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.coupon_selection_wizard_view_form
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__available_coupon_program_ids
+msgid "Available Coupon Program"
+msgstr "Promoción disponible"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,help:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__repeat_product
+msgid "Can product quantities count multiple times or not"
+msgstr "Cuentan las cantidades de producto múltiples veces o no"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.coupon_selection_wizard_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__coupon_program_id
+msgid "Coupon Program"
+msgstr "Programa de promociones"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__create_uid
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__create_date
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__criteria_id
+msgid "Criteria"
+msgstr "Criterio"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__criteria_qty
+msgid "Criteria Qty"
+msgstr "Ctd criterio"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__current_order_quantity
+msgid "Current Order Quantity"
+msgstr "Cantidad en pedido actual"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__coupon_reward_name
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__display_name
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__id
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,help:sale_coupon_selection_wizard.field_coupon_selection_wizard__pricelist_id
+msgid "If you change the pricelist, only newly added lines will be affected."
+msgstr ""
+"Si cambia la tarifa,  solo las nuevas líneas añadidas se verán afectadas."
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard____last_update
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__write_uid
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__write_date
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__rule_min_quantity
+msgid "Min. Quantity"
+msgstr "Cantidad mínima"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,help:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__rule_min_quantity
+msgid "Minimum required product quantity to get the reward"
+msgstr "Cantidad mínima de producto requerida para obtener la recompensa"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__optional
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__order_id
+msgid "Order"
+msgstr "Pedido"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.promotion_wizard_product_card
+msgid "Price:"
+msgstr "Precio:"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__pricelist_id
+msgid "Pricelist"
+msgstr "Tarifa"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model,name:sale_coupon_selection_wizard.model_coupon_selection_wizard_line
+msgid "Products to apply to the promotion"
+msgstr "Productos para aplicar a la promoción"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__program_id
+msgid "Program"
+msgstr "Programa"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard__promotion_line_ids
+msgid "Promotion Line"
+msgstr "Línea de promoción"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__qty_to_add
+msgid "Qty To Add"
+msgstr "Cantidad a añadir"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__repeat_product
+msgid "Repeat"
+msgstr "Repetir"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model,name:sale_coupon_selection_wizard.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de Venta"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model,name:sale_coupon_selection_wizard.model_coupon_selection_wizard
+msgid "Select promotion to apply to the order"
+msgstr "Seleccionar la promoción a aplicar en el pedido"
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,help:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__current_order_quantity
+msgid "Stores the quantity currently available in the order for this product"
+msgstr "Almacena la cantidad disponible en el pedido para este producto"
+
+#. module: sale_coupon_selection_wizard
+#: code:addons/sale_coupon_selection_wizard/controllers/main.py:0
+#, python-format
+msgid ""
+"The promotion can't be applied to this order:\n"
+"%s"
+msgstr ""
+"La promoción no puede ser aplicada a este pedido:\n"
+"%s"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.configure
+msgid "These products and their quantities are mandatory:"
+msgstr "Estos productos y sus cantidades son obligatorios:"
+
+#. module: sale_coupon_selection_wizard
+#: code:addons/sale_coupon_selection_wizard/controllers/main.py:0
+#, python-format
+msgid "This promotion can't be applied to this order"
+msgstr "Esta promoción no puede ser aplicada en este pedido"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.view_order_form
+msgid ""
+"When clicked, the content of the order will be checked to detect (and "
+"apply) possible promotion programs."
+msgstr ""
+"Cuando se pulse, el contenido del pedido será evaluado para detectar (y "
+"aplicar) posibles promociones."
+
+#. module: sale_coupon_selection_wizard
+#: model:ir.model.fields,field_description:sale_coupon_selection_wizard.field_coupon_selection_wizard_line__wizard_id
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.promotion_wizard_product_card
+msgid "already on current order."
+msgstr "en el pedido actual."
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.configure
+msgid "more"
+msgstr "más"
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.promotion_wizard_product_card
+msgid "will be added."
+msgstr "serán añadidas."
+
+#. module: sale_coupon_selection_wizard
+#: model_terms:ir.ui.view,arch_db:sale_coupon_selection_wizard.configure
+msgid "x units"
+msgstr "x unidades"

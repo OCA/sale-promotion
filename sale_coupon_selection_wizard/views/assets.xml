@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="link[last()]" position="after">
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/sale_coupon_selection_wizard/static/src/scss/coupon_selection_wizard.scss"
+            />
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/sale_coupon_selection_wizard/static/src/js/coupon_selection_wizard_view.js"
+            />
+            <script
+                type="text/javascript"
+                src="/sale_coupon_selection_wizard/static/src/js/coupon_selection_wizard_mixin.js"
+            />
+        </xpath>
+    </template>
+</odoo>
