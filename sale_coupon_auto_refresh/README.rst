@@ -7,9 +7,9 @@ Auto Refresh Coupons
    !! changes will be overwritten.                   !!
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Beta
+    :alt: Production/Stable
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
@@ -72,6 +72,7 @@ Authors
 ~~~~~~~
 
 * Tecnativa
+* Camptocamp
 
 Contributors
 ~~~~~~~~~~~~
@@ -79,6 +80,10 @@ Contributors
 * `Tecnativa <https://www.tecnativa.com>`_:
 
   * David Vidal
+
+* `Camptocamp <https://www.camptocamp.com>`_:
+
+  * Silvio Gregorini
 
 Maintainers
 ~~~~~~~~~~~
@@ -96,10 +101,13 @@ promote its widespread use.
 .. |maintainer-chienandalu| image:: https://github.com/chienandalu.png?size=40px
     :target: https://github.com/chienandalu
     :alt: chienandalu
+.. |maintainer-SilvioC2C| image:: https://github.com/SilvioC2C.png?size=40px
+    :target: https://github.com/SilvioC2C
+    :alt: SilvioC2C
 
-Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-chienandalu| 
+|maintainer-chienandalu| |maintainer-SilvioC2C| 
 
 This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/13.0/sale_coupon_auto_refresh>`_ project on GitHub.
 
