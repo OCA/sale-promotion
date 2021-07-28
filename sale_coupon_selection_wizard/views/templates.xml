@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Reward cards -->
+    <template id="promotion_wizard_reward_card">
+        <div class="d-flex col-lg-3 col-md-4 col-12 p-1">
+            <div
+                t-attf-class="card w-100#{not optional_reward_line and ' border-success' or option_checked and ' bg-success'}#{optional_reward_line and ' csw_optional_reward'}"
+            >
+                <div class="card-body d-flex align-items-center">
+                    <div class="card-text">
+                        <p
+                            t-attf-class="medium text-italic m-0#{not optional_reward_line and ' text-success' or ''}"
+                        >
+                            <img
+                                class="rounded-circle csw_reward_img"
+                                t-att-src="'/web/image/product.product/%s/image_128' % product.id"
+                                t-att-alt="product.display_name"
+                            />
+                            <strong>x<t t-esc="reward_qty" /></strong> <span
+                                t-esc="product.name"
+                            />
+                        </p>
+                    </div>
+                    <div t-if="optional_reward_line" class="d-none">
+                        <input
+                            class="reward_optional_input"
+                            t-att-name="'reward-{}'.format(reward_line_id)"
+                            t-att-value="product.id"
+                            type="radio"
+                            t-att-checked="option_checked"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Criteria cards -->
+    <template id="promotion_wizard_product_card" name="Product Card">
+        <div
+            t-attf-class="col-12 col-sm-6 #{optional and 'col-md-6' or 'col-md-4'} #{optional and 'col-lg-4' or 'col-lg-3'} offset-0 d-flex p-1"
+        >
+            <div
+                t-attf-class="card w-100#{current_order_quantity >= criteria_qty and ' border-success' or ''}"
+            >
+                <div class="card-horizontal pr-1 pl-1">
+                    <div class="img-square-wrapper p-1 d-flex align-items-center">
+                        <img
+                            class="card-img oe_promotion_wizard_item_img"
+                            t-att-src="'/web/image/product.product/%s/image_128' % product.id"
+                            t-att-alt="product.display_name"
+                        />
+                        <t t-if="not optional">
+                            <div class="card-img-overlay d-flex align-items-center">
+                                <p class="oe_scw_criteria_condition text-primary">
+                                    x<t t-esc="criteria_qty" />
+                                </p>
+                            </div>
+                        </t>
+                    </div>
+                <div class="card-body">
+                    <div class="oe_promotion_wizard_item_title">
+                        <strong>
+                            <t t-esc="product.name" />
+                        </strong>
+                        <small t-if="product.default_code">
+                            [<t t-esc="product.default_code" />]
+                        </small>
+                    </div>
+                    <div class="oe_promotion_wizard_item_infos">
+                        <p>
+                            <t t-if="current_order_quantity">
+                                <u
+                                        class="text-primary font-weight-bold"
+                                        t-esc="'{} {}'.format(current_order_quantity, product.sudo().uom_id.name)"
+                                    /> already on current order.
+                            </t>
+                            <t t-if="qty_to_add">
+                                <u
+                                        class="text-success font-weight-bold"
+                                        t-esc="'+{} {}'.format(qty_to_add, product.sudo().uom_id.name)"
+                                    /> will be added.
+                            </t>
+                        </p>
+                        <p>
+                            Price: <span
+                                    t-esc="product.price"
+                                    style="white-space: nowrap;"
+                                    t-options="{'widget': 'monetary', 'display_currency': currency_id}"
+                                />
+                        </p>
+                    </div>
+                </div>
+                <div
+                        t-attf-class="#{'d-none' if not optional else 'd-flex'} input-group align-items-center justify-content-center csw_product_quantity"
+                    >
+                    <div class="input-group-prepend">
+                        <button
+                                class="csw_remove_quantity btn d-flex align-items-center justify-content-center btn-primary"
+                            >
+                            <i class="fa fa-minus center" />
+                        </button>
+                    </div>
+                    <input
+                            type="text"
+                            class="js_promotion_item_quantity form-control"
+                            t-att-min="0"
+                            t-att-data-product_id="product.id"
+                            t-att-max="criteria_id.rule_min_quantity"
+                            t-attf-name="#{criteria_id.id}-add_qty-#{product.id}"
+                            t-att-value="qty_to_add or '0'"
+                        />
+                    <div class="input-group-append">
+                        <button
+                                class="csw_add_quantity btn d-flex align-items-center justify-content-center btn-primary"
+                            >
+                            <i class="fa fa-plus" />
+                        </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Wizard layout -->
+    <template id="configure" name="Configure Promotion">
+        <div class="js_promotion main_promotion">
+            <input
+                type="hidden"
+                class="promotion_program_id"
+                t-att-value="program.id"
+            />
+            <div class="row pl-3 pr-3">
+                <t t-if="common_reward_lines">
+                        <div class="d-flex col-lg-1 col-md-4 col-12 p-1">
+                            <div class="card w-100 bg-primary d-flex">
+                                <div class="card-body d-flex align-items-center p-0">
+                                    <h6 class="card-title text-primary text-center"><i
+                                        class="fa fa-gift fa-2x"
+                                    /> Rewards</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <t t-foreach="common_reward_lines" t-as="reward_line">
+                            <t
+                            t-call="sale_coupon_selection_wizard.promotion_wizard_reward_card"
+                        >
+                                <t
+                                t-set="product"
+                                t-value="reward_line.reward_product_ids"
+                            />
+                                <t
+                                t-set="reward_qty"
+                                t-value="reward_line.reward_product_quantity"
+                            />
+                            </t>
+                        </t>
+                    </t>
+                    <t t-if="optional_reward_lines">
+                        <t t-foreach="optional_reward_lines" t-as="reward_line">
+                            <div class="d-flex col-lg-1 col-md-4 col-12 p-1">
+                                <div class="card w-100 bg-warning d-flex">
+                                    <div
+                                    class="card-body d-flex align-items-center p-0"
+                                >
+                                        <h6
+                                        class="card-title text-warning text-center"
+                                    ><i class="fa fa-gift fa-2x" /> Reward options</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <t
+                            t-foreach="reward_line.reward_product_ids"
+                            t-as="product"
+                        >
+                                <t
+                                t-call="sale_coupon_selection_wizard.promotion_wizard_reward_card"
+                            >
+                                    <t t-set="product" t-value="product" />
+                                    <t
+                                    t-set="reward_qty"
+                                    t-value="reward_line.reward_product_quantity"
+                                />
+                                    <t
+                                    t-set="reward_line_id"
+                                    t-value="reward_line.id"
+                                />
+                                    <t t-set="optional_reward_line" t-value="True" />
+                                    <t
+                                    t-set="option_checked"
+                                    t-value="product_index == 0 and True"
+                                />
+                                </t>
+                            </t>
+                        </t>
+                    </t>
+            </div>
+            <t t-if="mandatory_program_options">
+                <div class="text-muted">
+                    <h4>These products and their quantities are mandatory:</h4>
+                </div>
+                <div class="row pl-3 pr-3">
+                    <t t-foreach="mandatory_program_options" t-as="mandatory_option">
+                        <t
+                            t-call="sale_coupon_selection_wizard.promotion_wizard_product_card"
+                        >
+                            <t
+                                t-set="criteria_id"
+                                t-value="mandatory_option['criteria_id']"
+                            />
+                            <t
+                                t-set="product"
+                                t-value="mandatory_option['product_id']"
+                            />
+                            <t
+                                t-set="current_order_quantity"
+                                t-value="mandatory_option['current_order_quantity']"
+                            />
+                            <t
+                                t-set="criteria_qty"
+                                t-value="mandatory_option['criteria_qty']"
+                            />
+                            <t
+                                t-set="qty_to_add"
+                                t-value="mandatory_option['qty_to_add']"
+                            />
+                            <t
+                                t-set="optional"
+                                t-value="mandatory_option['optional']"
+                            />
+                        </t>
+                    </t>
+                </div>
+            </t>
+            <t t-foreach="optional_program_options_map" t-as="criteria">
+                <t
+                    t-set="criteria_fulfilled_qty"
+                    t-value="sum([x['current_order_quantity'] for x in optional_program_options_map[criteria]])"
+                />
+                <t
+                    t-set="criteria_needed_qty"
+                    t-value="max(criteria.rule_min_quantity - criteria_fulfilled_qty, 0)"
+                />
+                <t
+                    t-set="criteria_fulfilled"
+                    t-value="criteria_fulfilled_qty >= criteria.rule_min_quantity"
+                />
+                <div class="text-muted mt-4 pt-3 border-top optional_criteria_row">
+                    <h4>
+                        <i class="fa fa-sun-o text-warning csw_criteria_icon" /> <span
+                            t-esc="criteria.rule_min_quantity"
+                            class="font-weight-bold csw_criteria_min_quantity"
+                        />x units
+                        <span class="badge badge-primary">Add <span
+                                t-esc="criteria_needed_qty"
+                                class="csw_criteria_needed_qty"
+                                t-att-data-qty="criteria_needed_qty"
+                            /> more</span>
+                    </h4>
+                    <div class="row row pl-3 pr-3">
+                        <t
+                            t-foreach="optional_program_options_map[criteria]"
+                            t-as="criteria_option"
+                        >
+                            <t
+                                t-call="sale_coupon_selection_wizard.promotion_wizard_product_card"
+                            >
+                                <t
+                                    t-set="criteria_fulfilled"
+                                    t-value="criteria_fulfilled"
+                                />
+                                <t
+                                    t-set="criteria_id"
+                                    t-value="criteria_option['criteria_id']"
+                                />
+                                <t
+                                    t-set="product"
+                                    t-value="criteria_option['product_id']"
+                                />
+                                <t
+                                    t-set="current_order_quantity"
+                                    t-value="criteria_option['current_order_quantity']"
+                                />
+                                <t
+                                    t-set="criteria_qty"
+                                    t-value="criteria_option['criteria_qty']"
+                                />
+                                <t
+                                    t-set="qty_to_add"
+                                    t-value="criteria_option['qty_to_add']"
+                                />
+                                <t
+                                    t-set="optional"
+                                    t-value="criteria_option['optional']"
+                                />
+                            </t>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </template>
+</odoo>
