@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_coupon_auto_refresh
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_coupon_auto_refresh
+#: model_terms:ir.ui.view,arch_db:sale_coupon_auto_refresh.res_config_settings_view_form
+msgid "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company__auto_refresh_coupon
+#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_config_settings__auto_refresh_coupon
+#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__auto_refresh_coupon
+msgid "Auto Refresh Coupons"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model_terms:ir.ui.view,arch_db:sale_coupon_auto_refresh.res_config_settings_view_form
+msgid "Auto refresh coupons"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model_terms:ir.ui.view,arch_db:sale_coupon_auto_refresh.res_config_settings_view_form
+msgid "Auto-refresh coupons"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model:ir.model.fields,help:sale_coupon_auto_refresh.field_res_company__auto_refresh_coupon
+#: model:ir.model.fields,help:sale_coupon_auto_refresh.field_res_config_settings__auto_refresh_coupon
+#: model:ir.model.fields,help:sale_coupon_auto_refresh.field_sale_order__auto_refresh_coupon
+msgid "Autorefresh coupon lines in the backorder"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model:ir.model,name:sale_coupon_auto_refresh.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model:ir.model,name:sale_coupon_auto_refresh.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model:ir.model,name:sale_coupon_auto_refresh.model_sale_order
+msgid "Sale Order"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model_terms:ir.ui.view,arch_db:sale_coupon_auto_refresh.res_config_settings_view_form
+msgid "When the sale order is updated, auto-refresh the promotion programs which are set to auto apply"
+msgstr ""

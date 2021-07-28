@@ -1,0 +1,15 @@
+# Copyright 2021 Tecnativa - David Vidal
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+{
+    "name": "Auto Refresh Coupons",
+    "summary": "Allows to auto-apply the coupons with no user intervention",
+    "version": "13.0.1.0.0",
+    "development_status": "Production/Stable",
+    "category": "Website",
+    "website": "https://github.com/OCA/sale-promotion",
+    "author": "Tecnativa, Odoo Community Association (OCA)",
+    "maintainers": ["chienandalu"],
+    "license": "AGPL-3",
+    "depends": ["sale_coupon"],
+    "data": ["views/res_config_settings_views.xml"],
+}
