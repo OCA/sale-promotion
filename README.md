@@ -1,4 +1,4 @@
-[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat//13.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-sale-promotion-)
+[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/296/13.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-sale-promotion-296)
 [![Build Status](https://travis-ci.com/OCA/sale-promotion.svg?branch=13.0)](https://travis-ci.com/OCA/sale-promotion)
 [![codecov](https://codecov.io/gh/OCA/sale-promotion/branch/13.0/graph/badge.svg)](https://codecov.io/gh/OCA/sale-promotion)
 [![Translation Status](https://translation.odoo-community.org/widgets/sale-promotion-13-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/sale-promotion-13-0/?utm_source=widget)
