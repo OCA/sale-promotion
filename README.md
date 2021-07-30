@@ -19,6 +19,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 13.0.1.0.0 | Allows to auto-apply the coupons with no user intervention
 [sale_coupon_criteria_multi_product](sale_coupon_criteria_multi_product/) | 13.0.1.0.0 | Allows to set as promotion criteria multi-product conditions
 [sale_coupon_mass_mailing](sale_coupon_mass_mailing/) | 13.0.1.0.0 | Sale Coupon Mas Mailing
 [sale_coupon_multi_gift](sale_coupon_multi_gift/) | 13.0.1.0.0 | Allows to configure multiple gift rewards per promotion
