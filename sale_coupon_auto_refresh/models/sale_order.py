@@ -9,7 +9,9 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     # Used in UI to hide the manual button
-    auto_refresh_coupon = fields.Boolean(related="company_id.auto_refresh_coupon",)
+    auto_refresh_coupon = fields.Boolean(
+        related="company_id.auto_refresh_coupon",
+    )
 
     @api.model_create_multi
     def create(self, vals_list):
