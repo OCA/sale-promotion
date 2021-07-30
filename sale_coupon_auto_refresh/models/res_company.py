@@ -7,5 +7,6 @@ class Company(models.Model):
     _inherit = "res.company"
 
     auto_refresh_coupon = fields.Boolean(
-        string="Auto Refresh Coupons", help="Autorefresh coupon lines in the backorder",
+        string="Auto Refresh Coupons",
+        help="Autorefresh coupon lines in the backorder",
     )
