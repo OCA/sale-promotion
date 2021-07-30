@@ -7,5 +7,6 @@ class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
     auto_refresh_coupon = fields.Boolean(
-        related="company_id.auto_refresh_coupon", readonly=False,
+        related="company_id.auto_refresh_coupon",
+        readonly=False,
     )
