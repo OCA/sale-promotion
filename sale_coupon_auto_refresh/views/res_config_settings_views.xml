@@ -8,7 +8,11 @@
                 expr="//field[@name='group_discount_per_so_line']/../../.."
                 position="inside"
             >
-                <div class="col-12 col-lg-6 o_setting_box" title="Auto-refresh coupons">
+                <div
+                    class="col-12 col-lg-6 o_setting_box"
+                    id="auto_refresh_coupons_settings"
+                    title="Auto-refresh coupons"
+                >
                     <div class="o_setting_left_pane">
                         <field name="auto_refresh_coupon" />
                     </div>
