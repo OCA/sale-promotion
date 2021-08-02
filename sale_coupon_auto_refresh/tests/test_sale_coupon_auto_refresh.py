@@ -7,6 +7,7 @@ class TestWebsiteSaleCouponAutorefresh(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.pricelist = cls.env["product.pricelist"].create(
             {
                 "name": "Test pricelist",
@@ -28,7 +29,7 @@ class TestWebsiteSaleCouponAutorefresh(common.SavepointCase):
         )
         cls.product = cls.env["product.product"].create({"name": "Test"})
         coupon_program_form = Form(
-            cls.env["sale.coupon.program"],
+            cls.env["coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Test Discount Program"
