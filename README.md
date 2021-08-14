@@ -17,9 +17,9 @@ Odoo addons for handling promotions on the sales funnel.
 
 Available addons
 ----------------
-addon | version | summary
---- | --- | ---
-[sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 14.0.1.0.0 | Allows to auto-apply the coupons with no user intervention
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 14.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) [![SilvioC2C](https://github.com/SilvioC2C.png?size=30px)](https://github.com/SilvioC2C) | Allows to auto-apply the coupons with no user intervention
 
 [//]: # (end addons)
 
