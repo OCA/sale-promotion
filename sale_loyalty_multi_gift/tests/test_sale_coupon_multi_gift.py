@@ -35,6 +35,9 @@ class TestSaleCouponMultiGift(common.SavepointCase):
         cls.product_3 = cls.env["product.product"].create(
             {"name": "Test 3", "sale_ok": False, "list_price": 70}
         )
+        cls.product_4 = cls.env["product.product"].create(
+            {"name": "Test 4", "sale_ok": False, "list_price": 80}
+        )
         coupon_program_form = Form(
             cls.env["sale.coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
@@ -51,10 +54,11 @@ class TestSaleCouponMultiGift(common.SavepointCase):
             cls.product_1.id
         )
         with coupon_program_form.coupon_multi_gift_ids.new() as reward_line:
-            reward_line.reward_product_id = cls.product_2
+            reward_line.reward_product_ids.add(cls.product_2)
             reward_line.reward_product_quantity = 2
         with coupon_program_form.coupon_multi_gift_ids.new() as reward_line:
-            reward_line.reward_product_id = cls.product_3
+            reward_line.reward_product_ids.add(cls.product_3)
+            reward_line.reward_product_ids.add(cls.product_4)
             reward_line.reward_product_quantity = 3
         cls.coupon_program = coupon_program_form.save()
         # We'll be using this sale order
@@ -104,6 +108,27 @@ class TestSaleCouponMultiGift(common.SavepointCase):
         discount_line = self.sale.order_line.filtered("is_reward_line")
         # The discount goes away
         self.assertFalse(bool(discount_line))
+        # Optional rewards
+        line_form.product_uom_qty = 2
+        line_form.save()
+        reward_line_options = {
+            self.coupon_program.coupon_multi_gift_ids[1].id: self.product_4.id
+        }
+        self.sale.with_context(
+            reward_line_options=reward_line_options, breakpoint=True
+        ).recompute_coupon_lines()
+        discount_line_product_2 = self.sale.order_line.filtered(
+            lambda x: x.product_id == self.product_2 and x.is_reward_line
+        )
+        discount_line_product_3 = self.sale.order_line.filtered(
+            lambda x: x.product_id == self.product_3 and x.is_reward_line
+        )
+        discount_line_product_4 = self.sale.order_line.filtered(
+            lambda x: x.product_id == self.product_4 and x.is_reward_line
+        )
+        self.assertEqual(2, discount_line_product_2.product_uom_qty)
+        self.assertEqual(3, discount_line_product_4.product_uom_qty)
+        self.assertFalse(discount_line_product_3)
 
     def test_sale_coupon_multi_gift_count(self):
         """We have to count the orders in a different manner than the core method"""
