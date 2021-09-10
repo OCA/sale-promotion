@@ -1,6 +1,6 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 
 
 class SaleCouponReward(models.Model):
@@ -21,7 +21,10 @@ class SaleCouponReward(models.Model):
                 "Free Products - %s"
                 % (
                     ", ".join(
-                        reward.reward_product_id.name
+                        "{}x {}".format(
+                            reward.reward_product_quantity,
+                            fields.first(reward.reward_product_ids).name,
+                        )
                         for reward in reward.coupon_multi_gift_ids
                     )
                 )
@@ -38,11 +41,28 @@ class SaleCouponGift(models.Model):
     reward_product_quantity = fields.Integer(
         string="Quantity", help="Reward product quantity",
     )
-    reward_product_id = fields.Many2one(
-        comodel_name="product.product", string="Free Product", help="Reward Product",
+    reward_default_product_id = fields.Many2one(
+        comodel_name="product.product",
+        compute="_compute_reward_default_product_id",
+        inverse="_inverse_reward_default_product_id",
+        readonly=False,
     )
-    reward_product_uom_id = fields.Many2one(
-        related="reward_product_id.product_tmpl_id.uom_id",
-        string="Unit of Measure",
-        readonly=True,
+    reward_product_ids = fields.Many2many(
+        comodel_name="product.product", string="Gift Options", help="Reward Product",
     )
+
+    @api.depends("reward_product_ids")
+    def _compute_reward_default_product_id(self):
+        """This field acts as a cover for a simple many2one behavior of the module.
+        Another module like `sale_coupon_selection_wizard` can dismiss it in order
+        to allow optional"""
+        for line in self:
+            line.reward_default_product_id = fields.first(line.reward_product_ids)
+
+    def _inverse_reward_default_product_id(self):
+        for line in self.filtered("reward_default_product_id"):
+            line.reward_product_ids = line.reward_default_product_id
+
+    @api.onchange("reward_product_ids")
+    def onchange_reward_product_ids(self):
+        self.reward_default_product_id = fields.first(self.reward_product_ids)._origin

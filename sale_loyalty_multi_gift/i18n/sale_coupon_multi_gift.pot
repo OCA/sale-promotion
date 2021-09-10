@@ -29,8 +29,8 @@ msgid "Created on"
 msgstr ""
 
 #. module: sale_coupon_multi_gift
-#: model:ir.model.fields,help:sale_coupon_multi_gift.field_sale_coupon_reward_product_line__reward_product_uom_id
-msgid "Default unit of measure used for all stock operations."
+#: model_terms:ir.ui.view,arch_db:sale_coupon_multi_gift.sale_coupon_program_view_form_common
+msgid "Default gift"
 msgstr ""
 
 #. module: sale_coupon_multi_gift
@@ -49,7 +49,6 @@ msgstr ""
 
 #. module: sale_coupon_multi_gift
 #: code:addons/sale_coupon_multi_gift/models/sale_order.py:0
-#: model:ir.model.fields,field_description:sale_coupon_multi_gift.field_sale_coupon_reward_product_line__reward_product_id
 #, python-format
 msgid "Free Product"
 msgstr ""
@@ -58,6 +57,11 @@ msgstr ""
 #: code:addons/sale_coupon_multi_gift/models/sale_coupon_reward.py:0
 #, python-format
 msgid "Free Products - %s"
+msgstr ""
+
+#. module: sale_coupon_multi_gift
+#: model:ir.model.fields,field_description:sale_coupon_multi_gift.field_sale_coupon_reward_product_line__reward_product_ids
+msgid "Gift Options"
 msgstr ""
 
 #. module: sale_coupon_multi_gift
@@ -93,11 +97,6 @@ msgstr ""
 
 #. module: sale_coupon_multi_gift
 #: model_terms:ir.ui.view,arch_db:sale_coupon_multi_gift.sale_coupon_program_view_form_common
-msgid "Product"
-msgstr ""
-
-#. module: sale_coupon_multi_gift
-#: model_terms:ir.ui.view,arch_db:sale_coupon_multi_gift.sale_coupon_program_view_form_common
 msgid "Qty"
 msgstr ""
 
@@ -112,7 +111,12 @@ msgid "Reward"
 msgstr ""
 
 #. module: sale_coupon_multi_gift
-#: model:ir.model.fields,help:sale_coupon_multi_gift.field_sale_coupon_reward_product_line__reward_product_id
+#: model:ir.model.fields,field_description:sale_coupon_multi_gift.field_sale_coupon_reward_product_line__reward_default_product_id
+msgid "Reward Default Product"
+msgstr ""
+
+#. module: sale_coupon_multi_gift
+#: model:ir.model.fields,help:sale_coupon_multi_gift.field_sale_coupon_reward_product_line__reward_product_ids
 msgid "Reward Product"
 msgstr ""
 
@@ -145,9 +149,4 @@ msgstr ""
 #. module: sale_coupon_multi_gift
 #: model:ir.model,name:sale_coupon_multi_gift.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
-
-#. module: sale_coupon_multi_gift
-#: model:ir.model.fields,field_description:sale_coupon_multi_gift.field_sale_coupon_reward_product_line__reward_product_uom_id
-msgid "Unit of Measure"
 msgstr ""

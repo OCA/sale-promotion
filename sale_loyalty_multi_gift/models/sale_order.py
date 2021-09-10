@@ -1,6 +1,7 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import _, models
+from odoo.fields import first
 
 
 class SaleOrder(models.Model):
@@ -9,13 +10,13 @@ class SaleOrder(models.Model):
     def _get_paid_order_lines(self):
         """Add reward lines produced by multi gift promotions"""
         lines = super()._get_paid_order_lines()
-        free_reward_product = (
+        free_reward_products = (
             self.env["sale.coupon.program"]
             .search([("reward_type", "=", "multi_gift")])
-            .mapped("coupon_multi_gift_ids.reward_product_id")
+            .mapped("coupon_multi_gift_ids.reward_product_ids")
         )
         free_reward_product_lines = self.order_line.filtered(
-            lambda x: x.is_reward_line and x.product_id in free_reward_product
+            lambda x: x.is_reward_line and x.product_id in free_reward_products
         )
         return lines | free_reward_product_lines
 
@@ -29,10 +30,20 @@ class SaleOrder(models.Model):
                 for record in records:
                     onchange(record)
 
+        # We could receive an optional product by context. Otherwise, the first product
+        # will apply. This feature can be used by modules like
+        # sale_coupon_selection_wizard.
+        optional_product = (
+            self.env["product.product"].browse(
+                self.env.context.get("reward_line_options", {}).get(reward_line.id)
+            )
+            & reward_line.reward_product_ids
+        )
+        reward_product_id = optional_product or first(reward_line.reward_product_ids)
         # We prepare a new line and trigger the proper onchanges to ensure we get the
         # right line values (price unit according to the customer pricelist, taxes, ect)
         order_line = self.order_line.new(
-            {"order_id": self.id, "product_id": reward_line.reward_product_id.id}
+            {"order_id": self.id, "product_id": reward_product_id.id}
         )
         _execute_onchanges(order_line, "product_id")
         order_line.update({"product_uom_qty": reward_line.reward_product_quantity})
@@ -41,7 +52,7 @@ class SaleOrder(models.Model):
         vals.update(
             {
                 "is_reward_line": True,
-                "name": _("Free Product") + " - " + reward_line.reward_product_id.name,
+                "name": _("Free Product") + " - " + reward_product_id.name,
                 "discount": 100,
                 "coupon_program_id": program.id,
             }
@@ -131,7 +142,7 @@ class SaleOrder(models.Model):
             for reward_line in program.coupon_multi_gift_ids:
                 values = self._get_reward_values_multi_gift_line(reward_line, program)
                 lines = self.order_line.filtered(
-                    lambda line: line.product_id == reward_line.reward_product_id
+                    lambda line: line.product_id in reward_line.reward_product_ids
                     and line.is_reward_line
                     and line.coupon_program_id == program
                 )
