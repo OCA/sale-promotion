@@ -35,7 +35,7 @@ msgstr ""
 "promocional."
 
 #. module: website_sale_coupon_page
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_page.available_promotions
+#: model_terms:ir.ui.view,arch_db:website_sale_coupon_page.promotion_layout
 msgid "Promotions"
 msgstr "Cupones y Promociones"
 
@@ -50,6 +50,6 @@ msgid "Sales Coupon Program"
 msgstr "Programa de cupones de ventas"
 
 #. module: website_sale_coupon_page
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_page.sale_coupon_program_view_form_common_website
+#: model_terms:ir.ui.view,arch_db:website_sale_coupon_page.sale_coupon_program_view_form_common
 msgid "Website"
 msgstr "Sitio Web"
