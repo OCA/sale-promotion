@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_salesmen_limit_salesman,salesman,model_sale_coupon_rule_salesmen_limit,sales_team.group_sale_salesman,1,0,0,0
+access_salesmen_limit_manager,salesmen_limit manager,model_sale_coupon_rule_salesmen_limit,sales_team.group_sale_manager,1,1,1,1
