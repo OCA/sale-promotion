@@ -59,8 +59,13 @@ msgstr "Ajustes"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model,name:sale_coupon_auto_refresh.model_sale_order
-msgid "Sale Order"
-msgstr "Pedido de Venta"
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model:ir.model,name:sale_coupon_auto_refresh.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
 
 #. module: sale_coupon_auto_refresh
 #: model_terms:ir.ui.view,arch_db:sale_coupon_auto_refresh.res_config_settings_view_form
@@ -70,3 +75,6 @@ msgid ""
 msgstr ""
 "Cuando se actualice un pedido de venta, auto actualizar los programas de "
 "oferta configurados para auto aplicarse"
+
+#~ msgid "Sale Order"
+#~ msgstr "Pedido de Venta"
