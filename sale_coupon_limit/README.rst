@@ -52,8 +52,7 @@ To configure salesmen limits:
 #. Add salesmen to the *Salesmen Limits* list and their maximum number of applications.
 #. You can add different limits to different salesmen groups.
 #. If you want to constrain the use of the promotion to the salesmen list, set the
-   option *Restrict on listed salesmen* off, so any other salesman won't be able to
-   apply the promotion.
+   option *Strict limit* on, so any other salesman won't be able to apply the promotion.
 
 Usage
 =====
