@@ -72,6 +72,11 @@ msgid "Max. Customer Applications"
 msgstr ""
 
 #. module: sale_coupon_limit
+#: model_terms:ir.ui.view,arch_db:sale_coupon_limit.sale_coupon_program_view_form_common
+msgid "Max. Salesmen Applications"
+msgstr ""
+
+#. module: sale_coupon_limit
 #: model:ir.model.fields,field_description:sale_coupon_limit.field_sale_coupon_program__rule_max_customer_application
 #: model:ir.model.fields,field_description:sale_coupon_limit.field_sale_coupon_rule__rule_max_customer_application
 msgid "Maximum Customer Applications"
@@ -138,6 +143,12 @@ msgid "Salesmen maximum promotions"
 msgstr ""
 
 #. module: sale_coupon_limit
+#: model:ir.model.fields,field_description:sale_coupon_limit.field_sale_coupon_program__rule_salesmen_limit_used_count
+#: model:ir.model.fields,field_description:sale_coupon_limit.field_sale_coupon_rule__rule_salesmen_limit_used_count
+msgid "Salesmen promotions used"
+msgstr ""
+
+#. module: sale_coupon_limit
 #: model:ir.model.fields,field_description:sale_coupon_limit.field_sale_coupon_program__rule_salesmen_strict_limit
 #: model:ir.model.fields,field_description:sale_coupon_limit.field_sale_coupon_rule__rule_salesmen_strict_limit
 msgid "Strict limit"
@@ -177,7 +188,6 @@ msgstr ""
 
 #. module: sale_coupon_limit
 #: code:addons/sale_coupon_limit/models/sale_coupon.py:0
-#: code:addons/sale_coupon_limit/models/sale_coupon_program.py:0
 #, python-format
 msgid ""
 "This promotion was already applied %s times for this salesman and there's an"
@@ -187,4 +197,24 @@ msgstr ""
 #. module: sale_coupon_limit
 #: model:ir.model.constraint,message:sale_coupon_limit.constraint_sale_coupon_rule_salesmen_limit_user_id_uniq
 msgid "This salesman limit is already configured"
+msgstr ""
+
+#. module: sale_coupon_limit
+#: model_terms:ir.ui.view,arch_db:sale_coupon_limit.sale_coupon_program_view_form_common
+msgid "Total limit"
+msgstr ""
+
+#. module: sale_coupon_limit
+#: model_terms:ir.ui.view,arch_db:sale_coupon_limit.sale_coupon_program_view_form_common
+msgid "Total used"
+msgstr ""
+
+#. module: sale_coupon_limit
+#: model:ir.model.fields,field_description:sale_coupon_limit.field_sale_coupon_rule_salesmen_limit__rule_times_used
+msgid "Uses"
+msgstr ""
+
+#. module: sale_coupon_limit
+#: model_terms:ir.ui.view,arch_db:sale_coupon_limit.sale_coupon_program_view_form_common
+msgid "used already)"
 msgstr ""
