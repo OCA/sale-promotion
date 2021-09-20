@@ -45,27 +45,17 @@ class SaleCouponProgram(models.Model):
         salesman_rule = self.rule_salesmen_limit_ids.filtered(
             lambda x: order.user_id == x.rule_user_id
         )
-        if salesman_rule:
-            salesman_domain = domain + [("user_id", "=", order.user_id.id)]
-            order_count = self.env["sale.order"].search_count(salesman_domain)
-            limit_reached = order_count >= salesman_rule.rule_max_salesman_application
-            if limit_reached and coupon_code:
-                return {
-                    "error": _(
-                        "This promo code was already applied %s times for this "
-                        "salesman and there's an stablished limit of %s for this "
-                        "promotion."
-                    )
-                    % (order_count, salesman_rule.rule_max_salesman_application)
-                }
-            elif limit_reached and not coupon_code:
-                return {
-                    "error": _(
-                        "This promotion was already applied %s times for this "
-                        "salesman and there's an stablished limit of %s."
-                    )
-                    % (order_count, salesman_rule.rule_max_salesman_application)
-                }
+        max_rule = salesman_rule.rule_max_salesman_application
+        times_used = salesman_rule.rule_times_used
+        if times_used and times_used >= max_rule:
+            return {
+                "error": _(
+                    "This promo code was already applied %s times for this "
+                    "salesman and there's an stablished limit of %s for this "
+                    "promotion."
+                )
+                % (times_used, max_rule)
+            }
         if self.rule_salesmen_strict_limit and not salesman_rule:
             return {"error": _("This promotion is restricted to the listed salesmen.")}
         return message

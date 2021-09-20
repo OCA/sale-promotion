@@ -272,6 +272,7 @@ class TestSaleCouponLimit(common.SavepointCase):
         sale_5 = self._create_sale(self.partner_1, self.salesman_2)
         self._apply_coupon(sale_5, last_coupon.code)
         self.assertTrue(bool(sale_5.order_line.filtered("is_reward_line")))
+        self.coupon_program.rule_salesmen_limit_ids.mapped("rule_times_used")
 
     def test_08_coupon_code_next_order_salesmen_limit(self):
         """Coupons should not be generated for next orders above the salesman limit"""
