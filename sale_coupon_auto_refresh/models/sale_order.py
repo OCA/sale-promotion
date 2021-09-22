@@ -49,19 +49,25 @@ class SaleOrderLine(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        lines = super().create(vals_list)
+        lines = super(
+            SaleOrderLine, self.with_context(skip_auto_refresh_coupons=True)
+        ).create(vals_list)
         lines.mapped("order_id")._auto_refresh_coupons()
         return lines
 
     def write(self, vals):
         orders = self.mapped("order_id")
-        res = super().write(vals)
+        res = super(
+            SaleOrderLine, self.with_context(skip_auto_refresh_coupons=True)
+        ).write(vals)
         orders |= self.mapped("order_id")
         orders._auto_refresh_coupons()
         return res
 
     def unlink(self):
         orders = self.mapped("order_id")
-        res = super().unlink()
+        res = super(
+            SaleOrderLine, self.with_context(skip_auto_refresh_coupons=True)
+        ).unlink()
         orders._auto_refresh_coupons()
         return res
