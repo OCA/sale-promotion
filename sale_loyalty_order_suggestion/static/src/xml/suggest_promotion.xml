@@ -1,0 +1,13 @@
+<templates>
+    <div t-name="sale_coupon_order_suggestion.suggestPromotion">
+        <div t-att-class="!widget.data.is_reward_line ? '': 'invisible'">
+            <t t-if="widget.data.suggested_promotion_ids.count">
+                <a
+                    tabindex="0"
+                    class="fa fa-gift text-primary"
+                    title="Available promotions"
+                />
+            </t>
+        </div>
+    </div>
+</templates>

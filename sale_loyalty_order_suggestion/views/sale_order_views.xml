@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree">
+                <field name="suggested_promotion_ids" invisible="1" />
+                <field name="order_id" invisible="1" />
+                <widget name="suggest_promotion_widget" width="20px" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
