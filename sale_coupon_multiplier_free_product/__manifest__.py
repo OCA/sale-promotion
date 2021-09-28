@@ -3,13 +3,13 @@
 {
     "name": "Restrict Coupons to Website Sales",
     "summary": "Allows to configure a coupon for e-commerce only",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "development_status": "Beta",
     "category": "Website",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
-    "depends": ["website_sale_coupon"],
+    "depends": ["sale_coupon_order_line_link"],
     "data": ["views/sale_coupon_program_views.xml"],
 }

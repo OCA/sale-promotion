@@ -1,9 +1,6 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from operator import itemgetter
-
 from odoo import _, api, models
-from odoo.tools import pycompat
 
 
 class SaleCouponProgram(models.Model):
@@ -20,33 +17,6 @@ class SaleCouponProgram(models.Model):
         """We need this to ensure some filters"""
         if self.reward_type == "multiple_of":
             self.discount_product_id = self.reward_product_id
-
-    def write(self, vals):
-        """Add context to avoid writing discount products"""
-        return super(
-            SaleCouponProgram, self.with_context(skip_mapped_multiple_of=True)
-        ).write(vals)
-
-    @api.model
-    def mapped(self, func):
-        """We need to return the proper records when `multiple_of` is set"""
-        if (
-            not isinstance(func, pycompat.string_types)
-            and func != "discount_line_product_id"
-        ):
-            return super().mapped(func)
-        # split normal and multiple_of records
-        multiple_of_recs = self.filtered(lambda x: x.reward_type == "multiple_of")
-        normal_recs = self - multiple_of_recs
-        recs = multiple_of_recs._mapped_func(itemgetter("reward_product_id"))
-        if recs and not self.env.context.get("skip_mapped_multiple_of"):
-            recs += normal_recs._mapped_func(itemgetter(func))
-        else:
-            recs = normal_recs._mapped_func(itemgetter(func))
-        if isinstance(recs, models.BaseModel):
-            # allow feedback to self's prefetch object
-            recs = recs.with_prefetch(self._prefetch)
-        return recs
 
     def _check_promo_code(self, order, coupon_code):
         message = super()._check_promo_code(order, coupon_code)
@@ -98,7 +68,7 @@ class SaleCouponProgram(models.Model):
             lambda x: x.reward_type == "multiple_of" and x.force_rewarded_product
         ):
             if not order.order_line.filtered(
-                lambda line: line.product_id == program.reward_product_id
+                lambda line: line.coupon_program_id == program
             ):
                 continue
             programs |= program
@@ -122,7 +92,7 @@ class SaleCouponProgram(models.Model):
                 self.env["sale.order.line"]
                 .search(
                     [
-                        ("product_id", "=", self.reward_product_id.id),
+                        ("coupon_program_id", "=", self.id),
                         ("is_reward_line", "=", True),
                     ]
                 )
@@ -137,11 +107,7 @@ class SaleCouponProgram(models.Model):
         super(SaleCouponProgram, self - multiple_of_programs)._compute_order_count()
         product_data = self.env["sale.order.line"].read_group(
             [
-                (
-                    "product_id",
-                    "in",
-                    multiple_of_programs.mapped("reward_product_id").ids,
-                ),
+                ("coupon_program_id", "in", multiple_of_programs.ids,),
                 ("is_reward_line", "=", True),
             ],
             ["product_id"],
