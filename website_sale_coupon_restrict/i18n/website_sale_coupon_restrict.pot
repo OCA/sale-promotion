@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_sale_coupon_restrict
+# 	* website_sale_coupon_restrict
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,13 +34,13 @@ msgid "Sales Coupon Program"
 msgstr ""
 
 #. module: website_sale_coupon_restrict
-#: code:addons/website_sale_coupon_restrict/models/sale_coupon.py:11
+#: code:addons/website_sale_coupon_restrict/models/sale_coupon.py:0
 #, python-format
 msgid "This coupon can only be used in the e-commerce"
 msgstr ""
 
 #. module: website_sale_coupon_restrict
-#: code:addons/website_sale_coupon_restrict/models/sale_coupon_program.py:16
+#: code:addons/website_sale_coupon_restrict/models/sale_coupon_program.py:0
 #, python-format
 msgid "This coupon can only be validated on the e-commerce"
 msgstr ""
