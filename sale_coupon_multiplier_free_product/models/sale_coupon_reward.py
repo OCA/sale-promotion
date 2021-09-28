@@ -6,11 +6,7 @@ from odoo import _, fields, models
 class SaleCouponReward(models.Model):
     _inherit = "sale.coupon.reward"
 
-    reward_type = fields.Selection(
-        selection_add=[
-            ("multiple_of", "Multiple of"),
-        ],
-    )
+    reward_type = fields.Selection(selection_add=[("multiple_of", "Multiple of")])
     force_rewarded_product = fields.Boolean(
         help="Apply even if the rewarded product is not in the order lines",
     )
