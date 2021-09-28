@@ -27,6 +27,7 @@ addon | version | maintainers | summary
 [sale_coupon_order_line_link](sale_coupon_order_line_link/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between coupons and their generated order lines for easing tracking
 [sale_coupon_partner](sale_coupon_partner/) | 13.0.1.0.0 |  | Sale Coupon Partner
 [website_sale_coupon_page](website_sale_coupon_page/) | 13.0.1.0.0 |  | Website Sale Coupon Page
+[website_sale_coupon_restrict](website_sale_coupon_restrict/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for e-commerce only
 
 [//]: # (end addons)
 
