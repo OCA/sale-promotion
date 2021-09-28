@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo13-addon-sale_coupon_order_line_link',
         'odoo13-addon-sale_coupon_partner',
         'odoo13-addon-website_sale_coupon_page',
+        'odoo13-addon-website_sale_coupon_restrict',
     ],
     classifiers=[
         'Programming Language :: Python',
