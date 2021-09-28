@@ -24,28 +24,16 @@ class TestSaleCouponMultiplier(common.SavepointCase):
             }
         )
         cls.partner = cls.env["res.partner"].create(
-            {
-                "name": "Mr. Odoo",
-                "property_product_pricelist": cls.pricelist.id,
-            }
+            {"name": "Mr. Odoo", "property_product_pricelist": cls.pricelist.id}
         )
         cls.product_1 = cls.env["product.product"].create(
-            {
-                "name": "Test 1",
-                "list_price": 50,
-            }
+            {"name": "Test 1", "list_price": 50}
         )
         cls.product_2 = cls.env["product.product"].create(
-            {
-                "name": "Test 2",
-                "sale_ok": True,
-            }
+            {"name": "Test 2", "sale_ok": True}
         )
         cls.product_3 = cls.env["product.product"].create(
-            {
-                "name": "Test 3",
-                "sale_ok": True,
-            }
+            {"name": "Test 3", "sale_ok": True}
         )
         coupon_program_form = Form(
             cls.env["sale.coupon.program"],
