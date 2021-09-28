@@ -10,14 +10,12 @@ class SaleOrder(models.Model):
     def _get_paid_order_lines(self):
         """Returns the sale order lines that are not reward lines.
         It will also return reward lines being free product lines"""
-        free_reward_product = (
-            self.env["sale.coupon.program"]
-            .search([("reward_type", "=", "multiple_of")])
-            .mapped("discount_line_product_id")
+        lines = super()._get_paid_order_lines()
+        reward_multiple_of_lines = self.order_line.filtered(
+            lambda x: x.coupon_program_id.reward_type == "multiple_of"
+            and x.is_reward_line
         )
-        return self.order_line.filtered(
-            lambda x: not x.is_reward_line or x.product_id in free_reward_product
-        )
+        return lines | reward_multiple_of_lines
 
     def _get_reward_line_values(self, program):
         self.ensure_one()
@@ -58,6 +56,7 @@ class SaleOrder(models.Model):
             "price_unit": price_unit,
             "product_uom_qty": reward_product_qty,
             "is_reward_line": True,
+            "coupon_program_id": program.id,
             "name": _("Free Product") + " - " + program.reward_product_id.name,
             "discount": 100,
             "product_uom": program.reward_product_id.uom_id.id,
@@ -77,8 +76,7 @@ class SaleOrder(models.Model):
             values = self._get_reward_line_values(program)
             values = values and values[0]
             lines = self.order_line.filtered(
-                lambda line: line.product_id == program.reward_product_id
-                and line.is_reward_line
+                lambda line: line.coupon_program_id == program and line.is_reward_line
             )
             # Remove reward line if price or qty equal to 0
             if values.get("product_uom_qty") and values.get("price_unit"):

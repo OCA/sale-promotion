@@ -13,19 +13,20 @@ Restrict Coupons to Website Sales
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--workflow-lightgray.png?logo=github
-    :target: https://github.com/OCA/sale-workflow/tree/12.0/sale_coupon_multiplier_free_product
-    :alt: OCA/sale-workflow
+.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--promotion-lightgray.png?logo=github
+    :target: https://github.com/OCA/sale-promotion/tree/13.0/sale_coupon_multiplier_free_product
+    :alt: OCA/sale-promotion
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/sale-workflow-12-0/sale-workflow-12-0-sale_coupon_multiplier_free_product
+    :target: https://translation.odoo-community.org/projects/sale-promotion-13-0/sale-promotion-13-0-sale_coupon_multiplier_free_product
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/167/12.0
+    :target: https://runbot.odoo-community.org/runbot/296/13.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
-2x1
+This module allows to make promotions of the type 3x2 or take this product and get
+this one another that apply as many times as the promotion rules fulfill.
 
 **Table of contents**
 
@@ -35,7 +36,28 @@ Restrict Coupons to Website Sales
 Configuration
 =============
 
-#. Go to
+If you want to create a promotion program of the type 3x2:
+
+  #. Go to *Sales > Products > Promotion programs* and create a new one.
+  #. Set the reward type to *Multiple of*.
+  #. Set the *Free product* to the one in the promotion.
+  #. Set the *Force rewarded product* option.
+  #. Set the *Quantity* to reward.
+  #. Set the *Quantity* to fulfill the reward condition.
+  #. If you want a limit on how many times the product should be rewarded, set a
+     *Maximum reward quantity*.
+
+If you want to create a promotion program of the type take one of these products and
+get this one another for free:
+
+  #. Go to *Sales > Products > Promotion programs* and create a new one.
+  #. Set the reward type to *Multiple of*.
+  #. Set the *Free product* to the one in the promotion.
+  #. Set the *Quantity* to reward.
+  #. Set the *Quantity* to fulfill the reward condition.
+  #. Set the products domain to fulfill the reward condition.
+  #. If you want a limit on how many times the product should be rewarded, set a
+     *Maximum reward quantity*.
 
 Usage
 =====
@@ -44,19 +66,19 @@ If a coupon belongs to a eCommerce restricted program, if a user tries to valida
 it from the sale order backend, it will raise an error, disallowing it.
 
 The same coupon will be usable from the eCommerce though.
+Configure the promotions as described in the previous section and then place a
+quotation that fulfills the rules.
 
-Known issues / Roadmap
-======================
-
-* Issues?
+The reward will show up an extra order line, with the price unit of the applicable
+pricelist and a discount of 100%.
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-workflow/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-promotion/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/sale-workflow/issues/new?body=module:%20sale_coupon_multiplier_free_product%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_coupon_multiplier_free_product%0Aversion:%2013.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -94,8 +116,8 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-chienandalu|
+|maintainer-chienandalu| 
 
-This module is part of the `OCA/sale-workflow <https://github.com/OCA/sale-workflow/tree/12.0/sale_coupon_multiplier_free_product>`_ project on GitHub.
+This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/13.0/sale_coupon_multiplier_free_product>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
