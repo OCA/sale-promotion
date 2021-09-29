@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 [sale_coupon_limit](sale_coupon_limit/) | 13.0.1.1.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [sale_coupon_mass_mailing](sale_coupon_mass_mailing/) | 13.0.1.0.0 |  | Sale Coupon Mas Mailing
 [sale_coupon_multi_gift](sale_coupon_multi_gift/) | 13.0.2.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure multiple gift rewards per promotion
+[sale_coupon_multiplier_free_product](sale_coupon_multiplier_free_product/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for e-commerce only
 [sale_coupon_order_line_link](sale_coupon_order_line_link/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between coupons and their generated order lines for easing tracking
 [sale_coupon_partner](sale_coupon_partner/) | 13.0.1.0.0 |  | Sale Coupon Partner
 [website_sale_coupon_page](website_sale_coupon_page/) | 13.0.1.0.0 |  | Website Sale Coupon Page
