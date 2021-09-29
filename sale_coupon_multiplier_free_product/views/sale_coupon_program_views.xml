@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="sale_coupon_program_view_form_common">
+        <field name="model">sale.coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_form_common"
+        />
+        <field name="arch" type="xml">
+            <field name="reward_product_id" position="before">
+                <field
+                    name="force_rewarded_product"
+                    attrs="{'invisible': [('reward_type', '!=', 'multiple_of')]}"
+                />
+            </field>
+            <xpath expr="//field[@name='reward_product_quantity']/.." position="after">
+                <label
+                    string="Max quantity"
+                    for="reward_product_max_quantity"
+                    attrs="{'invisible': ['|', ('reward_type', '!=', 'multiple_of'), ('reward_product_id', '=',False)]}"
+                />
+                <div
+                    attrs="{'invisible': ['|', ('reward_type', '!=', 'multiple_of'), ('reward_product_id', '=',False)]}"
+                >
+                    <field name="reward_product_max_quantity" class="oe_inline" />
+                    <field name="reward_product_uom_id" class="oe_inline" />
+                </div>
+            </xpath>
+            <field name="rule_products_domain" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('force_rewarded_product', '=', True)]}</attribute>
+            </field>
+            <field name="reward_product_id" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('reward_type', 'in', ('discount', 'free_shipping'))], 'required': [('reward_type', 'in', ('product', 'multiple_of'))]}</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>
