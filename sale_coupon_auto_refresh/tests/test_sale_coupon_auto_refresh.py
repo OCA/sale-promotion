@@ -41,9 +41,13 @@ class TestWebsiteSaleCouponAutorefresh(common.SavepointCase):
         cls.coupon_program = coupon_program_form.save()
         cls.coupon_program.company_id.auto_refresh_coupon = True
 
-    def test_sale_coupon_auto_refresh_on_create(self):
+    def test_01_sale_coupon_auto_refresh_on_create(self):
+        """Checks reward line proper creation after product line is added"""
         sale_form = Form(self.env["sale.order"])
         sale_form.partner_id = self.partner
+
+        # Create a product line that will trigger a reward line creation
+        # (minimum amount >= 100 => create a reward line)
         with sale_form.order_line.new() as line_form:
             line_form.product_id = self.product
             line_form.product_uom_qty = 1
@@ -52,9 +56,13 @@ class TestWebsiteSaleCouponAutorefresh(common.SavepointCase):
         discount_line = sale.order_line.filtered("is_reward_line")
         self.assertAlmostEqual(-75, discount_line.price_unit)
 
-    def test_sale_coupon_auto_refresh_on_update(self):
+    def test_02_sale_coupon_auto_refresh_on_update(self):
+        """Checks reward line proper update after product line is modified"""
         sale_form = Form(self.env["sale.order"])
         sale_form.partner_id = self.partner
+
+        # Create a product line that will NOT trigger a reward line creation
+        # (minimum amount < 100 => do not create a reward line)
         with sale_form.order_line.new() as line_form:
             line_form.product_id = self.product
             line_form.product_uom_qty = 1
@@ -62,10 +70,62 @@ class TestWebsiteSaleCouponAutorefresh(common.SavepointCase):
         sale = sale_form.save()
         discount_line = sale.order_line.filtered("is_reward_line")
         self.assertFalse(bool(discount_line))
-        with sale_form.order_line.new() as line_form:
-            line_form.product_id = self.product
-            line_form.product_uom_qty = 200
+
+        # Update product line in order to trigger reward line creation
+        # (minimum amount >= 100 => create a reward line)
+        sale_form = Form(sale.with_context(skip_auto_refresh_coupons=False))
+        with sale_form.order_line.edit(index=0) as line_form:
+            line_form.product_uom_qty = 10
+            line_form.price_unit = 20
         sale_form.save()
         discount_line = sale.order_line.filtered("is_reward_line")
         self.assertEqual(1, len(discount_line))
-        self.assertAlmostEqual(-100.5, discount_line.price_unit)
+        self.assertAlmostEqual(-100, discount_line.price_unit)
+
+        # Create another product line that will trigger a reward line update
+        # (total amount has changed => reward line price unit must change)
+        sale_form = Form(sale.with_context(skip_auto_refresh_coupons=False))
+        with sale_form.order_line.new() as line_form:
+            line_form.product_id = self.product
+            line_form.product_uom_qty = 1
+            line_form.price_unit = 40
+        sale_form.save()
+        discount_line = sale.order_line.filtered("is_reward_line")
+        self.assertEqual(1, len(discount_line))
+        self.assertAlmostEqual(-120, discount_line.price_unit)
+
+        # Update product lines in order to delete reward line
+        # (minimum amount < 100 => delete reward line)
+        sale_form = Form(sale.with_context(skip_auto_refresh_coupons=False))
+        with sale_form.order_line.edit(index=0) as line_form:
+            line_form.product_uom_qty = 1
+            line_form.price_unit = 1
+        with sale_form.order_line.edit(index=2) as line_form:
+            line_form.product_uom_qty = 1
+            line_form.price_unit = 1
+        sale_form.save()
+        discount_line = sale.order_line.filtered("is_reward_line")
+        self.assertFalse(bool(discount_line))
+
+    def test_03_sale_coupon_auto_refresh_on_delete(self):
+        """Checks reward line proper deletion after product line is deleted"""
+        sale_form = Form(self.env["sale.order"])
+        sale_form.partner_id = self.partner
+
+        # Create a product line that will trigger a reward line creation
+        # (minimum amount >= 100 => create a reward line)
+        with sale_form.order_line.new() as line_form:
+            line_form.product_id = self.product
+            line_form.product_uom_qty = 1
+            line_form.price_unit = 1000
+        sale = sale_form.save()
+        discount_line = sale.order_line.filtered("is_reward_line")
+        self.assertEqual(1, len(discount_line))
+
+        # Delete the product line that triggered the reward line creation
+        # (minimum amount < 100 => delete reward line)
+        sale_form = Form(sale.with_context(skip_auto_refresh_coupons=False))
+        sale_form.order_line.remove(index=0)
+        sale = sale_form.save()
+        discount_line = sale.order_line.filtered("is_reward_line")
+        self.assertFalse(bool(discount_line))

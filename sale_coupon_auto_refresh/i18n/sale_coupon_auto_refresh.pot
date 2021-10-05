@@ -21,6 +21,13 @@ msgid ""
 msgstr ""
 
 #. module: sale_coupon_auto_refresh
+#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_refresh_mixin__auto_refresh_coupon_triggers_data
+#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__auto_refresh_coupon_triggers_data
+#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line__auto_refresh_coupon_triggers_data
+msgid "Auto Refresh Coupon Triggers Data"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company__auto_refresh_coupon
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_config_settings__auto_refresh_coupon
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__auto_refresh_coupon
@@ -58,6 +65,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company__display_name
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_apply_code__display_name
+#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_refresh_mixin__display_name
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__display_name
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line__display_name
 msgid "Display Name"
@@ -67,6 +75,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company__id
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_config_settings__id
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_apply_code__id
+#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_refresh_mixin__id
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__id
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line__id
 msgid "ID"
@@ -76,9 +85,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company____last_update
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_config_settings____last_update
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_apply_code____last_update
+#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_refresh_mixin____last_update
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order____last_update
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line____last_update
 msgid "Last Modified on"
+msgstr ""
+
+#. module: sale_coupon_auto_refresh
+#: model:ir.model,name:sale_coupon_auto_refresh.model_sale_coupon_refresh_mixin
+msgid "Mixin class for sale coupon auto-refresh features"
 msgstr ""
 
 #. module: sale_coupon_auto_refresh
