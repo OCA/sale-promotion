@@ -12,7 +12,10 @@ class SaleCouponProgram(models.Model):
         message = super()._check_promo_code(order, coupon_code)
         if message:
             return message
-        domain = [("id", "!=", order.id)] + (
+        # The module sale_couopon_selection_wizard works with new records to probe
+        # if a promotion is applicable before apply it for sure. Thus we need to ensure
+        # the right id in the domain.
+        domain = [("id", "!=", order._origin.id)] + (
             [("promo_code", "=", coupon_code)]
             if coupon_code
             else [("no_code_promo_program_ids", "in", self.ids)]
