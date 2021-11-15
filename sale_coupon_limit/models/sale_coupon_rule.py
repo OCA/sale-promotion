@@ -29,7 +29,8 @@ class SaleCouponRule(models.Model):
         compute="_compute_rule_salesmen_limit_count",
     )
     rule_salesmen_limit_used_count = fields.Integer(
-        string="Salesmen promotions used", compute="_compute_rule_salesmen_limit_count",
+        string="Salesmen promotions used",
+        compute="_compute_rule_salesmen_limit_count",
     )
 
     @api.depends(
@@ -60,14 +61,20 @@ class SaleCouponRuleSalesmenLimit(models.Model):
         ondelete="cascade",
     )
     rule_user_id = fields.Many2one(
-        comodel_name="res.users", string="Salesman", required=True, ondelete="cascade",
+        comodel_name="res.users",
+        string="Salesman",
+        required=True,
+        ondelete="cascade",
     )
     rule_max_salesman_application = fields.Integer(
         string="Maximum Salesman Applications",
         default=0,
         help="Maximum times a salesman can apply a program. 0 for no limit.",
     )
-    rule_times_used = fields.Integer(string="Uses", compute="_compute_rule_times_used",)
+    rule_times_used = fields.Integer(
+        string="Uses",
+        compute="_compute_rule_times_used",
+    )
 
     _sql_constraints = [
         (

@@ -20,7 +20,11 @@ class SaleCouponProgram(models.Model):
         # Customer limit rules
         if self.rule_max_customer_application:
             customer_domain = domain + [
-                ("commercial_partner_id", "=", order.commercial_partner_id.id,),
+                (
+                    "commercial_partner_id",
+                    "=",
+                    order.commercial_partner_id.id,
+                ),
             ]
             order_count = self.env["sale.order"].search_count(customer_domain)
             limit_reached = order_count >= self.rule_max_customer_application
