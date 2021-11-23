@@ -3,8 +3,8 @@
 from odoo import _, models
 
 
-class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+class CouponProgram(models.Model):
+    _inherit = "coupon.program"
 
     def _check_promo_code(self, order, coupon_code):
         """Add customer and salesmen limit to program rules. Check the error strings
@@ -25,7 +25,11 @@ class SaleCouponProgram(models.Model):
         # Customer limit rules
         if self.rule_max_customer_application:
             customer_domain = domain + [
-                ("commercial_partner_id", "=", order.commercial_partner_id.id,),
+                (
+                    "commercial_partner_id",
+                    "=",
+                    order.commercial_partner_id.id,
+                ),
             ]
             order_count = self.env["sale.order"].search_count(customer_domain)
             limit_reached = order_count >= self.rule_max_customer_application

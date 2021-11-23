@@ -39,7 +39,7 @@ class TestSaleCouponLimit(common.SavepointCase):
         )
         cls.product_a = product_obj.create({"name": "Product A", "list_price": 50})
         coupon_program_form = Form(
-            cls.env["sale.coupon.program"],
+            cls.env["coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Test Coupon Limit"
@@ -129,7 +129,7 @@ class TestSaleCouponLimit(common.SavepointCase):
         """When a coupon of a customer limited program is applied, an error will raise
         when the limit is reached for a given customer."""
         # Let's generate some coupons
-        self.env["sale.coupon.generate"].with_context(
+        self.env["coupon.generate.wizard"].with_context(
             active_id=self.coupon_program.id
         ).create({"generation_type": "nbr_coupon", "nbr_coupons": 3}).generate_coupon()
         coupons = (x for x in self.coupon_program.coupon_ids)
@@ -247,7 +247,7 @@ class TestSaleCouponLimit(common.SavepointCase):
         self.coupon_program.rule_max_customer_application = 0
         self.coupon_program.rule_salesmen_strict_limit = True
         # Let's generate some coupons
-        self.env["sale.coupon.generate"].with_context(
+        self.env["coupon.generate.wizard"].with_context(
             active_id=self.coupon_program.id
         ).create({"generation_type": "nbr_coupon", "nbr_coupons": 3}).generate_coupon()
         coupons = (x for x in self.coupon_program.coupon_ids)
