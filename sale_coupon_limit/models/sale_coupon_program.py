@@ -3,8 +3,8 @@
 from odoo import _, models
 
 
-class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+class CouponProgram(models.Model):
+    _inherit = "coupon.program"
 
     def _check_promo_code(self, order, coupon_code):
         """Add customer and salesmen limit to program rules. Check the error strings

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="sale_coupon_program_view_form_common" model="ir.ui.view">
-        <field
-            name="inherit_id"
-            ref="sale_coupon.sale_coupon_program_view_form_common"
-        />
-        <field name="model">sale.coupon.program</field>
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
+        <field name="model">coupon.program</field>
         <field name="arch" type="xml">
             <field name="rule_products_domain" position="after">
                 <!-- rule_max_customer_application -->
@@ -23,10 +20,11 @@
                 />
                 <div>
                     <field name="rule_salesmen_limit_count" class="oe_inline" />
-                    <span class="oe_grey"> (<field
+                    <span class="oe_grey"> (                        <field
                             name="rule_salesmen_limit_used_count"
                             class="oe_inline"
-                        /> used already)</span>
+                        />
+ used already)</span>
                 </div>
                 <field name="rule_salesmen_strict_limit" />
                 <field name="rule_salesmen_limit_ids">

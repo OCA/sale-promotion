@@ -3,8 +3,8 @@
 from odoo import api, fields, models
 
 
-class SaleCouponRule(models.Model):
-    _inherit = "sale.coupon.rule"
+class CouponRule(models.Model):
+    _inherit = "coupon.rule"
 
     rule_max_customer_application = fields.Integer(
         string="Maximum Customer Applications",
@@ -14,7 +14,7 @@ class SaleCouponRule(models.Model):
     )
     rule_salesmen_limit_ids = fields.One2many(
         string="Salesmen Limits",
-        comodel_name="sale.coupon.rule.salesmen.limit",
+        comodel_name="coupon.rule.salesmen.limit",
         inverse_name="rule_id",
         help="Maximum times salesmen can apply a program. Empty for no limit.",
     )
@@ -50,12 +50,12 @@ class SaleCouponRule(models.Model):
             )
 
 
-class SaleCouponRuleSalesmenLimit(models.Model):
-    _name = "sale.coupon.rule.salesmen.limit"
+class CouponRuleSalesmenLimit(models.Model):
+    _name = "coupon.rule.salesmen.limit"
     _description = "Coupon Rule Salesmen limits"
 
     rule_id = fields.Many2one(
-        comodel_name="sale.coupon.rule",
+        comodel_name="coupon.rule",
         auto_join=True,
         required=True,
         ondelete="cascade",
@@ -89,7 +89,7 @@ class SaleCouponRuleSalesmenLimit(models.Model):
         """This count is also used in the check methods to avoid applying the rule
         above the salesmen limits."""
         self.rule_times_used = 0
-        programs = self.env["sale.coupon.program"].search_read(
+        programs = self.env["coupon.program"].search_read(
             [("rule_id", "in", self.mapped("rule_id").ids)],
             ["id", "rule_id", "program_type", "coupon_ids", "rule_salesmen_limit_ids"],
         )
@@ -109,7 +109,7 @@ class SaleCouponRuleSalesmenLimit(models.Model):
                     continue
                 elif program in coupon_programs:
                     salesman_limit.rule_times_used = self.env[
-                        "sale.coupon"
+                        "coupon.coupon"
                     ].search_count(
                         [
                             ("program_id", "=", program["id"]),

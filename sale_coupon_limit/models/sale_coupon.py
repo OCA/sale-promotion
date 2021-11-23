@@ -4,7 +4,7 @@ from odoo import _, models
 
 
 class SaleCoupon(models.Model):
-    _inherit = "sale.coupon"
+    _inherit = "coupon.coupon"
 
     def _check_coupon_code(self, order):
         """Add customer and salesmen limit to program coupons. Check the error strings
