@@ -3,6 +3,10 @@
 from odoo import _, models
 from odoo.fields import first
 
+from odoo.addons.sale_management.models.sale_order import (
+    SaleOrderLine as ManagementSaleOrderLine,
+)
+
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
@@ -160,7 +164,39 @@ class SaleOrderLine(models.Model):
         """Avoid unlinking valid multi gift lines since they aren't linked to the
         discount product of the promotion program"""
         if not self.env.context.get("valid_multi_gift_lines"):
-            return super().unlink()
+            related_program_lines = self.env["sale.order.line"]
+            # Reactivate coupons related to unlinked reward line
+            for line in self.filtered(lambda line: line.is_reward_line):
+                coupons_to_reactivate = line.order_id.applied_coupon_ids.filtered(
+                    lambda coupon: coupon.program_id.discount_line_product_id
+                    == line.product_id
+                )
+                coupons_to_reactivate.write({"state": "new"})
+                line.order_id.applied_coupon_ids -= coupons_to_reactivate
+                # Remove the program from the order if the deleted line is the
+                # reward line of the program
+                # And delete the other lines from this program (It's the case
+                # when discount is split per different taxes)
+                related_program = self.env["sale.coupon.program"].search(
+                    [("discount_line_product_id", "=", line.product_id.id)]
+                )
+                if related_program:
+                    lines_with_this_product = self.order_id.order_line.filtered(
+                        lambda r: r.product_id == line.product_id
+                    )
+                    if set(lines_with_this_product.ids) in set(
+                        self.filtered(lambda line: line.is_reward_line)
+                    ):
+                        line.order_id.no_code_promo_program_ids -= related_program
+                        line.order_id.code_promo_program_id -= related_program
+                        related_program_lines |= (
+                            line.order_id.order_line.filtered(
+                                lambda l: l.product_id.id
+                                == related_program.discount_line_product_id.id
+                            )
+                            - line
+                        )
+            return super(ManagementSaleOrderLine, self | related_program_lines).unlink()
         return super(
             SaleOrderLine,
             self.filtered(
