@@ -3,7 +3,7 @@
 
 {
     "name": "Website Sale Coupon Page",
-    "version": "13.0.1.0.0",
+    "version": "13.0.2.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",
