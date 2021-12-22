@@ -22,7 +22,7 @@ class WebsiteSaleHttpCase(HttpCase):
                 "name": "Test 01",
                 "is_published": True,
                 "rule_partners_domain": "[]",
-                "public_name": "10% discount",
+                "public_name": "<p>10% discount</p>",
                 "image_1920": image,
             }
         )
@@ -33,7 +33,7 @@ class WebsiteSaleHttpCase(HttpCase):
                 "name": "Test 02",
                 "is_published": True,
                 "rule_partners_domain": "[['id', '=', %s]]" % admin.partner_id.id,
-                "public_name": "10% discount just for admin",
+                "public_name": "<p>10% discount just for admin</p>",
             }
         )
         self.promo_not_published = self.env["sale.coupon.program"].create(
