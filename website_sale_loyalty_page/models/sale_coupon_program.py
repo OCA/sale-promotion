@@ -8,7 +8,7 @@ class SaleCouponProgram(models.Model):
     _name = "sale.coupon.program"
     _inherit = ["sale.coupon.program", "image.mixin", "website.published.mixin"]
 
-    public_name = fields.Char(
+    public_name = fields.Html(
         string="Public Name",
         help="Name of the promo showed on website bellow the banner image.",
     )
