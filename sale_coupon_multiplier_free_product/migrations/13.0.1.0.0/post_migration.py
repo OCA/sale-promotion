@@ -1,4 +1,5 @@
 # Copyright 2021 Tecnativa - David Vidal
+# Copyright 2022 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from openupgradelib import openupgrade
 
@@ -6,21 +7,23 @@ from openupgradelib import openupgrade
 @openupgrade.migrate()
 def migrate(env, version):
     """We're depending now on `sale_coupon_order_line_link` which eases the matching
-    of the promoted lines. We want to link the existing promoted lines"""
+    of the promoted lines. We want to link the existing promoted lines.
+    """
     programs = (
         env["sale.coupon.program"]
         .with_context(active_test=False)
         .search([("reward_type", "=", "multiple_of")])
     )
     for program in programs:
-        sales = env["sale.order"].search(
+        # TODO: Take into account program dates
+        lines = env["sale.order.line"].search(
             [
-                "|",
-                ("applied_coupon_ids", "in", program.ids),
-                ("code_promo_program_id", "=", program.id),
-            ]
+                ("product_id", "=", program.reward_product_id.id),
+                ("is_reward_line", "=", True),
+            ],
         )
-        lines = sales.filtered(
-            lambda x: x.is_reward_line and x.product_id == program.reward_product_id
+        openupgrade.logged_query(
+            env.cr,
+            "UPDATE sale_order_line SET coupon_program_id = %s WHERE id in %s",
+            (program.id, tuple(lines.ids)),
         )
-        lines.write({"coupon_program_id": program.id})
