@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_coupon_program_view_form_common" model="ir.ui.view">
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_form_common"
+        />
+        <field name="model">sale.coupon.program</field>
+        <field name="arch" type="xml">
+            <sheet position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </sheet>
+        </field>
+    </record>
+    <record
+        id="sale_coupon.sale_coupon_program_action_coupon_program"
+        model="ir.actions.act_window"
+    >
+        <field name="view_mode">tree,kanban,form,activity</field>
+    </record>
+    <record
+        id="sale_coupon.sale_coupon_program_action_promo_program"
+        model="ir.actions.act_window"
+    >
+        <field name="view_mode">tree,kanban,form,activity</field>
+    </record>
+</odoo>
