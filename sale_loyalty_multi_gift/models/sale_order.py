@@ -1,6 +1,6 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, models
+from odoo import _, fields, models
 from odoo.fields import first
 
 
@@ -55,6 +55,8 @@ class SaleOrder(models.Model):
                 "name": _("Free Product") + " - " + reward_product_id.name,
                 "discount": 100,
                 "coupon_program_id": program.id,
+                "multi_gift_reward_line_id": reward_line.id,
+                "multi_gift_reward_line_id_option_product_id": reward_product_id.id,
             }
         )
         return vals
@@ -140,21 +142,35 @@ class SaleOrder(models.Model):
             lambda x: x.reward_type == "multi_gift"
         ):
             for reward_line in program.coupon_multi_gift_ids:
-                values = self._get_reward_values_multi_gift_line(reward_line, program)
                 lines = self.order_line.filtered(
-                    lambda line: line.product_id in reward_line.reward_product_ids
+                    lambda line: line.multi_gift_reward_line_id == reward_line
                     and line.is_reward_line
                     and line.coupon_program_id == program
                 )
-                # Remove reward line if price or qty equal to 0
-                if values.get("product_uom_qty") and values.get("price_unit"):
-                    lines.write(values)
-                else:
-                    lines.unlink()
+                applied_product = lines.multi_gift_reward_line_id_option_product_id
+                for product in applied_product:
+                    reward_line_options = {reward_line.id: product.id}
+                    values = self.with_context(
+                        reward_line_options=reward_line_options
+                    )._get_reward_values_multi_gift_line(reward_line, program)
+                    # Remove reward line if price or qty equal to 0
+                    if values.get("product_uom_qty") and values.get("price_unit"):
+                        lines.write(values)
+                    else:
+                        lines.unlink()
 
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
+
+    multi_gift_reward_line_id = fields.Many2one(
+        comodel_name="coupon.reward.product_line",
+        readonly=True,
+    )
+    multi_gift_reward_line_id_option_product_id = fields.Many2one(
+        comodel_name="product.product",
+        readonly=True,
+    )
 
     def unlink(self):
         """Avoid unlinking valid multi gift lines since they aren't linked to the

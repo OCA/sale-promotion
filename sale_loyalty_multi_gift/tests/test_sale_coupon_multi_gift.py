@@ -7,6 +7,7 @@ class TestSaleCouponMultiGift(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.pricelist = cls.env["product.pricelist"].create(
             {
                 "name": "Test pricelist",
@@ -115,7 +116,7 @@ class TestSaleCouponMultiGift(common.SavepointCase):
             self.coupon_program.coupon_multi_gift_ids[1].id: self.product_4.id
         }
         self.sale.with_context(
-            reward_line_options=reward_line_options, breakpoint=True
+            reward_line_options=reward_line_options
         ).recompute_coupon_lines()
         discount_line_product_2 = self.sale.order_line.filtered(
             lambda x: x.product_id == self.product_2 and x.is_reward_line
@@ -129,6 +130,26 @@ class TestSaleCouponMultiGift(common.SavepointCase):
         self.assertEqual(2, discount_line_product_2.product_uom_qty)
         self.assertEqual(3, discount_line_product_4.product_uom_qty)
         self.assertFalse(discount_line_product_3)
+        # The original gift options are kept
+        self.sale.recompute_coupon_lines()
+        discount_line_product_4 = self.sale.order_line.filtered(
+            lambda x: x.product_id == self.product_4 and x.is_reward_line
+        )
+        self.assertEqual(3, discount_line_product_4.product_uom_qty)
+        self.assertEqual(
+            discount_line_product_4.multi_gift_reward_line_id_option_product_id,
+            self.product_4,
+            "The product should be kept after updating recomputing the promotions",
+        )
+        # The regular options are ok as well
+        discount_line_product_2 = self.sale.order_line.filtered(
+            lambda x: x.product_id == self.product_2 and x.is_reward_line
+        )
+        discount_line_product_3 = self.sale.order_line.filtered(
+            lambda x: x.product_id == self.product_3 and x.is_reward_line
+        )
+        self.assertEqual(2, discount_line_product_2.product_uom_qty)
+        self.assertEqual(3, discount_line_product_4.product_uom_qty)
 
     def test_sale_coupon_multi_gift_count(self):
         """We have to count the orders in a different manner than the core method"""
