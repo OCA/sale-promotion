@@ -115,11 +115,19 @@ class SaleCouponRuleSalesmenLimit(models.Model):
                         ]
                     )
                     continue
-                salesman_limit.rule_times_used = self.env["sale.order"].search_count(
-                    [
-                        "|",
-                        ("no_code_promo_program_ids", "in", [program["id"]]),
-                        ("code_promo_program_id", "=", [program["id"]]),
-                        ("user_id", "=", salesman_limit.rule_user_id.id),
-                    ]
+                # We need to ensure that the promotion is indeed applied in the lines
+                # since a link in the sale.order can have traces of promotion links
+                # even when their lines are removed. This needs to look in the related
+                # user_id column of the sale_order table, so maybe not the most
+                # performant query. It can be improved in the future.
+                salesman_limit.rule_times_used = len(
+                    self.env["sale.order.line"].read_group(
+                        [
+                            ("coupon_program_id", "=", program["id"]),
+                            ("order_id.user_id", "=", salesman_limit.rule_user_id.id),
+                            ("state", "!=", "cancel"),
+                        ],
+                        ["order_id"],
+                        ["order_id"],
+                    )
                 )
