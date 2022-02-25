@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="gift_card_template_view_form" model="ir.ui.view">
+        <field name="name">gift.card.template.form</field>
+        <field name="model">gift.card.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button
+                            name="show_gift_cards"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-gift"
+                        >
+                        <field
+                                name="gift_card_count"
+                                widget="statinfo"
+                                string="Gift Cards"
+                            />
+                        </button>
+                    </div>
+                    <group>
+                        <group name="configuration" string="Configuration">
+                            <field name="name" />
+                            <field name="is_divisible" />
+                            <field name="active" invisible="1" />
+                            <field name="code_mask" />
+                            <field name="journal_id" />
+
+                        </group>
+                        <group name="duration" string="Duration">
+                            <field name="duration" />
+                        </group>
+                        <group name="information">
+                            <field name="information" />
+                        </group>
+                    </group>
+                    <notebook>
+                    <page name="gift_cards" string="Gift Cards">
+                        <field
+                                name="gift_card_ids"
+                                context="{
+                                'default_gift_card_tmpl_id': active_id,
+                            }"
+                            >
+                            <tree string="Gift Cards">
+                                 <field name="name" />
+                                 <field name="gift_card_tmpl_id" />
+                                 <field name="initial_amount" />
+                                 <field name="available_amount" />
+                                 <field name="is_divisible" />
+                                 <field
+                                        name="state"
+                                        decoration-success="state == 'active'"
+                                        decoration-info="state == 'not_activated'"
+                                        decoration-danger="state == 'outdated' or state == 'soldout'"
+                                        widget="badge"
+                                    />
+                                 <field name="start_date" optional="show" />
+                                 <field name="end_date" optional="show" />
+                                 <field name="duration" optional="show" />
+                                 <field name="buyer_id" optional="show" />
+                                 <field name="beneficiary_id" optional="show" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+     <record id="gift_card_template_action" model="ir.actions.act_window">
+        <field name="name">Gift Cards Template</field>
+        <field name="res_model">gift.card.template</field>
+        <field name="view_mode">tree,form</field>
+        <field
+            name="view_ids"
+            eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'tree'}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('gift_card_template_view_form')})]"
+        />
+    </record>
+
+    <!-- Menu -->
+    <menuitem
+        id="menu_gift_card_template_config"
+        action="gift_card.gift_card_template_action"
+        parent="sale.product_menu_catalog"
+        name="Gift Cards Template"
+        groups="sales_team.group_sale_manager"
+        sequence="6"
+    />
+
+</odoo>

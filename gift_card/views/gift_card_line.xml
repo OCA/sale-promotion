@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+ <record model="ir.ui.view" id="gift_card_line_tree_view">
+        <field name="name">Gift Cards Line tree</field>
+        <field name="model">gift.card.line</field>
+        <field name="arch" type="xml">
+            <tree string="Gift Cards">
+                 <field name="gift_card_id" />
+                 <field name="amount_used" />
+                 <field name="payment_id" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="show_gift_card_lines" model="ir.actions.act_window">
+        <field name="name">Gift Cards Line Action</field>
+        <field name="res_model">gift.card.line</field>
+        <field name="view_mode">tree</field>
+        <field
+            name="view_ids"
+            eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'tree'})]"
+        />
+    </record>
+
+</odoo>

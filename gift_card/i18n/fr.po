@@ -1,0 +1,1137 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* gift_card
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-16 16:48+0000\n"
+"PO-Revision-Date: 2022-04-16 18:59+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__product_variant_count
+msgid "# Product Variants"
+msgstr "# Variantes produit"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.view_account_payment_register_form
+msgid "<i class=\"fa fa-arrow-right mr-1\"/>Add"
+msgstr "<i class=\"fa fa-arrow-right mr-1\"/>Ajouter"
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__description_sale
+msgid ""
+"A description of the Product that you want to communicate to your customers. This description will "
+"be copied to every Sales Order, Delivery Order and Customer Invoice/Credit Note"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__type
+msgid ""
+"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A consumable product is a product for which stock is not managed.\n"
+"A service is a non-material product you provide."
+msgstr ""
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_form_view
+msgid "Accounting"
+msgstr "Comptabilité"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__active
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__active
+#: model:ir.model.fields.selection,name:gift_card.selection__gift_card__state__active
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_view_search
+msgid "Active"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__amount_used
+msgid "Amount"
+msgstr "Montant"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__gc_amount_used
+msgid "Amount to use"
+msgstr "Montant Utilisée"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_form_view
+msgid "Amounts"
+msgstr "Montants"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__available_amount
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__gc_amount_available
+msgid "Available Amount"
+msgstr "Montant Disponible"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__barcode
+msgid "Barcode"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields.selection,name:gift_card.selection__gift_card_line__validation_mode__code
+#: model:ir.model.fields.selection,name:gift_card.selection__gift_card_selected_wizard__validation_mode__code
+msgid "By code"
+msgstr "Par Code"
+
+#. module: gift_card
+#: model:ir.model.fields.selection,name:gift_card.selection__gift_card_line__validation_mode__partner
+#: model:ir.model.fields.selection,name:gift_card.selection__gift_card_selected_wizard__validation_mode__partner
+msgid "By partner"
+msgstr "Par le Bénéficiaire"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__can_image_1024_be_zoomed
+msgid "Can Image 1024 be zoomed"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__purchase_ok
+msgid "Can be Purchased"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__sale_ok
+msgid "Can be Sold"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__code
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__code
+msgid "Code"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__code_mask
+msgid "Code Mask"
+msgstr "Masque du Code"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__color
+msgid "Color Index"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__company_id
+msgid "Company"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model,name:gift_card.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_form_view
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_template_view_form
+msgid "Configuration"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__standard_price
+msgid "Cost"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__cost_currency_id
+msgid "Cost Currency"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__create_uid
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__create_uid
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__create_uid
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__create_date
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__create_date
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__create_date
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__currency_id
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__currency_id
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__taxes_id
+msgid "Customer Taxes"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_res_config_settings__gift_card_default_journal_id
+msgid "Default Gift Card Journal"
+msgstr "Journal par défaut pour les Cartes Cadeaux"
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_res_config_settings__gift_card_default_journal_id
+msgid "Default Journal used for Gift Cards payments"
+msgstr "Journal par défaut pour les Paiements Cartes Cadeaux"
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__supplier_taxes_id
+msgid "Default taxes used when buying the product."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__taxes_id
+msgid "Default taxes used when selling the product."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__uom_po_id
+msgid ""
+"Default unit of measure used for purchase orders. It must be in the same category as the default "
+"unit of measure."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__seller_ids
+msgid "Define vendor pricelists."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__description
+msgid "Description"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_account_move__display_name
+#: model:ir.model.fields,field_description:gift_card.field_account_payment_register__display_name
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__display_name
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__display_name
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__display_name
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__display_name
+#: model:ir.model.fields,field_description:gift_card.field_product_template__display_name
+#: model:ir.model.fields,field_description:gift_card.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_template_view_form
+msgid "Duration"
+msgstr "Durée"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__end_date
+msgid "End Date"
+msgstr "Date de fin"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__property_account_expense_id
+msgid "Expense Account"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__expense_policy
+msgid ""
+"Expenses and vendor bills can be re-invoiced to a customer.With this option, a validated expense "
+"can be re-invoice to a customer at its cost or sales price."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: gift_card
+#: model:gift.card.template,name:gift_card.product_gift_card
+#: model:ir.model,name:gift_card.model_gift_card
+#: model:ir.model.fields,field_description:gift_card.field_account_payment_register__gift_card_ids
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__name
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__gift_card_id
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__gift_card_id
+#: model:product.template,name:gift_card.product_gift_card_product_template
+msgid "Gift Card"
+msgstr "Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__gc_name
+msgid "Gift Card "
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_account_payment_register__gift_card_amount_total
+msgid "Gift Card Amount Total"
+msgstr "Montant total Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__beneficiary_id
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__beneficiary_id
+msgid "Gift Card Beneficiary"
+msgstr "Bénéficiaire Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__buyer_id
+msgid "Gift Card Buyer"
+msgstr "Acheteur Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_account_payment_register__gift_card_code
+msgid "Gift Card Code"
+msgstr "Code Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__gift_card_count
+msgid "Gift Card Count"
+msgstr "Compte Cartes Cadeaux"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__duration
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__duration
+msgid "Gift Card Duration (in months)"
+msgstr "Durée de la Carte Cadeau (mois)"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__journal_id
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__journal_id
+msgid "Gift Card Journal"
+msgstr "Journal Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_account_payment_register__gift_card_selected_id
+msgid "Gift Card Selected"
+msgstr "Carte Cadeau sélectionnée"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_view_search
+msgid "Gift Card Template"
+msgstr "Template Cartes Cadeaux"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__gift_card_tmpl_id
+msgid "Gift Card Template ID"
+msgstr "Template Cartes Cadeaux"
+
+#. module: gift_card
+#: model:ir.model,name:gift_card.model_gift_card_template
+msgid "Gift Card Templates"
+msgstr "Templates Cartes Cadeaux"
+
+#. module: gift_card
+#: model:ir.actions.act_window,name:gift_card.gift_card_action
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__gift_card_ids
+#: model:ir.model.fields,field_description:gift_card.field_res_config_settings__module_gift_card
+#: model:ir.ui.menu,name:gift_card.menu_giftcard_config
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_form_view
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_line_tree_view
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_template_view_form
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_tree_view
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_view_search
+msgid "Gift Cards"
+msgstr "Cartes Cadeaux"
+
+#. module: gift_card
+#: model:ir.actions.act_window,name:gift_card.show_gift_card_lines
+msgid "Gift Cards Line Action"
+msgstr "Utilisations Carte Cadeau"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_form_view
+msgid "Gift Cards Lines"
+msgstr "Utilisations Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.actions.act_window,name:gift_card.gift_card_template_action
+#: model:ir.ui.menu,name:gift_card.menu_gift_card_template_config
+msgid "Gift Cards Template"
+msgstr "Modèle de cartes-cadeaux"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.res_config_settings_gift_card_view_form_
+msgid "Gift Cards as payment"
+msgstr "Paiement Carte Cadeau"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.res_config_settings_gift_card_view_form_
+msgid "Gift Cards as payment mode"
+msgstr "Cartes cadeaux comme mode de paiement"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__gift_cart_template_ids
+#: model:ir.model.fields,field_description:gift_card.field_product_product__gift_cart_template_ids
+#: model:ir.model.fields,field_description:gift_card.field_product_template__gift_cart_template_ids
+msgid "Gift Cart Template"
+msgstr "Modèle de Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model,name:gift_card.model_gift_card_selected_wizard
+msgid "Gift cards Wizard"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__packaging_ids
+msgid "Gives the different ways to package the same product."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__sequence
+msgid "Gives the sequence order when displaying a product list"
+msgstr ""
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_view_search
+msgid "Group By..."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_account_move__id
+#: model:ir.model.fields,field_description:gift_card.field_account_payment_register__id
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__id
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__id
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__id
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__id
+#: model:ir.model.fields,field_description:gift_card.field_product_template__id
+#: model:ir.model.fields,field_description:gift_card.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__message_needaction
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__message_has_error
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__active
+msgid "If unchecked, it will allow you to hide the product without removing it."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__image_1920
+msgid "Image"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__standard_price
+msgid ""
+"In Standard Price & AVCO: value of the product (automatically computed in AVCO).\n"
+"        In FIFO: value of the next unit that will leave the stock (automatically computed).\n"
+"        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
+"        Used to compute margins on sale orders."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__property_account_income_id
+msgid "Income Account"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__information
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__information
+msgid "Information"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__initial_amount
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__initial_amount
+msgid "Initial Amount"
+msgstr "Montant Initial"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__default_code
+msgid "Internal Reference"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__invoice_id
+msgid "Invoice"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__invoice_policy
+msgid "Invoicing Policy"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__is_divisible
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__is_divisible
+msgid "Is Divisible"
+msgstr "Divisible"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__has_configurable_attributes
+msgid "Is a configurable product"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__is_product_variant
+msgid "Is a product variant"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model,name:gift_card.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__property_account_income_id
+msgid "Keep this field empty to use the default value from the product category."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__property_account_expense_id
+msgid ""
+"Keep this field empty to use the default value from the product category. If anglo-saxon accounting "
+"with automated valuation method is configured, the expense account on the product category will be "
+"used."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_account_move____last_update
+#: model:ir.model.fields,field_description:gift_card.field_account_payment_register____last_update
+#: model:ir.model.fields,field_description:gift_card.field_gift_card____last_update
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line____last_update
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard____last_update
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template____last_update
+#: model:ir.model.fields,field_description:gift_card.field_product_template____last_update
+#: model:ir.model.fields,field_description:gift_card.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__write_uid
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__write_uid
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__write_uid
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__write_date
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__write_date
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__write_date
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__code_mask
+msgid ""
+"Left Blanck for default value (XXXXXX-00): x means a random lowercase letter, X means a random "
+"uppercase letter, 0 means a random digit. "
+msgstr ""
+"Laisser vide pour appliquer la valeur par défaut (XXXXXX-00): x pour une lettre aléatoire en "
+"minuscule, X une lettre aléatoire en majuscule et 0 pour un chiffre."
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__gift_card_line_ids
+msgid "List of Gift Card uses"
+msgstr "Liste des Utilisations Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__service_type
+msgid ""
+"Manually set quantities on order: Invoice based on the manually entered quantity, without creating "
+"an analytic account.\n"
+"Timesheets on contract: Invoice based on the tracked hours on the related timesheet.\n"
+"Create a task and track hours: Create a task on the sales order validation and track the work hours."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__sale_line_warn_msg
+msgid "Message for Sales Order Line"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__name
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__name
+msgid "Name"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: gift_card
+#: code:addons/gift_card/wizards/account_payment_register.py:0
+#, python-format
+msgid "No Gift Card selected"
+msgstr "Pas de Carte Cadeau sélectionnée"
+
+#. module: gift_card
+#: code:addons/gift_card/wizards/account_payment_register.py:0
+#, python-format
+msgid "No Gift Card selected."
+msgstr "Pas de Carte Cadeau sélectionnée."
+
+#. module: gift_card
+#: model:ir.model.fields.selection,name:gift_card.selection__gift_card__state__not_activated
+msgid "Not Activated"
+msgstr "Non Activée"
+
+#. module: gift_card
+#: model:ir.model.fields.selection,name:gift_card.selection__gift_card_line__validation_mode__not_validated
+msgid "Not Validated"
+msgstr "Non Validée"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_view_search
+msgid "Not yet Activated"
+msgstr "Non Activée"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__pricelist_item_count
+msgid "Number of price rules"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__invoice_policy
+msgid ""
+"Ordered Quantity: Invoice quantities ordered by the customer.\n"
+"Delivered Quantity: Invoice quantities delivered to the customer."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields.selection,name:gift_card.selection__gift_card__state__outdated
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_view_search
+msgid "Outdated"
+msgstr "Périmée"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__payment_id
+msgid "Payment"
+msgstr "Paiement"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_account_payment_register__is_gift_card_payment
+msgid "Payment with Gift Card"
+msgstr "Paiement Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__payment_ids
+msgid "Payments List"
+msgstr "Liste des Paiements"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__price
+msgid "Price"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__list_price
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__lst_price
+msgid "Price at which the product is sold to customers."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__pricelist_id
+msgid "Pricelist"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__product_variant_id
+msgid "Product"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__attribute_line_ids
+msgid "Product Attributes"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__categ_id
+msgid "Product Category"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__packaging_ids
+msgid "Product Packages"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model,name:gift_card.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__type
+msgid "Product Type"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__product_variant_ids
+msgid "Products"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__lst_price
+msgid "Public Price"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__description_purchase
+msgid "Purchase Description"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__uom_po_id
+msgid "Purchase Unit of Measure"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__visible_qty_configurator
+msgid "Quantity visible in configurator"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__expense_policy
+msgid "Re-Invoice Expenses"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__visible_expense_policy
+msgid "Re-Invoice Policy visible"
+msgstr ""
+
+#. module: gift_card
+#: code:addons/gift_card/wizards/account_payment_register.py:0
+#, python-format
+msgid "Register Payment"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model,name:gift_card.model_account_payment_register
+msgid "Register Payment Gift Card"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__product_tmpl_id
+msgid "Related Product"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__sale_id
+msgid "Sale"
+msgstr "Vente"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__description_sale
+msgid "Sales Description"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__sale_line_warn
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__list_price
+msgid "Sales Price"
+msgstr ""
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_view_search
+msgid "Search Gift Card Line"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__categ_id
+msgid "Select category for the current product"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__sale_line_warn
+msgid ""
+"Selecting the \"Warning\" option will notify user with the message, Selecting \"Blocking Message\" "
+"will throw an exception with the message and block the flow. The Message has to be written in the "
+"next field."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__sales_count
+msgid "Sold"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields.selection,name:gift_card.selection__gift_card__state__soldout
+msgid "Sold Out"
+msgstr "Montant Utilisé"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_view_search
+msgid "Soldout"
+msgstr "Montant Utilisé"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__start_date
+msgid "Start Date"
+msgstr "Date de Début"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__state
+msgid "State"
+msgstr "Etat"
+
+#. module: gift_card
+#: model_terms:ir.ui.view,arch_db:gift_card.gift_card_view_search
+msgid "Status"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__valid_product_template_attribute_line_ids
+msgid "Technical compute"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__pricelist_id
+msgid "Technical field. Used for searching on pricelists, not stored in database."
+msgstr ""
+
+#. module: gift_card
+#: code:addons/gift_card/models/gift_card_line.py:0
+#, python-format
+msgid "The Gift Card '{}' validation failed"
+msgstr "La validation de la carte cadeau '{}' a echoué"
+
+#. module: gift_card
+#: code:addons/gift_card/models/gift_card.py:0
+#, python-format
+msgid "The Gift Card Beneficiary is invalid."
+msgstr "Le bénéficiaire de la carte cadeau est invalide."
+
+#. module: gift_card
+#: code:addons/gift_card/models/gift_card.py:0
+#, python-format
+msgid "The Gift Card Code is invalid."
+msgstr "Le code de la carte cadeau est invalide."
+
+#. module: gift_card
+#: code:addons/gift_card/models/gift_card.py:0
+#, python-format
+msgid "The Gift Card is no longer available."
+msgstr "La carte cadeau n'est plus disponible."
+
+#. module: gift_card
+#: code:addons/gift_card/models/gift_card.py:0
+#, python-format
+msgid "The Gift Card was fully used, no more available amount."
+msgstr "Le montant de la carte cadeau a été pleinement utilisé."
+
+#. module: gift_card
+#: code:addons/gift_card/models/gift_card_line.py:0
+#: code:addons/gift_card/wizards/account_payment_register.py:0
+#, python-format
+msgid ""
+"The available amount from the Gift Card '{}' is {}. The amount proposed must be less than that."
+msgstr "Le montant maximum de la carte cadeau '{}' est {}. Le montant proposé doit être inférieur."
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card__currency_id
+#: model:ir.model.fields,help:gift_card.field_gift_card_selected_wizard__currency_id
+msgid "The currency used to enter statement"
+msgstr ""
+
+#. module: gift_card
+#: code:addons/gift_card/models/gift_card_line.py:0
+#: code:addons/gift_card/wizards/account_payment_register.py:0
+#, python-format
+msgid "The proposed Gift Card amount must be positive."
+msgstr "Le montant de la carte cadeau doit être positif."
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card__total_amount_used
+msgid "Total Amount Used"
+msgstr "Montant total Carte Cadeau"
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__service_type
+msgid "Track Service"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__uom_name
+msgid "Unit of Measure Name"
+msgstr ""
+
+#. module: gift_card
+#: model:gift.card.template,uom_name:gift_card.product_gift_card
+#: model:product.template,uom_name:gift_card.product_gift_card_product_template
+msgid "Units"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__valid_product_template_attribute_line_ids
+msgid "Valid Product Attribute Lines"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_line__validation_mode
+msgid "Validation"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__validation_mode
+msgid "Validation Mode"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__variant_seller_ids
+msgid "Variant Seller"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__supplier_taxes_id
+msgid "Vendor Taxes"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__seller_ids
+msgid "Vendors"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__volume
+msgid "Volume"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__volume_uom_name
+msgid "Volume unit of measure label"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card_template__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__weight
+msgid "Weight"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_template__weight_uom_name
+msgid "Weight unit of measure label"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,field_description:gift_card.field_gift_card_selected_wizard__wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model,name:gift_card.model_gift_card_line
+msgid "link between giftcard and payments"
+msgstr ""
+
+#. module: gift_card
+#: model:ir.model.fields,help:gift_card.field_gift_card__sale_id
+msgid "sale order where the gift card was bought"
+msgstr "vente d'où la carte cadeau provient"
