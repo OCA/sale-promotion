@@ -14,14 +14,17 @@ class CouponPage(WebsiteSale):
         if not order:
             return response
         promo_values = response.qcontext.get("promos", [])
+        no_code_promo_program_ids = (
+            order.no_code_promo_program_ids | order.code_promo_program_id
+        )
+        _available_multi_criteria_multi_gift_programs = (
+            order.sudo()._available_multi_criteria_multi_gift_programs()
+        )
         for promo_dict in promo_values:
             promo_dict["applicable"] = False
             promo = request.env["sale.coupon.program"].sudo().browse(promo_dict["id"])
-            if (
-                promo in (order.no_code_promo_program_ids | order.code_promo_program_id)
-            ) or (
-                promo
-                not in order.sudo()._available_multi_criteria_multi_gift_programs()
+            if (promo in no_code_promo_program_ids) or (
+                promo not in _available_multi_criteria_multi_gift_programs
             ):
                 continue
             promo_dict["applicable"] = True
