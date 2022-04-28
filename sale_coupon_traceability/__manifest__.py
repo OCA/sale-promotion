@@ -8,7 +8,7 @@
     "development_status": "Production/Stable",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
-    "author": "Tecnativa, Odoo Community Association (OCA), Ilyas, Ooops404",
+    "author": "Tecnativa, Ilyas, Ooops404, Odoo Community Association (OCA)",
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
     "depends": ["sale_coupon"],
