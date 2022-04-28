@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-04-20 18:05+0000\n"
+"PO-Revision-Date: 2022-04-28 10:05+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -22,47 +22,49 @@ msgid ""
 "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
 "specific.\" groups=\"base.group_multi_company\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"I valori impostati qui sono "
+"specifici per azienda.\" groups=\"base.group_multi_company\"/>"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_refresh_mixin__auto_refresh_coupon_triggers_data
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__auto_refresh_coupon_triggers_data
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line__auto_refresh_coupon_triggers_data
 msgid "Auto Refresh Coupon Triggers Data"
-msgstr ""
+msgstr "Dati trigger aggiornamento automatic coupons"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company__auto_refresh_coupon
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_config_settings__auto_refresh_coupon
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__auto_refresh_coupon
 msgid "Auto Refresh Coupons"
-msgstr ""
+msgstr "Aggiornamento automatico coupons"
 
 #. module: sale_coupon_auto_refresh
 #: model_terms:ir.ui.view,arch_db:sale_coupon_auto_refresh.res_config_settings_view_form
 msgid "Auto refresh coupons"
-msgstr ""
+msgstr "Aggiornamento automatico coupons"
 
 #. module: sale_coupon_auto_refresh
 #: model_terms:ir.ui.view,arch_db:sale_coupon_auto_refresh.res_config_settings_view_form
 msgid "Auto-refresh coupons"
-msgstr ""
+msgstr "Aggiornamento automatico coupons"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model.fields,help:sale_coupon_auto_refresh.field_res_company__auto_refresh_coupon
 #: model:ir.model.fields,help:sale_coupon_auto_refresh.field_res_config_settings__auto_refresh_coupon
 #: model:ir.model.fields,help:sale_coupon_auto_refresh.field_sale_order__auto_refresh_coupon
 msgid "Autorefresh coupon lines in the backorder"
-msgstr ""
+msgstr "Aggiorna automaticamente righe coupon nell'ordine residuo"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model,name:sale_coupon_auto_refresh.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Aziende"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model,name:sale_coupon_auto_refresh.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company__display_name
@@ -72,7 +74,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__display_name
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome Visualizzato"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company__id
@@ -82,7 +84,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__id
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company____last_update
@@ -97,22 +99,22 @@ msgstr "Ultima modifica il"
 #. module: sale_coupon_auto_refresh
 #: model:ir.model,name:sale_coupon_auto_refresh.model_sale_coupon_refresh_mixin
 msgid "Mixin class for sale coupon auto-refresh features"
-msgstr ""
+msgstr "Classe mixin per funzionalità aggiornamento automatico coupon"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model,name:sale_coupon_auto_refresh.model_sale_coupon_apply_code
 msgid "Sales Coupon Apply Code"
-msgstr ""
+msgstr "Applica codice coupon vendite"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model,name:sale_coupon_auto_refresh.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Ordine di vendita"
 
 #. module: sale_coupon_auto_refresh
 #: model:ir.model,name:sale_coupon_auto_refresh.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Riga ordine di vendita"
 
 #. module: sale_coupon_auto_refresh
 #: model_terms:ir.ui.view,arch_db:sale_coupon_auto_refresh.res_config_settings_view_form
@@ -120,3 +122,5 @@ msgid ""
 "When the sale order is updated, auto-refresh the promotion programs which "
 "are set to auto apply"
 msgstr ""
+"Quando l'ordine di vendita è aggiornato, aggiorna automaticamente le "
+"promozioni che sono impostate ad \"applica automaticamente\""
