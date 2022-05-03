@@ -1,6 +1,7 @@
 
 [![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=13.0)
-[![Build Status](https://travis-ci.com/OCA/sale-promotion.svg?branch=13.0)](https://travis-ci.com/OCA/sale-promotion)
+[![Pre-commit Status](https://github.com/OCA/sale-promotion/actions/workflows/pre-commit.yml/badge.svg?branch=13.0)](https://github.com/OCA/sale-promotion/actions/workflows/pre-commit.yml?query=branch%3A13.0)
+[![Build Status](https://github.com/OCA/sale-promotion/actions/workflows/test.yml/badge.svg?branch=13.0)](https://github.com/OCA/sale-promotion/actions/workflows/test.yml?query=branch%3A13.0)
 [![codecov](https://codecov.io/gh/OCA/sale-promotion/branch/13.0/graph/badge.svg)](https://codecov.io/gh/OCA/sale-promotion)
 [![Translation Status](https://translation.odoo-community.org/widgets/sale-promotion-13-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/sale-promotion-13-0/?utm_source=widget)
 
