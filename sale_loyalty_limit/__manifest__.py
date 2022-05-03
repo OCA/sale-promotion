@@ -3,8 +3,8 @@
 {
     "name": "Sale Coupon Limit",
     "summary": "Restrict number of promotions per customer or salesman",
-    "version": "13.0.1.1.3",
-    "development_status": "Production/Stable",
+    "version": "13.0.1.1.4",
+    "development_status": "Beta",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",
