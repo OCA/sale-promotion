@@ -12,7 +12,7 @@ class SaleCoupon(models.Model):
             return message
         if self.program_id.reward_type == "multiple_of" and (
             not order._is_reward_in_order_lines(self.program_id)
-            and self.force_rewarded_product
+            and self.program_id.force_rewarded_product
         ):
             message = {
                 "error": _(
