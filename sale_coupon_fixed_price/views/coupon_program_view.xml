@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="coupon_program_view_form_common" model="ir.ui.view">
+        <field name="name">coupon.program.view.form</field>
+        <field name="model">coupon.program</field>
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
+        <field name="arch" type="xml">
+            <field name="discount_line_product_id" position="before">
+                <field
+                    name="price_unit"
+                    attrs="{'invisible': [('reward_type', '!=', 'fixed_price')]}"
+                />
+            </field>
+            <field name="discount_line_product_id" position="attributes">
+                <attribute
+                    name="attrs"
+                >{"invisible": ["|", ("discount_line_product_id", "=", False), ("reward_type", "=", "fixed_price")]}</attribute>
+            </field>
+            <field name="reward_product_id" position="attributes">
+                <attribute
+                    name="attrs"
+                >{"invisible": [("reward_type", "in", ("discount", "free_shipping", "fixed_price"))], "required": [("reward_type", "=", "product")]}</attribute>
+            </field>
+            <xpath expr="//label[@for='reward_product_quantity']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{"invisible": ["|", ("reward_type", "in", ("discount", "free_shipping", "fixed_price")), ("reward_product_id", "=",False)]}</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='reward_product_quantity']/.."
+                position="attributes"
+            >
+                <attribute
+                    name="attrs"
+                >{"invisible": ["|", ("reward_type", "in", ("discount", "free_shipping", "fixed_price")), ("reward_product_id", "=",False)]}</attribute>
+            </xpath>
+            <xpath expr="//label[@for='discount_type']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{"invisible": [("reward_type", "in", ("product", "free_shipping", "fixed_price"))]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='discount_type']/.." position="attributes">
+                <attribute
+                    name="attrs"
+                >{"invisible": [("reward_type", "in", ("product", "free_shipping", "fixed_price"))]}</attribute>
+            </xpath>
+            <xpath expr="//label[@for='discount_max_amount']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{"invisible": ["|", ("reward_type", "in", ("product", "free_shipping", "fixed_price")), ("discount_type", "!=", "percentage")]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='discount_max_amount']/.." position="attributes">
+                <attribute
+                    name="attrs"
+                >{"invisible": ["|", ("reward_type", "in", ("product", "free_shipping", "fixed_price")), ("discount_type", "!=", "percentage")]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
