@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="coupon_program_view_form_common" model="ir.ui.view">
+        <field name="name">coupon.program.view.form</field>
+        <field name="model">coupon.program</field>
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
+        <field name="arch" type="xml">
+            <field name="discount_line_product_id" position="before">
+                <field
+                    name="price_unit"
+                    attrs="{'invisible': [('reward_type', '!=', 'fixed_price')]}"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>
