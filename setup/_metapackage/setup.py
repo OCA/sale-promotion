@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo14-addon-sale_coupon_auto_refresh',
         'odoo14-addon-sale_coupon_delivery_auto_refresh',
+        'odoo14-addon-sale_coupon_order_line_link',
     ],
     classifiers=[
         'Programming Language :: Python',
