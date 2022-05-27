@@ -1,3 +1,7 @@
+# Copyright 2022 Cetmix
+# Copyright 2022 Ooops404
+# Copyright 2022 Tecnativa - David Vidal
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import models
 
 
@@ -5,22 +9,13 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     def _auto_refresh_delivery(self):
-        """
-        Override to change context value to refresh coupons after creation
-        delivery line
-        """
-        self = self.with_context(
-            skip_auto_refresh_coupons=False, auto_refresh_delivery=True
-        )
-        return super(SaleOrder, self)._auto_refresh_delivery()
+        """When refreshing delivery lines skip coupons auto compute"""
+        return super(
+            SaleOrder, self.with_context(skip_auto_refresh_coupons=True)
+        )._auto_refresh_delivery()
 
-    def _create_delivery_line(self, carrier, price_unit):
-        """
-        Override to refresh coupons after creation delivery line
-        """
-        if self._check_skip_refresh():
-            return super()._create_delivery_line(carrier, price_unit)
-        self_ctx = self.with_context(skip_auto_refresh_coupons=True)
-        sol = super(SaleOrder, self_ctx)._create_delivery_line(carrier, price_unit)
-        self._auto_refresh_coupons()
-        return sol
+    def recompute_coupon_lines(self):
+        """When refreshing promotions skip delivery lines auto compute"""
+        return super(
+            SaleOrder, self.with_context(auto_refresh_delivery=True)
+        ).recompute_coupon_lines()

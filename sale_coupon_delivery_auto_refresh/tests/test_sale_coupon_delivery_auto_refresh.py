@@ -1,3 +1,6 @@
+# Copyright 2022 Cetmix
+# Copyright 2022 Ooops404
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.tests import Form, common, tagged
 
 
@@ -36,7 +39,7 @@ class TestDeliveryAutoRefresh(common.SavepointCase):
             "delivery_auto_refresh.auto_add_delivery_line", 1
         )
         coupon_program_form = Form(
-            cls.env["coupon.program"],
+            cls.env["sale.coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Test Free Shipping Program"
