@@ -7,6 +7,7 @@ class TestSaleCouponMultiplier(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.pricelist = cls.env["product.pricelist"].create(
             {
                 "name": "Test pricelist",
