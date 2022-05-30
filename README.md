@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 [sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 13.0.1.1.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) [![SilvioC2C](https://github.com/SilvioC2C.png?size=30px)](https://github.com/SilvioC2C) | Allows to auto-apply the coupons with no user intervention
 [sale_coupon_chatter](sale_coupon_chatter/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Register messages and activities on the sale coupon records
 [sale_coupon_criteria_multi_product](sale_coupon_criteria_multi_product/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set as promotion criteria multi-product conditions
+[sale_coupon_delivery_auto_refresh](sale_coupon_delivery_auto_refresh/) | 13.0.1.0.0 |  | Allows to auto-apply the coupons after adding delivery line
 [sale_coupon_incompatibility](sale_coupon_incompatibility/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions
 [sale_coupon_limit](sale_coupon_limit/) | 13.0.1.1.4 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [sale_coupon_mass_mailing](sale_coupon_mass_mailing/) | 13.0.1.1.0 |  | Sale Coupon Mas Mailing
