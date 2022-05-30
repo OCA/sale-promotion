@@ -1,7 +1,6 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import _, models
-from odoo.tests import Form
 
 
 class SaleOrder(models.Model):
@@ -28,13 +27,6 @@ class SaleOrder(models.Model):
     def _get_reward_values_multiple_of(self, program):
         """Reward rules. The reward will be designed to give the rewarded product
         when the rule applies"""
-        # Compute the proper price_unit to create the new line accordingly.
-        # We use the form class to ensure the proper onchanges.
-        sale_form = Form(self)
-        with sale_form.order_line.new() as line:
-            line.product_id = program.reward_product_id
-            line.product_uom_qty = program.reward_product_quantity
-            price_unit = line.price_unit
         # The method `_is_valid_product` is in charge of evaluate whether or not
         # the product of the reward is the only one that applies.
         valid_lines = (self.order_line - self._get_reward_lines()).filtered(
@@ -51,6 +43,20 @@ class SaleOrder(models.Model):
         taxes = program.reward_product_id.taxes_id
         if self.fiscal_position_id:
             taxes = self.fiscal_position_id.map_tax(taxes)
+        # Compute the proper price_unit to create the new line accordingly. We just
+        # create a virtual record in a similar way the ecommerce does as we just need
+        # the price unit. The rest of the values will be prepared later in the method.
+        # We used a test.Form() but with large orders it doesn't scale up very good.
+        # At least in this version.
+        line = self.env["sale.order.line"].new(
+            {
+                "order_id": self.id,
+                "product_id": program.reward_product_id.id,
+                "product_uom_qty": reward_product_qty,
+            }
+        )
+        line.product_id_change()
+        price_unit = line.price_unit
         return {
             "product_id": program.reward_product_id.id,
             "price_unit": price_unit,
