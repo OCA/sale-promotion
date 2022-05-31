@@ -6,23 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-05-31 11:05+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: sale_coupon_reward_fixed_price
 #: model:ir.model,name:sale_coupon_reward_fixed_price.model_coupon_program
 msgid "Coupon Program"
-msgstr ""
+msgstr "Programma Coupon"
 
 #. module: sale_coupon_reward_fixed_price
 #: model:ir.model,name:sale_coupon_reward_fixed_price.model_coupon_reward
 msgid "Coupon Reward"
-msgstr ""
+msgstr "Ricompensa Coupon"
 
 #. module: sale_coupon_reward_fixed_price
 #: model:ir.model.fields,help:sale_coupon_reward_fixed_price.field_coupon_program__reward_type
@@ -32,48 +34,53 @@ msgid ""
 "Free Product - Free product will be provide as reward \n"
 "Free Shipping - Free shipping will be provided as reward (Need delivery module)"
 msgstr ""
+"Sconto - Premio fornito come sconto.\n"
+"Prodotto gratuito - Come premio viene fornito un prodotto gratuito\n"
+"Spedizione gratuita - Come premio viene offerta la spedizione gratuita (è "
+"richiesto il modulo Consegna)\n"
+"Prezzo Fisso - Viene applicato un prezzo fisso ai prodotti indicati."
 
 #. module: sale_coupon_reward_fixed_price
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_program__display_name
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_reward__display_name
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_sale_order__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: sale_coupon_reward_fixed_price
 #: code:addons/sale_coupon_reward_fixed_price/models/coupon_reward.py:0
 #: model:ir.model.fields.selection,name:sale_coupon_reward_fixed_price.selection__coupon_reward__reward_type__fixed_price
 #, python-format
 msgid "Fixed Price"
-msgstr ""
+msgstr "Prezzo fisso"
 
 #. module: sale_coupon_reward_fixed_price
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_program__id
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_reward__id
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_sale_order__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: sale_coupon_reward_fixed_price
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_program____last_update
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_reward____last_update
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_sale_order____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: sale_coupon_reward_fixed_price
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_program__price_unit
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_reward__price_unit
 msgid "Price Unit"
-msgstr ""
+msgstr "Prezzo unitario"
 
 #. module: sale_coupon_reward_fixed_price
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_program__reward_type
 #: model:ir.model.fields,field_description:sale_coupon_reward_fixed_price.field_coupon_reward__reward_type
 msgid "Reward Type"
-msgstr ""
+msgstr "Tipo Ricompensa"
 
 #. module: sale_coupon_reward_fixed_price
 #: model:ir.model,name:sale_coupon_reward_fixed_price.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Ordine di vendita"
