@@ -4,7 +4,7 @@
     "summary": "Allows to auto-apply the coupons after adding delivery line",
     "author": "Ooops404, Cetmix, , Odoo Community Association (OCA)",
     "contributors": "Ooops404, Cetmix",
-    "license": "LGPL-3",
+    "license": "AGPL-3",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
     "depends": ["sale_coupon_auto_refresh", "delivery_auto_refresh"],
