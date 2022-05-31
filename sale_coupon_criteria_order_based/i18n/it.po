@@ -1,0 +1,78 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_coupon_criteria_order_based
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-05-31 11:05+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: sale_coupon_criteria_order_based
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_program__rule_order_domain
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_rule__rule_order_domain
+msgid "Based on Order"
+msgstr "Basato su Ordine"
+
+#. module: sale_coupon_criteria_order_based
+#: model:ir.model,name:sale_coupon_criteria_order_based.model_coupon_coupon
+msgid "Coupon"
+msgstr "Coupon"
+
+#. module: sale_coupon_criteria_order_based
+#: model:ir.model,name:sale_coupon_criteria_order_based.model_coupon_program
+msgid "Coupon Program"
+msgstr "Programma Coupon"
+
+#. module: sale_coupon_criteria_order_based
+#: model:ir.model,name:sale_coupon_criteria_order_based.model_coupon_rule
+msgid "Coupon Rule"
+msgstr "Regola Coupon"
+
+#. module: sale_coupon_criteria_order_based
+#: model:ir.model.fields,help:sale_coupon_criteria_order_based.field_coupon_program__rule_order_domain
+#: model:ir.model.fields,help:sale_coupon_criteria_order_based.field_coupon_rule__rule_order_domain
+msgid "Coupon program will work for the order with selected domain only"
+msgstr ""
+"Questo coupon sarà applicabile solo per gli ordini con il dominio selezionato"
+
+#. module: sale_coupon_criteria_order_based
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_coupon__display_name
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_program__display_name
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_rule__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: sale_coupon_criteria_order_based
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_coupon__id
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_program__id
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_rule__id
+msgid "ID"
+msgstr "ID"
+
+#. module: sale_coupon_criteria_order_based
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_coupon____last_update
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_program____last_update
+#: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_rule____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: sale_coupon_criteria_order_based
+#: model_terms:ir.ui.view,arch_db:sale_coupon_criteria_order_based.coupon_program_view_promo_program_form
+msgid "Select order"
+msgstr "Seleziona ordini"
+
+#. module: sale_coupon_criteria_order_based
+#: code:addons/sale_coupon_criteria_order_based/models/coupon_coupon.py:0
+#: code:addons/sale_coupon_criteria_order_based/models/coupon_program.py:0
+#, python-format
+msgid "The order doesn't have access to this reward."
+msgstr "L'ordine non ha accesso a questa ricompensa."
