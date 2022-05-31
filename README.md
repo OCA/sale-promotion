@@ -7,9 +7,9 @@
 
 <!-- /!\ do not modify above this line -->
 
-# sale-promotion
+# Sales promotion management
 
-TODO: add repo description.
+Odoo addons for handling promotions on the sales funnel.
 
 <!-- /!\ do not modify below this line -->
 
