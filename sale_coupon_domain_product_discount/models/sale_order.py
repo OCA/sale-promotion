@@ -1,79 +1,64 @@
 # Copyright 2022 Ooops404
+# Copyright 2022 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-
-from odoo import _, models
-from odoo.tools.misc import formatLang
+from odoo import models
+from odoo.osv import expression
+from odoo.tools.safe_eval import safe_eval
 
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    def _get_reward_values_discount(self, program):
-        if program.discount_apply_on != "domain_product":
-            return super()._get_reward_values_discount(program)
-
-        lines = (self.order_line - self._get_reward_lines()).filtered(
-            lambda line: program._get_valid_products(line.product_id),
+    def _get_reward_values_discount_strict_limit_lines(self, program):
+        """We'll restrict the domain to only the products fulfilling individually the
+        criterias"""
+        domain = program.rule_products_domain
+        program = program.with_context(promo_domain_product=domain)
+        extendable_domain = safe_eval(domain)
+        intersected_products = self.order_line.product_id & self.env[
+            "product.product"
+        ].search(extendable_domain)
+        amount_field = (
+            "price_subtotal"
+            if program.rule_minimum_amount_tax_inclusion == "tax_excluded"
+            else "price_tax"
         )
-
-        # when processing lines we should not discount more than the order remaining total
-        currently_discounted_amount = 0
-        reward_dict = {}
-        amount_total = sum(self._get_base_order_lines(program).mapped("price_subtotal"))
-        for line in lines:
-            discount_line_amount = min(
-                self._get_reward_values_discount_percentage_per_line(program, line),
-                amount_total - currently_discounted_amount,
+        intersected_lines = self.env["sale.order.line"]
+        for product in intersected_products:
+            product_lines = self.order_line.filtered(
+                lambda x: x.product_id == product and not x.is_reward_line
             )
-            if discount_line_amount:
-                if line.tax_id in reward_dict:
-                    reward_dict[line.tax_id]["price_unit"] -= discount_line_amount
-                else:
-                    reward_dict[line.tax_id] = self._get_reward_values_for_tax(
-                        line, program, discount_line_amount
-                    )
-                    currently_discounted_amount += discount_line_amount
-
-        # If there is a max amount for discount, we might have to limit
-        # some discount lines or completely remove some lines
-        max_amount = program._compute_program_amount(
-            "discount_max_amount", self.currency_id
+            if (
+                sum(product_lines.mapped("product_uom_qty"))
+                >= program.rule_min_quantity
+                and sum(product_lines.mapped(amount_field))
+                >= program.rule_minimum_amount
+            ):
+                intersected_lines |= product_lines
+        # Prepare the extended domain to send it by context
+        domain = str(
+            expression.AND(
+                [
+                    extendable_domain,
+                    [("id", "in", intersected_lines.product_id.ids or [0])],
+                ]
+            )
         )
-        if max_amount > 0:
-            reward_dict = self._get_final_amount(reward_dict, max_amount)
-        return reward_dict.values()
+        return domain
 
-    def _get_reward_values_for_tax(self, line, program, discount_line_amount):
-        taxes = self.fiscal_position_id.map_tax(line.tax_id)
-        uom_id = program.discount_line_product_id.uom_id.id
-        return {
-            "name": _(
-                "Discount: %(program)s - On product with following " "taxes: %(taxes)s",
-                program=program.name,
-                taxes=", ".join(taxes.mapped("name")),
-            ),
-            "product_id": program.discount_line_product_id.id,
-            "price_unit": -discount_line_amount if discount_line_amount > 0 else 0,
-            "product_uom_qty": 1.0,
-            "product_uom": uom_id,
-            "is_reward_line": True,
-            "tax_id": [(4, tax.id, False) for tax in taxes],
-        }
-
-    def _get_final_amount(self, reward_dict, max_amount):
-        amount_already_given = 0
-        _reward_dict = reward_dict.copy()
-        for tax in reward_dict.keys():
-            amount_to_discount = amount_already_given + _reward_dict[tax]["price_unit"]
-            if abs(amount_to_discount) > max_amount:
-                _reward_dict[tax]["price_unit"] = -(
-                    max_amount - abs(amount_already_given)
-                )
-                add_name = formatLang(
-                    self.env, max_amount, currency_obj=self.currency_id
-                )
-                _reward_dict[tax]["name"] += _("(limited to %s)", add_name)
-            amount_already_given += _reward_dict[tax]["price_unit"]
-            if _reward_dict[tax]["price_unit"] == 0:
-                del _reward_dict[tax]
-        return _reward_dict
+    def _get_reward_values_discount(self, program):
+        """We simply inject the context in order to gather the proper discounted
+        products according to the current domain"""
+        if (
+            program.discount_apply_on_domain_product
+            and program.discount_apply_on == "specific_products"
+        ):
+            domain = program.rule_products_domain
+            # In this case, we need to preevaluate the domain along with every line
+            # affected
+            if program.strict_per_product_limit:
+                domain = self._get_reward_values_discount_strict_limit_lines(program)
+            return super()._get_reward_values_discount(
+                program.with_context(promo_domain_product=domain)
+            )
+        return super()._get_reward_values_discount(program)
