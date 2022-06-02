@@ -1,5 +1,11 @@
-Open or create a new Promotion Program in the **Sales/Products/Promotion Programs** menu.
+To apply the discount over the domain products:
 
-Following new options are available:
+#. Open or create a new Promotion Program in the **Sales/Products/Promotion Programs** menu.
+#. Set the reward type as *Discount*.
+#. Choose *Discount Apply On: selected products*.
+#. Set the checkbox *Apply on products domain* on.
 
-* **Discount Apply On: On Domain Matching Products** When selected discount will be applien only on the product matching the domain in the *Based on Products* field.
+Only those products matching the *Based on Products* domain criteria will be discounted.
+
+If you want the minimum quantity and amount criterias to be applied per product matched,
+you'll see the *Strict per product limit* just below the products domain.
