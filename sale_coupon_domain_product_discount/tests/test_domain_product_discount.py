@@ -123,6 +123,23 @@ class TestSaleCouponDomainProductDiscount(common.SavepointCase):
             2650.0,
             "The order total with programs should be 2650.00",
         )
+        # Stric limit
+        program.strict_per_product_limit = True
+        # Only the Pedal Bin will be discounted
+        program.rule_min_quantity = 10
+        program.discount_max_amount = 0
+        self.order.recompute_coupon_lines()
+        self.assertAlmostEqual(
+            self.order.amount_total,
+            2600.0,
+            "Only the Pedal Bin will be discounted (2750 - 150)",
+        )
+        program.rule_min_quantity = 11
+        self.order.recompute_coupon_lines()
+        self.assertFalse(
+            self.order.order_line.filtered("is_reward_line"),
+            "The promotion should be gone as we raise the condition",
+        )
 
     def test_program_reward_discount_domain_matching_with_tax_and_rule(self):
         """

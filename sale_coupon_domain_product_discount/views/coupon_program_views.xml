@@ -7,6 +7,12 @@
         />
         <field name="model">sale.coupon.program</field>
         <field name="arch" type="xml">
+            <xpath expr="//label[@for='rule_min_quantity']" position="before">
+                <field
+                    name="strict_per_product_limit"
+                    attrs="{'invisible': ['|', '|', ('discount_apply_on_domain_product', '=', False), ('rule_products_domain', '=', False), ('discount_apply_on', '!=', 'specific_products')]}"
+                />
+            </xpath>
             <field name="discount_apply_on" position="after">
                 <field
                     name="discount_apply_on_domain_product"

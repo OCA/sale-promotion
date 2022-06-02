@@ -7,9 +7,7 @@ class SaleCouponProgram(models.Model):
     _inherit = "sale.coupon.program"
 
     def _filter_not_ordered_reward_programs(self, order):
-        """
-        Returns the programs when the reward is actually in the order lines
-        """
+        """Inject the domain for the domain discount programs"""
         domain_discount_programs = self.filtered(
             lambda x: x.discount_apply_on_domain_product
             and x.discount_apply_on == "specific_products"
@@ -17,13 +15,16 @@ class SaleCouponProgram(models.Model):
         programs = super(
             SaleCouponProgram, self - domain_discount_programs
         )._filter_not_ordered_reward_programs(order)
+        order_products = order.order_line.product_id
         for program in domain_discount_programs:
+            domain = program.rule_products_domain
+            # In this case, we need to preevaluate the domain along with every line
+            # affected
+            if program.strict_per_product_limit:
+                domain = order._get_reward_values_discount_strict_limit_lines(program)
             discount_specific_product_ids = program.with_context(
-                promo_domain_product=program.rule_products_domain
+                promo_domain_product=domain
             ).discount_specific_product_ids
-            if not order.order_line.filtered(
-                lambda line: line.product_id in discount_specific_product_ids
-            ):
-                continue
-            programs |= program
+            if any(p in order_products for p in discount_specific_product_ids):
+                programs += program
         return programs

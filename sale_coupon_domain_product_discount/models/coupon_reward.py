@@ -19,7 +19,7 @@ class SaleCouponReward(models.Model):
     # This is where we'll store our real products for regular promos. Indeed, we're
     # taking the former relation in order to keep former data. This saves us
     # supercomplex init/uninstall hooks +1 for the ORM
-    discount_specific_product_ids_stored = fields.Many2many(
+    stored_discount_specific_product_ids = fields.Many2many(
         comodel_name="product.product",
         relation="product_product_sale_coupon_reward_rel",
     )
@@ -41,13 +41,13 @@ class SaleCouponReward(models.Model):
             return
         for reward in self:
             reward.discount_specific_product_ids = (
-                reward.discount_specific_product_ids_stored
+                reward.stored_discount_specific_product_ids
             )
 
     def _inverse_discount_specific_product_ids(self):
         """If we set the products manually we'll dismiss this setting"""
         for reward in self:
-            reward.discount_specific_product_ids_stored = (
+            reward.stored_discount_specific_product_ids = (
                 reward.discount_specific_product_ids
             )
 
@@ -58,10 +58,10 @@ class SaleCouponReward(models.Model):
                 (
                     "id",
                     "in",
-                    self.env["product.product"]._search(safe_eval(domain_product)).ids,
+                    self.env["product.product"]._search(safe_eval(domain_product)),
                 )
             ]
-        return [("discount_specific_product_ids_stored", operator, value)]
+        return [("stored_discount_specific_product_ids", operator, value)]
 
     def name_get(self):
         """We don't know from this model the domain set on the rule. A generic name
