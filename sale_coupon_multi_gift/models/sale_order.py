@@ -11,7 +11,7 @@ class SaleOrder(models.Model):
         """Add reward lines produced by multi gift promotions"""
         lines = super()._get_paid_order_lines()
         free_reward_products = (
-            self.env["sale.coupon.program"]
+            self.env["coupon.program"]
             .search([("reward_type", "=", "multi_gift")])
             .mapped("coupon_multi_gift_ids.reward_product_ids")
         )
@@ -98,7 +98,7 @@ class SaleOrder(models.Model):
         self.ensure_one()
         # This part is a repetition of the logic so we can get the right programs
         applied_programs = self._get_applied_programs()
-        applicable_programs = self.env["sale.coupon.program"]
+        applicable_programs = self.env["coupon.program"]
         if applied_programs:
             applicable_programs = self._get_applicable_programs_multi_gift()
         programs_to_remove = applied_programs - applicable_programs
