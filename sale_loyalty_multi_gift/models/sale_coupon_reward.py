@@ -39,7 +39,8 @@ class SaleCouponGift(models.Model):
 
     reward_id = fields.Many2one(comodel_name="sale.coupon.reward")
     reward_product_quantity = fields.Integer(
-        string="Quantity", help="Reward product quantity",
+        string="Quantity",
+        help="Reward product quantity",
     )
     reward_default_product_id = fields.Many2one(
         comodel_name="product.product",
@@ -48,7 +49,9 @@ class SaleCouponGift(models.Model):
         readonly=False,
     )
     reward_product_ids = fields.Many2many(
-        comodel_name="product.product", string="Gift Options", help="Reward Product",
+        comodel_name="product.product",
+        string="Gift Options",
+        help="Reward Product",
     )
 
     @api.depends("reward_product_ids")
