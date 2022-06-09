@@ -3,11 +3,11 @@
 from odoo import _, api, fields, models
 
 
-class SaleCouponReward(models.Model):
-    _inherit = "sale.coupon.reward"
+class CouponReward(models.Model):
+    _inherit = "coupon.reward"
 
     coupon_multi_gift_ids = fields.One2many(
-        comodel_name="sale.coupon.reward.product_line",
+        comodel_name="coupon.reward.product_line",
         inverse_name="reward_id",
         string="Gift list",
     )
@@ -33,11 +33,11 @@ class SaleCouponReward(models.Model):
         return res
 
 
-class SaleCouponGift(models.Model):
-    _name = "sale.coupon.reward.product_line"
+class CouponGift(models.Model):
+    _name = "coupon.reward.product_line"
     _description = "Coupon Multi Gift"
 
-    reward_id = fields.Many2one(comodel_name="sale.coupon.reward")
+    reward_id = fields.Many2one(comodel_name="coupon.reward")
     reward_product_quantity = fields.Integer(
         string="Quantity",
         help="Reward product quantity",

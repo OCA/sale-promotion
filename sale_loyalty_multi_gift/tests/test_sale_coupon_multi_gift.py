@@ -39,8 +39,8 @@ class TestSaleCouponMultiGift(common.SavepointCase):
             {"name": "Test 4", "sale_ok": False, "list_price": 80}
         )
         coupon_program_form = Form(
-            cls.env["sale.coupon.program"],
-            view="sale_coupon.sale_coupon_program_view_promo_program_form",
+            cls.env["coupon.program"],
+            view="coupon.coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Test Multiplier Program"
         coupon_program_form.promo_code_usage = "no_code_needed"
