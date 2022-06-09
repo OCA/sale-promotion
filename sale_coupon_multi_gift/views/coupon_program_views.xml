@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="coupon_program_view_form_common" model="ir.ui.view">
-        <field
-            name="inherit_id"
-            ref="coupon.coupon_program_view_form_common"
-        />
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
         <field name="model">coupon.program</field>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='reward_product_id']/.." position="attributes">
