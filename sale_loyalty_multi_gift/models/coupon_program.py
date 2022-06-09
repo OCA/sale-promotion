@@ -3,14 +3,14 @@
 from odoo import models
 
 
-class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+class CouponProgram(models.Model):
+    _inherit = "coupon.program"
 
     def _compute_order_count(self):
         """Relay on the order line link for these programs instead of the discount
         products"""
         multi_gift_programs = self.filtered(lambda x: x.reward_type == "multi_gift")
-        super(SaleCouponProgram, self - multi_gift_programs)._compute_order_count()
+        super(CouponProgram, self - multi_gift_programs)._compute_order_count()
         for program in multi_gift_programs:
             orders = self.env["sale.order.line"].read_group(
                 [
