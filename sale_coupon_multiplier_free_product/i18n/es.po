@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2022-06-09 11:05+0000\n"
+"Last-Translator: David Vidal <david.vidal@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: sale_coupon_multiplier_free_product
 #: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_program__force_rewarded_product
@@ -42,7 +42,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_program__force_rewarded_product
 #: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_reward__force_rewarded_product
 msgid "Force Rewarded Product"
-msgstr "Forzar producto de regalo"
+msgstr "Obligar producto de regalo"
 
 #. module: sale_coupon_multiplier_free_product
 #: code:addons/sale_coupon_multiplier_free_product/models/sale_order.py:61
@@ -65,19 +65,19 @@ msgstr "Gastos de envío gratis"
 #. module: sale_coupon_multiplier_free_product
 #: model_terms:ir.ui.view,arch_db:sale_coupon_multiplier_free_product.sale_coupon_program_view_form_common
 msgid "Max quantity"
-msgstr ""
+msgstr "Cantidad máxima"
 
 #. module: sale_coupon_multiplier_free_product
 #: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_product_max_quantity
 #: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_product_max_quantity
 msgid "Max reward quantity"
-msgstr ""
+msgstr "Cantidad máxima a recompensar"
 
 #. module: sale_coupon_multiplier_free_product
 #: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_product_max_quantity
 #: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_product_max_quantity
 msgid "Maximum reward product quantity (0 for no limit)"
-msgstr ""
+msgstr "Cantidad máxima de producto a recompensar (0 para cantidad sin límite)"
 
 #. module: sale_coupon_multiplier_free_product
 #: selection:sale.coupon.reward,reward_type:0
