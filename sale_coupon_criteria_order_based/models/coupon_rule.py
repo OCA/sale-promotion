@@ -4,8 +4,8 @@
 from odoo import fields, models
 
 
-class CouponRule(models.Model):
-    _inherit = "coupon.rule"
+class SaleCouponRule(models.Model):
+    _inherit = "sale.coupon.rule"
 
     rule_order_domain = fields.Char(
         string="Based on Order",

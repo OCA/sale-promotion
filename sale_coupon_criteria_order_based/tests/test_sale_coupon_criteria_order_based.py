@@ -5,17 +5,16 @@ from odoo.addons.sale_coupon.tests.common import TestSaleCouponCommon
 
 
 class TestSaleCouponCriteriaOrderBased(TestSaleCouponCommon):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+    def setUp(self):
+        super().setUp()
+        self.env = self.env(context=dict(self.env.context, tracking_disable=True))
 
     def test_program_rules_order_based(self):
         """
         Check program rules based on order domain
         """
         partner_test = self.env["res.partner"].create(
-            {"name": "Test", "email": "test@example.com",}
+            {"name": "Test", "email": "test@example.com"}
         )
         user_test = (
             self.env["res.users"]

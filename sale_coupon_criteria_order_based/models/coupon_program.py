@@ -6,8 +6,8 @@ import ast
 from odoo import _, api, fields, models
 
 
-class CouponProgram(models.Model):
-    _inherit = "coupon.program"
+class SaleCouponProgram(models.Model):
+    _inherit = "sale.coupon.program"
 
     rule_order_domain = fields.Char(
         string="Based on Order",

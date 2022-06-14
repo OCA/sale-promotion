@@ -4,8 +4,8 @@
 from odoo import _, models
 
 
-class CouponCoupon(models.Model):
-    _inherit = "coupon.coupon"
+class SaleCoupon(models.Model):
+    _inherit = "sale.coupon"
 
     def _check_coupon_code(self, order):
         message = super()._check_coupon_code(order)
