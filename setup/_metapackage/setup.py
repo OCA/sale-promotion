@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo13-addon-sale_coupon_chatter',
         'odoo13-addon-sale_coupon_criteria_multi_product',
         'odoo13-addon-sale_coupon_delivery_auto_refresh',
+        'odoo13-addon-sale_coupon_domain_product_discount',
         'odoo13-addon-sale_coupon_incompatibility',
         'odoo13-addon-sale_coupon_limit',
         'odoo13-addon-sale_coupon_mass_mailing',
