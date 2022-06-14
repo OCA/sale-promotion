@@ -15,10 +15,7 @@ class TestSaleCouponCriteriaOrderBased(TestSaleCouponCommon):
         Check program rules based on order domain
         """
         partner_test = self.env["res.partner"].create(
-            {
-                "name": "Test",
-                "email": "test@example.com",
-            }
+            {"name": "Test", "email": "test@example.com",}
         )
         user_test = (
             self.env["res.users"]
@@ -73,7 +70,5 @@ class TestSaleCouponCriteriaOrderBased(TestSaleCouponCommon):
         order.user_id = user_test.id
         order.recompute_coupon_lines()
         self.assertEqual(
-            len(order.order_line.ids),
-            3,
-            "The promo offer should have been applied.",
+            len(order.order_line.ids), 3, "The promo offer should have been applied.",
         )
