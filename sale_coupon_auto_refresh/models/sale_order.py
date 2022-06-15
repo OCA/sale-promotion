@@ -32,7 +32,10 @@ class SaleOrder(models.Model):
         self_ctx = self.with_context(skip_auto_refresh_coupons=True)
         res = super(SaleOrder, self_ctx).write(vals)
         new_data = self._read_recs_data()
-        if old_data != new_data:
+        # Until we restart Odoo, we won't get new triggers from params. Once restarted
+        # the method will return an empty set.
+        new_triggers = self._new_trigger()
+        if old_data != new_data or any(x in new_triggers for x in vals):
             self._auto_refresh_coupons()
         return res
 
@@ -90,7 +93,10 @@ class SaleOrderLine(models.Model):
         res = super(SaleOrderLine, self_ctx).write(vals)
         new_data = self._read_recs_data()
         new_orders = self.mapped("order_id")
-        if old_data != new_data:
+        # Until we restart Odoo, we won't get new triggers from params. Once restarted
+        # the method will return an empty set.
+        new_triggers = self._new_trigger()
+        if old_data != new_data or any(x in new_triggers for x in vals):
             (old_orders | new_orders)._auto_refresh_coupons()
         return res
 
