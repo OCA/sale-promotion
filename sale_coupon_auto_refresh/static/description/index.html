@@ -391,6 +391,21 @@ ul.auto-toc {
 <li>Go to <em>Sales &gt; Configuration &gt; Settings</em></li>
 <li>In the <em>Pricing</em> section you’ll find the option <em>Auto refresh promotions</em>.</li>
 </ol>
+<p>The auto-refresh in the backend is triggered over a minimum set of fields changes. If
+you want to extend the list of that fields:</p>
+<ol class="arabic simple">
+<li>Go to <em>Settings &gt; Technical &gt; Config parameters</em></li>
+<li>Add or update the key:<ul>
+<li>For <cite>sale.order</cite>: <cite>sale_coupon_auto_refresh.sale_order_triggers</cite></li>
+<li>For <cite>sale.order.line</cite>: <cite>sale_coupon_auto_refresh.sale_order_line_triggers</cite></li>
+</ul>
+</li>
+<li>In every add the fields seperated by commas that you want to add to the recomputation
+triggers.</li>
+</ol>
+<p>⚠️ After configuring or removiming a trigger a restart of Odoo is recommended so the
+depends are reloaded properly. Anyway it isn’t mandatory and the module detects the
+new triggers so the auto-refresh works as expected as soon as they are set.</p>
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#id2">Usage</a></h1>
