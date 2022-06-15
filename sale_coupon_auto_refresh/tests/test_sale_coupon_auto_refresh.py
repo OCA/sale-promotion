@@ -40,6 +40,10 @@ class TestWebsiteSaleCouponAutorefresh(common.SavepointCase):
         coupon_program_form.rule_minimum_amount = 100
         cls.coupon_program = coupon_program_form.save()
         cls.coupon_program.company_id.auto_refresh_coupon = True
+        # Let's configure an extra trigger
+        cls.env["ir.config_parameter"].set_param(
+            "sale_coupon_auto_refresh.sale_order_triggers", "note"
+        )
 
     def test_01_sale_coupon_auto_refresh_on_create(self):
         """Checks reward line proper creation after product line is added"""
@@ -129,3 +133,24 @@ class TestWebsiteSaleCouponAutorefresh(common.SavepointCase):
         sale = sale_form.save()
         discount_line = sale.order_line.filtered("is_reward_line")
         self.assertFalse(bool(discount_line))
+
+    def test_04_sale_coupon_auto_refresh_custom_triggers(self):
+        """Checks reward line proper update after product line is modified"""
+        self.env.company.auto_refresh_coupon = False
+        sale_form = Form(self.env["sale.order"])
+        sale_form.partner_id = self.partner
+        # Create a product line that would trigger the reward but we disabled it by
+        # context
+        with sale_form.order_line.new() as line_form:
+            line_form.product_id = self.product
+            line_form.product_uom_qty = 10
+            line_form.price_unit = 20
+        sale = sale_form.save()
+        discount_line = sale.order_line.filtered("is_reward_line")
+        self.assertFalse(bool(discount_line))
+        self.env.company.auto_refresh_coupon = True
+        sale.with_context(skip_auto_refresh_coupons=False).note = "Refresh!"
+        # The promotions recompute is triggered an thus we get our reward
+        discount_line = sale.order_line.filtered("is_reward_line")
+        self.assertEqual(1, len(discount_line), "There should be a reward line")
+        self.assertAlmostEqual(-100, discount_line.price_unit)
