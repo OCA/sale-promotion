@@ -8,7 +8,9 @@ class SaleCouponCriteria(models.Model):
     _name = "sale.coupon.criteria"
     _description = "Coupon Multi Product Criteria"
 
-    program_id = fields.Many2one(comodel_name="sale.coupon.program",)
+    program_id = fields.Many2one(
+        comodel_name="coupon.program",
+    )
     rule_min_quantity = fields.Integer(
         string="Min. Quantity",
         compute="_compute_rule_min_quantity",
@@ -17,10 +19,13 @@ class SaleCouponCriteria(models.Model):
         help="Minimum required product quantity to get the reward",
     )
     product_ids = fields.Many2many(
-        comodel_name="product.product", required=True, string="Products",
+        comodel_name="product.product",
+        required=True,
+        string="Products",
     )
     repeat_product = fields.Boolean(
-        string="Repeat", help="Can product quantities count multiple times or not",
+        string="Repeat",
+        help="Can product quantities count multiple times or not",
     )
 
     @api.depends("product_ids", "repeat_product")
