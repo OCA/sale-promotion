@@ -3,7 +3,7 @@
 {
     "name": "Coupons multi product criteria",
     "summary": "Allows to set as promotion criteria multi-product conditions",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
