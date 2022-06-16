@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="sale_coupon_program_view_form_common" model="ir.ui.view">
-        <field
-            name="inherit_id"
-            ref="sale_coupon.sale_coupon_program_view_form_common"
-        />
-        <field name="model">sale.coupon.program</field>
+    <record id="coupon_program_view_form_common" model="ir.ui.view">
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
+        <field name="model">coupon.program</field>
         <field name="arch" type="xml">
             <field name="rule_products_domain" position="before">
-                <field name="sale_coupon_criteria" widget="radio" />
+                <field name="coupon_criteria" widget="radio" />
                 <field
-                    name="sale_coupon_criteria_ids"
-                    attrs="{'invisible': [('sale_coupon_criteria', '!=', 'multi_product')]}"
+                    name="coupon_criteria_ids"
+                    attrs="{'invisible': [('coupon_criteria', '!=', 'multi_product')]}"
                 >
                     <tree editable="bottom">
                         <field name="rule_min_quantity" string="Qty" />
@@ -23,7 +20,7 @@
             <field name="rule_products_domain" position="attributes">
                 <attribute
                     name="attrs"
-                >{'invisible': [('sale_coupon_criteria', '!=', 'domain')]}</attribute>
+                >{'invisible': [('coupon_criteria', '!=', 'domain')]}</attribute>
             </field>
         </field>
     </record>
