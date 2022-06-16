@@ -4,9 +4,9 @@ from odoo import api, fields, models
 
 
 class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+    _inherit = "coupon.program"
 
-    sale_coupon_criteria = fields.Selection(
+    coupon_criteria = fields.Selection(
         selection=[("domain", "Domain"), ("multi_product", "Multi Product")],
         string="Coupon criteria",
         help="- Domain: Standard behavior. The products are evaluated by domain.\n"
@@ -14,16 +14,16 @@ class SaleCouponProgram(models.Model):
         "and all of the have to be fulfilled",
         default="domain",
     )
-    sale_coupon_criteria_ids = fields.One2many(
+    coupon_criteria_ids = fields.One2many(
         string="Multi Product Criterias",
         comodel_name="sale.coupon.criteria",
         inverse_name="program_id",
     )
 
-    @api.onchange("sale_coupon_criteria")
-    def _onchange_sale_coupon_criteria(self):
+    @api.onchange("coupon_criteria")
+    def _onchange_coupon_criteria(self):
         """Clear domain so we clear some other fields from the view"""
-        if self.sale_coupon_criteria == "multi_product":
+        if self.coupon_criteria == "multi_product":
             self.rule_products_domain = False
 
     def _filter_programs_on_products(self, order):
@@ -35,9 +35,9 @@ class SaleCouponProgram(models.Model):
         - No repeat: one unit every product in the criteria.
         All the criterias defined in a program must be fulfilled.
         """
-        domain_programs = self.filtered(lambda x: x.sale_coupon_criteria == "domain")
+        domain_programs = self.filtered(lambda x: x.coupon_criteria == "domain")
         multi_product_programs = (self - domain_programs).filtered(
-            "sale_coupon_criteria_ids"
+            "coupon_criteria_ids"
         )
         # We'll return them altogether
         valid_domain_criteria_programs = super(
@@ -54,7 +54,7 @@ class SaleCouponProgram(models.Model):
         valid_multi_product_criteria_programs = multi_product_programs
         for program in multi_product_programs:
             criterias_are_valid = True
-            for criteria in program.sale_coupon_criteria_ids:
+            for criteria in program.coupon_criteria_ids:
                 valid_products = program._get_valid_products_multi_product(
                     products, criteria
                 )

@@ -34,7 +34,7 @@ class TestSaleCouponCriteriaMultiProduct(common.SavepointCase):
         cls.product_e = product_obj.create({"name": "Product E", "list_price": 70})
         cls.product_f = product_obj.create({"name": "Product F", "list_price": 60})
         coupon_program_form = Form(
-            cls.env["sale.coupon.program"],
+            cls.env["coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Test Criteria Multi Product Program"
@@ -43,7 +43,7 @@ class TestSaleCouponCriteriaMultiProduct(common.SavepointCase):
         coupon_program_form.discount_apply_on = "on_order"
         coupon_program_form.discount_type = "percentage"
         coupon_program_form.discount_percentage = 10
-        coupon_program_form.sale_coupon_criteria = "multi_product"
+        coupon_program_form.coupon_criteria = "multi_product"
         # This is the set of criterias that the order must fulfill for the program to
         # be applied.
         #  Qty |    Products    | Repeat
@@ -51,12 +51,12 @@ class TestSaleCouponCriteriaMultiProduct(common.SavepointCase):
         #    1 | Prod A         |
         #    2 | Prod B, Prod C |
         #    3 | Prod D, Prod E |  Yes
-        with coupon_program_form.sale_coupon_criteria_ids.new() as criteria:
+        with coupon_program_form.coupon_criteria_ids.new() as criteria:
             criteria.product_ids.add(cls.product_a)
-        with coupon_program_form.sale_coupon_criteria_ids.new() as criteria:
+        with coupon_program_form.coupon_criteria_ids.new() as criteria:
             criteria.product_ids.add(cls.product_b)
             criteria.product_ids.add(cls.product_c)
-        with coupon_program_form.sale_coupon_criteria_ids.new() as criteria:
+        with coupon_program_form.coupon_criteria_ids.new() as criteria:
             criteria.repeat_product = True
             criteria.product_ids.add(cls.product_d)
             criteria.product_ids.add(cls.product_e)
