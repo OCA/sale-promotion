@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Coupon program form override -->
+    <record id="sale_coupon_program_view_coupon_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_coupon_program_form"
+        />
+        <field name="arch" type="xml">
+            <field name="discount_line_product_id" position="after">
+                <field
+                    name="invoice_on_delivered"
+                    attrs="{'invisible': [('discount_line_product_id', '=', False)]}"
+                />
+            </field>
+        </field>
+    </record>
+
+    <!-- Promo program form override -->
+    <record id="sale_coupon_program_view_promo_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_promo_program_form"
+        />
+        <field name="arch" type="xml">
+            <field name="discount_line_product_id" position="after">
+                <field
+                    name="invoice_on_delivered"
+                    attrs="{'invisible': [('discount_line_product_id', '=', False)]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
