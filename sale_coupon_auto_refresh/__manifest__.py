@@ -4,7 +4,7 @@
 {
     "name": "Auto Refresh Coupons",
     "summary": "Allows to auto-apply the coupons with no user intervention",
-    "version": "13.0.1.1.0",
+    "version": "13.0.1.1.1",
     "development_status": "Production/Stable",
     "category": "Website",
     "website": "https://github.com/OCA/sale-promotion",
