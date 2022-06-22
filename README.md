@@ -24,7 +24,7 @@ addon | version | maintainers | summary
 [sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 14.0.1.0.3 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) [![SilvioC2C](https://github.com/SilvioC2C.png?size=30px)](https://github.com/SilvioC2C) | Allows to auto-apply the coupons with no user intervention
 [sale_coupon_criteria_order_based](sale_coupon_criteria_order_based/) | 14.0.1.0.0 |  | Allows to set a sales order related domain for coupon
 [sale_coupon_delivery_auto_refresh](sale_coupon_delivery_auto_refresh/) | 14.0.1.0.0 |  | Allows to auto-apply the coupons after adding delivery line
-[sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 14.0.1.0.0 |  | Apply discount only to the domain matching products
+[sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 14.0.1.1.0 |  | Apply discount only to the domain matching products
 [sale_coupon_order_line_link](sale_coupon_order_line_link/) | 14.0.1.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between coupons and their generated order lines for easing tracking
 [sale_coupon_reward_add_product](sale_coupon_reward_add_product/) | 14.0.1.0.0 | [![jcoux](https://github.com/jcoux.png?size=30px)](https://github.com/jcoux) [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sale Coupon Automatic free product as normal
 [sale_coupon_reward_fixed_price](sale_coupon_reward_fixed_price/) | 14.0.1.0.0 |  | Apply fixed price for domain matching products
