@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo13-addon-sale_coupon_multi_gift',
         'odoo13-addon-sale_coupon_multiplier_free_product',
         'odoo13-addon-sale_coupon_order_line_link',
+        'odoo13-addon-sale_coupon_order_suggestion',
         'odoo13-addon-sale_coupon_partner',
         'odoo13-addon-sale_coupon_selection_wizard',
         'odoo13-addon-website_sale_coupon_page',
