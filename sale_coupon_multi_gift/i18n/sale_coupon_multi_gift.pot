@@ -96,6 +96,16 @@ msgid "Multi Gift"
 msgstr ""
 
 #. module: sale_coupon_multi_gift
+#: model:ir.model.fields,field_description:sale_coupon_multi_gift.field_sale_order_line__multi_gift_reward_line_id
+msgid "Multi Gift Reward Line"
+msgstr ""
+
+#. module: sale_coupon_multi_gift
+#: model:ir.model.fields,field_description:sale_coupon_multi_gift.field_sale_order_line__multi_gift_reward_line_id_option_product_id
+msgid "Multi Gift Reward Line Id Option Product"
+msgstr ""
+
+#. module: sale_coupon_multi_gift
 #: model_terms:ir.ui.view,arch_db:sale_coupon_multi_gift.sale_coupon_program_view_form_common
 msgid "Qty"
 msgstr ""
