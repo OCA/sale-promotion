@@ -1,9 +1,10 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import Form, common
+from odoo.tests import Form, common, tagged
 
 
-class TestWebsiteSaleCouponAutorefresh(common.SavepointCase):
+@tagged("post_install", "-at_install")
+class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
