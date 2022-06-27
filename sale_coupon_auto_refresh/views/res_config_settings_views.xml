@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='group_discount_per_so_line']/../../.."
+                position="inside"
+            >
+                <div
+                    class="col-12 col-lg-6 o_setting_box"
+                    id="auto_refresh_coupons_settings"
+                    title="Auto-refresh coupons"
+                >
+                    <div class="o_setting_left_pane">
+                        <field name="auto_refresh_coupon" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="auto_refresh_coupon"
+                            string="Auto refresh coupons"
+                        />
+                        <span
+                            class="fa fa-lg fa-building-o"
+                            title="Values set here are company-specific."
+                            groups="base.group_multi_company"
+                        />
+                        <div class="text-muted">
+                            When the sale order is updated, auto-refresh the promotion programs which are set to auto apply
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
