@@ -17,11 +17,23 @@ class SaleCouponRefreshMixin(models.AbstractModel):
 
     @api.model
     def _get_auto_refresh_coupons_triggers(self) -> set:
-        """Returns set of fields which trigger the recomputation
+        """Returns set of fields which trigger the recomputation.
 
-        Hook method to be overridden if necessary
+        Configure additional triggers via config parameters, setting them up
+        as list of fields separated by commas. For example, for sale.order,
+        the param key would be sale_coupon_auto_refresh.sale_order_triggers,
+        and the value something like: "warehouse_id,carrier_id".
+
+        The method is overriden in the proper modules to set some basic triggers though
         """
-        return set()
+        additional_triggers = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("sale_coupon_auto_refresh.%s_triggers" % (self._table), "")
+            .replace(" ", "")
+            .split(",")
+        )
+        return {x for x in additional_triggers if x in self._fields}
 
     @api.depends(lambda self: list(self._get_auto_refresh_coupons_triggers()))
     def _compute_auto_refresh_coupon_triggers_data(self):
@@ -49,6 +61,14 @@ class SaleCouponRefreshMixin(models.AbstractModel):
         return sorted(
             self.read(["auto_refresh_coupon_triggers_data"]), key=lambda d: d["id"]
         )
+
+    @api.model
+    def _new_trigger(self) -> set:
+        """Until we restart Odoo, we won't get new triggers from params. This method
+        ensures that no trigger is missed in the meantime"""
+        field_depends = self._fields.get("auto_refresh_coupon_triggers_data").depends
+        triggers = self._get_auto_refresh_coupons_triggers()
+        return {x for x in triggers if x not in field_depends}
 
     def _check_skip_refresh(self):
         """Checks whether refresh should be skipped
