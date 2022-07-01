@@ -164,10 +164,12 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     multi_gift_reward_line_id = fields.Many2one(
-        comodel_name="sale.coupon.reward.product_line", readonly=True,
+        comodel_name="sale.coupon.reward.product_line",
+        readonly=True,
     )
     multi_gift_reward_line_id_option_product_id = fields.Many2one(
-        comodel_name="product.product", readonly=True,
+        comodel_name="product.product",
+        readonly=True,
     )
 
     def unlink(self):
