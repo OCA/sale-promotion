@@ -29,6 +29,7 @@ addon | version | maintainers | summary
 [sale_coupon_order_line_link](sale_coupon_order_line_link/) | 14.0.1.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between coupons and their generated order lines for easing tracking
 [sale_coupon_reward_add_product](sale_coupon_reward_add_product/) | 14.0.1.0.0 | [![jcoux](https://github.com/jcoux.png?size=30px)](https://github.com/jcoux) [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sale Coupon Automatic free product as normal
 [sale_coupon_reward_fixed_price](sale_coupon_reward_fixed_price/) | 14.0.1.0.0 |  | Apply fixed price for domain matching products
+[sale_promotion_discount_in_field](sale_promotion_discount_in_field/) | 14.0.1.0.0 |  | Put promotion discount into discount field
 
 [//]: # (end addons)
 
