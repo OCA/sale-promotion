@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="gift_card_form_view">
+        <field name="name">Gift Cards form</field>
+        <field name="model">gift.card</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group name="attributes">
+                            <field name="name" />
+                            <field name="gift_card_tmpl_id" readonly="1" />
+                            <field name="buyer_id" readonly="1" />
+                            <field name="beneficiary_id" readonly="1" />
+                            <field name="sale_id" readonly="1" />
+                            <field name="code" readonly="1" />
+                            <field
+                                name="state"
+                                readonly="1"
+                                decoration-success="state == 'active'"
+                                decoration-info="state == 'not_activated'"
+                                decoration-danger="state == 'outdated' or state == 'soldout'"
+                                widget="badge"
+                            />
+                        </group>
+                        <group name="amounts" string="Amounts">
+                            <field name="initial_amount" readonly="1" />
+                            <field name="available_amount" readonly="1" />
+                            <field name="total_amount_used" readonly="1" />
+                        </group>
+                        <group name="configuration" string="Configuration">
+                            <field name="is_divisible" />
+                            <field name="duration" />
+                            <field name="start_date" readonly="1" />
+                            <field name="end_date" />
+                            <field name="information" />
+                        </group>
+                        <group name="accounting" string="Accounting">
+                            <field name="journal_id" />
+                            <field name="currency_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="gift_cards" string="Gift Cards">
+                            <field
+                                name="gift_card_line_ids"
+                                context="{
+                                    'default_gift_card_id': active_id,
+                                }"
+                            >
+                                <tree string="Gift Cards Lines">
+                                     <field name="payment_id" />
+                                     <field name="validation_mode" />
+                                     <field name="amount_used" />
+                                </tree>
+                            </field>
+                        </page>
+                </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="gift_card_tree_view">
+        <field name="name">Gift Cards tree</field>
+        <field name="model">gift.card</field>
+        <field name="arch" type="xml">
+            <tree string="Gift Cards">
+                 <field name="name" />
+                 <field name="gift_card_tmpl_id" />
+                 <field name="initial_amount" />
+                 <field name="available_amount" />
+                 <field name="is_divisible" />
+                 <field
+                    name="state"
+                    decoration-success="state == 'active'"
+                    decoration-info="state == 'not_activated'"
+                    decoration-danger="state == 'outdated' or state == 'soldout'"
+                    widget="badge"
+                />
+                 <field name="start_date" optional="show" />
+                 <field name="end_date" optional="show" />
+                 <field name="duration" optional="show" />
+                 <field name="buyer_id" optional="show" />
+                 <field name="beneficiary_id" optional="show" />
+                 <field name="sale_id" optional="hide" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="gift_card_view_search" model="ir.ui.view">
+            <field name="name">gift card search</field>
+            <field name="model">gift.card</field>
+            <field name="arch" type="xml">
+                <search string="Search Gift Card Line">
+                    <field
+                    name="name"
+                    string="Gift Cards"
+                    filter_domain="['|', ('name', 'ilike', self), ('origin', 'ilike', self)]"
+                />
+                    <filter
+                    string="Active"
+                    name="active"
+                    domain="[('state', '=', 'active')]"
+                />
+                    <filter
+                    string="Not yet Activated"
+                    name="not_yet_active"
+                    domain="[('state', '=', 'not_activated')]"
+                />
+                    <filter
+                    string="Outdated"
+                    name="outdated"
+                    domain="[('state', '=', 'outdated')]"
+                />
+                    <filter
+                    string="Soldout"
+                    name="soldout"
+                    domain="[('state', '=', 'soldout')]"
+                />
+                    <separator />
+                    <group expand="0" string="Group By...">
+                        <filter
+                        string="Gift Card Template"
+                        name="product"
+                        domain="[]"
+                        context="{'group_by': 'gift_card_tmpl_id'}"
+                    />
+                        <filter
+                        string="Status"
+                        name="status"
+                        domain="[]"
+                        context="{'group_by': 'state'}"
+                    />
+                    </group>
+               </search>
+            </field>
+        </record>
+
+
+    <!-- Action -->
+     <record id="gift_card_action" model="ir.actions.act_window">
+        <field name="name">Gift Cards</field>
+        <field name="res_model">gift.card</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="gift_card_view_search" />
+        <field
+            name="view_ids"
+            eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('gift_card_tree_view')})]"
+        />
+    </record>
+
+    <menuitem
+        id="menu_giftcard_config"
+        action="gift_card.gift_card_action"
+        parent="sale.product_menu_catalog"
+        name="Gift Cards"
+        groups="sales_team.group_sale_manager"
+        sequence="7"
+    />
+
+</odoo>

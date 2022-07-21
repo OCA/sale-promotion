@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+        <record id="product_gift_card" model="gift.card.template">
+                <field name="name">Gift Card</field>
+                <field name="sale_ok">True</field>
+                <field name="type">service</field>
+                <field name="is_divisible">True</field>
+                <field name="duration">12</field>
+                <field name="invoice_policy">order</field>
+                <field name="uom_id" ref="uom.product_uom_unit" />
+                <field name="categ_id" ref="product.product_category_all" />
+        </record>
+
+        <record id="sequence_gift_card" model="ir.sequence">
+           <field name="name">Gift Card</field>
+           <field name="code">gift.card</field>
+           <field name="prefix">GiftCard-</field>
+           <field name="padding">4</field>
+        </record>
+
+        <record id="gift_card_journal" model="account.journal">
+                <field name="code">GiftCard</field>
+                <field name="name">Gift Cards Journal</field>
+                <field name="type">bank</field>
+        </record>
+</odoo>

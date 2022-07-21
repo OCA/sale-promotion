@@ -1,0 +1,51 @@
+<odoo>
+    <record id="view_account_payment_register_form" model="ir.ui.view">
+        <field name="name">account.payment.register.form</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account.view_account_payment_register_form" />
+        <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]" />
+        <field name="arch" type="xml">
+            <xpath expr="/form/group/group[@name='group3']" position="after">
+                <group>
+                    <field name="is_gift_card_payment" />
+                </group>
+                <group
+                    name="gift_card_payment"
+                    attrs="{'invisible': [('is_gift_card_payment', '=', False)]}"
+                >
+                <group>
+                    <field name="gift_card_code" />
+                    <field name="partner_id" invisible="1" />
+                    <button name="button_add_gift_card_from_code" type="object">
+                        <i class="fa fa-arrow-right mr-1" />Add
+                    </button>
+                    <field
+                            name="gift_card_selected_id"
+                            domain='[ ("state","=","active"),("beneficiary_id","=", partner_id)]'
+                            options="{'no_create_edit': True, 'no_quick_create':True}"
+                        />
+                    <button name="button_add_gift_card_from_partner" type="object">
+                        <i class="fa fa-arrow-right mr-1" />Add
+                    </button>
+                </group>
+
+            <group>
+                <field
+                            name="gift_card_ids"
+                            nolabel="1"
+                            widget="one2many_list"
+                            mode="tree"
+                        >
+                    <tree create="0" editable="top">
+                      <field name="gc_name" readonly="1" />
+                      <field name="gc_amount_available" readonly="1" />
+                      <field name="gc_amount_used" />
+                    </tree>
+                </field>
+            </group>
+        </group>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

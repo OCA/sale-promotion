@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gift_card,gift.card,model_gift_card,base.group_user,1,1,1,1
+access_gift.card.selected.wizard,gift.card.selected.wizard,model_gift_card_selected_wizard,base.group_user,1,1,1,1
+access_gift_card_line,gift.card.line,model_gift_card_line,base.group_user,1,1,1,1
+access_gift.card.template,gift.card.template,model_gift_card_template,base.group_user,1,1,1,1
