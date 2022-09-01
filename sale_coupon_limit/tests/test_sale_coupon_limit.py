@@ -263,7 +263,7 @@ class TestSaleCouponLimit(common.SavepointCase):
         last_coupon = next(coupons)
         sale_3 = self._create_sale(self.partner_1, self.salesman_1)
         with self.assertRaises(UserError):
-            self._apply_coupon(sale_3, last_coupon.code, bp=True)
+            self._apply_coupon(sale_3, last_coupon.code)
         # We can't apply with salesmen not in the list either
         sale_4 = self._create_sale(self.partner_1)
         with self.assertRaises(UserError):
