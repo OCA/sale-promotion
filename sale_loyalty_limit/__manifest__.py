@@ -3,7 +3,7 @@
 {
     "name": "Sale Coupon Limit",
     "summary": "Restrict number of promotions per customer or salesman",
-    "version": "13.0.1.1.4",
+    "version": "13.0.1.1.5",
     "development_status": "Beta",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
