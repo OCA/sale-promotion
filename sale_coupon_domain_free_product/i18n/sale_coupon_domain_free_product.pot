@@ -1,0 +1,108 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_coupon_domain_free_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model.fields,help:sale_coupon_domain_free_product.field_sale_coupon_program__reward_type
+#: model:ir.model.fields,help:sale_coupon_domain_free_product.field_sale_coupon_reward__reward_type
+msgid ""
+"Discount - Reward will be provided as discount.\n"
+"Free Product - Free product will be provide as reward \n"
+"Free Shipping - Free shipping will be provided as reward (Need delivery module)"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: code:addons/sale_coupon_domain_free_product/models/sale_order.py:0
+#, python-format
+msgid "Free Product"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: code:addons/sale_coupon_domain_free_product/models/sale_coupon_reward.py:0
+#, python-format
+msgid "Free Products"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model.fields,help:sale_coupon_domain_free_product.field_sale_coupon_program__strict_per_product_limit
+#: model:ir.model.fields,help:sale_coupon_domain_free_product.field_sale_coupon_rule__strict_per_product_limit
+msgid ""
+"In a discount on selected products reward for every product meeting the "
+"product domain condition, the minimum quantity/amount will be computed "
+"separately"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model_terms:ir.ui.view,arch_db:sale_coupon_domain_free_product.sale_coupon_program_view_form_common
+msgid "Max quantity"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model.fields,field_description:sale_coupon_domain_free_product.field_sale_coupon_program__reward_product_max_quantity
+#: model:ir.model.fields,field_description:sale_coupon_domain_free_product.field_sale_coupon_reward__reward_product_max_quantity
+msgid "Max reward quantity"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model.fields,help:sale_coupon_domain_free_product.field_sale_coupon_program__reward_product_max_quantity
+#: model:ir.model.fields,help:sale_coupon_domain_free_product.field_sale_coupon_reward__reward_product_max_quantity
+msgid "Maximum reward product quantity (0 for no limit)"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model.fields.selection,name:sale_coupon_domain_free_product.selection__sale_coupon_reward__reward_type__free_product_domain
+msgid "Product Domain"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model_terms:ir.ui.view,arch_db:sale_coupon_domain_free_product.sale_coupon_program_view_form_common
+msgid "Quantity"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model.fields,field_description:sale_coupon_domain_free_product.field_sale_coupon_program__reward_type
+#: model:ir.model.fields,field_description:sale_coupon_domain_free_product.field_sale_coupon_reward__reward_type
+msgid "Reward Type"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model,name:sale_coupon_domain_free_product.model_sale_coupon_program
+msgid "Sales Coupon Program"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model,name:sale_coupon_domain_free_product.model_sale_coupon_reward
+msgid "Sales Coupon Reward"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model,name:sale_coupon_domain_free_product.model_sale_coupon_rule
+msgid "Sales Coupon Rule"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model,name:sale_coupon_domain_free_product.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model,name:sale_coupon_domain_free_product.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: sale_coupon_domain_free_product
+#: model:ir.model.fields,field_description:sale_coupon_domain_free_product.field_sale_coupon_program__strict_per_product_limit
+#: model:ir.model.fields,field_description:sale_coupon_domain_free_product.field_sale_coupon_rule__strict_per_product_limit
+msgid "Strict Per Product Limit"
+msgstr ""
