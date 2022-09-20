@@ -337,18 +337,6 @@ class TestSaleCouponInvoiceDeliveredInvoicing(TestSaleCouponInvoiceDeliveredComm
             [("name", "=", "Product Unit of Measure")]
         ).write({"digits": 8})
 
-        uom_category = self.env["uom.category"].create(
-            {"name": "Precise Unit of Measure Category for invoice_delivered promo"}
-        )
-        uom = self.env["uom.uom"].create(
-            {
-                "category_id": uom_category.id,
-                "name": "Precise Unit of Measure for invoice_delivered promo",
-                "rounding": 10**-8,
-            }
-        )
-        self.global_promo.discount_line_product_id.uom_id = uom
-
         order = self.empty_order
         self.env["sale.order.line"].create(
             {
@@ -517,7 +505,8 @@ class TestSaleCouponInvoiceDeliveredInvoicing(TestSaleCouponInvoiceDeliveredComm
         self.assertIn("Discount: 10%", invoice.invoice_line_ids[1].name)
         self.assertEqual(
             invoice.invoice_line_ids[1].quantity,
-            0.07300885,  # 0.92699115 - 0.85398230 = 0.07300885 (with full float should be 0.07300884955752207)
+            0.07300885,  # 0.92699115 - 0.85398230 = 0.07300885
+            # (with full float should be 0.07300884955752207)
             "Discount has been partially invoiced",
         )
         self.assertAlmostEqual(invoice.invoice_line_ids[1].price_unit, -22.6, 2)
@@ -564,7 +553,8 @@ class TestSaleCouponInvoiceDeliveredInvoicing(TestSaleCouponInvoiceDeliveredComm
         self.assertIn("Discount: 10%", invoice.invoice_line_ids[1].name)
         self.assertEqual(
             invoice.invoice_line_ids[1].quantity,
-            0.07300885,  # 1 - 0.92699115 = 0.07300885 (with full float should be 0.07300884955752207)
+            0.07300885,  # 1 - 0.92699115 = 0.07300885
+            # (with full float should be 0.07300884955752207)
             "Discount has been partially invoiced",
         )
         self.assertAlmostEqual(invoice.invoice_line_ids[1].price_unit, -22.6, 2)
