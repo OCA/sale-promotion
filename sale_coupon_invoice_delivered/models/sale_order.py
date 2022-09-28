@@ -220,6 +220,40 @@ class SaleOrderLine(models.Model):
             if line.qty_delivered_method == "reward_stock_move":
                 line.qty_delivered = line.delivered_reward_qty
 
+    def _get_precise_invoice_qty_for_reward_stock_move(self):
+        # Get the quantity from the ratio of the total invoiced price
+        # and the total reward price
+        invoiced_sum = 0.0
+        for invoice_line in self.invoice_lines:
+            if invoice_line.move_id.state != "cancel":
+                if invoice_line.move_id.move_type == "out_invoice":
+                    invoiced_sum += invoice_line.price_subtotal
+                elif invoice_line.move_id.move_type == "out_refund":
+                    invoiced_sum -= invoice_line.price_subtotal
+        return invoiced_sum / self.price_subtotal
+
+    @api.depends(
+        "invoice_lines.move_id.state", "invoice_lines.quantity", "price_subtotal"
+    )
+    def _get_invoice_qty(self):
+        for line in self:
+            if line.qty_delivered_method == "reward_stock_move":
+                line.qty_invoiced = (
+                    line._get_precise_invoice_qty_for_reward_stock_move()
+                )
+            else:
+                super(SaleOrderLine, line)._get_invoice_qty()
+
+    def _prepare_invoice_line(self, **optional_values):
+        res = super()._prepare_invoice_line(**optional_values)
+        if self.qty_delivered_method == "reward_stock_move":
+            res["quantity"] = 1
+            res["price_unit"] = (
+                self.delivered_reward_qty
+                - self._get_precise_invoice_qty_for_reward_stock_move()
+            ) * self.price_subtotal
+        return res
+
     @api.onchange("product_uom_qty")
     def _onchange_product_uom_qty(self):
         rv = super()._onchange_product_uom_qty()
