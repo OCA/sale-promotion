@@ -912,5 +912,5 @@ class TestSaleCouponInvoiceDeliveredInvoicing(TestSaleCouponInvoiceDeliveredComm
             1,
             "Discount has been partially invoiced",
         )
-        self.assertAlmostEqual(invoice.invoice_line_ids[1].price_unit, -1.6, 2)
+        self.assertAlmostEqual(invoice.invoice_line_ids[1].price_unit, -1.65, 2)
         self.assertAlmostEqual(invoice.invoice_line_ids[1].price_total, -1.65, 2)

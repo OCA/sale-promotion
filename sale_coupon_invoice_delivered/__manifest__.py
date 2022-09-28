@@ -10,7 +10,6 @@
     "author": "Akretion, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "data": [
-        "data/uom_data.xml",
         "views/coupon_program_views.xml",
     ],
     "auto_install": True,
