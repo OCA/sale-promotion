@@ -84,9 +84,7 @@ class SaleOrder(models.Model):
         )
         amount_total = sum(
             [
-                any(line.tax_id.mapped("price_include"))
-                and line.price_total
-                or line.price_subtotal
+                line.price_total if line.tax_id.price_include else line.price_subtotal
                 for line in self._get_base_order_lines(program)
             ]
         )
@@ -227,10 +225,20 @@ class SaleOrderLine(models.Model):
         for invoice_line in self.invoice_lines:
             if invoice_line.move_id.state != "cancel":
                 if invoice_line.move_id.move_type == "out_invoice":
-                    invoiced_sum += invoice_line.price_subtotal
+                    invoiced_sum += (
+                        invoice_line.price_total
+                        if any(invoice_line.tax_ids.mapped("price_include"))
+                        else invoice_line.price_subtotal
+                    )
                 elif invoice_line.move_id.move_type == "out_refund":
-                    invoiced_sum -= invoice_line.price_subtotal
-        return invoiced_sum / self.price_subtotal
+                    invoiced_sum -= (
+                        invoice_line.price_total
+                        if any(invoice_line.tax_ids.mapped("price_include"))
+                        else invoice_line.price_subtotal
+                    )
+        return invoiced_sum / (
+            self.price_total if self.tax_id.price_include else self.price_subtotal
+        )
 
     @api.depends(
         "invoice_lines.move_id.state", "invoice_lines.quantity", "price_subtotal"
@@ -251,7 +259,7 @@ class SaleOrderLine(models.Model):
             res["price_unit"] = (
                 self.delivered_reward_qty
                 - self._get_precise_invoice_qty_for_reward_stock_move()
-            ) * self.price_subtotal
+            ) * (self.price_total if self.tax_id.price_include else self.price_subtotal)
         return res
 
     @api.onchange("product_uom_qty")

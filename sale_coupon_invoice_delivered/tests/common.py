@@ -48,3 +48,14 @@ class TestSaleCouponInvoiceDeliveredCommon(TestSaleCouponCommon):
         )
 
         self.global_promo.invoice_on_delivered = True
+
+        self.tax_sale_10 = self.env["account.tax"].create(
+            {
+                "name": "Sale tax 10",
+                "type_tax_use": "sale",
+                "amount": "10.00",
+            }
+        )
+        self.tax_sale_20 = self.env["account.tax"].create(
+            {"name": "Sale tax 20", "type_tax_use": "sale", "amount": "20.00"}
+        )
