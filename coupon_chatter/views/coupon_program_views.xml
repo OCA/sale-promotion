@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="sale_coupon_program_view_form_common" model="ir.ui.view">
+    <record id="coupon_program_view_form_common" model="ir.ui.view">
         <field
             name="inherit_id"
-            ref="sale_coupon.sale_coupon_program_view_form_common"
+            ref="coupon.coupon_program_view_form_common"
         />
-        <field name="model">sale.coupon.program</field>
+        <field name="model">coupon.program</field>
         <field name="arch" type="xml">
             <sheet position="after">
                 <div class="oe_chatter">
@@ -17,13 +17,13 @@
         </field>
     </record>
     <record
-        id="sale_coupon.sale_coupon_program_action_coupon_program"
+        id="coupon.coupon_program_action_coupon_program"
         model="ir.actions.act_window"
     >
         <field name="view_mode">tree,kanban,form,activity</field>
     </record>
     <record
-        id="sale_coupon.sale_coupon_program_action_promo_program"
+        id="coupon.coupon_program_action_promo_program"
         model="ir.actions.act_window"
     >
         <field name="view_mode">tree,kanban,form,activity</field>
