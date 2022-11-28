@@ -4,5 +4,5 @@ from odoo import models
 
 
 class SaleCouponProgram(models.Model):
-    _name = "sale.coupon.program"
-    _inherit = ["sale.coupon.program", "mail.thread", "mail.activity.mixin"]
+    _name = "coupon.program"
+    _inherit = ["coupon.program", "mail.thread", "mail.activity.mixin"]
