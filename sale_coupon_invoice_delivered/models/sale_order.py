@@ -1,4 +1,5 @@
 from odoo import _, api, fields, models
+from odoo.tools import float_is_zero
 
 
 class SaleOrder(models.Model):
@@ -219,6 +220,11 @@ class SaleOrderLine(models.Model):
                 line.qty_delivered = line.delivered_reward_qty
 
     def _get_precise_invoice_qty_for_reward_stock_move(self):
+        total_price = (
+            self.price_total if self.tax_id.price_include else self.price_subtotal
+        )
+        if float_is_zero(total_price, precision_rounding=self.currency_id.rounding):
+            return 0
         # Get the quantity from the ratio of the total invoiced price
         # and the total reward price
         invoiced_sum = 0.0
@@ -236,9 +242,7 @@ class SaleOrderLine(models.Model):
                         if any(invoice_line.tax_ids.mapped("price_include"))
                         else invoice_line.price_subtotal
                     )
-        return invoiced_sum / (
-            self.price_total if self.tax_id.price_include else self.price_subtotal
-        )
+        return invoiced_sum / total_price
 
     @api.depends(
         "invoice_lines.move_id.state", "invoice_lines.quantity", "price_subtotal"
