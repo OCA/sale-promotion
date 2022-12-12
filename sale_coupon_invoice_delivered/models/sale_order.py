@@ -207,7 +207,7 @@ class SaleOrderLine(models.Model):
         super(SaleOrderLine, self)._compute_qty_delivered_method()
 
         for line in self:
-            if line.is_reward_line:
+            if line.is_reward_line and line.product_id.invoice_policy == "delivery":
                 line.qty_delivered_method = "reward_stock_move"
 
     @api.depends("delivered_reward_qty")
