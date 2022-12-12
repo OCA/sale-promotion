@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Coupon Promotion Product Domain Discount in Field",
+    "name": "Sale Coupon Promotion Product Domain Discount in Field",
     "version": "14.0.1.0.0",
     "summary": "Apply discount only to the domain matching products to discount field",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
