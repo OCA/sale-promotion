@@ -3,7 +3,7 @@
 from odoo.tests import Form, common
 
 
-class TestSaleCouponCriteriaMultiProduct(common.SavepointCase):
+class TestSaleCouponCriteriaMultiProduct(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
