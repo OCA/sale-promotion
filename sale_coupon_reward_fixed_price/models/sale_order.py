@@ -70,6 +70,9 @@ class SaleOrder(models.Model):
         """
         Update discount field by program
         """
+        # this context is used for compatibility with the sale_coupon_product_exclude module
+        self = self.with_context(current_coupon_program=program)
+
         price_unit = program.price_unit
         lines = self._get_paid_order_lines()
         if program.discount_apply_on == "cheapest_product":
