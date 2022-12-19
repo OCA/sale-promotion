@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="coupon_program_view_form_common" model="ir.ui.view">
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
+        <field name="model">coupon.program</field>
+        <field name="arch" type="xml">
+            <field name="discount_apply_on" position="after">
+                <field
+                    name="exclude_products_domain"
+                    widget="domain"
+                    options="{'model': 'product.product', 'in_dialog': true}"
+                    attrs="{'invisible': [('reward_type', 'in', ['product'])]}"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>
