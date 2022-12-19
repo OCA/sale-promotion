@@ -1,0 +1,1 @@
+odoo14-addon-sale_coupon_product_exclude @ git+https://github.com/OCA/sale-promotion@refs/pull/74/head#subdirectory=setup/sale_coupon_product_exclude
