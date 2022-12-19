@@ -48,11 +48,15 @@ class WebsiteSaleHttpCase(HttpCase):
     def test_ui_admin_user(self):
         """Test frontend tour with admin user."""
         self.start_tour(
-            "/promotions", "website_sale_coupon_page_admin", login="admin",
+            "/promotions",
+            "website_sale_coupon_page_admin",
+            login="admin",
         )
 
     def test_ui_portal_user(self):
         """Test frontend tour with demo user."""
         self.start_tour(
-            "/promotions", "website_sale_coupon_page_portal", login="portal",
+            "/promotions",
+            "website_sale_coupon_page_portal",
+            login="portal",
         )
