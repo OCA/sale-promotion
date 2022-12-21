@@ -4,11 +4,11 @@
 from odoo import fields, models
 
 
-class SaleCouponProgram(models.Model):
-    _name = "sale.coupon.program"
-    _inherit = ["sale.coupon.program", "image.mixin", "website.published.mixin"]
+class CouponProgram(models.Model):
+    _name = "coupon.program"
+    _inherit = ["coupon.program", "image.mixin", "website.published.mixin"]
+    _description = "Coupon display on a website"
 
     public_name = fields.Html(
-        string="Public Name",
         help="Name of the promo showed on website bellow the banner image.",
     )

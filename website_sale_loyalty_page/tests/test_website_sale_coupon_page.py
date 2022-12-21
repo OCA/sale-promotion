@@ -5,9 +5,11 @@ import io
 
 from PIL import Image
 
+from odoo.tests import tagged
 from odoo.tests.common import HttpCase
 
 
+@tagged("post_install", "-at_install")
 class WebsiteSaleHttpCase(HttpCase):
     def setUp(self):
         super().setUp()
@@ -16,7 +18,7 @@ class WebsiteSaleHttpCase(HttpCase):
         Image.new("RGB", (800, 500), "#FF0000").save(f, "JPEG")
         f.seek(0)
         image = base64.b64encode(f.read())
-        self.promo_public = self.env["sale.coupon.program"].create(
+        self.promo_public = self.env["coupon.program"].create(
             {
                 "program_type": "promotion_program",
                 "name": "Test 01",
@@ -27,7 +29,7 @@ class WebsiteSaleHttpCase(HttpCase):
             }
         )
         admin = self.env.ref("base.user_admin")
-        self.promo_private = self.env["sale.coupon.program"].create(
+        self.promo_private = self.env["coupon.program"].create(
             {
                 "program_type": "promotion_program",
                 "name": "Test 02",
@@ -36,7 +38,7 @@ class WebsiteSaleHttpCase(HttpCase):
                 "public_name": "<p>10% discount just for admin</p>",
             }
         )
-        self.promo_not_published = self.env["sale.coupon.program"].create(
+        self.promo_not_published = self.env["coupon.program"].create(
             {
                 "program_type": "promotion_program",
                 "name": "Test 03",

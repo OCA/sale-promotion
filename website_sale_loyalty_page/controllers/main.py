@@ -8,7 +8,7 @@ class WebsiteSale(http.Controller):
     @http.route(["""/promotions"""], type="http", auth="public", website=True)
     def promotion(self, **post):
         all_promos = (
-            request.env["sale.coupon.program"]
+            request.env["coupon.program"]
             .sudo()
             .search(
                 [
