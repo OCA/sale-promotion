@@ -37,13 +37,13 @@
                 >
                     <img
                         class="card-img-top img-fluid"
-                        t-attf-src="/web/image/sale.coupon.program/#{promo['id']}/image_1920"
+                        t-attf-src="/web/image/coupon.program/#{promo['id']}/image_1920"
                         t-att-alt="'%s' % promo['id']"
                         t-if="promo['image_1920']"
                     />
                 </a>
                 <div class="card-body" t-if="promo['public_name']">
-                    <div class="card-text" t-raw="promo['public_name']" />
+                    <div class="card-text" t-out="promo['public_name']" />
                 </div>
             </div>
             <div
@@ -71,7 +71,7 @@
                         </div>
                         <div class="modal-body">
                             <img
-                                t-attf-src="/web/image/sale.coupon.program/#{promo['id']}/image_1920"
+                                t-attf-src="/web/image/coupon.program/#{promo['id']}/image_1920"
                                 t-att-alt="'%s' % promo['id']"
                                 class="img-fluid"
                             />
