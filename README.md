@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [coupon_chatter](coupon_chatter/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Register messages and activities on the sale coupon records
+[website_sale_coupon_page](website_sale_coupon_page/) | 15.0.1.0.0 |  | Website Sale Coupon Page
 
 [//]: # (end addons)
 
