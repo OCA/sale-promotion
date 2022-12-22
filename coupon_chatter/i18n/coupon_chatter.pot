@@ -45,7 +45,7 @@ msgstr ""
 
 #. module: coupon_chatter
 #: model:ir.model,name:coupon_chatter.model_coupon_program
-msgid "Coupon Program"
+msgid "Coupon display on a website"
 msgstr ""
 
 #. module: coupon_chatter
