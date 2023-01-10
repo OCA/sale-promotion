@@ -111,6 +111,11 @@ class SaleOrder(models.Model):
             currently_discounted_amount += discount_line_amount
 
         for line in reward_lines:
+            if float_is_zero(
+                line.price_unit, precision_rounding=line.currency_id.rounding
+            ):
+                line.write({"delivered_reward_qty": 0})
+                continue
             line.write(
                 {
                     "delivered_reward_qty": discount_by_taxes.get(line.tax_id, 0)
