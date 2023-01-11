@@ -2,8 +2,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Sale Coupon Mas Mailing",
-    "version": "13.0.1.1.0",
+    "name": "Coupon Mas Mailing",
+    "version": "15.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/sale-promotion",
     "license": "AGPL-3",
