@@ -8,7 +8,7 @@ class MailingMailing(models.Model):
     _inherit = "mailing.mailing"
 
     program_id = fields.Many2one(
-        comodel_name="sale.coupon.program", string="Program", ondelete="cascade"
+        comodel_name="coupon.program", string="Program", ondelete="cascade"
     )
 
     @api.onchange("program_id")
