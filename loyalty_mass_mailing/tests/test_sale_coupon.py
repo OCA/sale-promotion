@@ -4,16 +4,16 @@
 from odoo.tests import common
 
 
-class TestSaleCoupon(common.SavepointCase):
+class TestSaleCoupon(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.partner_1 = cls.env["res.partner"].create({"name": "Test Partner 1"})
         cls.partner_2 = cls.env["res.partner"].create({"name": "Test Partner 2"})
-        cls.program_all_partners = cls.env["sale.coupon.program"].create(
+        cls.program_all_partners = cls.env["coupon.program"].create(
             {"name": "Test program all partners"}
         )
-        cls.program_custom_partners = cls.env["sale.coupon.program"].create(
+        cls.program_custom_partners = cls.env["coupon.program"].create(
             {
                 "name": "Test program custom partners",
                 "rule_partners_domain": [("id", "=", cls.partner_1.id)],
