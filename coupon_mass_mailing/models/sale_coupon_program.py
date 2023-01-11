@@ -5,7 +5,7 @@ from odoo import api, fields, models
 
 
 class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+    _inherit = "coupon.program"
 
     mailing_ids = fields.One2many(
         comodel_name="mailing.mailing",
@@ -28,7 +28,7 @@ class SaleCouponProgram(models.Model):
 
     def action_mailing_count(self):
         self.ensure_one()
-        action = self.env.ref("mass_mailing.mailing_mailing_action_mail")
+        xmlid = "mass_mailing.mailing_mailing_action_mail"
         model = self.env["ir.model"].search([("model", "=", "res.partner")])
         if not self.mailing_count:
             mailing = self.env["mailing.mailing"].create(
@@ -39,12 +39,12 @@ class SaleCouponProgram(models.Model):
                     "mailing_domain": self.rule_partners_domain,
                 }
             )
-            result = action.read()[0]
+            result = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
             result["res_id"] = mailing.id
             res = self.env.ref("mass_mailing.view_mail_mass_mailing_form", False)
             result["views"] = [(res and res.id or False, "form")]
         else:
-            result = action.read()[0]
+            result = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
             result["domain"] = [("id", "in", self.mailing_ids.ids)]
         # Set context and add defaults
         result["context"] = dict(self.env.context)
