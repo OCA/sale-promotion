@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo-addon-coupon_chatter>=15.0dev,<15.1dev',
+        'odoo-addon-coupon_mass_mailing>=15.0dev,<15.1dev',
         'odoo-addon-website_sale_coupon_page>=15.0dev,<15.1dev',
     ],
     classifiers=[
