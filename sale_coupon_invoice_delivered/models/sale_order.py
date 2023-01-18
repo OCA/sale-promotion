@@ -227,6 +227,12 @@ class SaleOrderLine(models.Model):
             if line.qty_delivered_method == "reward_stock_move":
                 line.qty_delivered = line.delivered_reward_qty
 
+    def write(self, vals):
+        res = super(SaleOrderLine, self).write(vals)
+        if "qty_delivered" in vals:
+            self.order_id._update_delivered_coupon_lines_quantity()
+        return res
+
     def _get_precise_invoice_qty_for_reward_stock_move(self):
         total_price = (
             self.price_total if self.tax_id.price_include else self.price_subtotal
