@@ -9,8 +9,6 @@
     "depends": ["sale_coupon", "sale_stock"],
     "author": "Akretion, Odoo Community Association (OCA)",
     "license": "LGPL-3",
-    "data": [
-        "views/coupon_program_views.xml",
-    ],
+    "data": ["views/coupon_program_views.xml", "views/sale_order_view.xml"],
     "auto_install": True,
 }

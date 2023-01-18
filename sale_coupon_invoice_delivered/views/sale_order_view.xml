@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+   <record id="sale_order_view_form" model="ir.ui.view">
+         <field name="model">sale.order</field>
+         <field name="inherit_id" ref="sale.view_order_form" />
+         <field name="priority">10</field>
+         <field name="arch" type="xml">
+            <xpath expr="//group[@name='note_group']" position="before">
+                <div class="oe_right">
+                    <button
+                        name="update_delivered_coupon_lines_quantity"
+                        class="btn btn-secondary"
+                        string="Force Update Delivered Promotion Quantity"
+                        type="object"
+                        groups="base.group_no_one"
+                        states="sale"
+                    />
+                </div>
+            </xpath>
+         </field>
+    </record>
+</odoo>

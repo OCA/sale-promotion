@@ -153,6 +153,9 @@ class SaleOrder(models.Model):
         super().recompute_coupon_lines()
         self._update_delivered_coupon_lines_quantity()
 
+    def update_delivered_coupon_lines_quantity(self):
+        self._update_delivered_coupon_lines_quantity()
+
     def _update_delivered_coupon_lines_quantity(self):
         applied_programs = self._get_applied_programs_with_rewards_on_current_order()
         order_lines = (
