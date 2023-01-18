@@ -10,7 +10,7 @@ class CouponProgram(models.Model):
         """Relay on the order line link for these programs instead of the discount
         products"""
         multi_gift_programs = self.filtered(lambda x: x.reward_type == "multi_gift")
-        super(CouponProgram, self - multi_gift_programs)._compute_order_count()
+        res = super(CouponProgram, self - multi_gift_programs)._compute_order_count()
         for program in multi_gift_programs:
             orders = self.env["sale.order.line"].read_group(
                 [
@@ -21,6 +21,7 @@ class CouponProgram(models.Model):
                 ["order_id"],
             )
             program.order_count = len(orders)
+        return res
 
     def action_view_sales_orders(self):
         res = super().action_view_sales_orders()
