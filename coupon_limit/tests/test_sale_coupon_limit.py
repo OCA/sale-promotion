@@ -1,10 +1,10 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.exceptions import UserError
-from odoo.tests import Form, common
+from odoo.tests import Form, TransactionCase
 
 
-class TestSaleCouponLimit(common.SavepointCase):
+class TestSaleCouponLimit(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
