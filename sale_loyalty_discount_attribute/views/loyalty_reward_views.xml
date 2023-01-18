@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_reward_form_view_inherit" model="ir.ui.view">
+        <field name="name">loyalty.reward.form.view.inherit</field>
+        <field name="model">loyalty.reward</field>
+        <field name="inherit_id" ref="loyalty.loyalty_reward_view_form" />
+        <field name="arch" type="xml">
+            <field name="discount_product_ids" position="after">
+                <field
+                    name="limit_discounted_attributes"
+                    attrs="{'invisible': [('discount_applicability', '!=', 'specific')]}"
+                />
+                <field
+                    name="discount_attribute_ids"
+                    widget="many2many_tags"
+                    attrs="{'invisible': [('limit_discounted_attributes', '=', 'disabled')]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
