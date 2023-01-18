@@ -93,6 +93,9 @@ class SaleOrder(models.Model):
         discount_by_taxes = {}
         currently_discounted_amount = 0
         for line in lines:
+            # If the line is a reward line, we should recompute the reward
+            # based on qty_delivered instead of taking the ratio of the
+            # full reward amount
             discount_line_amount = min(
                 line.qty_delivered
                 * line.price_reduce
@@ -163,6 +166,12 @@ class SaleOrder(models.Model):
             - self._get_reward_lines()
         )
         products = order_lines.mapped("product_id")
+
+        # Shortcut if everything non reward is delivered then all rewards are
+        # delivered
+        if all(line.qty_delivered == line.product_uom_qty for line in order_lines):
+            self._get_reward_lines().write({"delivered_reward_qty": 1})
+            return
 
         for program in applied_programs:
 
