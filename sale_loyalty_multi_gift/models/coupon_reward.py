@@ -17,18 +17,13 @@ class CouponReward(models.Model):
         """Add complete description for the multi gift reward type."""
         res = super().name_get()
         for reward in self.filtered(lambda x: x.reward_type == "multi_gift"):
-            reward_string = _(
-                "Free Products - %s"
-                % (
-                    ", ".join(
-                        "{}x {}".format(
-                            reward.reward_product_quantity,
-                            fields.first(reward.reward_product_ids).name,
-                        )
-                        for reward in reward.coupon_multi_gift_ids
-                    )
+            reward_string = _("Free Products - %(name)s") % {
+                "name": ", ".join(
+                    f"{reward.reward_product_quantity}x "
+                    f"{fields.first(reward.reward_product_ids).name}"
+                    for reward in reward.coupon_multi_gift_ids
                 )
-            )
+            }
             res.append((reward.id, reward_string))
         return res
 

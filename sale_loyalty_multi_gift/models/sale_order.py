@@ -127,14 +127,14 @@ class SaleOrder(models.Model):
                 and x.coupon_program_id in multi_gift_programs_to_remove
             ).unlink()
         # We'll catch the context in the subsequent unlink() method
-        super(
+        return super(
             SaleOrder, self.with_context(valid_multi_gift_lines=valid_lines.ids)
         )._remove_invalid_reward_lines()
 
     def _update_existing_reward_lines(self):
         """We need to match `multi gift` programs with their discount product"""
         self.ensure_one()
-        super(
+        res = super(
             SaleOrder, self.with_context(only_reward_lines=True)
         )._update_existing_reward_lines()
         applied_programs = self._get_applied_programs_with_rewards_on_current_order()
@@ -158,6 +158,7 @@ class SaleOrder(models.Model):
                         lines.write(values)
                     else:
                         lines.unlink()
+        return res
 
 
 class SaleOrderLine(models.Model):
