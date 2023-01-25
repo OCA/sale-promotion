@@ -4,10 +4,10 @@ from odoo import _, fields, models
 
 
 class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+    _inherit = "coupon.program"
 
     incompatible_promotion_ids = fields.Many2many(
-        comodel_name="sale.coupon.program",
+        comodel_name="coupon.program",
         relation="sale_coupon_program_incompatibility_rel",
         column1="program_id",
         column2="incompatible_program_id",
