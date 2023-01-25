@@ -5,6 +5,9 @@ from odoo.tools import float_is_zero
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    def _get_delivred_quantity_for_line(self, line):
+        return line.qty_delivered
+
     def _get_program_reward_lines_to_set_delivered_reward_qty(self, program):
         return self.order_line.filtered(
             lambda line: line.product_id == program.discount_line_product_id
@@ -19,8 +22,8 @@ class SaleOrder(models.Model):
         reward_lines = self._get_program_reward_lines_to_set_delivered_reward_qty(
             program
         )
-        reward_lines.write(
-            {"delivered_reward_qty": 1 if product_line.qty_delivered > 0 else 0}
+        reward_lines._set_delivered_reward_qty(
+            1 if self._get_delivred_quantity_for_line(product_line) > 0 else 0
         )
 
     def _set_delivered_reward_qty_for_program_discount_fixed_amount(self, program):
@@ -28,7 +31,7 @@ class SaleOrder(models.Model):
             program
         )
         # In case of fixed amount for now let's consider it delivered
-        reward_lines.write({"delivered_reward_qty": 1})
+        reward_lines._set_delivered_reward_qty(1)
 
     def _set_delivered_reward_qty_for_program_discount_percentage_cheapest_product(
         self, program
@@ -37,7 +40,9 @@ class SaleOrder(models.Model):
             program
         )
         line = self._get_cheapest_line()
-        reward_lines.write({"delivered_reward_qty": 1 if line.qty_delivered > 0 else 0})
+        reward_lines._set_delivered_reward_qty(
+            1 if self._get_delivred_quantity_for_line(line) > 0 else 0
+        )
 
     def _set_delivered_reward_qty_for_program_discount_percentage_specific_products(
         self, program
@@ -97,7 +102,7 @@ class SaleOrder(models.Model):
             # based on qty_delivered instead of taking the ratio of the
             # full reward amount
             discount_line_amount = min(
-                line.qty_delivered
+                self._get_delivred_quantity_for_line(line)
                 * line.price_reduce
                 * (program.discount_percentage / 100),
                 amount_total - currently_discounted_amount,
@@ -117,14 +122,21 @@ class SaleOrder(models.Model):
             if float_is_zero(
                 line.price_unit, precision_rounding=line.currency_id.rounding
             ):
-                line.write({"delivered_reward_qty": 0})
+                # If the price unit is 0, we should consider the reward
+                # as delivered
+                line._set_delivered_reward_qty(1)
                 continue
-            line.write(
-                {
-                    "delivered_reward_qty": discount_by_taxes.get(line.tax_id, 0)
-                    / line.price_unit
-                }
+
+            delivered_reward_qty = (
+                discount_by_taxes.get(line.tax_id, 0) / line.price_unit
             )
+            # Clamp the delivered reward qty between 0 and the qty of the line
+            # (which should be 1)
+            delivered_reward_qty = max(
+                0, min(delivered_reward_qty, line.product_uom_qty)
+            )
+
+            line._set_delivered_reward_qty(delivered_reward_qty)
 
     def _set_delivered_reward_qty_for_program_discount_percentage(self, program):
         if program.discount_apply_on == "cheapest_product":
@@ -169,8 +181,11 @@ class SaleOrder(models.Model):
 
         # Shortcut if everything non reward is delivered then all rewards are
         # delivered
-        if all(line.qty_delivered == line.product_uom_qty for line in order_lines):
-            self._get_reward_lines().write({"delivered_reward_qty": 1})
+        if all(
+            self._get_delivred_quantity_for_line(line) == line.product_uom_qty
+            for line in order_lines
+        ):
+            self._get_reward_lines()._set_delivered_reward_qty(1)
             return
 
         for program in applied_programs:
@@ -191,15 +206,16 @@ class SaleOrder(models.Model):
                 else program.reward_product_id
             )
             qty_delivered = sum(
-                order_lines.filtered(
+                self._get_delivred_quantity_for_line(line)
+                for line in order_lines.filtered(
                     lambda sol: sol.product_id in valid_products
-                ).mapped("qty_delivered")
+                )
             )
             if not qty_delivered:
                 reward_lines = (
                     self._get_program_reward_lines_to_set_delivered_reward_qty(program)
                 )
-                reward_lines.write({"delivered_reward_qty": 0})
+                reward_lines._set_delivered_reward_qty(0)
                 continue
 
             # Do we consider reward for rule_minimum_amount delivered only when
@@ -219,7 +235,7 @@ class SaleOrderLine(models.Model):
         digits=0,
     )
 
-    @api.depends("is_reward_line")
+    @api.depends("is_reward_line", "product_id.invoice_policy")
     def _compute_qty_delivered_method(self):
         super(SaleOrderLine, self)._compute_qty_delivered_method()
 
@@ -230,6 +246,7 @@ class SaleOrderLine(models.Model):
     @api.depends("delivered_reward_qty")
     def _compute_qty_delivered(self):
         # Might be interesting to directly compute delivered quantities here instead
+        # But it'll be a problem for chainable rewards
         super(SaleOrderLine, self)._compute_qty_delivered()
 
         for line in self:
@@ -312,3 +329,6 @@ class SaleOrderLine(models.Model):
             return {"warning": warning_mess}
 
         return rv
+
+    def _set_delivered_reward_qty(self, qty):
+        self.write({"delivered_reward_qty": qty})
