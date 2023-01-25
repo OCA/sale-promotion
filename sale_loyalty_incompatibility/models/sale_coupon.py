@@ -4,12 +4,13 @@ from odoo import _, models
 
 
 class SaleCoupon(models.Model):
-    _inherit = "sale.coupon"
+    _inherit = "coupon.coupon"
 
-    def _check_coupon_code(self, order):
+    def _check_coupon_code(self, order_date, partner_id, **kwargs):
         """Coupon incompatibility rules. Check the error strings for a detailed case
         detail."""
-        message = super()._check_coupon_code(order)
+        order = kwargs.get("order", False)
+        message = super()._check_coupon_code(order_date, partner_id, **kwargs)
         # Other errors may precede
         if message:
             return message

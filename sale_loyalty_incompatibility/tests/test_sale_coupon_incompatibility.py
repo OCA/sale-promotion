@@ -4,7 +4,7 @@ from odoo.exceptions import UserError
 from odoo.tests import Form, common
 
 
-class TestSaleCouponIncompatibility(common.SavepointCase):
+class TestSaleCouponIncompatibility(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -38,7 +38,7 @@ class TestSaleCouponIncompatibility(common.SavepointCase):
     def _create_coupon_program(self, product=False, code=False, apply_on_order=True):
         """Helper method to create coupon programs in the tests cases"""
         coupon_program_form = Form(
-            self.env["sale.coupon.program"],
+            self.env["coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Test Coupon Incompatibility"
@@ -62,7 +62,7 @@ class TestSaleCouponIncompatibility(common.SavepointCase):
 
     def _generate_coupons(self, program, number=1):
         """Helper method to easily generate coupons in the test cases"""
-        self.env["sale.coupon.generate"].with_context(active_id=program.id).create(
+        self.env["coupon.generate.wizard"].with_context(active_id=program.id).create(
             {"generation_type": "nbr_coupon", "nbr_coupons": number}
         ).generate_coupon()
         return program.coupon_ids
