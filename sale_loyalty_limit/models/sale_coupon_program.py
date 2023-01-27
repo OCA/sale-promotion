@@ -36,19 +36,19 @@ class CouponProgram(models.Model):
             if limit_reached and coupon_code:
                 return {
                     "error": _(
-                        "This promo code was already applied %s times for this "
-                        "customer and there's an stablished limit of %s for this "
+                        "This promo code was already applied %(count)s times for this "
+                        "customer and there's an stablished limit of %(max)s for this "
                         "promotion."
                     )
-                    % (order_count, self.rule_max_customer_application)
+                    % {"count": order_count, "max": self.rule_max_customer_application}
                 }
             elif limit_reached and not coupon_code:
                 return {
                     "error": _(
-                        "This promotion was already applied %s times for this "
-                        "customer and there's an stablished limit of %s."
+                        "This promotion was already applied %(count)s times for this "
+                        "customer and there's an stablished limit of %(max)s."
                     )
-                    % (order_count, self.rule_max_customer_application)
+                    % {"count": order_count, "max": self.rule_max_customer_application}
                 }
         # Salesmen limit rules
         salesman_rule = self.rule_salesmen_limit_ids.filtered(
@@ -59,11 +59,11 @@ class CouponProgram(models.Model):
         if times_used and times_used >= max_rule:
             return {
                 "error": _(
-                    "This promo code was already applied %s times for this "
-                    "salesman and there's an stablished limit of %s for this "
+                    "This promo code was already applied %(times)s times for this "
+                    "salesman and there's an stablished limit of %(max)s for this "
                     "promotion."
                 )
-                % (times_used, max_rule)
+                % {"times": times_used, "max": max_rule}
             }
         if self.rule_salesmen_strict_limit and not salesman_rule:
             return {"error": _("This promotion is restricted to the listed salesmen.")}

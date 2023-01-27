@@ -35,10 +35,13 @@ class SaleCoupon(models.Model):
             if coupons_count >= self.program_id.rule_max_customer_application:
                 return {
                     "error": _(
-                        "This promotion was already applied %s times for this "
-                        "customer and there's an stablished limit of %s."
+                        "This promotion was already applied %(count)s times for this "
+                        "customer and there's an stablished limit of %(max)s."
                     )
-                    % (coupons_count, self.program_id.rule_max_customer_application)
+                    % {
+                        "count": coupons_count,
+                        "max": self.program_id.rule_max_customer_application,
+                    }
                 }
         # Salesmen limit rules
         salesman_rule = self.program_id.rule_salesmen_limit_ids.filtered(
@@ -49,10 +52,10 @@ class SaleCoupon(models.Model):
         if times_used and times_used >= max_rule:
             return {
                 "error": _(
-                    "This promotion was already applied %s times for this "
-                    "salesman and there's an stablished limit of %s."
+                    "This promotion was already applied %(times)s times for this "
+                    "salesman and there's an stablished limit of %(max)s."
                 )
-                % (times_used, max_rule)
+                % {"times": times_used, "max": max_rule}
             }
         if self.program_id.rule_salesmen_strict_limit and not salesman_rule:
             return {"error": _("This promotion is restricted to the listed salesmen.")}
