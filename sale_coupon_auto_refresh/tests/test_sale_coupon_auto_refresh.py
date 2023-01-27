@@ -3,7 +3,7 @@
 from odoo.tests import Form, common
 
 
-class TestWebsiteSaleCouponAutorefresh(common.SavepointCase):
+class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
