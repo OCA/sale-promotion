@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_salesmen_limit_manager,salesmen_limit manager,model_coupon_rule_salesmen_limit,base.group_system,1,1,1,1

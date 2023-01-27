@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_coupon_program_view_form_common" model="ir.ui.view">
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
+        <field name="model">coupon.program</field>
+        <field name="arch" type="xml">
+            <field name="rule_products_domain" position="after">
+                <!-- rule_max_customer_application -->
+                <label
+                    string="Max. Customer Applications"
+                    for="rule_max_customer_application"
+                />
+                <div>
+                    <field name="rule_max_customer_application" class="oe_inline" />
+                </div>
+                <!-- rule_salesmen_limit_count -->
+                <label
+                    string="Max. Salesmen Applications"
+                    for="rule_salesmen_limit_count"
+                />
+                <div>
+                    <field name="rule_salesmen_limit_count" class="oe_inline" />
+                    <span class="oe_grey"> (                        <field
+                            name="rule_salesmen_limit_used_count"
+                            class="oe_inline"
+                        />
+ used already)</span>
+                </div>
+                <field name="rule_salesmen_strict_limit" />
+                <field name="rule_salesmen_limit_ids">
+                    <tree editable="bottom">
+                        <field
+                            sum="Total limit"
+                            name="rule_max_salesman_application"
+                            string="Max"
+                        />
+                        <field name="rule_user_id" />
+                        <field sum="Total used" name="rule_times_used" />
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+</odoo>
