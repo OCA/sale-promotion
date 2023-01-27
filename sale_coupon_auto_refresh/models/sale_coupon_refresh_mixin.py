@@ -66,7 +66,9 @@ class SaleCouponRefreshMixin(models.AbstractModel):
     def _new_trigger(self) -> set:
         """Until we restart Odoo, we won't get new triggers from params. This method
         ensures that no trigger is missed in the meantime"""
-        field_depends = self._fields.get("auto_refresh_coupon_triggers_data").depends
+        field_depends, _ = self._fields.get(
+            "auto_refresh_coupon_triggers_data"
+        ).get_depends(self._name)
         triggers = self._get_auto_refresh_coupons_triggers()
         return {x for x in triggers if x not in field_depends}
 
