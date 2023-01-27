@@ -6,13 +6,14 @@ from odoo import _, models
 class SaleCoupon(models.Model):
     _inherit = "coupon.coupon"
 
-    def _check_coupon_code(self, order):
+    def _check_coupon_code(self, order_date, partner_id, **kwargs):
         """Add customer and salesmen limit to program coupons. Check the error strings
         for a detailed case detail."""
-        message = super()._check_coupon_code(order)
-        if message:
+        message = super()._check_coupon_code(order_date, partner_id, **kwargs)
+        order = kwargs.get("order")
+        if message or not order:
             return message
-        # The module sale_couopon_selection_wizard works with new records to probe
+        # The module sale_coupon_selection_wizard works with new records to probe
         # if a promotion is applicable before apply it for sure. Thus we need to ensure
         # the right id in the domain.
         domain = [

@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
-    "name": "Sale Coupon Limit",
+    "name": "Coupon Limit",
     "summary": "Restrict number of promotions per customer or salesman",
     "version": "15.0.1.0.0",
     "development_status": "Production/Stable",
@@ -11,9 +11,9 @@
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
     "depends": [
-        "sale_coupon",
+        "coupon_limit",
         "sale_commercial_partner",
         "sale_coupon_order_line_link",
     ],
-    "data": ["views/coupon_program_views.xml", "security/ir.model.access.csv"],
+    "data": ["security/ir.model.access.csv"],
 }
