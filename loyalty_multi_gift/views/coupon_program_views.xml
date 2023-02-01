@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="coupon_program_view_form_common" model="ir.ui.view">
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
+        <field name="model">coupon.program</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='reward_product_id']/.." position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('reward_type', '=', 'multi_gift')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='reward_product_id']/.." position="before">
+                <group attrs="{'invisible': [('reward_type', '!=', 'multi_gift')]}">
+                    <field name="coupon_multi_gift_ids">
+                        <tree editable="top">
+                            <field name="reward_product_quantity" string="Qty" />
+                            <field
+                                name="reward_default_product_id"
+                                string="Default gift"
+                                readonly="1"
+                            />
+                            <field name="reward_product_ids" widget="many2many_tags" />
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
