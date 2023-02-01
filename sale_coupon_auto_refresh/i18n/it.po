@@ -67,36 +67,6 @@ msgid "Config Settings"
 msgstr "Impostazioni configurazione"
 
 #. module: sale_coupon_auto_refresh
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company__display_name
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_config_settings__display_name
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_apply_code__display_name
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_refresh_mixin__display_name
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__display_name
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line__display_name
-msgid "Display Name"
-msgstr "Nome Visualizzato"
-
-#. module: sale_coupon_auto_refresh
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company__id
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_config_settings__id
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_apply_code__id
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_refresh_mixin__id
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order__id
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line__id
-msgid "ID"
-msgstr "ID"
-
-#. module: sale_coupon_auto_refresh
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_company____last_update
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_res_config_settings____last_update
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_apply_code____last_update
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_coupon_refresh_mixin____last_update
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order____last_update
-#: model:ir.model.fields,field_description:sale_coupon_auto_refresh.field_sale_order_line____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: sale_coupon_auto_refresh
 #: model:ir.model,name:sale_coupon_auto_refresh.model_sale_coupon_refresh_mixin
 msgid "Mixin class for sale coupon auto-refresh features"
 msgstr "Classe mixin per funzionalità aggiornamento automatico coupon"
@@ -124,3 +94,12 @@ msgid ""
 msgstr ""
 "Quando l'ordine di vendita è aggiornato, aggiorna automaticamente le "
 "promozioni che sono impostate ad \"applica automaticamente\""
+
+#~ msgid "Display Name"
+#~ msgstr "Nome Visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
