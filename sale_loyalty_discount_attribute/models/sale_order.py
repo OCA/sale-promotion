@@ -11,8 +11,8 @@ class SaleOrder(models.Model):
         #
         self.ensure_one()
         res = super()._get_reward_values_discount(reward, coupon, **kwargs)
-        return_res = []
         LoyaltyReward = self.env["loyalty.reward"]
+        i = 0  # sets an index for res
         for discount in res:
             price_unit = discount.get("price_unit")
             reward = LoyaltyReward.browse(discount.get("reward_id"))
@@ -26,7 +26,10 @@ class SaleOrder(models.Model):
             so_lines = self.order_line.filtered(
                 lambda sol: sol.product_id in reward_products
             )
-            if reward.limit_discounted_attributes != "disabled":
+            if (
+                reward.limit_discounted_attributes
+                and reward.limit_discounted_attributes != "disabled"
+            ):
                 for value_line in so_lines.product_no_variant_attribute_value_ids:
                     if value_line.attribute_id not in reward_attributes:
                         price_unit += value_line.price_extra * discount_value
@@ -38,6 +41,8 @@ class SaleOrder(models.Model):
                         so_lines.product_id.list_price * len(so_lines) * discount_value
                     )
                 discount.update({"price_unit": price_unit})
-            return_res.append(discount)
+                # replaces the discount line
+                res[i] = discount
+                i += 1  # increments the index for res
 
-        return return_res
+        return res
