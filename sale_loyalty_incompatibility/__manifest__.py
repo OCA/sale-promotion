@@ -10,6 +10,5 @@
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
-    "depends": ["sale_coupon"],
-    "data": ["views/sale_coupon_program_views.xml"],
+    "depends": ["sale_coupon", "coupon_incompatibility"],
 }
