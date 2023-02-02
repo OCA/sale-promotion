@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* coupon_incompatibility
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-02 10:25+0000\n"
+"PO-Revision-Date: 2023-02-02 11:27+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: coupon_incompatibility
+#: model:ir.model,name:coupon_incompatibility.model_coupon_program
+msgid "Coupon display on a website"
+msgstr ""
+
+#. module: coupon_incompatibility
+#: model:ir.model.fields,field_description:coupon_incompatibility.field_coupon_program__incompatible_promotion_ids
+msgid "Incompatible Promotions"
+msgstr "Promociones incompatibles"
+
+#~ msgid "Coupon Program"
+#~ msgstr "Programa de cupones"
