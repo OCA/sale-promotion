@@ -1,4 +1,5 @@
 # Copyright 2021 Tecnativa - David Vidal
+# Copyright 2023 Tecnativa - Stefan Ungureanu
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Coupon incompatibilities",
@@ -10,5 +11,6 @@
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
-    "depends": ["sale_coupon", "coupon_incompatibility"],
+    "depends": ["coupon"],
+    "data": ["views/sale_coupon_program_views.xml"],
 }
