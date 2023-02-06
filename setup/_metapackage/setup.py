@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo-addon-sale_coupon_auto_refresh>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_limit>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_order_line_link>=15.0dev,<15.1dev',
+        'odoo-addon-sale_coupon_partner>=15.0dev,<15.1dev',
         'odoo-addon-website_sale_coupon_page>=15.0dev,<15.1dev',
     ],
     classifiers=[
