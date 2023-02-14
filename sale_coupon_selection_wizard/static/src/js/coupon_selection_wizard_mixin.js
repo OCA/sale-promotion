@@ -1,4 +1,4 @@
-odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
+odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function () {
     "use strict";
 
     var CouponSelectionMixin = {
@@ -16,7 +16,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
          * @override
          * @private
          */
-        _onFieldChanged: function(event) {
+        _onFieldChanged: function (event) {
             this._super.apply(this, arguments);
             var self = this;
             var program_id = event.data.changes.coupon_program_id.id;
@@ -24,7 +24,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
             if (!program_id) {
                 return;
             }
-            this._configure_promotion(program_id).then(function() {
+            this._configure_promotion(program_id).then(function () {
                 self.renderer.renderPromotion(self.renderer.promotionHtml);
             });
         },
@@ -34,7 +34,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
          * @param {integer} program_id
          * @returns {Promise}
          */
-        _configure_promotion: function(program_id) {
+        _configure_promotion: function (program_id) {
             var self = this;
             var initialProgram = this.initialState.data.coupon_program_id;
             var changed = initialProgram && initialProgram.data.id !== program_id;
@@ -50,13 +50,13 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
                     return result;
                 }, {})
             )
-                .filter(criteria => criteria[1] > 1)
-                .map(function(criteria) {
+                .filter((criteria) => criteria[1] > 1)
+                .map(function (criteria) {
                     return parseInt(criteria[0], 10);
                 });
             // We include optional criterias with a single product
             var mandatory_promotion_lines = promotion_lines.filter(
-                line =>
+                (line) =>
                     line.data.program_id.data.id === program_id &&
                     (!line.data.repeat_product ||
                         !criteria_repeat_mandatory.includes(
@@ -64,7 +64,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
                         ))
             );
             var optional_promotion_lines = promotion_lines.filter(
-                line =>
+                (line) =>
                     line.data.program_id.data.id === program_id &&
                     line.data.repeat_product &&
                     criteria_repeat_mandatory.includes(line.data.criteria_id.data.id)
@@ -81,7 +81,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
                         : this._get_program_options(optional_promotion_lines),
                     sale_order_id: sale_order_id,
                 },
-            }).then(function(configurator) {
+            }).then(function (configurator) {
                 self.renderer.promotionHtml = configurator;
             });
         },
@@ -91,7 +91,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
          *
          * @param {InputEvent} ev
          */
-        _onchange_quantity: function(ev) {
+        _onchange_quantity: function (ev) {
             var $row = $(ev.currentTarget).closest(".optional_criteria_row");
             var $needed_qty_span = $row.find(".csw_criteria_needed_qty");
             var $criteria_icon = $row.find(".csw_criteria_icon");
@@ -99,7 +99,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
             var $inputs = $row.find("input");
             var needed_qty = parseInt($needed_qty_span.data("qty"), 10);
             var current_row_qty = 0;
-            _.each($inputs, function(inp) {
+            _.each($inputs, function (inp) {
                 current_row_qty += parseInt(inp.value, 10);
             });
             needed_qty = Math.max(needed_qty - current_row_qty, 0);
@@ -109,7 +109,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
                 $criteria_icon.removeClass(["fa-sun-o", "text-warning"]);
                 $criteria_icon.addClass(["fa-certificate", "text-success"]);
                 $inputs
-                    .filter(function() {
+                    .filter(function () {
                         return this.value !== "0";
                     })
                     .closest(".card")
@@ -128,7 +128,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
          *
          * @param {InputEvent} ev
          */
-        _onclick_add_or_remove: function(ev) {
+        _onclick_add_or_remove: function (ev) {
             ev.preventDefault();
             var $button = $(ev.currentTarget);
             var $input = $button.closest(".input-group").find("input");
@@ -147,16 +147,14 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
          *
          * @param {InputEvent} ev
          */
-        _onclick_choose_reward: function(ev) {
+        _onclick_choose_reward: function (ev) {
             ev.preventDefault();
             var $input = $(ev.currentTarget).find("input");
             var $input_siblings = $(ev.currentTarget.closest(".row")).find(
                 "input[name='" + $input.attr("name") + "']"
             );
-            _.each($input_siblings, function($sibling) {
-                $($sibling)
-                    .closest(".card")
-                    .removeClass("bg-success");
+            _.each($input_siblings, function ($sibling) {
+                $($sibling).closest(".card").removeClass("bg-success");
             });
             $input.prop("checked", true);
             $(ev.currentTarget).addClass("bg-success");
@@ -168,21 +166,21 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
          *
          * @returns {Promise}
          */
-        apply_promotion: function() {
+        apply_promotion: function () {
             var _this = this;
             var $modal = this.$el;
             var $wizard_inputs = $modal.find("input.js_promotion_item_quantity");
             var $reward_options = $modal.find("input.reward_optional_input:checked");
             var promotion_values = {};
             // Group by products then clean 0 keys
-            _.each($wizard_inputs, function($input) {
+            _.each($wizard_inputs, function ($input) {
                 var product_id = $input.dataset.product_id;
                 promotion_values[product_id] = promotion_values[product_id] || 0;
                 promotion_values[product_id] +=
                     ($input.value && parseInt($input.value, 10)) || 0;
             });
             var reward_line_options = {};
-            _.each($reward_options, function($input) {
+            _.each($reward_options, function ($input) {
                 var reward_id = $input.name.replace("reward-", "");
                 reward_line_options[reward_id] = $input.value;
             });
@@ -194,7 +192,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
                     promotion_lines: promotion_values,
                     reward_line_options: reward_line_options,
                 },
-            }).then(function() {
+            }).then(function () {
                 _this.do_action({type: "ir.actions.act_window_close"});
             });
         },
@@ -205,7 +203,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
          * @param {Object} line - promotion line item
          * @returns {Object} promotion line formatted for controller
          */
-        _prepare_option_line: function(line) {
+        _prepare_option_line: function (line) {
             return {
                 criteria_id: line.criteria_id.data.id,
                 product_id: line.product_id.data.id,
@@ -224,13 +222,13 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
          * @param {Array} promotion_line_ids
          * @returns {Array} result
          */
-        _get_program_options: function(promotion_line_ids) {
+        _get_program_options: function (promotion_line_ids) {
             if (!promotion_line_ids || promotion_line_ids.length === 0) {
                 return [];
             }
             var _this = this;
             var result = [];
-            _.each(promotion_line_ids, function(line) {
+            _.each(promotion_line_ids, function (line) {
                 result.push(_this._prepare_option_line(line.data));
             });
             return result;
@@ -242,7 +240,7 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function() {
          *
          * @override
          */
-        _onButtonClicked: function(event) {
+        _onButtonClicked: function (event) {
             if (event.stopPropagation) {
                 event.stopPropagation();
             }

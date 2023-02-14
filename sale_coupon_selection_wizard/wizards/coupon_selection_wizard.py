@@ -15,13 +15,15 @@ class CouponSelectionWizard(models.TransientModel):
         searchable=False,
     )
     coupon_program_id = fields.Many2one(
-        comodel_name="sale.coupon.program", default=False,
+        comodel_name="sale.coupon.program",
+        default=False,
     )
     coupon_reward_name = fields.Char(
         related="coupon_program_id.reward_id.display_name",
     )
     promotion_line_ids = fields.One2many(
-        comodel_name="coupon.selection.wizard.line", inverse_name="wizard_id",
+        comodel_name="coupon.selection.wizard.line",
+        inverse_name="wizard_id",
     )
 
     def _existing_order_line(self, product_id):
