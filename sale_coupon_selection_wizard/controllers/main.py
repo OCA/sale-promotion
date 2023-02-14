@@ -15,7 +15,7 @@ class CouponSelectionWizardController(Controller):
 
     def _coupon_wizard_item(self, item, pricelist):
         return {
-            "criteria_id": request.env["sale.coupon.criteria"].browse(
+            "criteria_id": request.env["coupon.criteria"].browse(
                 item.get("criteria_id")
             ),
             "product_id": (
@@ -51,11 +51,13 @@ class CouponSelectionWizardController(Controller):
         methods=["POST"],
     )
     def configure_promotion(self, program_id, **kw):
-        program_id = request.env["sale.coupon.program"].browse(int(program_id))
+        program_id = request.env["coupon.program"].browse(int(program_id))
         order = self._get_order(kw.get("sale_order_id"))
         pricelist = self._get_pricelist(order)
-        promo_wizard = request.env["coupon.selection.wizard"].create(
-            {"order_id": order.id, "coupon_program_id": program_id.id}
+        promo_wizard = (
+            request.env["coupon.selection.wizard"]
+            .sudo()
+            .create({"order_id": order.id, "coupon_program_id": program_id.id})
         )
         promo_wizard._compute_available_coupon_program_ids()
         (
@@ -64,11 +66,11 @@ class CouponSelectionWizardController(Controller):
         ) = promo_wizard.promotion_line_ids._get_program_options(program_id)
         mandatory_program_options = kw.get(
             "mandatory_program_options",
-            [l._convert_to_write(l._cache) for l in mandatory_lines],
+            [line._convert_to_write(line._cache) for line in mandatory_lines],
         )
         optional_program_options = kw.get(
             "optional_program_options",
-            [l._convert_to_write(l._cache) for l in optional_lines],
+            [line._convert_to_write(line._cache) for line in optional_lines],
         )
         optional_program_options_map = {}
         if mandatory_program_options:
@@ -90,7 +92,7 @@ class CouponSelectionWizardController(Controller):
         common_reward_lines = (
             program_id.sudo().coupon_multi_gift_ids - optional_reward_lines
         )
-        return request.env["ir.ui.view"].render_template(
+        return request.env["ir.ui.view"]._render_template(
             "sale_coupon_selection_wizard.configure",
             {
                 "program": program_id,
@@ -108,7 +110,7 @@ class CouponSelectionWizardController(Controller):
     ):
         """Wrapped method"""
         order = self._get_order(sale_order_id).sudo()
-        program_id = request.env["sale.coupon.program"].browse(int(program_id)).sudo()
+        program_id = request.env["coupon.program"].browse(int(program_id)).sudo()
         sale_form = Form(order)
         for product, qty in promotion_lines.items():
             if not qty:

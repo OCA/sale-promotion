@@ -20,9 +20,10 @@ class SaleOrder(models.Model):
         programs_applied = self.no_code_promo_program_ids | self.code_promo_program_id
         domain = [
             ("id", "not in", programs_applied.ids),
-            ("sale_coupon_criteria", "=", "multi_product"),
+            ("coupon_criteria", "=", "multi_product"),
             ("promo_applicability", "=", "on_current_order"),
             ("coupon_ids", "=", False),
+            ("program_type", "=", "promotion_program"),
             ("reward_type", "=", "multi_gift"),
         ]
         # We can't apply two promo codes in one single order
@@ -32,10 +33,10 @@ class SaleOrder(models.Model):
         if product_id:
             domain += [
                 "|",
-                ("sale_coupon_criteria_ids.product_ids", "in", [product_id]),
+                ("coupon_criteria_ids.product_ids", "in", [product_id]),
                 ("coupon_multi_gift_ids.reward_product_ids", "in", [product_id]),
             ]
-        programs = self.env["sale.coupon.program"].search(domain)
+        programs = self.env["coupon.program"].search(domain)
         programs = programs._filter_programs_on_partners(self)
         programs = programs._filter_unexpired_programs(self)
         return programs

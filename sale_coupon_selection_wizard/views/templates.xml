@@ -16,8 +16,8 @@
                                 t-att-src="'/web/image/product.product/%s/image_128' % product.id"
                                 t-att-alt="product.display_name"
                             />
-                            <strong>x<t t-esc="reward_qty" /></strong> <span
-                                t-esc="product.name"
+                            <strong>x<t t-out="reward_qty" /></strong> <span
+                                t-out="product.name"
                             />
                         </p>
                     </div>
@@ -52,7 +52,7 @@
                         <t t-if="not optional">
                             <div class="card-img-overlay d-flex align-items-center">
                                 <p class="oe_scw_criteria_condition text-primary">
-                                    x<t t-esc="criteria_qty" />
+                                    x<t t-out="criteria_qty" />
                                 </p>
                             </div>
                         </t>
@@ -60,10 +60,10 @@
                 <div class="card-body">
                     <div class="oe_promotion_wizard_item_title">
                         <strong>
-                            <t t-esc="product.name" />
+                            <t t-out="product.name" />
                         </strong>
                         <small t-if="product.default_code">
-                            [<t t-esc="product.default_code" />]
+                            [<t t-out="product.default_code" />]
                         </small>
                     </div>
                     <div class="oe_promotion_wizard_item_infos">
@@ -71,19 +71,19 @@
                             <t t-if="current_order_quantity">
                                 <u
                                         class="text-primary font-weight-bold"
-                                        t-esc="'{} {}'.format(current_order_quantity, product.sudo().uom_id.name)"
+                                        t-out="'{} {}'.format(current_order_quantity, product.sudo().uom_id.name)"
                                     /> already on current order.
                             </t>
                             <t t-if="qty_to_add">
                                 <u
                                         class="text-success font-weight-bold"
-                                        t-esc="'+{} {}'.format(qty_to_add, product.sudo().uom_id.name)"
+                                        t-out="'+{} {}'.format(qty_to_add, product.sudo().uom_id.name)"
                                     /> will be added.
                             </t>
                         </p>
                         <p>
                             Price: <span
-                                    t-esc="product.price"
+                                    t-out="product.price"
                                     style="white-space: nowrap;"
                                     t-options="{'widget': 'monetary', 'display_currency': currency_id}"
                                 />
@@ -247,11 +247,11 @@
                 <div class="text-muted mt-4 pt-3 border-top optional_criteria_row">
                     <h4>
                         <i class="fa fa-sun-o text-warning csw_criteria_icon" /> <span
-                            t-esc="criteria.rule_min_quantity"
+                            t-out="criteria.rule_min_quantity"
                             class="font-weight-bold csw_criteria_min_quantity"
                         />x units
                         <span class="badge badge-primary">Add <span
-                                t-esc="criteria_needed_qty"
+                                t-out="criteria_needed_qty"
                                 class="csw_criteria_needed_qty"
                                 t-att-data-qty="criteria_needed_qty"
                             /> more</span>

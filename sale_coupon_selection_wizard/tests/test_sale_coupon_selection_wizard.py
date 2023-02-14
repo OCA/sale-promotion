@@ -1,10 +1,10 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.exceptions import UserError
-from odoo.tests import Form, common
+from odoo.tests import Form, TransactionCase
 
 
-class TestSaleCouponIncompatibility(common.SavepointCase):
+class TestSaleCouponIncompatibility(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -45,7 +45,7 @@ class TestSaleCouponIncompatibility(common.SavepointCase):
     ):
         """Helper method to create coupon programs in the tests cases"""
         coupon_program_form = Form(
-            self.env["sale.coupon.program"],
+            self.env["coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Test Coupon Wizard"
@@ -65,9 +65,9 @@ class TestSaleCouponIncompatibility(common.SavepointCase):
             coupon_program_form.promo_applicability = "next_order"
         # Criterias is a list of tuples expecting
         if criterias:
-            coupon_program_form.sale_coupon_criteria = "multi_product"
+            coupon_program_form.coupon_criteria = "multi_product"
             for quantity, products, repeat in criterias:
-                with coupon_program_form.sale_coupon_criteria_ids.new() as criteria:
+                with coupon_program_form.coupon_criteria_ids.new() as criteria:
                     criteria.repeat_product = repeat
                     criteria.rule_min_quantity = quantity
                     for product in products:

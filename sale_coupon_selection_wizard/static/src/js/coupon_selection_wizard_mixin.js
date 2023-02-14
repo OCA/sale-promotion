@@ -103,7 +103,14 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function () {
                 current_row_qty += parseInt(inp.value, 10);
             });
             needed_qty = Math.max(needed_qty - current_row_qty, 0);
-            if (!needed_qty) {
+            if (needed_qty) {
+                $needed_qty_span.parent().removeClass("d-none");
+                $row_add_buttons.removeAttr("disabled");
+                $criteria_icon.removeClass(["fa-certificate", "text-success"]);
+                $criteria_icon.addClass(["fa-sun-o", "text-warning"]);
+                $inputs.closest(".card").removeClass("border-success");
+                $needed_qty_span.text(needed_qty);
+            } else {
                 $needed_qty_span.parent().addClass("d-none");
                 $row_add_buttons.attr("disabled", "disabled");
                 $criteria_icon.removeClass(["fa-sun-o", "text-warning"]);
@@ -114,13 +121,6 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function () {
                     })
                     .closest(".card")
                     .addClass("border-success");
-            } else {
-                $needed_qty_span.parent().removeClass("d-none");
-                $row_add_buttons.removeAttr("disabled");
-                $criteria_icon.removeClass(["fa-certificate", "text-success"]);
-                $criteria_icon.addClass(["fa-sun-o", "text-warning"]);
-                $inputs.closest(".card").removeClass("border-success");
-                $needed_qty_span.text(needed_qty);
             }
         },
         /**
@@ -140,7 +140,6 @@ odoo.define("sale_coupon_selection_wizard.CouponSelectionMixin", function () {
             if (newQty !== previousQty) {
                 $input.val(newQty).trigger("change");
             }
-            return false;
         },
         /**
          * Reward card click circuitry

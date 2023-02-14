@@ -10,15 +10,15 @@ class CouponSelectionWizard(models.TransientModel):
     order_id = fields.Many2one(comodel_name="sale.order")
     pricelist_id = fields.Many2one(related="order_id.pricelist_id")
     available_coupon_program_ids = fields.Many2many(
-        comodel_name="sale.coupon.program",
+        comodel_name="coupon.program",
         compute="_compute_available_coupon_program_ids",
-        searchable=False,
     )
     coupon_program_id = fields.Many2one(
-        comodel_name="sale.coupon.program",
+        comodel_name="coupon.program",
         default=False,
     )
     coupon_reward_name = fields.Char(
+        string="Reward Name",
         related="coupon_program_id.reward_id.display_name",
     )
     promotion_line_ids = fields.One2many(
@@ -54,15 +54,15 @@ class CouponSelectionWizard(models.TransientModel):
     @api.depends("order_id")
     def _compute_available_coupon_program_ids(self):
         """Load the data in the wizard. It will be managed by the controller"""
+        self.available_coupon_program_ids = False
         for wizard in self:
-            wizard.available_coupon_program_ids = False
             wizard.promotion_line_ids.unlink()
             available_coupon_program_ids = (
                 wizard.order_id.sudo()._available_multi_criteria_multi_gift_programs()
             )
             # Compute all the programs possible criterias to use them in the widget
             promotion_line_ids = self.promotion_line_ids
-            for criteria in available_coupon_program_ids.sale_coupon_criteria_ids:
+            for criteria in available_coupon_program_ids.coupon_criteria_ids:
                 for product in criteria.product_ids:
                     promotion_line_ids += promotion_line_ids.new(
                         self._prepare_promotion_line_vals(criteria, product)
@@ -76,8 +76,8 @@ class CouponSelectionWizardProduct(models.TransientModel):
     _description = "Products to apply to the promotion"
 
     wizard_id = fields.Many2one(comodel_name="coupon.selection.wizard")
-    criteria_id = fields.Many2one(comodel_name="sale.coupon.criteria", readonly=True)
-    program_id = fields.Many2one(comodel_name="sale.coupon.program", readonly=True)
+    criteria_id = fields.Many2one(comodel_name="coupon.criteria", readonly=True)
+    program_id = fields.Many2one(comodel_name="coupon.program", readonly=True)
     product_id = fields.Many2one(comodel_name="product.product", readonly=True)
     current_order_quantity = fields.Integer(
         readonly=True,

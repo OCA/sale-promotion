@@ -3,7 +3,7 @@
 {
     "name": "Coupons Selection Wizard",
     "summary": "A wizard that allows salesmen to easily pick the best promotions",
-    "version": "13.0.1.0.0",
+    "version": "15.0.1.0.0",
     "development_status": "Beta",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
@@ -14,8 +14,13 @@
     "data": [
         "wizards/coupon_selection_wizard_views.xml",
         "security/ir.model.access.csv",
-        "views/assets.xml",
         "views/sale_order_views.xml",
         "views/templates.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "/sale_coupon_selection_wizard/static/src/scss/*.scss",
+            "/sale_coupon_selection_wizard/static/src/js/*.js",
+        ],
+    },
 }
