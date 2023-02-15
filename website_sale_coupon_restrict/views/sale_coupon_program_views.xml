@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <record model="ir.ui.view" id="sale_coupon_program_view_form_common">
-        <field name="model">sale.coupon.program</field>
-        <field
-            name="inherit_id"
-            ref="sale_coupon.sale_coupon_program_view_form_common"
-        />
+    <record model="ir.ui.view" id="coupon_program_view_form_common">
+        <field name="model">coupon.program</field>
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
         <field name="arch" type="xml">
             <group name="validity" position="inside">
                 <field name="website_only" />

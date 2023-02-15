@@ -7,19 +7,19 @@ from odoo.addons.website.tools import MockRequest
 from odoo.addons.website_sale_coupon.controllers.main import WebsiteSale
 
 
-class TestWebsiteSaleCouponCase(common.SavepointCase):
+class TestWebsiteSaleCouponCase(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.product = cls.env["product.product"].create({"name": "Test"})
         coupon_program_form = Form(
-            cls.env["sale.coupon.program"],
-            view="sale_coupon.sale_coupon_program_view_form",
+            cls.env["coupon.program"],
+            view="coupon.coupon_program_view_coupon_program_form",
         )
         coupon_program_form.name = "Test Discount Program"
         coupon_program_form.website_only = True
         cls.coupon_program = coupon_program_form.save()
-        cls.env["sale.coupon.generate"].with_context(
+        cls.env["coupon.generate.wizard"].with_context(
             active_id=cls.coupon_program.id
         ).create({}).generate_coupon()
         cls.coupon = cls.coupon_program.coupon_ids[0]

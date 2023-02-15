@@ -4,7 +4,7 @@ from odoo import _, fields, models
 
 
 class SaleCoupon(models.Model):
-    _inherit = "sale.coupon.program"
+    _inherit = "coupon.program"
 
     website_only = fields.Boolean(
         string="Only for e-commerce",
