@@ -7,7 +7,7 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     suggested_promotion_ids = fields.Many2many(
-        comodel_name="sale.coupon.program",
+        comodel_name="coupon.program",
         compute="_compute_suggested_promotion_ids",
     )
 
