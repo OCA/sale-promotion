@@ -1,4 +1,4 @@
-odoo.define("sale_coupon_order_suggestion.suggest_promotion", function(require) {
+odoo.define("sale_coupon_order_suggestion.suggest_promotion", function (require) {
     "use strict";
 
     const Widget = require("web.Widget");
@@ -15,12 +15,12 @@ odoo.define("sale_coupon_order_suggestion.suggest_promotion", function(require) 
          * @param {Widget|null} parent
          * @param {Object} params
          */
-        init: function(parent, params) {
+        init: function (parent, params) {
             this.data = params.data;
             this._super(parent);
         },
 
-        updateState: function(state) {
+        updateState: function (state) {
             const candidate = state.data[this.getParent().currentRow];
             if (candidate) {
                 this.data = candidate.data;
@@ -28,7 +28,7 @@ odoo.define("sale_coupon_order_suggestion.suggest_promotion", function(require) 
             }
         },
 
-        _onClickButton: function() {
+        _onClickButton: function () {
             // When it's a new line, we can't rely on a line id for the wizard, but
             // we can provide the proper element to find the and restrict the proper
             // rewards.
