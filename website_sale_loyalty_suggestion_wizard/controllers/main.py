@@ -10,7 +10,7 @@ class WebsiteSaleCouponWizard(WebsiteSale):
         ["/promotions/<int:program_id>/apply"], type="http", auth="public", website=True
     )
     def promotion_program_apply(self, program_id, **kwargs):
-        program = request.env["sale.coupon.program"].sudo().browse(program_id).exists()
+        program = request.env["coupon.program"].sudo().browse(program_id).exists()
         if not program or not program.active or not program.is_published:
             return
         # Prevent to apply a promotion to a processed order
@@ -38,7 +38,7 @@ class WebsiteSaleCouponWizard(WebsiteSale):
         if promo:
             order = request.website.sale_get_order()
             program = (
-                request.env["sale.coupon.program"]
+                request.env["coupon.program"]
                 .sudo()
                 .search([("promo_code", "=", promo)])
             )
@@ -53,7 +53,7 @@ class WebsiteSaleCouponWizard(WebsiteSale):
         promotion = request.session.get("promotion_id")
         if promotion:
             response.qcontext["promotion_id"] = (
-                request.env["sale.coupon.program"].sudo().browse(promotion)
+                request.env["coupon.program"].sudo().browse(promotion)
             )
         return response
 
