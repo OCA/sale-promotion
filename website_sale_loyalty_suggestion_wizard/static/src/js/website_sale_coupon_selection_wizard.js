@@ -1,6 +1,6 @@
 /* Copyright 2021 Tecnativa - David Vidal
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
-odoo.define("website_sale_coupon_selection_wizard", function(require) {
+odoo.define("website_sale_coupon_selection_wizard", function (require) {
     "use strict";
 
     const CouponSelectionMixin = require("sale_coupon_selection_wizard.CouponSelectionMixin");
@@ -17,7 +17,7 @@ odoo.define("website_sale_coupon_selection_wizard", function(require) {
             /**
              * @override
              */
-            start: function() {
+            start: function () {
                 var def = this._super.apply(this, arguments);
                 this.program_id = $("span.js_promotion_change")
                     .first()
@@ -31,7 +31,7 @@ odoo.define("website_sale_coupon_selection_wizard", function(require) {
             /**
              * @private
              */
-            _onChangePromotion: function() {
+            _onChangePromotion: function () {
                 this._configure_promotion_cart(
                     this.program_id,
                     this.website_sale_order
@@ -43,7 +43,7 @@ odoo.define("website_sale_coupon_selection_wizard", function(require) {
              * @param {integer} program_id
              * @returns {Promise}
              */
-            _configure_promotion_cart: function(program_id, website_sale_order) {
+            _configure_promotion_cart: function (program_id, website_sale_order) {
                 var _this = this;
                 return this._rpc({
                     route: "/sale_coupon_selection_wizard/configure",
@@ -51,7 +51,7 @@ odoo.define("website_sale_coupon_selection_wizard", function(require) {
                         program_id: program_id,
                         sale_order_id: website_sale_order,
                     },
-                }).then(function(configurator) {
+                }).then(function (configurator) {
                     _this.$el
                         .find("#o_promo_config_body")[0]
                         .insertAdjacentHTML("beforeend", configurator);
@@ -64,7 +64,7 @@ odoo.define("website_sale_coupon_selection_wizard", function(require) {
              *
              * @returns {Promise}
              */
-            apply_promotion: function() {
+            apply_promotion: function () {
                 var _this = this;
                 var $modal = this.$el;
                 var $wizard_inputs = $modal.find("input.js_promotion_item_quantity");
@@ -73,14 +73,14 @@ odoo.define("website_sale_coupon_selection_wizard", function(require) {
                 );
                 var promotion_values = {};
                 // Group by products then clean 0 keys
-                _.each($wizard_inputs, function($input) {
+                _.each($wizard_inputs, function ($input) {
                     var product_id = $input.dataset.product_id;
                     promotion_values[product_id] = promotion_values[product_id] || 0;
                     promotion_values[product_id] +=
                         ($input.value && parseInt($input.value, 10)) || 0;
                 });
                 var reward_line_options = {};
-                _.each($reward_options, function($input) {
+                _.each($reward_options, function ($input) {
                     var reward_id = $input.name.replace("reward-", "");
                     reward_line_options[reward_id] = $input.value;
                 });
@@ -93,7 +93,7 @@ odoo.define("website_sale_coupon_selection_wizard", function(require) {
                         reward_line_options: reward_line_options,
                         website_wizard: true,
                     },
-                }).then(function() {
+                }).then(function () {
                     $("#o_promo_configure_modal").modal("hide");
                     window.location = "/shop/cart";
                 });
@@ -106,7 +106,7 @@ odoo.define("website_sale_coupon_selection_wizard", function(require) {
          * Opens the promotion modal by default when the cart is reloaded
          * @override
          */
-        start: function() {
+        start: function () {
             const prom = this._super.apply(this, arguments);
             return prom.then(() => {
                 $("#o_promo_configure_modal").modal("show");
