@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <field name="pending_partner_coupon_count" invisible="1" />
+                <button
+                    name="action_view_pending_partner_coupons"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-gift"
+                    attrs="{'invisible': [('pending_partner_coupon_count', '=', 0)]}"
+                >
+                    <field
+                        name="pending_partner_coupon_count"
+                        widget="statinfo"
+                        string="Coupons"
+                    />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
