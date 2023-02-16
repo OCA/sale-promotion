@@ -16,7 +16,7 @@ class CouponPage(WebsiteSale):
         promo_values = response.qcontext.get("promos", [])
         for promo_dict in promo_values:
             promo_dict["applicable"] = False
-            promo = request.env["sale.coupon.program"].sudo().browse(promo_dict["id"])
+            promo = request.env["coupon.program"].sudo().browse(promo_dict["id"])
             if (
                 promo in (order.no_code_promo_program_ids | order.code_promo_program_id)
             ) or (
