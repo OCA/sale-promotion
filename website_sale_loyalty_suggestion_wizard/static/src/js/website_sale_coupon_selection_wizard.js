@@ -5,12 +5,13 @@ odoo.define("website_sale_coupon_selection_wizard", function (require) {
 
     const CouponSelectionMixin = require("sale_coupon_selection_wizard.CouponSelectionMixin");
     const publicWidget = require("web.public.widget");
+    const websiteSale = require("website_sale.website_sale");
 
     publicWidget.registry.WebsiteSaleCouponWizard = publicWidget.Widget.extend(
         CouponSelectionMixin,
         {
             selector: "#o_promo_configure",
-            events: _.extend({}, CouponSelectionMixin.events || {}, {
+            events: Object.assign({}, CouponSelectionMixin.events || {}, {
                 "change span.js_promotion_change": "_onChangePromotion",
                 "click .o_coupon_selection_wizard_apply": "apply_promotion",
             }),
@@ -18,7 +19,7 @@ odoo.define("website_sale_coupon_selection_wizard", function (require) {
              * @override
              */
             start: function () {
-                var def = this._super.apply(this, arguments);
+                const def = this._super.apply(this, arguments);
                 this.program_id = $("span.js_promotion_change")
                     .first()
                     .data().promotionId;
@@ -41,21 +42,19 @@ odoo.define("website_sale_coupon_selection_wizard", function (require) {
              * Renders the components needed for the promotion
              *
              * @param {integer} program_id
+             * @param {integer} website_sale_order
              * @returns {Promise}
              */
-            _configure_promotion_cart: function (program_id, website_sale_order) {
-                var _this = this;
-                return this._rpc({
+            _configure_promotion_cart: async function (program_id, website_sale_order) {
+                const configurator = await this._rpc({
                     route: "/sale_coupon_selection_wizard/configure",
                     params: {
                         program_id: program_id,
                         sale_order_id: website_sale_order,
                     },
-                }).then(function (configurator) {
-                    _this.$el
-                        .find("#o_promo_config_body")[0]
-                        .insertAdjacentHTML("beforeend", configurator);
                 });
+                const [$o_promo_config_body] = this.$el.find("#o_promo_config_body");
+                $o_promo_config_body.insertAdjacentHTML("beforeend", configurator);
             },
             /**
              * Communicate the form options to the controller. An object with product id
@@ -64,55 +63,51 @@ odoo.define("website_sale_coupon_selection_wizard", function (require) {
              *
              * @returns {Promise}
              */
-            apply_promotion: function () {
-                var _this = this;
-                var $modal = this.$el;
-                var $wizard_inputs = $modal.find("input.js_promotion_item_quantity");
-                var $reward_options = $modal.find(
+            apply_promotion: async function () {
+                const $modal = this.$el;
+                const $wizard_inputs = $modal.find("input.js_promotion_item_quantity");
+                const $reward_options = $modal.find(
                     "input.reward_optional_input:checked"
                 );
                 var promotion_values = {};
                 // Group by products then clean 0 keys
-                _.each($wizard_inputs, function ($input) {
-                    var product_id = $input.dataset.product_id;
+                for (const $input of $wizard_inputs) {
+                    const product_id = $input.dataset.product_id;
                     promotion_values[product_id] = promotion_values[product_id] || 0;
                     promotion_values[product_id] +=
                         ($input.value && parseInt($input.value, 10)) || 0;
-                });
+                }
                 var reward_line_options = {};
-                _.each($reward_options, function ($input) {
-                    var reward_id = $input.name.replace("reward-", "");
+                for (const $input of $reward_options) {
+                    const reward_id = $input.name.replace("reward-", "");
                     reward_line_options[reward_id] = $input.value;
-                });
-                return this._rpc({
+                }
+                await this._rpc({
                     route: "/website_sale_coupon_selection_wizard/apply",
                     params: {
-                        program_id: _this.program_id,
-                        sale_order_id: _this.website_sale_order,
+                        program_id: this.program_id,
+                        sale_order_id: this.website_sale_order,
                         promotion_lines: promotion_values,
                         reward_line_options: reward_line_options,
                         website_wizard: true,
                     },
-                }).then(function () {
-                    $("#o_promo_configure_modal").modal("hide");
-                    window.location = "/shop/cart";
                 });
+                $("#o_promo_configure_modal").modal("hide");
+                window.location = "/shop/cart";
             },
         }
     );
 
-    publicWidget.registry.websiteSaleCart.include({
+    websiteSale.websiteSaleCart.include({
         /**
          * Opens the promotion modal by default when the cart is reloaded
          * @override
          */
         start: function () {
-            const prom = this._super.apply(this, arguments);
-            return prom.then(() => {
+            const def = this._super.apply(this, arguments);
+            return def.then(() => {
                 $("#o_promo_configure_modal").modal("show");
             });
         },
     });
-
-    return CouponSelectionMixin;
 });
