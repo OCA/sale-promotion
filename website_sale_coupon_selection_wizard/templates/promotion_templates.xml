@@ -30,7 +30,7 @@
                     >
                         <span>×</span>
                     </a>
-                    <strong t-raw="promotion_id.public_name" />
+                    <strong t-out="promotion_id.public_name" />
                      In order to apply this promotion you need to configure some options.
                     <hr />
                     <button
@@ -61,7 +61,7 @@
                                 <h5
                                     class="modal-title"
                                     id="promotion_config_label"
-                                    t-raw="promotion_id.public_name"
+                                    t-out="promotion_id.public_name"
                                 />
                                 <div class="pull-right">
                                     <button
@@ -81,7 +81,7 @@
                                     class="alert alert-danger"
                                     role="alert"
                                 >
-                                    <span t-esc="request.session.error_promo_code" />
+                                    <span t-out="request.session.error_promo_code" />
                                 </div>
                                 <span
                                     class="d-none js_promotion_change"
@@ -144,7 +144,7 @@
                         </td>
                         <td class='td-product_name'>
                             <div>
-                                <strong t-raw="promo.public_name" />
+                                <strong t-out="promo.public_name" />
                             </div>
                         </td>
                         <td />
