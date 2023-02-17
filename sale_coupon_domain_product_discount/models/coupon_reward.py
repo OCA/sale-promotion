@@ -6,7 +6,7 @@ from odoo.tools.safe_eval import safe_eval
 
 
 class SaleCouponReward(models.Model):
-    _inherit = "sale.coupon.reward"
+    _inherit = "coupon.reward"
     # Now the main field is a non stored field. We'll be storing former records for
     # regular behavior a special sibling stored field
     discount_specific_product_ids = fields.Many2many(
@@ -35,8 +35,8 @@ class SaleCouponReward(models.Model):
         Otherwise it just masks the stored field"""
         domain_product = self.env.context.get("promo_domain_product")
         if domain_product:
-            self.discount_specific_product_ids = self.env["product.product"]._search(
-                safe_eval(domain_product)
+            self.discount_specific_product_ids = list(
+                self.env["product.product"]._search(safe_eval(domain_product))
             )
             return
         for reward in self:

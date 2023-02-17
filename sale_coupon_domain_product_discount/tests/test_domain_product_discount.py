@@ -5,7 +5,7 @@ from odoo.tests import Form, common, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestSaleCouponDomainProductDiscount(common.SavepointCase):
+class TestSaleCouponDomainProductDiscount(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -72,7 +72,7 @@ class TestSaleCouponDomainProductDiscount(common.SavepointCase):
     def _create_promo(self):
         """Common promo case for tests"""
         program_form = Form(
-            self.env["sale.coupon.program"],
+            self.env["coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
         )
         program_form.name = "10% reduction on Large Cabinet and Pedal Bin in cart"

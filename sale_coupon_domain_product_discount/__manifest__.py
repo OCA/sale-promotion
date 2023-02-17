@@ -4,7 +4,7 @@
 
 {
     "name": "Coupon Promotion Product Domain Discount",
-    "version": "13.0.1.0.0",
+    "version": "15.0.1.0.0",
     "summary": "Apply discount only to the domain matching products",
     "author": "Ooops, Cetmix, Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
