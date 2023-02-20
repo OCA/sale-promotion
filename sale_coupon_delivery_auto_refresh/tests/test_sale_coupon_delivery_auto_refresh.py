@@ -2,7 +2,7 @@ from odoo.tests import Form, common, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestDeliveryAutoRefresh(common.SavepointCase):
+class TestDeliveryAutoRefresh(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
