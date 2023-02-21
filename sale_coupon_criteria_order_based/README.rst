@@ -19,13 +19,13 @@ Sales Coupon based on Sales Order values
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
     :target: https://translation.odoo-community.org/projects/sale-promotion-15-0/sale-promotion-15-0-sale_coupon_criteria_order_based
     :alt: Translate me on Weblate
-.. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/webui/builds.html?repo=OCA/sale-promotion&target_branch=15.0
-    :alt: Try me on Runboat
+.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
+    :target: https://runbot.odoo-community.org/runbot/296/15.0
+    :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module add and option to configure your coupon conditions based on
+This module adds an option to configure your coupon conditions based on
 the Sales Order values.
 
 Example: "If Sales Team is 'Europe' apply the following discount'
