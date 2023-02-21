@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [coupon_limit](coupon_limit/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [coupon_mass_mailing](coupon_mass_mailing/) | 15.0.1.0.0 |  | Coupon Mas Mailing
 [sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) [![SilvioC2C](https://github.com/SilvioC2C.png?size=30px)](https://github.com/SilvioC2C) | Allows to auto-apply the coupons with no user intervention
+[sale_coupon_criteria_order_based](sale_coupon_criteria_order_based/) | 15.0.1.0.0 |  | Allows to set a sales order related domain for coupon
 [sale_coupon_limit](sale_coupon_limit/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [sale_coupon_order_line_link](sale_coupon_order_line_link/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between coupons and their generated order lines for easing tracking
 [sale_coupon_partner](sale_coupon_partner/) | 15.0.1.0.0 |  | Sale Coupon Partner
