@@ -1,11 +1,12 @@
 # Copyright 2022 Ooops404
 # Copyright 2022 Tecnativa - David Vidal
+# Copyright 2023 Tecnativa - Stefan Ungureanu
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import _, api, fields, models
 from odoo.tools.safe_eval import safe_eval
 
 
-class SaleCouponReward(models.Model):
+class CouponReward(models.Model):
     _inherit = "coupon.reward"
     # Now the main field is a non stored field. We'll be storing former records for
     # regular behavior a special sibling stored field
@@ -71,9 +72,7 @@ class SaleCouponReward(models.Model):
             and reward.discount_apply_on == "specific_product"
             and reward.discount_apply_on_domain_product
         )
-        result = super(
-            SaleCouponReward, self - discount_domain_product_rewards
-        ).name_get()
+        result = super(CouponReward, self - discount_domain_product_rewards).name_get()
         if discount_domain_product_rewards:
             result += [
                 (

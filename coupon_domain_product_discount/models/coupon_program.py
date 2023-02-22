@@ -1,9 +1,10 @@
 # Copyright 2022 Tecnativa - David Vidal
+# Copyright 2023 Tecnativa - Stefan Ungureanu
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import models
 
 
-class SaleCouponProgram(models.Model):
+class CouponProgram(models.Model):
     _inherit = "coupon.program"
 
     def _filter_not_ordered_reward_programs(self, order):
@@ -13,7 +14,7 @@ class SaleCouponProgram(models.Model):
             and x.discount_apply_on == "specific_products"
         )
         programs = super(
-            SaleCouponProgram, self - domain_discount_programs
+            CouponProgram, self - domain_discount_programs
         )._filter_not_ordered_reward_programs(order)
         order_products = order.order_line.product_id
         for program in domain_discount_programs:

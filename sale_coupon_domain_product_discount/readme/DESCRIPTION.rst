@@ -1,1 +1,1 @@
-This module extends promotion programs allowing to apply them only to the products matching the "Based on Products" domain.
+This module extends *coupon_domain_product_discount* to allow applying the promotions on the sale orders.
