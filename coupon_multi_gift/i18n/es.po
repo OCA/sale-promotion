@@ -48,11 +48,13 @@ msgstr "Regalo por defecto"
 msgid ""
 "Discount - Reward will be provided as discount.\n"
 "Free Product - Free product will be provide as reward \n"
-"Free Shipping - Free shipping will be provided as reward (Need delivery module)"
+"Free Shipping - Free shipping will be provided as reward (Need delivery "
+"module)"
 msgstr ""
 "Descuento: La recompensa se otorgará en forma de descuento.\n"
 "Producto gratis: Se otorgará un producto gratuito a modo de recompensa\n"
-"Envío gratis: Se ofrecerá envío gratuito a modo de recompensa (módulo de entrega requerido)"
+"Envío gratis: Se ofrecerá envío gratuito a modo de recompensa (módulo de "
+"entrega requerido)"
 
 #. module: coupon_multi_gift
 #: model:ir.model.fields,field_description:coupon_multi_gift.field_coupon_reward_product_line__display_name
