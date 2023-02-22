@@ -49,8 +49,7 @@ class SaleOrder(models.Model):
         return products
 
     def _get_reward_values_free_product_domain(self, program):
-        """Wrapper to create the reward lines for a free products from domain promotion
-        """
+        """Wrapper to create the reward lines for a free products from domain promotion"""
         products = self._get_valid_products_free_product_domain(program)
         return [
             self._get_reward_values_free_product_domain_line(product, program)
@@ -151,8 +150,7 @@ class SaleOrder(models.Model):
         )._remove_invalid_reward_lines()
 
     def _update_existing_reward_lines(self):
-        """We need to match `free_product_domain` programs with their discount product
-        """
+        """We need to match `free_product_domain` programs with their discount product"""
         self.ensure_one()
         super(
             SaleOrder, self.with_context(only_reward_lines=True)

@@ -17,7 +17,9 @@ class SaleCouponProgram(models.Model):
         )._compute_order_count()
         for program in free_product_domain_programs:
             orders = self.env["sale.order.line"].read_group(
-                [("coupon_program_id", "=", program.id)], ["order_id"], ["order_id"],
+                [("coupon_program_id", "=", program.id)],
+                ["order_id"],
+                ["order_id"],
             )
             program.order_count = len(orders)
 
