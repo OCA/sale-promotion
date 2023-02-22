@@ -9,7 +9,7 @@ class SaleOrder(models.Model):
     def _get_paid_order_lines(self):
         """Add reward lines produced by free product from domain promotions"""
         lines = super()._get_paid_order_lines()
-        free_product_domain_programs = self.env["sale.coupon.program"].search(
+        free_product_domain_programs = self.env["coupon.program"].search(
             [("reward_type", "=", "free_product_domain")]
         )
         free_reward_product_lines = self.order_line.filtered(
@@ -117,7 +117,7 @@ class SaleOrder(models.Model):
         self.ensure_one()
         # This part is a repetition of the logic so we can get the right programs
         applied_programs = self._get_applied_programs()
-        applicable_programs = self.env["sale.coupon.program"]
+        applicable_programs = self.env["coupon.program"]
         if applied_programs:
             applicable_programs = self._get_applicable_programs_free_product_domain()
         programs_to_remove = applied_programs - applicable_programs
@@ -144,15 +144,16 @@ class SaleOrder(models.Model):
                 and x.coupon_program_id in free_product_domain_programs_to_remove
             ).unlink()
         # We'll catch the context in the subsequent unlink() method
-        super(
+        res = super(
             SaleOrder,
             self.with_context(valid_free_product_domain_lines=valid_lines.ids),
         )._remove_invalid_reward_lines()
+        return res
 
     def _update_existing_reward_lines(self):
         """We need to match `free_product_domain` programs with their discount product"""
         self.ensure_one()
-        super(
+        res = super(
             SaleOrder, self.with_context(only_reward_lines=True)
         )._update_existing_reward_lines()
         applied_programs = self._get_applied_programs_with_rewards_on_current_order()
@@ -183,6 +184,7 @@ class SaleOrder(models.Model):
                 self.write(
                     {"order_line": [(0, False, value) for value in vals_list_to_create]}
                 )
+        return res
 
 
 class SaleOrderLine(models.Model):

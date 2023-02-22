@@ -4,7 +4,7 @@ from odoo import models
 
 
 class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+    _inherit = "coupon.program"
 
     def _compute_order_count(self):
         """Relay on the order line link for these programs instead of the discount
@@ -12,7 +12,7 @@ class SaleCouponProgram(models.Model):
         free_product_domain_programs = self.filtered(
             lambda x: x.reward_type == "free_product_domain"
         )
-        super(
+        res = super(
             SaleCouponProgram, self - free_product_domain_programs
         )._compute_order_count()
         for program in free_product_domain_programs:
@@ -22,6 +22,7 @@ class SaleCouponProgram(models.Model):
                 ["order_id"],
             )
             program.order_count = len(orders)
+        return res
 
     def action_view_sales_orders(self):
         res = super().action_view_sales_orders()

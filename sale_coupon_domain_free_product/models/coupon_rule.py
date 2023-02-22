@@ -4,7 +4,7 @@ from odoo import fields, models
 
 
 class SaleCouponRule(models.Model):
-    _inherit = "sale.coupon.rule"
+    _inherit = "coupon.rule"
 
     strict_per_product_limit = fields.Boolean(
         help="In a discount on selected products reward for every product meeting the "

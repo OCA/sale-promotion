@@ -3,7 +3,7 @@
 from odoo.tests import Form, common
 
 
-class TestSaleCouponFreeProductDomain(common.SavepointCase):
+class TestSaleCouponFreeProductDomain(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -40,7 +40,7 @@ class TestSaleCouponFreeProductDomain(common.SavepointCase):
             {"name": "Test 4", "sale_ok": False, "list_price": 80}
         )
         coupon_program_form = Form(
-            cls.env["sale.coupon.program"],
+            cls.env["coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Test Multiplier Program"

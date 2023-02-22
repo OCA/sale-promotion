@@ -4,10 +4,11 @@ from odoo import _, fields, models
 
 
 class SaleCouponReward(models.Model):
-    _inherit = "sale.coupon.reward"
+    _inherit = "coupon.reward"
 
     reward_type = fields.Selection(
-        selection_add=[("free_product_domain", "Product Domain")]
+        selection_add=[("free_product_domain", "Product Domain")],
+        ondelete={"free_product_domain": "set default"},
     )
     reward_product_max_quantity = fields.Integer(
         string="Max reward quantity",
