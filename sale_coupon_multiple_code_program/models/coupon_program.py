@@ -17,5 +17,9 @@ class SaleCouponProgram(models.Model):
         if self.env.context.get("discard_no_code_programs_with_code"):
             args = expression.AND([[("promo_code", "=", False)], args or []])
         return super().search(
-            args, offset=offset, limit=limit, order=order, count=count,
+            args,
+            offset=offset,
+            limit=limit,
+            order=order,
+            count=count,
         )
