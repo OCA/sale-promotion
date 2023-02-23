@@ -3,7 +3,7 @@
 from odoo import _, fields, models
 
 
-class SaleCouponReward(models.Model):
+class CouponReward(models.Model):
     _inherit = "coupon.reward"
 
     reward_type = fields.Selection(
@@ -21,5 +21,5 @@ class SaleCouponReward(models.Model):
         free_product_domain_promo = self.filtered(
             lambda x: x.reward_type == "free_product_domain"
         )
-        res = super(SaleCouponReward, self - free_product_domain_promo).name_get()
+        res = super(CouponReward, self - free_product_domain_promo).name_get()
         return res + [(p.id, _("Free Products")) for p in free_product_domain_promo]
