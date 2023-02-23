@@ -3,7 +3,7 @@
 
 {
     "name": "Code coupon program multiple times ",
-    "version": "13.0.1.0.1",
+    "version": "15.0.1.0.0",
     "summary": "Use multiple code programs in a single sale",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",

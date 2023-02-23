@@ -5,7 +5,7 @@ from odoo.osv import expression
 
 
 class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+    _inherit = "coupon.program"
 
     def search(self, args, offset=0, limit=None, order=None, count=False):
         """HACK: Allow to use multiple code coupon programs

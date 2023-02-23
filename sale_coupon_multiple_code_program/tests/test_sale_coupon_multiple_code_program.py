@@ -4,7 +4,7 @@ from odoo.tests import Form, common, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestSaleCouponMultiCodeProgram(common.SavepointCase):
+class TestSaleCouponMultiCodeProgram(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -70,7 +70,7 @@ class TestSaleCouponMultiCodeProgram(common.SavepointCase):
         """Common promo helper for tests"""
         reward_type = options.get("reward_type", "discount")
         program_form = Form(
-            self.env["sale.coupon.program"],
+            self.env["coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
         )
         program_form.name = f"Test {reward_type} promo {f'[{code}]' if code else ''}"
