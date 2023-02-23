@@ -107,7 +107,11 @@ class SaleCouponProgram(models.Model):
         super(SaleCouponProgram, self - multiple_of_programs)._compute_order_count()
         product_data = self.env["sale.order.line"].read_group(
             [
-                ("coupon_program_id", "in", multiple_of_programs.ids,),
+                (
+                    "coupon_program_id",
+                    "in",
+                    multiple_of_programs.ids,
+                ),
                 ("is_reward_line", "=", True),
             ],
             ["product_id"],
