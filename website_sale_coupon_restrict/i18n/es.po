@@ -1,0 +1,50 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_sale_coupon_restrict
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-18 10:00+0000\n"
+"PO-Revision-Date: 2021-05-18 10:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_sale_coupon_restrict
+#: model:ir.model.fields,help:website_sale_coupon_restrict.field_sale_coupon_program__website_only
+msgid "Check this if the coupon can only be validated from the e-commerce."
+msgstr ""
+"Marque esta casilla si el cupón solo puede er validado desde el e-commerce."
+
+#. module: website_sale_coupon_restrict
+#: model:ir.model.fields,field_description:website_sale_coupon_restrict.field_sale_coupon_program__website_only
+msgid "Only for e-commerce"
+msgstr "Solo para e-commerce"
+
+#. module: website_sale_coupon_restrict
+#: model:ir.model,name:website_sale_coupon_restrict.model_sale_coupon
+msgid "Sales Coupon"
+msgstr "Cupón de ventas"
+
+#. module: website_sale_coupon_restrict
+#: model:ir.model,name:website_sale_coupon_restrict.model_sale_coupon_program
+msgid "Sales Coupon Program"
+msgstr "Programa de cupones de ventas"
+
+#. module: website_sale_coupon_restrict
+#: code:addons/website_sale_coupon_restrict/models/sale_coupon.py:11
+#, python-format
+msgid "This coupon can only be used in the e-commerce"
+msgstr "Este cupón solo puede ser utilizado en el e-commerce"
+
+#. module: website_sale_coupon_restrict
+#: code:addons/website_sale_coupon_restrict/models/sale_coupon_program.py:16
+#, python-format
+msgid "This coupon can only be validated on the e-commerce"
+msgstr "Este cupón solo puede ser validado en el e-commerce"
