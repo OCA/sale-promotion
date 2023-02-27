@@ -1,0 +1,159 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_coupon_portal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-10 11:23+0000\n"
+"PO-Revision-Date: 2023-02-10 12:27+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid ""
+"<span class=\"badge badge-pill badge-danger\"><i class=\"fa fa-fw fa-times-"
+"circle-o\" aria-label=\"Expired\" title=\"Expired\" role=\"img\"/><span "
+"class=\"d-none d-md-inline\"> Expired</span></span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-danger\"><i class=\"fa fa-fw fa-times-"
+"circle-o\" aria-label=\"Expired\" title=\"Expired\" role=\"img\"/><span "
+"class=\"d-none d-md-inline\"> Expirado</span></span>"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid ""
+"<span class=\"badge badge-pill badge-info\"><i class=\"fa fa-fw fa-check-"
+"circle-o\" aria-label=\"Used\" title=\"Used\" role=\"img\"/><span class=\"d-"
+"none d-md-inline\"> Used</span></span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-info\"><i class=\"fa fa-fw fa-check-"
+"circle-o\" aria-label=\"Used\" title=\"Used\" role=\"img\"/><span class=\"d-"
+"none d-md-inline\"> Usado</span></span>"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid ""
+"<span class=\"badge badge-pill badge-success\"><i class=\"fa fa-fw fa-circle-"
+"o\" aria-label=\"Valid\" title=\"Valid\" role=\"img\"/><span class=\"d-none "
+"d-md-inline\"> Valid</span></span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-success\"><i class=\"fa fa-fw fa-circle-"
+"o\" aria-label=\"Valid\" title=\"Valid\" role=\"img\"/><span class=\"d-none "
+"d-md-inline\"> Válido</span></span>"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid ""
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-"
+"o\" aria-label=\"Reserved\" title=\"Reserved\" role=\"img\"/><span class=\"d-"
+"none d-md-inline\"> Reserved</span></span>"
+msgstr ""
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-"
+"o\" aria-label=\"Reserved\" title=\"Reserved\" role=\"img\"/><span class=\"d-"
+"none d-md-inline\"> Reservado</span></span>"
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "All"
+msgstr "Todos"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid "Copy to clipboard"
+msgstr "Copiar al portapapeles"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid "Coupon Code #"
+msgstr "Código del cupón #"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_home_coupon
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_home_menu_coupon
+msgid "Coupons"
+msgstr "Cupones"
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "Expired"
+msgstr "Expirados"
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "Expires on"
+msgstr "Expira el"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid "Expires on:"
+msgstr "Expira el:"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid "Program"
+msgstr "Programa"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid "Received on:"
+msgstr "Recibido el:"
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "Recived on"
+msgstr "Recibido el"
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "Reserved"
+msgstr "Reservados"
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "Search by Coupon Code"
+msgstr "Buscar por código de cupón"
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "Search by Program"
+msgstr "Buscar por programa"
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "Status"
+msgstr "Estado"
+
+#. module: sale_coupon_portal
+#: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
+msgid "There are currently no coupons for your account."
+msgstr "Actualmente no hay cupones para su cuenta."
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "Used"
+msgstr "Usados"
+
+#. module: sale_coupon_portal
+#: code:addons/sale_coupon_portal/controllers/portal.py:0
+#, python-format
+msgid "Valid"
+msgstr "Válidos"
