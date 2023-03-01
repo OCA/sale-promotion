@@ -18,12 +18,10 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 
 #. module: sale_coupon_domain_product_discount
-#: code:addons/sale_coupon_domain_product_discount/models/coupon_reward.py:0
-#, python-format
-msgid "%s%% discount on selected products"
-msgstr "%s%% de descuento en los productos seleccionados"
-
-#. module: sale_coupon_domain_product_discount
 #: model:ir.model,name:sale_coupon_domain_product_discount.model_sale_order
 msgid "Sales Order"
 msgstr "Orden de venta"
+
+#, python-format
+#~ msgid "%s%% discount on selected products"
+#~ msgstr "%s%% de descuento en los productos seleccionados"
