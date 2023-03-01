@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="coupon_program_view_form_common" model="ir.ui.view">
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
+        <field name="model">coupon.program</field>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='rule_min_quantity']" position="before">
+                <field
+                    name="strict_per_product_limit"
+                    attrs="{'invisible': ['|', '|', ('discount_apply_on_domain_product', '=', False), ('rule_products_domain', '=', False), ('discount_apply_on', '!=', 'specific_products')]}"
+                />
+            </xpath>
+            <field name="discount_apply_on" position="after">
+                <field
+                    name="discount_apply_on_domain_product"
+                    attrs="{'invisible': [('discount_apply_on', '!=', 'specific_products')]}"
+                />
+            </field>
+            <!-- TODO: It'd be better done in fields_view_get -->
+            <xpath
+                expr="//field[@name='discount_specific_product_ids']"
+                position="attributes"
+            >
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', '|', '|', ('discount_apply_on', '!=', 'specific_products'),('discount_type', '!=', 'percentage'), ('reward_type', 'in', ('product', 'free_shipping')), ('discount_apply_on_domain_product', '!=', False)], 'required': [('reward_type', '=', 'discount'),('discount_apply_on', '=', 'specific_products'),('discount_type', '=', 'percentage'),('discount_apply_on_domain_product', '=', False)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
