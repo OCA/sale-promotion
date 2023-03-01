@@ -24,16 +24,19 @@ msgstr "Cupón"
 
 #. module: sale_coupon_incompatibility
 #: model:ir.model,name:sale_coupon_incompatibility.model_coupon_program
-msgid "Coupon Program"
-msgstr "Programa de cupones"
+msgid "Coupon display on a website"
+msgstr ""
 
 #. module: sale_coupon_incompatibility
+#: code:addons/sale_coupon_incompatibility/models/coupon_program.py:0
 #: code:addons/sale_coupon_incompatibility/models/sale_coupon.py:0
-#: code:addons/sale_coupon_incompatibility/models/sale_coupon_program.py:0
 #, python-format
 msgid ""
 "This promotion is incompatible with other set already in the order so it "
 "can't be applied."
 msgstr ""
-"Esta promoción es incompatible con otra ya presente en la orden por lo "
-"que no se puede aplicar."
+"Esta promoción es incompatible con otra ya presente en la orden por lo que "
+"no se puede aplicar."
+
+#~ msgid "Coupon Program"
+#~ msgstr "Programa de cupones"
