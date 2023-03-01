@@ -30,11 +30,6 @@ msgid "Apply on products domain"
 msgstr "Aplicar en el dominio de los productos"
 
 #. module: coupon_domain_product_discount
-#: model:ir.model,name:coupon_domain_product_discount.model_coupon_program
-msgid "Coupon Program"
-msgstr "Programa de cupones"
-
-#. module: coupon_domain_product_discount
 #: model:ir.model,name:coupon_domain_product_discount.model_coupon_reward
 msgid "Coupon Reward"
 msgstr "Recompensa de cupón"
@@ -45,6 +40,11 @@ msgid "Coupon Rule"
 msgstr "Regla de cupón"
 
 #. module: coupon_domain_product_discount
+#: model:ir.model,name:coupon_domain_product_discount.model_coupon_program
+msgid "Coupon display on a website"
+msgstr ""
+
+#. module: coupon_domain_product_discount
 #: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_program__strict_per_product_limit
 #: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_rule__strict_per_product_limit
 msgid ""
@@ -52,9 +52,9 @@ msgid ""
 "product domain condition, the minimum quantity/amount will be computed "
 "separately"
 msgstr ""
-"En una recompensa de descuento en productos seleccionados para cada "
-"producto que cumpla la condición de dominio del producto, la cantidad/"
-"importe mínimo se calculará por separado"
+"En una recompensa de descuento en productos seleccionados para cada producto "
+"que cumpla la condición de dominio del producto, la cantidad/importe mínimo "
+"se calculará por separado"
 
 #. module: coupon_domain_product_discount
 #: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_program__discount_specific_product_ids
@@ -88,5 +88,7 @@ msgstr "Límite estricto por producto"
 #: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_program__discount_apply_on_domain_product
 #: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_reward__discount_apply_on_domain_product
 msgid "When set, the discount will be applied on the filtered products"
-msgstr ""
-"Si se establece, el descuento se aplicará a los productos filtrados"
+msgstr "Si se establece, el descuento se aplicará a los productos filtrados"
+
+#~ msgid "Coupon Program"
+#~ msgstr "Programa de cupones"
