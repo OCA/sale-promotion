@@ -19,10 +19,13 @@ msgstr ""
 
 #. module: coupon_incompatibility
 #: model:ir.model,name:coupon_incompatibility.model_coupon_program
-msgid "Coupon Program"
-msgstr "Programa de cupones"
+msgid "Coupon display on a website"
+msgstr ""
 
 #. module: coupon_incompatibility
 #: model:ir.model.fields,field_description:coupon_incompatibility.field_coupon_program__incompatible_promotion_ids
 msgid "Incompatible Promotions"
 msgstr "Promociones incompatibles"
+
+#~ msgid "Coupon Program"
+#~ msgstr "Programa de cupones"
