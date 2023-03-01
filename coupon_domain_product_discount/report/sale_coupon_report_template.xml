@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_coupon" inherit_id="coupon.report_coupon">
+        <xpath
+            expr="//t[@t-if='len(o.program_id.discount_specific_product_ids) > 1']"
+            position="after"
+        >
+            <t t-elif="o.program_id.discount_apply_on_domain_product">
+                <t t-set="text">OFF ON SOME PRODUCTS*</t>
+            </t>
+        </xpath>
+        <xpath expr="//p[@t-if='display_specific_products']" position="after">
+            <p t-if="o.program_id.discount_apply_on_domain_product_description">
+                <small> *Valid for following products:
+                    <t
+                        t-esc="o.program_id.discount_apply_on_domain_product_description.upper()"
+                    />
+                </small>
+            </p>
+        </xpath>
+    </template>
+</odoo>
