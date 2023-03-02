@@ -72,7 +72,7 @@ class SaleOrder(models.Model):
     def _update_existing_reward_lines(self):
         """We need to match `multiple_of` programs with their discount product"""
         self.ensure_one()
-        super(
+        res = super(
             SaleOrder, self.with_context(only_reward_lines=True)
         )._update_existing_reward_lines()
         applied_programs = self._get_applied_programs_with_rewards_on_current_order()
@@ -90,6 +90,7 @@ class SaleOrder(models.Model):
                 lines.write(values)
             else:
                 lines.unlink()
+        return res
 
     def _get_applicable_programs_multiple_of(self):
         """Wrapper to avoid long method name limitations"""
@@ -114,7 +115,7 @@ class SaleOrder(models.Model):
         self.ensure_one()
         # This part is a repetition of the logic so we can get the right programs
         applied_programs = self._get_applied_programs()
-        applicable_programs = self.env["sale.coupon.program"]
+        applicable_programs = self.env["coupon.program"]
         if applied_programs:
             applicable_programs = self._get_applicable_programs_multiple_of()
         programs_to_remove = applied_programs - applicable_programs
@@ -141,9 +142,10 @@ class SaleOrder(models.Model):
                 and x.coupon_program_id in multiple_of_programs_to_remove
             ).unlink()
         # We'll catch the context in the subsequent unlink() method
-        super(
+        res = super(
             SaleOrder, self.with_context(valid_multiple_of_lines=valid_lines)
         )._remove_invalid_reward_lines()
+        return res
 
 
 class SaleOrderLine(models.Model):

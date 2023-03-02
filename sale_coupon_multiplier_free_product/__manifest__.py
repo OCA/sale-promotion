@@ -3,7 +3,7 @@
 {
     "name": "Restrict Coupons to Website Sales",
     "summary": "Allows to configure a coupon for e-commerce only",
-    "version": "13.0.1.0.3",
+    "version": "15.0.1.0.0",
     "development_status": "Beta",
     "category": "Website",
     "website": "https://github.com/OCA/sale-promotion",

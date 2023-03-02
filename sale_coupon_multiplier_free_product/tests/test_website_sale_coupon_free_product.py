@@ -1,9 +1,10 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import Form, common
+from odoo.tests import Form, common, tagged
 
 
-class TestSaleCouponMultiplier(common.SavepointCase):
+@tagged("post_install", "-at_install")
+class TestSaleCouponMultiplier(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -37,8 +38,8 @@ class TestSaleCouponMultiplier(common.SavepointCase):
             {"name": "Test 3", "sale_ok": True}
         )
         coupon_program_form = Form(
-            cls.env["sale.coupon.program"],
-            view="sale_coupon.sale_coupon_program_view_promo_program_form",
+            cls.env["coupon.program"],
+            view="coupon.coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Test Multiplier Program"
         coupon_program_form.promo_code_usage = "no_code_needed"
@@ -156,7 +157,7 @@ class TestSaleCouponMultiplier(common.SavepointCase):
         """Test coupons for this case"""
         self.coupon_program.program_type = "coupon_program"
         self.coupon_program.promo_code_usage = "code_needed"
-        self.env["sale.coupon.generate"].with_context(
+        self.env["coupon.generate.wizard"].with_context(
             active_id=self.coupon_program.id
         ).create({"generation_type": "nbr_coupon", "nbr_coupons": 1}).generate_coupon()
         coupon = self.coupon_program.coupon_ids
@@ -187,7 +188,7 @@ class TestSaleCouponMultiplier(common.SavepointCase):
         self.coupon_program.force_rewarded_product = False
         self.coupon_program.program_type = "coupon_program"
         self.coupon_program.promo_code_usage = "code_needed"
-        self.env["sale.coupon.generate"].with_context(
+        self.env["coupon.generate.wizard"].with_context(
             active_id=self.coupon_program.id
         ).create({"generation_type": "nbr_coupon", "nbr_coupons": 1}).generate_coupon()
         coupon = self.coupon_program.coupon_ids

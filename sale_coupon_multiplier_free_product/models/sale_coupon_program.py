@@ -4,7 +4,7 @@ from odoo import _, api, models
 
 
 class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+    _inherit = "coupon.program"
 
     @api.onchange("reward_type")
     def _onchange_reward_type_multiple_of(self):
@@ -16,7 +16,7 @@ class SaleCouponProgram(models.Model):
     def _onchange_reward_product_multiple_of(self):
         """We need this to ensure some filters"""
         if self.reward_type == "multiple_of":
-            self.discount_product_id = self.reward_product_id
+            self.discount_line_product_id = self.reward_product_id
 
     def _check_promo_code(self, order, coupon_code):
         message = super()._check_promo_code(order, coupon_code)
@@ -75,9 +75,12 @@ class SaleCouponProgram(models.Model):
         return programs
 
     def _is_valid_product(self, product):
+        """This method was removed, it's functionallity
+        essentially covered by _get_valid_products method"""
         if self.force_rewarded_product:
             return product == self.reward_product_id
-        return super()._is_valid_product(product)
+        res = super()._get_valid_products(product)
+        return product in res
 
     def _get_valid_products(self, products):
         if self.force_rewarded_product:
@@ -104,7 +107,9 @@ class SaleCouponProgram(models.Model):
     def _compute_order_count(self):
         """Multiple programs need a different domain to compute the order count"""
         multiple_of_programs = self.filtered(lambda x: x.reward_type == "multiple_of")
-        super(SaleCouponProgram, self - multiple_of_programs)._compute_order_count()
+        res = super(
+            SaleCouponProgram, self - multiple_of_programs
+        )._compute_order_count()
         product_data = self.env["sale.order.line"].read_group(
             [
                 (
@@ -120,3 +125,4 @@ class SaleCouponProgram(models.Model):
         mapped_data = {m["product_id"][0]: m["product_id_count"] for m in product_data}
         for program in multiple_of_programs:
             program.order_count = mapped_data.get(program.reward_product_id.id, 0)
+        return res

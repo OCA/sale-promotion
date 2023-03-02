@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <record model="ir.ui.view" id="sale_coupon_program_view_form_common">
-        <field name="model">sale.coupon.program</field>
-        <field
-            name="inherit_id"
-            ref="sale_coupon.sale_coupon_program_view_form_common"
-        />
+    <record model="ir.ui.view" id="coupon_program_view_form_common">
+        <field name="model">coupon.program</field>
+        <field name="inherit_id" ref="coupon.coupon_program_view_promo_program_form" />
         <field name="arch" type="xml">
             <field name="reward_product_id" position="before">
                 <field
@@ -14,7 +11,7 @@
                     attrs="{'invisible': [('reward_type', '!=', 'multiple_of')]}"
                 />
             </field>
-            <xpath expr="//field[@name='reward_product_quantity']/.." position="after">
+            <xpath expr="//label[@for='discount_type']" position="before">
                 <label
                     string="Max quantity"
                     for="reward_product_max_quantity"

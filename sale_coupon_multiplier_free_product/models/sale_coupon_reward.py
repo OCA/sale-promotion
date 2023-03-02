@@ -4,7 +4,7 @@ from odoo import _, fields, models
 
 
 class SaleCouponReward(models.Model):
-    _inherit = "sale.coupon.reward"
+    _inherit = "coupon.reward"
 
     reward_type = fields.Selection(selection_add=[("multiple_of", "Multiple of")])
     force_rewarded_product = fields.Boolean(
@@ -21,6 +21,6 @@ class SaleCouponReward(models.Model):
         other_rewards = self.filtered(lambda x: x.reward_type != "multiple_of")
         result = super(SaleCouponReward, other_rewards).name_get()
         for reward in self - other_rewards:
-            reward_string = _("Free Product - %s" % (reward.reward_product_id.name))
+            reward_string = _("Free Product - %s") % reward.reward_product_id.name
             result.append((reward.id, reward_string))
         return result

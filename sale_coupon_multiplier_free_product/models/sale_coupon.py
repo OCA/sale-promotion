@@ -4,10 +4,13 @@ from odoo import _, models
 
 
 class SaleCoupon(models.Model):
-    _inherit = "sale.coupon"
+    _inherit = "coupon.coupon"
 
-    def _check_coupon_code(self, order):
-        message = super()._check_coupon_code(order)
+    def _check_coupon_code(self, order_date, partner_id, **kwargs):
+        order = kwargs.get("order")
+        message = super()._check_coupon_code(
+            order.date_order.date(), order.partner_id.id, order=order
+        )
         if message:
             return message
         if self.program_id.reward_type == "multiple_of" and (
