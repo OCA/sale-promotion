@@ -7,4 +7,3 @@
 * `Domatix <https://www.domatix.com>`_:
 
   * Álvaro López Oró
-  * Carolina Ferrer
