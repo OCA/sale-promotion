@@ -2,7 +2,9 @@
 
   * Pedro M. Baeza
   * David Vidal
+  * Stefan Ungureanu
 
 * `Domatix <https://www.domatix.com>`_:
 
   * Álvaro López Oró
+  * Carolina Ferrer
