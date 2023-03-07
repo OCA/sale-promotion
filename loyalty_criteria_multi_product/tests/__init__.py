@@ -1,0 +1,2 @@
+from . import test_sale_coupon_criteria_multi_product
+from .test_sale_coupon_criteria_multi_product import TestCouponCriteriaMultiProduct
