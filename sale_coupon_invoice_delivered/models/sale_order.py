@@ -82,6 +82,14 @@ class SaleOrder(models.Model):
             program, lines
         )
 
+    def _get_delivered_reward_values_discount_percentage_per_line(self, program, line):
+        discount_amount = (
+            self._get_delivred_quantity_for_line(line)
+            * line.price_reduce
+            * (program.discount_percentage / 100)
+        )
+        return discount_amount
+
     def _set_delivered_reward_qty_for_program_discount_percentage_on_specific_lines(
         self, program, lines
     ):
@@ -94,17 +102,13 @@ class SaleOrder(models.Model):
                 for line in self._get_base_order_lines(program)
             ]
         )
-
         discount_by_taxes = {}
         currently_discounted_amount = 0
         for line in lines:
-            # If the line is a reward line, we should recompute the reward
-            # based on qty_delivered instead of taking the ratio of the
-            # full reward amount
             discount_line_amount = min(
-                self._get_delivred_quantity_for_line(line)
-                * line.price_reduce
-                * (program.discount_percentage / 100),
+                self._get_delivered_reward_values_discount_percentage_per_line(
+                    program, line
+                ),
                 amount_total - currently_discounted_amount,
             )
 
@@ -189,7 +193,6 @@ class SaleOrder(models.Model):
             return
 
         for program in applied_programs:
-
             # First check if program still applies on delivered quantities
 
             # To keep it simple for now only check if at least one of
