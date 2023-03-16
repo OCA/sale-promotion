@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-16 11:02+0000\n"
+"PO-Revision-Date: 2023-03-16 11:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,79 +16,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_program__force_rewarded_product
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_reward__force_rewarded_product
-msgid "Apply even if the rewarded product is not in the order lines"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_type
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_type
-msgid ""
-"Discount - Reward will be provided as discount.\n"
-"Free Product - Free product will be provide as reward \n"
-"Free Shipping - Free shipping will be provided as reward (Need delivery module)"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_program__force_rewarded_product
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_reward__force_rewarded_product
-msgid "Force Rewarded Product"
+#: model:ir.model,name:sale_coupon_multiplier_free_product.model_coupon_program
+msgid "Coupon display on a website"
 msgstr ""
 
 #. module: sale_coupon_multiplier_free_product
 #: code:addons/sale_coupon_multiplier_free_product/models/sale_order.py:0
 #, python-format
 msgid "Free Product"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: code:addons/sale_coupon_multiplier_free_product/models/sale_coupon_reward.py:0
-#, python-format
-msgid "Free Product - %s"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model_terms:ir.ui.view,arch_db:sale_coupon_multiplier_free_product.sale_coupon_program_view_form_common
-msgid "Max quantity"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_product_max_quantity
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_product_max_quantity
-msgid "Max reward quantity"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_product_max_quantity
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_product_max_quantity
-msgid "Maximum reward product quantity (0 for no limit)"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields.selection,name:sale_coupon_multiplier_free_product.selection__sale_coupon_reward__reward_type__multiple_of
-msgid "Multiple of"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_type
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_type
-msgid "Reward Type"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model,name:sale_coupon_multiplier_free_product.model_sale_coupon
-msgid "Sales Coupon"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model,name:sale_coupon_multiplier_free_product.model_sale_coupon_program
-msgid "Sales Coupon Program"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model,name:sale_coupon_multiplier_free_product.model_sale_coupon_reward
-msgid "Sales Coupon Reward"
 msgstr ""
 
 #. module: sale_coupon_multiplier_free_product
@@ -100,8 +37,7 @@ msgid "Sales Order Line"
 msgstr ""
 
 #. module: sale_coupon_multiplier_free_product
-#: code:addons/sale_coupon_multiplier_free_product/models/sale_coupon.py:0
-#: code:addons/sale_coupon_multiplier_free_product/models/sale_coupon_program.py:0
+#: code:addons/sale_coupon_multiplier_free_product/models/coupon_program.py:0
 #, python-format
 msgid ""
 "The reward products should be in the sales order lines to apply the "

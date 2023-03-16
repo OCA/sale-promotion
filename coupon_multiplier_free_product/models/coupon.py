@@ -3,13 +3,13 @@
 from odoo import _, models
 
 
-class SaleCoupon(models.Model):
+class Coupon(models.Model):
     _inherit = "coupon.coupon"
 
     def _check_coupon_code(self, order_date, partner_id, **kwargs):
         order = kwargs.get("order")
-        message = super()._check_coupon_code(
-            order.date_order.date(), order.partner_id.id, order=order
+        message = super(Coupon, self)._check_coupon_code(
+            order_date, partner_id, **kwargs
         )
         if message:
             return message

@@ -3,7 +3,7 @@
 from odoo import _, fields, models
 
 
-class SaleCouponReward(models.Model):
+class CouponReward(models.Model):
     _inherit = "coupon.reward"
 
     reward_type = fields.Selection(selection_add=[("multiple_of", "Multiple of")])
@@ -19,7 +19,7 @@ class SaleCouponReward(models.Model):
     def name_get(self):
         """Returns a complete description of the reward"""
         other_rewards = self.filtered(lambda x: x.reward_type != "multiple_of")
-        result = super(SaleCouponReward, other_rewards).name_get()
+        result = super(CouponReward, other_rewards).name_get()
         for reward in self - other_rewards:
             reward_string = _("Free Product - %s") % reward.reward_product_id.name
             result.append((reward.id, reward_string))

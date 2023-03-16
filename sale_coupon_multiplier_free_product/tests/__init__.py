@@ -1,1 +1,1 @@
-from . import test_website_sale_coupon_free_product
+from . import test_sale_coupon_multiplier_free_product

@@ -4,111 +4,34 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-06-09 11:05+0000\n"
-"Last-Translator: David Vidal <david.vidal@tecnativa.com>\n"
+"POT-Creation-Date: 2023-03-16 11:02+0000\n"
+"PO-Revision-Date: 2023-03-16 12:03+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_program__force_rewarded_product
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_reward__force_rewarded_product
-msgid "Apply even if the rewarded product is not in the order lines"
-msgstr "Aplicar incluso si el producto no está en las líneas del pedido"
+#: model:ir.model,name:sale_coupon_multiplier_free_product.model_coupon_program
+msgid "Coupon display on a website"
+msgstr "Cupón mostrado en la web."
 
 #. module: sale_coupon_multiplier_free_product
-#: selection:sale.coupon.reward,reward_type:0
-msgid "Discount"
-msgstr "Descuento"
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_type
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_type
-msgid ""
-"Discount - Reward will be provided as discount.\n"
-"Free Product - Free product will be provide as reward \n"
-"Free Shipping - Free shipping will be provided as reward (Need delivery "
-"module)"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_program__force_rewarded_product
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_reward__force_rewarded_product
-msgid "Force Rewarded Product"
-msgstr "Obligar producto de regalo"
-
-#. module: sale_coupon_multiplier_free_product
-#: code:addons/sale_coupon_multiplier_free_product/models/sale_order.py:61
-#: selection:sale.coupon.reward,reward_type:0
+#: code:addons/sale_coupon_multiplier_free_product/models/sale_order.py:0
 #, python-format
 msgid "Free Product"
-msgstr "Product gratuíto"
-
-#. module: sale_coupon_multiplier_free_product
-#: code:addons/sale_coupon_multiplier_free_product/models/sale_coupon_reward.py:28
-#, python-format
-msgid "Free Product - %s"
-msgstr "Producto gratis - %s"
-
-#. module: sale_coupon_multiplier_free_product
-#: selection:sale.coupon.reward,reward_type:0
-msgid "Free Shipping"
-msgstr "Gastos de envío gratis"
-
-#. module: sale_coupon_multiplier_free_product
-#: model_terms:ir.ui.view,arch_db:sale_coupon_multiplier_free_product.sale_coupon_program_view_form_common
-msgid "Max quantity"
-msgstr "Cantidad máxima"
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_product_max_quantity
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_product_max_quantity
-msgid "Max reward quantity"
-msgstr "Cantidad máxima a recompensar"
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_product_max_quantity
-#: model:ir.model.fields,help:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_product_max_quantity
-msgid "Maximum reward product quantity (0 for no limit)"
-msgstr "Cantidad máxima de producto a recompensar (0 para cantidad sin límite)"
-
-#. module: sale_coupon_multiplier_free_product
-#: selection:sale.coupon.reward,reward_type:0
-msgid "Multiple of"
-msgstr "Múltiplo de"
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_program__reward_type
-#: model:ir.model.fields,field_description:sale_coupon_multiplier_free_product.field_sale_coupon_reward__reward_type
-msgid "Reward Type"
-msgstr "Tipo de recompensa"
+msgstr "Producto gratuito"
 
 #. module: sale_coupon_multiplier_free_product
 #: model:ir.model,name:sale_coupon_multiplier_free_product.model_sale_order
-msgid "Sale Order"
-msgstr "Pedido de Venta"
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model,name:sale_coupon_multiplier_free_product.model_sale_coupon
-msgid "Sales Coupon"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model,name:sale_coupon_multiplier_free_product.model_sale_coupon_program
-msgid "Sales Coupon Program"
-msgstr ""
-
-#. module: sale_coupon_multiplier_free_product
-#: model:ir.model,name:sale_coupon_multiplier_free_product.model_sale_coupon_reward
-msgid "Sales Coupon Reward"
-msgstr ""
+msgid "Sales Order"
+msgstr "Pedido de venta"
 
 #. module: sale_coupon_multiplier_free_product
 #: model:ir.model,name:sale_coupon_multiplier_free_product.model_sale_order_line
@@ -116,11 +39,7 @@ msgid "Sales Order Line"
 msgstr "Línea de pedido de venta"
 
 #. module: sale_coupon_multiplier_free_product
-#: code:addons/sale_coupon_multiplier_free_product/models/sale_coupon.py:18
-#: code:addons/sale_coupon_multiplier_free_product/models/sale_coupon_program.py:64
+#: code:addons/sale_coupon_multiplier_free_product/models/coupon_program.py:0
 #, python-format
-msgid ""
-"The reward products should be in the sales order lines to apply the discount."
-msgstr ""
-"Los producto de recompensa deberían estar en las líneas de venta para poder "
-"aplicar el descuento."
+msgid "The reward products should be in the sales order lines to apply the discount."
+msgstr "Los productos de recompensa deben estar en las líneas del pedido de venta para aplicar el descuento."

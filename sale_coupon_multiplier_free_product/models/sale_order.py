@@ -30,7 +30,7 @@ class SaleOrder(models.Model):
         # The method `_is_valid_product` is in charge of evaluate whether or not
         # the product of the reward is the only one that applies.
         valid_lines = (self.order_line - self._get_reward_lines()).filtered(
-            lambda x: program._is_valid_product(x.product_id)
+            lambda x: program._get_valid_products(x.product_id)
         )
         applicable_qty = sum(valid_lines.mapped("product_uom_qty")) or 1
         rewardable_qty = applicable_qty // program.rule_min_quantity
@@ -142,10 +142,9 @@ class SaleOrder(models.Model):
                 and x.coupon_program_id in multiple_of_programs_to_remove
             ).unlink()
         # We'll catch the context in the subsequent unlink() method
-        res = super(
+        return super(
             SaleOrder, self.with_context(valid_multiple_of_lines=valid_lines)
         )._remove_invalid_reward_lines()
-        return res
 
 
 class SaleOrderLine(models.Model):
