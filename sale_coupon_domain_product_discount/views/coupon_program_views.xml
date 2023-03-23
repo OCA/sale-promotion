@@ -18,6 +18,10 @@
                     name="discount_apply_on_domain_product"
                     attrs="{'invisible': [('discount_apply_on', '!=', 'specific_products')]}"
                 />
+                <field
+                    name="discount_apply_on_domain_product_description"
+                    attrs="{'invisible': [('discount_apply_on_domain_product', '=', False)]}"
+                />
             </field>
             <!-- TODO: It'd be better done in fields_view_get -->
             <xpath
