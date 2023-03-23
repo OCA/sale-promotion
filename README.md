@@ -27,7 +27,7 @@ addon | version | maintainers | summary
 [sale_coupon_criteria_order_based](sale_coupon_criteria_order_based/) | 13.0.1.0.0 |  | Allows to set a sales order related domain for coupon
 [sale_coupon_delivery_auto_refresh](sale_coupon_delivery_auto_refresh/) | 13.0.1.0.0 |  | Allows to auto-apply the coupons after adding delivery line
 [sale_coupon_domain_free_product](sale_coupon_domain_free_product/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Rewards will be applied based on the products domain
-[sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 13.0.1.0.0 |  | Apply discount only to the domain matching products
+[sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 13.0.1.1.0 |  | Apply discount only to the domain matching products
 [sale_coupon_incompatibility](sale_coupon_incompatibility/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions
 [sale_coupon_limit](sale_coupon_limit/) | 13.0.1.1.5 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [sale_coupon_mass_mailing](sale_coupon_mass_mailing/) | 13.0.1.1.0 |  | Sale Coupon Mas Mailing
