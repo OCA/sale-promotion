@@ -22,7 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [coupon_chatter](coupon_chatter/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Register messages and activities on the sale coupon records
-[coupon_domain_product_discount](coupon_domain_product_discount/) | 15.0.1.0.0 |  | Apply discount only to the domain matching products
+[coupon_domain_product_discount](coupon_domain_product_discount/) | 15.0.1.1.0 |  | Apply discount only to the domain matching products
 [coupon_incompatibility](coupon_incompatibility/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions
 [coupon_limit](coupon_limit/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [coupon_mass_mailing](coupon_mass_mailing/) | 15.0.1.0.0 |  | Coupon Mas Mailing
