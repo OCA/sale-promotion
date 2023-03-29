@@ -4,3 +4,4 @@
 
   * David Vidal
   * Stefan Ungureanu
+  * Pilar Vargas

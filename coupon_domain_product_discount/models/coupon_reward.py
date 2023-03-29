@@ -1,6 +1,7 @@
 # Copyright 2022 Ooops404
 # Copyright 2022 Tecnativa - David Vidal
 # Copyright 2023 Tecnativa - Stefan Ungureanu
+# Copyright 2023 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import _, api, fields, models
 from odoo.tools.safe_eval import safe_eval
@@ -27,6 +28,11 @@ class CouponReward(models.Model):
     discount_apply_on_domain_product = fields.Boolean(
         string="Apply on products domain",
         help="When set, the discount will be applied on the filtered products",
+    )
+    discount_apply_on_domain_product_description = fields.Char(
+        string="Description for coupons",
+        help="Description to be displayed in the report when the option to apply"
+        "discount on the filtered products is set",
     )
 
     @api.depends("discount_apply_on_domain_product")
