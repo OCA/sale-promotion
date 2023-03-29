@@ -20,6 +20,11 @@ msgid "%s%% discount on selected products"
 msgstr ""
 
 #. module: coupon_domain_product_discount
+#: model_terms:ir.ui.view,arch_db:coupon_domain_product_discount.report_coupon
+msgid "*Valid for following products:"
+msgstr ""
+
+#. module: coupon_domain_product_discount
 #: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_program__discount_apply_on_domain_product
 #: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_reward__discount_apply_on_domain_product
 msgid "Apply on products domain"
@@ -41,12 +46,31 @@ msgid "Coupon display on a website"
 msgstr ""
 
 #. module: coupon_domain_product_discount
+#: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_program__discount_apply_on_domain_product_description
+#: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_reward__discount_apply_on_domain_product_description
+msgid "Description for coupons"
+msgstr ""
+
+#. module: coupon_domain_product_discount
+#: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_program__discount_apply_on_domain_product_description
+#: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_reward__discount_apply_on_domain_product_description
+msgid ""
+"Description to be displayed in the report when the option to applydiscount "
+"on the filtered products is set"
+msgstr ""
+
+#. module: coupon_domain_product_discount
 #: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_program__strict_per_product_limit
 #: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_rule__strict_per_product_limit
 msgid ""
 "In a discount on selected products reward for every product meeting the "
 "product domain condition, the minimum quantity/amount will be computed "
 "separately"
+msgstr ""
+
+#. module: coupon_domain_product_discount
+#: model_terms:ir.ui.view,arch_db:coupon_domain_product_discount.report_coupon
+msgid "OFF ON SOME PRODUCTS*"
 msgstr ""
 
 #. module: coupon_domain_product_discount
