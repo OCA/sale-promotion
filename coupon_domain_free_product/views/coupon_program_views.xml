@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="coupon_program_view_form_common">
+        <field name="model">coupon.program</field>
+        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='rule_min_quantity']" position="before">
+                <field
+                    name="strict_per_product_limit"
+                    attrs="{'invisible': [('reward_type', '!=', 'free_product_domain')]}"
+                />
+            </xpath>
+            <xpath expr="//field[@name='reward_product_id']" position="after">
+                <label
+                    string="Quantity"
+                    for="reward_product_quantity"
+                    attrs="{'invisible': [('reward_type', '!=', 'free_product_domain')]}"
+                />
+                <div
+                    attrs="{'invisible': [('reward_type', '!=', 'free_product_domain')]}"
+                >
+                    <field name="reward_product_quantity" class="oe_inline" />
+                    <field name="reward_product_uom_id" class="oe_inline" />
+                </div>
+                <label
+                    string="Max quantity"
+                    for="reward_product_max_quantity"
+                    attrs="{'invisible': [('reward_type', '!=', 'free_product_domain')]}"
+                />
+                <div
+                    attrs="{'invisible': [('reward_type', '!=', 'free_product_domain')]}"
+                >
+                    <field name="reward_product_max_quantity" class="oe_inline" />
+                    <field name="reward_product_uom_id" class="oe_inline" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

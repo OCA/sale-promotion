@@ -1,0 +1,100 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* coupon_domain_free_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-23 08:04+0000\n"
+"PO-Revision-Date: 2023-02-23 09:06+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: coupon_domain_free_product
+#: model:ir.model,name:coupon_domain_free_product.model_coupon_reward
+msgid "Coupon Reward"
+msgstr "Recompensa de cupón"
+
+#. module: coupon_domain_free_product
+#: model:ir.model,name:coupon_domain_free_product.model_coupon_rule
+msgid "Coupon Rule"
+msgstr "Regla de cupón"
+
+#. module: coupon_domain_free_product
+#: model:ir.model.fields,help:coupon_domain_free_product.field_coupon_program__reward_type
+#: model:ir.model.fields,help:coupon_domain_free_product.field_coupon_reward__reward_type
+msgid ""
+"Discount - Reward will be provided as discount.\n"
+"Free Product - Free product will be provide as reward \n"
+"Free Shipping - Free shipping will be provided as reward (Need delivery "
+"module)"
+msgstr ""
+"Descuento - La recompensa se ofrecerá en forma de descuento.\n"
+"Producto gratuito - Se proporcionará un producto gratuito como "
+"recompensa\n"
+"Envío gratuito - El envío gratuito será proporcionado como recompensa "
+"(Necesita módulo de entrega)"
+
+#. module: coupon_domain_free_product
+#: code:addons/coupon_domain_free_product/models/coupon_reward.py:0
+#, python-format
+msgid "Free Products"
+msgstr "Productos gratuitos"
+
+#. module: coupon_domain_free_product
+#: model:ir.model.fields,help:coupon_domain_free_product.field_coupon_program__strict_per_product_limit
+#: model:ir.model.fields,help:coupon_domain_free_product.field_coupon_rule__strict_per_product_limit
+msgid ""
+"In a discount on selected products reward for every product meeting the "
+"product domain condition, the minimum quantity/amount will be computed "
+"separately"
+msgstr ""
+"En una recompensa de descuento en productos seleccionados para cada "
+"producto que cumpla la condición de dominio del producto, la cantidad/"
+"importe mínimo se calculará por separado"
+
+#. module: coupon_domain_free_product
+#: model_terms:ir.ui.view,arch_db:coupon_domain_free_product.coupon_program_view_form_common
+msgid "Max quantity"
+msgstr "Cantidad máxima"
+
+#. module: coupon_domain_free_product
+#: model:ir.model.fields,field_description:coupon_domain_free_product.field_coupon_program__reward_product_max_quantity
+#: model:ir.model.fields,field_description:coupon_domain_free_product.field_coupon_reward__reward_product_max_quantity
+msgid "Max reward quantity"
+msgstr "Cantidad máxima de recompensa"
+
+#. module: coupon_domain_free_product
+#: model:ir.model.fields,help:coupon_domain_free_product.field_coupon_program__reward_product_max_quantity
+#: model:ir.model.fields,help:coupon_domain_free_product.field_coupon_reward__reward_product_max_quantity
+msgid "Maximum reward product quantity (0 for no limit)"
+msgstr "Cantidad máxima de productos de recompensa (0 para sin límite)"
+
+#. module: coupon_domain_free_product
+#: model:ir.model.fields.selection,name:coupon_domain_free_product.selection__coupon_reward__reward_type__free_product_domain
+msgid "Product Domain"
+msgstr "Dominio de producto"
+
+#. module: coupon_domain_free_product
+#: model_terms:ir.ui.view,arch_db:coupon_domain_free_product.coupon_program_view_form_common
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: coupon_domain_free_product
+#: model:ir.model.fields,field_description:coupon_domain_free_product.field_coupon_program__reward_type
+#: model:ir.model.fields,field_description:coupon_domain_free_product.field_coupon_reward__reward_type
+msgid "Reward Type"
+msgstr "Tipo de recompensa"
+
+#. module: coupon_domain_free_product
+#: model:ir.model.fields,field_description:coupon_domain_free_product.field_coupon_program__strict_per_product_limit
+#: model:ir.model.fields,field_description:coupon_domain_free_product.field_coupon_rule__strict_per_product_limit
+msgid "Strict Per Product Limit"
+msgstr "Límite estricto por producto"
