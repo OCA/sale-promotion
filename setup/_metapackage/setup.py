@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-coupon_chatter>=15.0dev,<15.1dev',
         'odoo-addon-coupon_criteria_multi_product>=15.0dev,<15.1dev',
+        'odoo-addon-coupon_domain_free_product>=15.0dev,<15.1dev',
         'odoo-addon-coupon_domain_product_discount>=15.0dev,<15.1dev',
         'odoo-addon-coupon_incompatibility>=15.0dev,<15.1dev',
         'odoo-addon-coupon_limit>=15.0dev,<15.1dev',
@@ -18,6 +19,7 @@ setuptools.setup(
         'odoo-addon-sale_coupon_auto_refresh>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_criteria_multi_product>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_criteria_order_based>=15.0dev,<15.1dev',
+        'odoo-addon-sale_coupon_domain_free_product>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_domain_product_discount>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_incompatibility>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_limit>=15.0dev,<15.1dev',
