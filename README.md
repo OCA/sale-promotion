@@ -22,12 +22,14 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [coupon_chatter](coupon_chatter/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Register messages and activities on the sale coupon records
+[coupon_criteria_multi_product](coupon_criteria_multi_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set as promotion criteria multi-product conditions
 [coupon_domain_product_discount](coupon_domain_product_discount/) | 15.0.1.1.0 |  | Apply discount only to the domain matching products
 [coupon_incompatibility](coupon_incompatibility/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions
 [coupon_limit](coupon_limit/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [coupon_mass_mailing](coupon_mass_mailing/) | 15.0.1.0.0 |  | Coupon Mas Mailing
 [coupon_multi_gift](coupon_multi_gift/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure multiple gift rewards per promotion
 [sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) [![SilvioC2C](https://github.com/SilvioC2C.png?size=30px)](https://github.com/SilvioC2C) | Allows to auto-apply the coupons with no user intervention
+[sale_coupon_criteria_multi_product](sale_coupon_criteria_multi_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set as promotion criteria multi-product conditions
 [sale_coupon_criteria_order_based](sale_coupon_criteria_order_based/) | 15.0.1.0.0 |  | Allows to set a sales order related domain for coupon
 [sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 15.0.1.0.0 |  | Apply discount only to the domain matching products
 [sale_coupon_incompatibility](sale_coupon_incompatibility/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions
