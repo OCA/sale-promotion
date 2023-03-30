@@ -18,71 +18,48 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 
 #. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,help:sale_coupon_criteria_multi_product.field_coupon_program__repeat_product
-msgid "Can product quantities count multiple times or not"
-msgstr "Las cantidades de productos pueden contarse varias veces o no"
-
-#. module: sale_coupon_criteria_multi_product
 #: model:ir.model,name:sale_coupon_criteria_multi_product.model_coupon_program
-msgid "Coupon Program"
-msgstr "Programa de cupones"
+msgid "Coupon display on a website"
+msgstr ""
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__create_uid
-msgid "Created by"
-msgstr "Creado por"
+#~ msgid "Can product quantities count multiple times or not"
+#~ msgstr "Las cantidades de productos pueden contarse varias veces o no"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__create_date
-msgid "Created on"
-msgstr "Creado el"
+#~ msgid "Coupon Program"
+#~ msgstr "Programa de cupones"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__display_name
-msgid "Display Name"
-msgstr "Nombre a mostrar"
+#~ msgid "Created by"
+#~ msgstr "Creado por"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__id
-msgid "ID"
-msgstr "ID"
+#~ msgid "Created on"
+#~ msgstr "Creado el"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program____last_update
-msgid "Last Modified on"
-msgstr "Última modificación el"
+#~ msgid "Display Name"
+#~ msgstr "Nombre a mostrar"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__write_uid
-msgid "Last Updated by"
-msgstr "Última actualización por"
+#~ msgid "ID"
+#~ msgstr "ID"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__write_date
-msgid "Last Updated on"
-msgstr "Última actualización en"
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación el"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__rule_min_quantity
-msgid "Min. Quantity"
-msgstr "Cantidad mínima"
+#~ msgid "Last Updated by"
+#~ msgstr "Última actualización por"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,help:sale_coupon_criteria_multi_product.field_coupon_program__rule_min_quantity
-msgid "Minimum required product quantity to get the reward"
-msgstr "Cantidad mínima de producto requerida para obtener la recompensa"
+#~ msgid "Last Updated on"
+#~ msgstr "Última actualización en"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__product_ids
-msgid "Products"
-msgstr "Productos"
+#~ msgid "Min. Quantity"
+#~ msgstr "Cantidad mínima"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__program_id
-msgid "Program"
-msgstr "Programa"
+#~ msgid "Minimum required product quantity to get the reward"
+#~ msgstr "Cantidad mínima de producto requerida para obtener la recompensa"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model.fields,field_description:sale_coupon_criteria_multi_product.field_coupon_program__repeat_product
-msgid "Repeat"
-msgstr "Repetir"
+#~ msgid "Products"
+#~ msgstr "Productos"
+
+#~ msgid "Program"
+#~ msgstr "Programa"
+
+#~ msgid "Repeat"
+#~ msgstr "Repetir"
