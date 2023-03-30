@@ -37,8 +37,7 @@ msgid ""
 "module)"
 msgstr ""
 "Descuento - La recompensa se ofrecerá en forma de descuento.\n"
-"Producto gratuito - Se proporcionará un producto gratuito como "
-"recompensa\n"
+"Producto gratuito - Se proporcionará un producto gratuito como recompensa\n"
 "Envío gratuito - El envío gratuito será proporcionado como recompensa "
 "(Necesita módulo de entrega)"
 
@@ -56,9 +55,9 @@ msgid ""
 "product domain condition, the minimum quantity/amount will be computed "
 "separately"
 msgstr ""
-"En una recompensa de descuento en productos seleccionados para cada "
-"producto que cumpla la condición de dominio del producto, la cantidad/"
-"importe mínimo se calculará por separado"
+"En una recompensa de descuento en productos seleccionados para cada producto "
+"que cumpla la condición de dominio del producto, la cantidad/importe mínimo "
+"se calculará por separado"
 
 #. module: coupon_domain_free_product
 #: model_terms:ir.ui.view,arch_db:coupon_domain_free_product.coupon_program_view_form_common
