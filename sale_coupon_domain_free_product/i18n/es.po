@@ -19,8 +19,8 @@ msgstr ""
 
 #. module: sale_coupon_domain_free_product
 #: model:ir.model,name:sale_coupon_domain_free_product.model_coupon_program
-msgid "Coupon Program"
-msgstr "Programa de cupones"
+msgid "Coupon display on a website"
+msgstr ""
 
 #. module: sale_coupon_domain_free_product
 #: code:addons/sale_coupon_domain_free_product/models/sale_order.py:0
@@ -37,3 +37,6 @@ msgstr "Orden de venta"
 #: model:ir.model,name:sale_coupon_domain_free_product.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Línea de orden de venta"
+
+#~ msgid "Coupon Program"
+#~ msgstr "Programa de cupones"
