@@ -39,14 +39,14 @@ msgid "Coupon Multi Product Criteria"
 msgstr "Criterios de cupones multiproducto"
 
 #. module: coupon_criteria_multi_product
-#: model:ir.model,name:coupon_criteria_multi_product.model_coupon_program
-msgid "Coupon Program"
-msgstr "Programa de cupones"
-
-#. module: coupon_criteria_multi_product
 #: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_program__coupon_criteria
 msgid "Coupon criteria"
 msgstr "Criterios del cupón"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model,name:coupon_criteria_multi_product.model_coupon_program
+msgid "Coupon display on a website"
+msgstr ""
 
 #. module: coupon_criteria_multi_product
 #: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__create_uid
@@ -110,8 +110,8 @@ msgstr "Criterios de multiproducto"
 
 #. module: coupon_criteria_multi_product
 #: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__product_ids
-msgid "Products"
-msgstr "Productos"
+msgid "Product"
+msgstr ""
 
 #. module: coupon_criteria_multi_product
 #: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__program_id
@@ -137,3 +137,9 @@ msgid ""
 msgstr ""
 "La cantidad mínima no puede ser diferente del número de productos. "
 "Establezca la regla como repetible para evitar esta restricción."
+
+#~ msgid "Coupon Program"
+#~ msgstr "Programa de cupones"
+
+#~ msgid "Products"
+#~ msgstr "Productos"
