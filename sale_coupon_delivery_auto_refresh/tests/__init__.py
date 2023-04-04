@@ -1,0 +1,1 @@
+from . import test_sale_coupon_delivery_auto_refresh
