@@ -1,0 +1,42 @@
+.oe_promotion_wizard_item_img {
+    object-fit: contain;
+    max-height: 5rem;
+    width: 5rem;
+}
+.oe_promotion_wizard_item_infos {
+    font-size: 0.9rem;
+}
+.oe_promotion_wizard_item_title strong {
+    font-size: 1rem;
+}
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+.csw_product_quantity {
+    font-size: 2rem;
+}
+.oe_scw_criteria_condition,
+.oe_scw_reward_retribution {
+    font-weight: bold;
+    font-size: 3rem;
+    -webkit-text-stroke: 1px white;
+}
+.oe_scw_reward_retribution {
+    font-size: 2rem;
+}
+.js_promotion_item_quantity {
+    max-width: 4rem;
+    padding: 0.7rem;
+    text-align: center;
+    border-color: transparent;
+}
+.csw_optional_reward {
+    cursor: pointer;
+}
+.csw_reward_img {
+    height: 2rem;
+    width: 2rem;
+    object-fit: cover;
+    border: 1px solid;
+}
