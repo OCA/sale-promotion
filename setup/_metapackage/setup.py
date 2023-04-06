@@ -28,6 +28,7 @@ setuptools.setup(
         'odoo-addon-sale_coupon_multiple_code_program>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_order_line_link>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_partner>=15.0dev,<15.1dev',
+        'odoo-addon-sale_coupon_selection_wizard>=15.0dev,<15.1dev',
         'odoo-addon-website_sale_coupon_page>=15.0dev,<15.1dev',
         'odoo-addon-website_sale_coupon_restrict>=15.0dev,<15.1dev',
     ],
