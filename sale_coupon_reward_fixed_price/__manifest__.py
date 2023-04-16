@@ -1,6 +1,6 @@
 {
     "name": "Sale Coupon Fixed Price",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "summary": "Apply fixed price for domain matching products",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
     "license": "AGPL-3",
