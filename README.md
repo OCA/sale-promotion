@@ -45,6 +45,7 @@ addon | version | maintainers | summary
 [sale_coupon_selection_wizard](sale_coupon_selection_wizard/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | A wizard that allows salesmen to easily pick the best promotions
 [website_sale_coupon_page](website_sale_coupon_page/) | 15.0.1.0.0 |  | Website Sale Coupon Page
 [website_sale_coupon_restrict](website_sale_coupon_restrict/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for e-commerce only
+[website_sale_coupon_selection_wizard](website_sale_coupon_selection_wizard/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to apply and configure promotions directly from the website
 
 [//]: # (end addons)
 
