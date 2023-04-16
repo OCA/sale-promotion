@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="promotion_item"
+        name="Promotion Item Apply"
+        inherit_id="website_sale_coupon_page.promotion_item"
+    >
+        <xpath expr="//div[hasclass('card-text')]" position="before">
+            <a
+                name="apply_promotion"
+                t-if="promo.get('applicable')"
+                class="btn btn-primary"
+                t-att-href="'/promotions/%s/apply' % promo['id']"
+            >Apply</a>
+        </xpath>
+    </template>
+    <template
+        id="configure_promotion"
+        inherit_id="website_sale.cart_lines"
+        name="Configure Promotion"
+    >
+        <xpath expr="//table[@id='cart_products']" position="before">
+            <t t-if="promotion_id">
+                <div class="alert alert-warning" role="alert">
+                    <a
+                        href="/promotions/dismiss"
+                        type="button"
+                        class="close"
+                        aria-label="Close"
+                    >
+                        <span>×</span>
+                    </a>
+                    <strong t-out="promotion_id.public_name" />
+                     In order to apply this promotion you need to configure some options.
+                    <hr />
+                    <button
+                        type="button"
+                        class="btn btn-warning"
+                        data-toggle="modal"
+                        data-target="#o_promo_configure_modal"
+                    >
+                        <i class="fa fa-gift" /> Configure
+                    </button>
+                </div>
+                <div
+                    class="modal fade"
+                    id="o_promo_configure_modal"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="promotion_config_label"
+                    aria-hidden="false"
+                >
+                    <div
+                        class="modal-dialog modal-dialog-centered"
+                        role="document"
+                        style="max-width: 100%"
+                        id="o_promo_configure"
+                    >
+                        <div class="modal-content" role="document">
+                            <div class="modal-header">
+                                <h5
+                                    class="modal-title"
+                                    id="promotion_config_label"
+                                    t-out="promotion_id.public_name"
+                                />
+                                <div class="pull-right">
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary o_coupon_selection_wizard_apply"
+                                    >Apply</button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-light"
+                                        data-dismiss="modal"
+                                    >Close</button>
+                                </div>
+                            </div>
+                            <div class="modal-body" id="o_promo_config_body">
+                                <div
+                                    t-if="request.session.error_promo_code"
+                                    class="alert alert-danger"
+                                    role="alert"
+                                >
+                                    <span t-out="request.session.error_promo_code" />
+                                </div>
+                                <span
+                                    class="d-none js_promotion_change"
+                                    t-att-data-promotion-id="promotion_id and promotion_id.id or ''"
+                                />
+                                <span
+                                    class="d-none website_sale_order_id"
+                                    t-att-data-order-id="website_sale_order and website_sale_order.id or ''"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+    <template
+        id="website_sale_coupon_suggestion"
+        inherit_id="website_sale.cart_lines"
+        active="True"
+        customize_show="True"
+        name="Promotions suggestions"
+    >
+        <xpath expr="//th[hasclass('td-img')]" position="before">
+            <th class="td-promo-suggestion" />
+        </xpath>
+        <xpath expr="//td[hasclass('td-img')]" position="before">
+            <td class="td-promo-suggestion">
+                <t t-if="line.suggested_promotion_ids">
+                    <t t-set="promo" t-value="line.suggested_promotion_ids[:1].id" />
+                    <a
+                        title="Configurable promotions suggested"
+                        t-att-href="'/promotions/%s/apply' % promo"
+                        class="fa fa-gift fa-2x"
+                    />
+                </t>
+            </td>
+        </xpath>
+        <xpath expr="//table[@id='cart_products']" position="after">
+            <t
+                t-set="suggested_promos"
+                t-value="website_sale_order.website_order_line.suggested_promotion_ids.filtered('is_published')"
+            />
+            <h5
+                class='text-muted js_cart_lines'
+                t-if="suggested_promos"
+            >Suggested Promotions:</h5>
+            <table
+                t-if="suggested_promos"
+                id="suggested_products"
+                class="js_cart_lines table table-info table-striped table-sm"
+            >
+                <tbody>
+                    <tr t-foreach="suggested_promos" t-as="promo">
+                        <td class='td-img'>
+                            <span
+                                t-field="promo.image_128"
+                                t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'rounded o_image_64_max'}"
+                            />
+                        </td>
+                        <td class='td-product_name'>
+                            <div>
+                                <strong t-out="promo.public_name" />
+                            </div>
+                        </td>
+                        <td />
+                        <td class="w-25 text-center">
+                            <a
+                                role="button"
+                                class="btn btn-info"
+                                t-att-href="'/promotions/%s/apply' % promo.id"
+                            >
+                                <strong>Add</strong>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </xpath>
+    </template>
+</odoo>
