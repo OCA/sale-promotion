@@ -21,6 +21,9 @@ class SaleOrder(models.Model):
         """
         Set discount for order lines
         """
+        # this context is used for compatibility with the
+        # sale_coupone_product_exclude_module
+        self = self.with_context(current_coupon_program=program)
         if program.discount_apply_on == "cheapest_product":
             lines = self._get_cheapest_line()
         else:
