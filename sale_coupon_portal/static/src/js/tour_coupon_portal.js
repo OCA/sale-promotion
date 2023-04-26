@@ -1,7 +1,7 @@
 /* Copyright 2023 Tecnativa - Carlos Roca
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define("sale_coupon_portal.tour", function(require) {
+odoo.define("sale_coupon_portal.tour", function (require) {
     "use strict";
 
     const tour = require("web_tour.tour");
