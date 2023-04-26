@@ -1,13 +1,13 @@
 /* Copyright 2023 Tecnativa - Carlos Roca
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define("sale_coupon_portal.tour", function (require) {
+odoo.define("coupon_portal.tour", function (require) {
     "use strict";
 
     const tour = require("web_tour.tour");
 
     tour.register(
-        "sale_coupon_portal_tour",
+        "coupon_portal_tour",
         {
             url: "/my",
             test: true,
@@ -29,8 +29,8 @@ odoo.define("sale_coupon_portal.tour", function (require) {
                 run: "text Nothing found",
             },
             {
-                trigger: "input[name='search']",
-                run: "keydown 66,13",
+                trigger: "button[type='submit']",
+                run: "click",
             },
             {
                 trigger:
@@ -41,8 +41,8 @@ odoo.define("sale_coupon_portal.tour", function (require) {
                 run: "text",
             },
             {
-                trigger: "input[name='search']",
-                run: "keydown 66,13",
+                trigger: "button[type='submit']",
+                run: "click",
             },
             /* TODO: Test next sentences by clicking on respective filters, can't do it
             because the dropdown was not opened when triggering the button

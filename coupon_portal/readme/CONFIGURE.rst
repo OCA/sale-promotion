@@ -4,7 +4,7 @@ You can achieve it by:
 
 #. Going to `Sales > Products > Promotion Programs`.
 #. Create new one.
-#. Set `Applicability` to **Apply On Next Order**.
+#. Set `Applicability` to **Send a Coupon**.
 #. And select a reward.
 
 Now create a new sales order that meets the conditions of the promotion and click on

@@ -20,7 +20,7 @@
                 <t t-else="">Coupons</t>
             </li>
             <li t-if="coupon" class="breadcrumb-item active">
-                <t t-esc="coupon.code" />
+                <t t-out="coupon.code" />
             </li>
         </xpath>
     </template>
@@ -32,10 +32,10 @@
         priority="30"
     >
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
-            <t t-if="coupon_count" t-call="portal.portal_docs_entry">
+            <t t-call="portal.portal_docs_entry">
                 <t t-set="title">Coupons</t>
                 <t t-set="url" t-value="'/my/coupons'" />
-                <t t-set="count" t-value="coupon_count" />
+                <t t-set="placeholder_count" t-value="'coupon_count'" />
             </t>
         </xpath>
     </template>
@@ -72,7 +72,7 @@
                                 >
                                     <i class="fa fa-clipboard" />
                                 </a>
-                                <t t-esc="coupon.code" />
+                                <t t-out="coupon.code" />
                             </td>
                             <td>
                                 <span t-field="coupon.program_id" />
@@ -87,12 +87,12 @@
                                 <t t-if="coupon.state == 'reserved'">
                                     <span class="badge badge-pill badge-warning"><i
                                             class="fa fa-fw fa-clock-o"
-                                            aria-label="Reserved"
-                                            title="Reserved"
+                                            aria-label="Pending"
+                                            title="Pending"
                                             role="img"
                                         /><span
                                             class="d-none d-md-inline"
-                                        > Reserved</span></span>
+                                        > Pending</span></span>
                                 </t>
                                 <t t-if="coupon.state == 'new'">
                                     <span class="badge badge-pill badge-success"><i
@@ -123,6 +123,26 @@
                                         /><span
                                             class="d-none d-md-inline"
                                         > Expired</span></span>
+                                </t>
+                                <t t-if="coupon.state == 'cancel'">
+                                    <span class="badge badge-pill badge-danger"><i
+                                            class="fa fa-fw fa-times-circle-o"
+                                            aria-label="Cancelled"
+                                            title="Cancelled"
+                                            role="img"
+                                        /><span
+                                            class="d-none d-md-inline"
+                                        > Cancelled</span></span>
+                                </t>
+                                <t t-if="coupon.state == 'sent'">
+                                    <span class="badge badge-pill badge-primary"><i
+                                            class="fa fa-fw fa-paper-plane"
+                                            aria-label="Sent"
+                                            title="Sent"
+                                            role="img"
+                                        /><span
+                                            class="d-none d-md-inline"
+                                        > Sent</span></span>
                                 </t>
                             </td>
                         </tr>

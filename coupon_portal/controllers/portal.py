@@ -9,12 +9,15 @@ from odoo.addons.portal.controllers.portal import CustomerPortal, pager as porta
 
 
 class PortalCoupon(CustomerPortal):
-    def _prepare_home_portal_values(self):
-        values = super()._prepare_home_portal_values()
-        coupon_count = (
-            request.env["sale.coupon"].sudo().search_count(self._get_coupons_domain())
-        )
-        values["coupon_count"] = coupon_count
+    def _prepare_home_portal_values(self, counters):
+        values = super()._prepare_home_portal_values(counters)
+        if "coupon_count" in counters:
+            coupon_count = (
+                request.env["coupon.coupon"]
+                .sudo()
+                .search_count(self._get_coupons_domain())
+            )
+            values["coupon_count"] = coupon_count
         return values
 
     def _get_coupons_domain(self):
@@ -30,7 +33,7 @@ class PortalCoupon(CustomerPortal):
         self, page=1, sortby=None, filterby=None, search=None, search_in="code", **kw
     ):
         values = self._prepare_portal_layout_values()
-        SaleCoupon = request.env["sale.coupon"].sudo()
+        Coupon = request.env["coupon.coupon"].sudo()
         domain = self._get_coupons_domain()
         searchbar_sortings = {
             "date_recived": {"label": _("Recived on"), "order": "create_date desc"},
@@ -40,12 +43,14 @@ class PortalCoupon(CustomerPortal):
         searchbar_filters = {
             "all": {"label": _("All"), "domain": []},
             "reserved": {
-                "label": _("Reserved"),
+                "label": _("Pending"),
                 "domain": [("state", "=", "reserved")],
             },
             "valid": {"label": _("Valid"), "domain": [("state", "=", "new")]},
             "use": {"label": _("Used"), "domain": [("state", "=", "used")]},
             "expire": {"label": _("Expired"), "domain": [("state", "=", "expired")]},
+            "cancel": {"label": _("Cancelled"), "domain": [("state", "=", "cancel")]},
+            "sent": {"label": _("Sent"), "domain": [("state", "=", "sent")]},
         }
         searchbar_inputs = {
             "code": {"input": "code", "label": _("Search by Coupon Code")},
@@ -75,7 +80,7 @@ class PortalCoupon(CustomerPortal):
                 search_domain = [("program_id", "ilike", search)]
             domain = expression.AND([domain, search_domain])
         # count for pager
-        coupon_count = SaleCoupon.search_count(domain)
+        coupon_count = Coupon.search_count(domain)
         # pager
         pager = portal_pager(
             url="/my/coupons",
@@ -90,7 +95,7 @@ class PortalCoupon(CustomerPortal):
             step=self._items_per_page,
         )
         # content according to pager and archive selected
-        coupons = SaleCoupon.search(
+        coupons = Coupon.search(
             domain, order=order, limit=self._items_per_page, offset=pager["offset"]
         )
         request.session["my_coupon_history"] = coupons.ids[:100]
@@ -109,4 +114,4 @@ class PortalCoupon(CustomerPortal):
                 "search": search,
             }
         )
-        return request.render("sale_coupon_portal.portal_my_coupons", values)
+        return request.render("coupon_portal.portal_my_coupons", values)
