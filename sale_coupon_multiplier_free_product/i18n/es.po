@@ -41,5 +41,8 @@ msgstr "Línea de pedido de venta"
 #. module: sale_coupon_multiplier_free_product
 #: code:addons/sale_coupon_multiplier_free_product/models/coupon_program.py:0
 #, python-format
-msgid "The reward products should be in the sales order lines to apply the discount."
-msgstr "Los productos de recompensa deben estar en las líneas del pedido de venta para aplicar el descuento."
+msgid ""
+"The reward products should be in the sales order lines to apply the discount."
+msgstr ""
+"Los productos de recompensa deben estar en las líneas del pedido de venta "
+"para aplicar el descuento."
