@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Tecnativa - Carlos Roca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="portal_my_home_menu_coupon"
+        name="Portal layout : coupon menu entries"
+        inherit_id="portal.portal_breadcrumbs"
+        priority="30"
+    >
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li
+                t-if="page_name == 'coupon'"
+                t-attf-class="breadcrumb-item #{'active ' if not coupon else ''}"
+            >
+                <a
+                    t-if="coupon"
+                    t-attf-href="/my/coupons?{{ keep_query() }}"
+                >Coupons</a>
+                <t t-else="">Coupons</t>
+            </li>
+            <li t-if="coupon" class="breadcrumb-item active">
+                <t t-out="coupon.code" />
+            </li>
+        </xpath>
+    </template>
+
+    <template
+        id="portal_my_home_coupon"
+        name="Portal My Home : coupon entries"
+        inherit_id="portal.portal_my_home"
+        priority="30"
+    >
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Coupons</t>
+                <t t-set="url" t-value="'/my/coupons'" />
+                <t t-set="placeholder_count" t-value="'coupon_count'" />
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_coupons" name="My Sale Coupons">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Coupons</t>
+            </t>
+            <t t-if="not coupons">
+                <p>There are currently no coupons for your account.</p>
+            </t>
+            <t t-if="coupons" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Coupon Code #</th>
+                        <th>Program</th>
+                        <th>Received on:</th>
+                        <th>Expires on:</th>
+                        <th />
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="coupons" t-as="coupon">
+                        <tr>
+                            <td>
+                                <!-- navigator.clipboard isn't  available on non secure environments, so this only works in https or localhost mode -->
+                                <a
+                                    href="#"
+                                    t-attf-onclick="navigator.clipboard.writeText('#{coupon.code}');"
+                                    title="Copy to clipboard"
+                                    class="text-decoration-none"
+                                >
+                                    <i class="fa fa-clipboard" />
+                                </a>
+                                <t t-out="coupon.code" />
+                            </td>
+                            <td>
+                                <span t-field="coupon.program_id" />
+                            </td>
+                            <td>
+                                <span t-field="coupon.create_date" />
+                            </td>
+                            <td>
+                                <span t-field="coupon.expiration_date" />
+                            </td>
+                            <td class="tx_status text-right">
+                                <t t-if="coupon.state == 'reserved'">
+                                    <span class="badge badge-pill badge-warning"><i
+                                            class="fa fa-fw fa-clock-o"
+                                            aria-label="Pending"
+                                            title="Pending"
+                                            role="img"
+                                        /><span
+                                            class="d-none d-md-inline"
+                                        > Pending</span></span>
+                                </t>
+                                <t t-if="coupon.state == 'new'">
+                                    <span class="badge badge-pill badge-success"><i
+                                            class="fa fa-fw fa-circle-o"
+                                            aria-label="Valid"
+                                            title="Valid"
+                                            role="img"
+                                        /><span
+                                            class="d-none d-md-inline"
+                                        > Valid</span></span>
+                                </t>
+                                <t t-if="coupon.state == 'used'">
+                                    <span class="badge badge-pill badge-info"><i
+                                            class="fa fa-fw fa-check-circle-o"
+                                            aria-label="Used"
+                                            title="Used"
+                                            role="img"
+                                        /><span
+                                            class="d-none d-md-inline"
+                                        > Used</span></span>
+                                </t>
+                                <t t-if="coupon.state == 'expired'">
+                                    <span class="badge badge-pill badge-danger"><i
+                                            class="fa fa-fw fa-times-circle-o"
+                                            aria-label="Expired"
+                                            title="Expired"
+                                            role="img"
+                                        /><span
+                                            class="d-none d-md-inline"
+                                        > Expired</span></span>
+                                </t>
+                                <t t-if="coupon.state == 'cancel'">
+                                    <span class="badge badge-pill badge-danger"><i
+                                            class="fa fa-fw fa-times-circle-o"
+                                            aria-label="Cancelled"
+                                            title="Cancelled"
+                                            role="img"
+                                        /><span
+                                            class="d-none d-md-inline"
+                                        > Cancelled</span></span>
+                                </t>
+                                <t t-if="coupon.state == 'sent'">
+                                    <span class="badge badge-pill badge-primary"><i
+                                            class="fa fa-fw fa-paper-plane"
+                                            aria-label="Sent"
+                                            title="Sent"
+                                            role="img"
+                                        /><span
+                                            class="d-none d-md-inline"
+                                        > Sent</span></span>
+                                </t>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+</odoo>
