@@ -75,12 +75,12 @@ msgstr ""
 #. module: coupon_portal
 #: model_terms:ir.ui.view,arch_db:coupon_portal.portal_my_coupons
 msgid ""
-"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-"
-"o\" aria-label=\"Pending\" title=\"Pending\" role=\"img\"/><span class=\"d-"
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-o"
+"\" aria-label=\"Pending\" title=\"Pending\" role=\"img\"/><span class=\"d-"
 "none d-md-inline\"> Pending</span></span>"
 msgstr ""
-"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-"
-"o\" aria-label=\"Pending\" title=\"Pending\" role=\"img\"/><span class=\"d-"
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-o"
+"\" aria-label=\"Pending\" title=\"Pending\" role=\"img\"/><span class=\"d-"
 "none d-md-inline\"> Pendiente</span></span>"
 
 #. module: coupon_portal
