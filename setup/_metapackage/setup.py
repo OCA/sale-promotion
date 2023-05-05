@@ -17,6 +17,7 @@ setuptools.setup(
         'odoo-addon-coupon_mass_mailing>=15.0dev,<15.1dev',
         'odoo-addon-coupon_multi_gift>=15.0dev,<15.1dev',
         'odoo-addon-coupon_multiplier_free_product>=15.0dev,<15.1dev',
+        'odoo-addon-coupon_portal>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_auto_refresh>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_criteria_multi_product>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_criteria_order_based>=15.0dev,<15.1dev',
