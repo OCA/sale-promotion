@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_coupon_validity_notification
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-24 10:42+0000\n"
+"PO-Revision-Date: 2023-05-24 10:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_coupon_validity_notification
+#: model:ir.model,name:sale_coupon_validity_notification.model_coupon_coupon
+msgid "Coupon"
+msgstr "Cupón"
+
+#. module: sale_coupon_validity_notification
+#: code:addons/sale_coupon_validity_notification/models/coupon.py:0
+#, python-format
+msgid ""
+"Coupon %(coupon)s has expired. You should remove the coupon from the order "
+"%(order)s."
+msgstr ""
+"El cupón %(coupon)s ha caducado. El cupón debe ser eliminado del pedido "
+"%(order)s."
+
+#. module: sale_coupon_validity_notification
+#: code:addons/sale_coupon_validity_notification/models/coupon.py:0
+#, python-format
+msgid ""
+"Coupon <a href=# data-oe-model=coupon.coupon data-oe-"
+"id=%(id)s>%(coupon)s</a> has expired."
+msgstr ""
+"El cupón <a href=# data-oe-model=coupon.coupon data-oe-"
+"id=%(id)s>%(coupon)s</a> ha caducado."
+
+#. module: sale_coupon_validity_notification
+#: code:addons/sale_coupon_validity_notification/models/coupon.py:0
+#, python-format
+msgid "Coupon expired"
+msgstr "El cupón ha caducado"
