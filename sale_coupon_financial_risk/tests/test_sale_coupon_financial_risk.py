@@ -3,12 +3,12 @@
 from odoo.tests import Form, common
 
 
-class TestSaleCouponFinancialRisk(common.SavepointCase):
+class TestSaleCouponFinancialRisk(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.env.user.groups_id |= cls.env.ref(
-            "account_financial_risk.group_account_financial_risk_manager"
+            "account_financial_risk.group_overpass_partner_risk_exception"
         )
         cls.partner = cls.env["res.partner"].create(
             {"name": "Partner", "email": "demo@demo.com"}
@@ -23,8 +23,8 @@ class TestSaleCouponFinancialRisk(common.SavepointCase):
 
     def _create_coupon_program(self):
         coupon_program_form = Form(
-            self.env["sale.coupon.program"],
-            view="sale_coupon.sale_coupon_program_view_promo_program_form",
+            self.env["coupon.program"],
+            view="coupon.coupon_program_view_promo_program_form",
         )
         coupon_program_form.name = "Coupon program"
         coupon_program_form.rule_products_domain = [("id", "=", self.product.id)]
@@ -54,7 +54,7 @@ class TestSaleCouponFinancialRisk(common.SavepointCase):
         wiz.button_continue()
         message = self.env["mail.message"].search(
             [
-                ("model", "=", "sale.coupon"),
+                ("model", "=", "coupon.coupon"),
                 ("res_id", "=", self.order.generated_coupon_ids[0].id),
             ]
         )
@@ -69,7 +69,7 @@ class TestSaleCouponFinancialRisk(common.SavepointCase):
         self.env[wiz_dic["res_model"]].browse(wiz_dic["res_id"])
         message = self.env["mail.message"].search(
             [
-                ("model", "=", "sale.coupon"),
+                ("model", "=", "coupon.coupon"),
                 ("res_id", "=", self.order.generated_coupon_ids[0].id),
             ]
         )
