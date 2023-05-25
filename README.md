@@ -46,6 +46,7 @@ addon | version | maintainers | summary
 [sale_coupon_order_suggestion](sale_coupon_order_suggestion/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Suggest promotions in the sale order line
 [sale_coupon_partner](sale_coupon_partner/) | 15.0.1.0.0 |  | Sale Coupon Partner
 [sale_coupon_selection_wizard](sale_coupon_selection_wizard/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | A wizard that allows salesmen to easily pick the best promotions
+[sale_coupon_validity_notification](sale_coupon_validity_notification/) | 15.0.1.0.0 |  | Sale Coupon Validity Notification
 [website_sale_coupon_page](website_sale_coupon_page/) | 15.0.1.0.0 |  | Website Sale Coupon Page
 [website_sale_coupon_restrict](website_sale_coupon_restrict/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for e-commerce only
 [website_sale_coupon_selection_wizard](website_sale_coupon_selection_wizard/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to apply and configure promotions directly from the website
