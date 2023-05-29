@@ -3,11 +3,11 @@
 from odoo import api, fields, models
 
 
-class SaleCouponProgram(models.Model):
-    _inherit = "sale.coupon.program"
+class CouponProgram(models.Model):
+    _inherit = "coupon.program"
 
     next_order_program_id = fields.Many2one(
-        comodel_name="sale.coupon.program",
+        comodel_name="coupon.program",
         domain=[("program_type", "=", "coupon_program")],
     )
 
@@ -22,20 +22,18 @@ class SaleCouponProgram(models.Model):
         next_programs = self.filtered("next_order_program_id")
         for program in next_programs:
             program.coupon_count = program.next_order_program_id.coupon_count
-        return super(SaleCouponProgram, (self - next_programs))._compute_coupon_count()
+        return super(CouponProgram, (self - next_programs))._compute_coupon_count()
 
     def _compute_order_count(self):
         """Hook the destination program sales counter"""
         next_programs = self.filtered("next_order_program_id")
         for program in next_programs:
             program.order_count = program.next_order_program_id.order_count
-        return super(SaleCouponProgram, (self - next_programs))._compute_order_count()
+        return super(CouponProgram, (self - next_programs))._compute_order_count()
 
     def action_next_order_program_coupons(self):
         """Hook the destination program coupon action"""
-        action = self.env["ir.actions.act_window"].for_xml_id(
-            "sale_coupon", "sale_coupon_action"
-        )
+        action = self.env["ir.actions.act_window"]._for_xml_id("coupon.coupon_action")
         action["domain"] = [("program_id", "=", self.next_order_program_id.id)]
         return action
 

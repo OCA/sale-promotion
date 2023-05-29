@@ -3,7 +3,7 @@
 {
     "name": "Generate coupons in another coupon program",
     "summary": "Allows to generate pending coupons in a coupon program",
-    "version": "13.0.1.0.0",
+    "version": "15.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "Sales Management",

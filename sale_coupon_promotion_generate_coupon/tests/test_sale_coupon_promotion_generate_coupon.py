@@ -1,10 +1,10 @@
 # Copyright 2023 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.exceptions import UserError
-from odoo.tests import Form, SavepointCase
+from odoo.tests import Form, TransactionCase
 
 
-class TestSaleCouponGenerateCoupon(SavepointCase):
+class TestSaleCouponGenerateCoupon(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -17,15 +17,15 @@ class TestSaleCouponGenerateCoupon(SavepointCase):
             {"name": "Test 2", "sale_ok": True, "list_price": 50}
         )
         coupon_program_form = Form(
-            cls.env["sale.coupon.program"],
-            view="sale_coupon.sale_coupon_program_view_form",
+            cls.env["coupon.program"],
+            view="coupon.coupon_program_view_coupon_program_form",
         )
         coupon_program_form.name = "Test coupon program with generated coupons"
         coupon_program_form.rule_products_domain = [("id", "=", cls.product_2.id)]
         cls.coupon_program = coupon_program_form.save()
         promotion_program_form = Form(
-            cls.env["sale.coupon.program"],
-            view="sale_coupon.sale_coupon_program_view_promo_program_form",
+            cls.env["coupon.program"],
+            view="coupon.coupon_program_view_promo_program_form",
         )
         promotion_program_form.name = "Test program with coupon generation conditions"
         promotion_program_form.promo_applicability = "on_next_order"
