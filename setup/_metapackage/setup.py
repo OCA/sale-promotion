@@ -24,6 +24,7 @@ setuptools.setup(
         'odoo-addon-sale_coupon_delivery_auto_refresh>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_domain_free_product>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_domain_product_discount>=15.0dev,<15.1dev',
+        'odoo-addon-sale_coupon_financial_risk>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_incompatibility>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_limit>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_multi_gift>=15.0dev,<15.1dev',
