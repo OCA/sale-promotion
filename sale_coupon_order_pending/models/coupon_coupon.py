@@ -7,7 +7,8 @@ class SaleCoupon(models.Model):
     _inherit = "sale.coupon"
 
     can_be_applied_to_order = fields.Boolean(
-        compute="_compute_can_be_applied_to_order", compute_sudo=True,
+        compute="_compute_can_be_applied_to_order",
+        compute_sudo=True,
     )
 
     @api.depends_context("active_id")

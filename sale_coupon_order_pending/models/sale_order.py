@@ -8,7 +8,8 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     pending_partner_coupon_count = fields.Integer(
-        compute="_compute_pending_partner_coupon_count", compute_sudo=True,
+        compute="_compute_pending_partner_coupon_count",
+        compute_sudo=True,
     )
 
     def _partner_coupon_domain(self):
