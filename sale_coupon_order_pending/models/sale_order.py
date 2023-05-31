@@ -20,7 +20,7 @@ class SaleOrder(models.Model):
         """Override to do a broader search"""
         return expression.AND(
             [
-                [("state", "=", "new"), ("order_id", "!=", self.id)],
+                [("state", "in", ("new", "sent")), ("order_id", "!=", self.id)],
                 self._partner_coupon_domain(),
             ]
         )
@@ -30,26 +30,25 @@ class SaleOrder(models.Model):
         """Give a hint to the salesman about pending coupons for this parnter"""
         self.pending_partner_coupon_count = 0
         for sale in self.filtered("partner_id"):
-            sale.pending_partner_coupon_count = self.env["sale.coupon"].search_count(
+            sale.pending_partner_coupon_count = self.env["coupon.coupon"].search_count(
                 sale._pending_coupon_domain()
             )
 
     def action_view_pending_partner_coupons(self):
         """View partner pending coupons"""
         self.ensure_one()
-        coupon_obj = self.env["sale.coupon"]
+        coupon_obj = self.env["coupon.coupon"]
         # Done for compatibility sake with sales_team_security
         if self.user_has_groups("sales_team.group_sale_salesman"):
             coupon_obj = coupon_obj.sudo()
         pending_partner_coupon_ids = coupon_obj._search(self._pending_coupon_domain())
         return {
             "type": "ir.actions.act_window",
-            "name": _(
-                "Coupons pending for %(customer)s" % {"customer": self.partner_id.name}
-            ),
+            "name": _("Coupons pending for %(customer)s")
+            % {"customer": self.partner_id.name},
             "view_mode": "kanban,form",
-            "res_model": "sale.coupon",
+            "res_model": "coupon.coupon",
             "target": "current",
             "context": {"active_id": self.id, "active_model": "sale.order"},
-            "domain": [("id", "in", pending_partner_coupon_ids)],
+            "domain": [("id", "in", list(pending_partner_coupon_ids))],
         }

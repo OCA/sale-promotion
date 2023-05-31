@@ -4,7 +4,7 @@ from odoo import api, fields, models
 
 
 class SaleCoupon(models.Model):
-    _inherit = "sale.coupon"
+    _inherit = "coupon.coupon"
 
     can_be_applied_to_order = fields.Boolean(
         compute="_compute_can_be_applied_to_order",
@@ -18,8 +18,9 @@ class SaleCoupon(models.Model):
             return
         order = self.env["sale.order"].browse(self.env.context.get("active_id"))
         for coupon in self:
-            if not coupon._check_coupon_code(order):
-                self.can_be_applied_to_order = True
+            self.can_be_applied_to_order = not coupon._check_coupon_code(
+                order.date_order.date(), order.partner_id.id, order=order
+            )
 
     def action_apply_partner_coupon(self):
         if self.env.context.get("active_model", "") != "sale.order":

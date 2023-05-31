@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="view_sale_coupon_pending_kanban" model="ir.ui.view">
-        <field name="model">sale.coupon</field>
+        <field name="model">coupon.coupon</field>
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile">
                 <field name="code" />
@@ -36,7 +36,7 @@
                                     >Apply</button>
                                 </t>
                                 <t t-else="">
-                                    <div class="alert alert-info mb-0"><i
+                                    <div class="alert alert-info mb-0" role="alert"><i
                                             class="fa fa-info-circle"
                                         > Coupon not applicable in this order</i></div>
                                 </t>
