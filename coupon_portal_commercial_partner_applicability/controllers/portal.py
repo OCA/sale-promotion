@@ -4,7 +4,7 @@
 from odoo.http import request
 from odoo.osv import expression
 
-from odoo.addons.sale_coupon_portal.controllers.portal import PortalCoupon
+from odoo.addons.coupon_portal.controllers.portal import PortalCoupon
 
 
 class PortalCouponCommercialPartner(PortalCoupon):
