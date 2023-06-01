@@ -23,7 +23,7 @@
                     name="attrs"
                 >{'invisible': [('next_order_program_id', '!=', False)]}</attribute>
             </xpath>
-            <xpath expr="//field[@name='order_count']/.." position="before">
+            <xpath expr="//field[@name='coupon_count']/.." position="before">
                 <button
                     class="oe_stat_button"
                     type="object"
