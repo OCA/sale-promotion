@@ -45,6 +45,7 @@ addon | version | maintainers | summary
 [sale_coupon_multiple_code_program](sale_coupon_multiple_code_program/) | 15.0.1.0.0 |  | Use multiple code programs in a single sale
 [sale_coupon_multiplier_free_product](sale_coupon_multiplier_free_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for e-commerce only
 [sale_coupon_order_line_link](sale_coupon_order_line_link/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between coupons and their generated order lines for easing tracking
+[sale_coupon_order_pending](sale_coupon_order_pending/) | 15.0.1.0.0 |  | Show partner's pending coupons in sale order
 [sale_coupon_order_suggestion](sale_coupon_order_suggestion/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Suggest promotions in the sale order line
 [sale_coupon_partner](sale_coupon_partner/) | 15.0.1.0.0 |  | Sale Coupon Partner
 [sale_coupon_selection_wizard](sale_coupon_selection_wizard/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | A wizard that allows salesmen to easily pick the best promotions
