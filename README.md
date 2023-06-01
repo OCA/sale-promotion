@@ -32,6 +32,7 @@ addon | version | maintainers | summary
 [coupon_multi_gift](coupon_multi_gift/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure multiple gift rewards per promotion
 [coupon_multiplier_free_product](coupon_multiplier_free_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for e-commerce only
 [coupon_portal](coupon_portal/) | 15.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Add possibility to see your coupons on portal
+[coupon_promotion_generate_coupon](coupon_promotion_generate_coupon/) | 15.0.1.0.0 |  | Allows to generate pending coupons in a coupon program
 [sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) [![SilvioC2C](https://github.com/SilvioC2C.png?size=30px)](https://github.com/SilvioC2C) | Allows to auto-apply the coupons with no user intervention
 [sale_coupon_criteria_multi_product](sale_coupon_criteria_multi_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set as promotion criteria multi-product conditions
 [sale_coupon_criteria_order_based](sale_coupon_criteria_order_based/) | 15.0.1.0.0 |  | Allows to set a sales order related domain for coupon
@@ -48,6 +49,7 @@ addon | version | maintainers | summary
 [sale_coupon_order_pending](sale_coupon_order_pending/) | 15.0.1.0.0 |  | Show partner's pending coupons in sale order
 [sale_coupon_order_suggestion](sale_coupon_order_suggestion/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Suggest promotions in the sale order line
 [sale_coupon_partner](sale_coupon_partner/) | 15.0.1.0.0 |  | Sale Coupon Partner
+[sale_coupon_promotion_generate_coupon](sale_coupon_promotion_generate_coupon/) | 15.0.1.0.0 |  | Allows to generate pending coupons in a coupon program in sales
 [sale_coupon_selection_wizard](sale_coupon_selection_wizard/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | A wizard that allows salesmen to easily pick the best promotions
 [sale_coupon_validity_notification](sale_coupon_validity_notification/) | 15.0.1.0.0 |  | Sale Coupon Validity Notification
 [website_sale_coupon_page](website_sale_coupon_page/) | 15.0.1.0.0 |  | Website Sale Coupon Page
