@@ -32,6 +32,7 @@ setuptools.setup(
         'odoo-addon-sale_coupon_multiple_code_program>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_multiplier_free_product>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_order_line_link>=15.0dev,<15.1dev',
+        'odoo-addon-sale_coupon_order_pending>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_order_suggestion>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_partner>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_selection_wizard>=15.0dev,<15.1dev',
