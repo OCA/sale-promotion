@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo-addon-coupon_multi_gift>=15.0dev,<15.1dev',
         'odoo-addon-coupon_multiplier_free_product>=15.0dev,<15.1dev',
         'odoo-addon-coupon_portal>=15.0dev,<15.1dev',
+        'odoo-addon-coupon_portal_commercial_partner_applicability>=15.0dev,<15.1dev',
         'odoo-addon-coupon_promotion_generate_coupon>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_auto_refresh>=15.0dev,<15.1dev',
         'odoo-addon-sale_coupon_criteria_multi_product>=15.0dev,<15.1dev',
