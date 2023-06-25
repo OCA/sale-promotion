@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo13-addon-sale_coupon_auto_refresh',
         'odoo13-addon-sale_coupon_chatter',
+        'odoo13-addon-sale_coupon_commercial_partner_applicability',
         'odoo13-addon-sale_coupon_criteria_multi_product',
         'odoo13-addon-sale_coupon_criteria_order_based',
         'odoo13-addon-sale_coupon_delivery_auto_refresh',
