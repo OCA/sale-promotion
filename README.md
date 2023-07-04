@@ -37,7 +37,7 @@ addon | version | maintainers | summary
 [sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) [![SilvioC2C](https://github.com/SilvioC2C.png?size=30px)](https://github.com/SilvioC2C) | Allows to auto-apply the coupons with no user intervention
 [sale_coupon_criteria_multi_product](sale_coupon_criteria_multi_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set as promotion criteria multi-product conditions
 [sale_coupon_criteria_order_based](sale_coupon_criteria_order_based/) | 15.0.1.0.0 |  | Allows to set a sales order related domain for coupon
-[sale_coupon_delivery_auto_refresh](sale_coupon_delivery_auto_refresh/) | 15.0.1.0.0 |  | Allows to auto-apply the coupons after adding delivery line
+[sale_coupon_delivery_auto_refresh](sale_coupon_delivery_auto_refresh/) | 15.0.1.0.1 |  | Allows to auto-apply the coupons after adding delivery line
 [sale_coupon_domain_free_product](sale_coupon_domain_free_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Rewards will be applied based on the products domain
 [sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 15.0.1.0.0 |  | Apply discount only to the domain matching products
 [sale_coupon_financial_risk](sale_coupon_financial_risk/) | 15.0.1.0.0 |  | Compatibilize coupons with sale financial risk
