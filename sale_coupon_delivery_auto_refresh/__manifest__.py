@@ -1,6 +1,6 @@
 {
     "name": "Auto Refresh Coupons with Delivery line",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     "summary": "Allows to auto-apply the coupons after adding delivery line",
     "author": "Ooops404, Cetmix, , Odoo Community Association (OCA)",
     "contributors": "Ooops404, Cetmix",
