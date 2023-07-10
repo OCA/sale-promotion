@@ -1,9 +1,9 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import Form, TransactionCase
+from odoo.tests import Form, SavepointCase
 
 
-class CouponLimitCase(TransactionCase):
+class CouponLimitCase(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
