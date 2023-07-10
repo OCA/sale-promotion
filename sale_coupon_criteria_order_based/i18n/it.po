@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-05-31 11:05+0000\n"
+"PO-Revision-Date: 2023-07-10 10:09+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: sale_coupon_criteria_order_based
 #: model:ir.model.fields,field_description:sale_coupon_criteria_order_based.field_coupon_program__rule_order_domain
@@ -25,12 +25,12 @@ msgstr "Basato su Ordine"
 #. module: sale_coupon_criteria_order_based
 #: model:ir.model,name:sale_coupon_criteria_order_based.model_coupon_coupon
 msgid "Coupon"
-msgstr "Coupon"
+msgstr "Buono sconto"
 
 #. module: sale_coupon_criteria_order_based
 #: model:ir.model,name:sale_coupon_criteria_order_based.model_coupon_rule
 msgid "Coupon Rule"
-msgstr "Regola Coupon"
+msgstr "Regola buono sconto"
 
 #. module: sale_coupon_criteria_order_based
 #: model:ir.model,name:sale_coupon_criteria_order_based.model_coupon_program
