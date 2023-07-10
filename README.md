@@ -30,7 +30,7 @@ addon | version | maintainers | summary
 [coupon_limit](coupon_limit/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [coupon_mass_mailing](coupon_mass_mailing/) | 15.0.1.0.0 |  | Coupon Mas Mailing
 [coupon_multi_gift](coupon_multi_gift/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure multiple gift rewards per promotion
-[coupon_multiplier_free_product](coupon_multiplier_free_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for e-commerce only
+[coupon_multiplier_free_product](coupon_multiplier_free_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for multiplier gifts
 [coupon_portal](coupon_portal/) | 15.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Add possibility to see your coupons on portal
 [coupon_portal_commercial_partner_applicability](coupon_portal_commercial_partner_applicability/) | 15.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Add possibility to see your company coupons on portal
 [coupon_promotion_generate_coupon](coupon_promotion_generate_coupon/) | 15.0.1.0.0 |  | Allows to generate pending coupons in a coupon program
