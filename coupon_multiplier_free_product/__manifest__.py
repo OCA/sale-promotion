@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Coupon Multiplier Free Product",
-    "summary": "Allows to configure a coupon for e-commerce only",
+    "summary": "Allows to configure a coupon for multiplier gifts",
     "version": "15.0.1.0.0",
     "development_status": "Beta",
     "category": "Website",
