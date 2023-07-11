@@ -6,45 +6,47 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-07-11 13:10+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: coupon_limit
 #: model:ir.model,name:coupon_limit.model_coupon_rule
 msgid "Coupon Rule"
-msgstr ""
+msgstr "Regola buono sconto"
 
 #. module: coupon_limit
 #: model:ir.model,name:coupon_limit.model_coupon_rule_salesmen_limit
 msgid "Coupon Rule Salesmen limits"
-msgstr ""
+msgstr "Limiti regola buono sconto addetto alle vendite"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule__display_name
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule__id
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: coupon_limit
 #: model:ir.model.fields,help:coupon_limit.field_coupon_program__rule_salesmen_strict_limit
