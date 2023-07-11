@@ -21,12 +21,14 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[coupon_limit](coupon_limit/) | 14.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 14.0.2.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) [![SilvioC2C](https://github.com/SilvioC2C.png?size=30px)](https://github.com/SilvioC2C) | Allows to auto-apply the coupons with no user intervention
 [sale_coupon_criteria_multi_product](sale_coupon_criteria_multi_product/) | 14.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set as promotion criteria multi-product conditions
 [sale_coupon_criteria_order_based](sale_coupon_criteria_order_based/) | 14.0.1.0.0 |  | Allows to set a sales order related domain for coupon
 [sale_coupon_delivery_auto_refresh](sale_coupon_delivery_auto_refresh/) | 14.0.1.0.0 |  | Allows to auto-apply the coupons after adding delivery line
 [sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 14.0.1.1.0 |  | Apply discount only to the domain matching products
 [sale_coupon_domain_product_discount_in_field](sale_coupon_domain_product_discount_in_field/) | 14.0.1.0.0 | [![isserver1](https://github.com/isserver1.png?size=30px)](https://github.com/isserver1) [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) | Apply discount only to the domain matching products to discount field
+[sale_coupon_limit](sale_coupon_limit/) | 14.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [sale_coupon_multi_gift](sale_coupon_multi_gift/) | 14.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure multiple gift rewards per promotion
 [sale_coupon_order_line_link](sale_coupon_order_line_link/) | 14.0.1.0.2 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between coupons and their generated order lines for easing tracking
 [sale_coupon_partner](sale_coupon_partner/) | 14.0.1.0.0 |  | Sale Coupon Partner
