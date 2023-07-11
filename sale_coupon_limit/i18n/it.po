@@ -1,0 +1,85 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_coupon_limit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-07-10 10:09+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: sale_coupon_limit
+#: model:ir.model,name:sale_coupon_limit.model_coupon_coupon
+msgid "Coupon"
+msgstr "Buono sconto"
+
+#. module: sale_coupon_limit
+#: model:ir.model,name:sale_coupon_limit.model_coupon_rule
+msgid "Coupon Rule"
+msgstr "Regola buono sconto"
+
+#. module: sale_coupon_limit
+#: model:ir.model,name:sale_coupon_limit.model_coupon_rule_salesmen_limit
+msgid "Coupon Rule Salesmen limits"
+msgstr "Limiti regola buono sconto addetto alle vendite"
+
+#. module: sale_coupon_limit
+#: model:ir.model,name:sale_coupon_limit.model_coupon_program
+msgid "Coupon display on a website"
+msgstr "Mostra buono sconto su sito web"
+
+#. module: sale_coupon_limit
+#: code:addons/sale_coupon_limit/models/coupon_program.py:0
+#, python-format
+msgid ""
+"This promo code was already applied %(count)s times for this customer and "
+"there's an stablished limit of %(max)s for this promotion."
+msgstr ""
+"Questo buono sconto è già stato applicato %(count)s volte per questo cliente "
+"e il limite massimo è di %(max)s per questa promozione."
+
+#. module: sale_coupon_limit
+#: code:addons/sale_coupon_limit/models/coupon_program.py:0
+#, python-format
+msgid ""
+"This promo code was already applied %(times)s times for this salesman and "
+"there's an stablished limit of %(max)s for this promotion."
+msgstr ""
+"Questo buono sconto è già stato applicato %(times)s volte per questo addetto "
+"alle vendite e il limite massimo è di %(max)s per questa promozione."
+
+#. module: sale_coupon_limit
+#: code:addons/sale_coupon_limit/models/coupon_coupon.py:0
+#: code:addons/sale_coupon_limit/models/coupon_program.py:0
+#, python-format
+msgid "This promotion is restricted to the listed salesmen."
+msgstr "Questa promozione è riservata all'addetto alle vendite indicato."
+
+#. module: sale_coupon_limit
+#: code:addons/sale_coupon_limit/models/coupon_coupon.py:0
+#: code:addons/sale_coupon_limit/models/coupon_program.py:0
+#, python-format
+msgid ""
+"This promotion was already applied %(count)s times for this customer and "
+"there's an stablished limit of %(max)s."
+msgstr ""
+"Questa promozione è già stata applicata %(count)s volte per questo cliente e "
+"il limite massimo è di %(max)s."
+
+#. module: sale_coupon_limit
+#: code:addons/sale_coupon_limit/models/coupon_coupon.py:0
+#, python-format
+msgid ""
+"This promotion was already applied %(times)s times for this salesman and "
+"there's an stablished limit of %(max)s."
+msgstr ""
+"Questa promozione è già stata applicata %(times)s volte per questo addetto "
+"alle vendite e il limite massimo è di %(max)s."
