@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_program_view_form_common" model="ir.ui.view">
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="model">loyalty.program</field>
+        <field name="arch" type="xml">
+            <sheet position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </sheet>
+        </field>
+    </record>
+    <record
+        id="loyalty.loyalty_program_discount_loyalty_action"
+        model="ir.actions.act_window"
+    >
+        <field name="view_mode">tree,kanban,form,activity</field>
+    </record>
+    <record
+        id="loyalty.loyalty_program_gift_ewallet_action"
+        model="ir.actions.act_window"
+    >
+        <field name="view_mode">tree,kanban,form,activity</field>
+    </record>
+</odoo>
