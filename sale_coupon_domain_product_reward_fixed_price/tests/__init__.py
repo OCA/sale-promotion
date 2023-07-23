@@ -1,0 +1,1 @@
+from . import test_domain_product_reward_fixed_price

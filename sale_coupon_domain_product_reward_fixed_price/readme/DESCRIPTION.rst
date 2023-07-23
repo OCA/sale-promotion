@@ -1,0 +1,1 @@
+Bridge module between sale_coupon_reward_fixed_price and sale_coupon_domain_product_discount
