@@ -19,7 +19,11 @@
                                 string="Default gift"
                                 readonly="1"
                             />
-                            <field name="reward_product_ids" widget="many2many_tags" />
+                            <field
+                                name="reward_product_ids"
+                                widget="many2many_tags"
+                                required="1"
+                            />
                         </tree>
                     </field>
                 </group>
