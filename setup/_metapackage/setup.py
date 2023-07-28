@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo14-addon-sale_coupon_delivery_auto_refresh',
         'odoo14-addon-sale_coupon_domain_product_discount',
         'odoo14-addon-sale_coupon_domain_product_discount_in_field',
+        'odoo14-addon-sale_coupon_domain_product_reward_fixed_price',
         'odoo14-addon-sale_coupon_limit',
         'odoo14-addon-sale_coupon_multi_gift',
         'odoo14-addon-sale_coupon_order_line_link',
