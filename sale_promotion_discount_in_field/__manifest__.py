@@ -6,6 +6,7 @@
     "version": "14.0.1.0.1",
     "summary": "Put promotion discount into discount field",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
+    "maintainers": ["CetmixGitDrone", "Volodiay622"],
     "license": "AGPL-3",
     "category": "Sales Management",
     "website": "https://github.com/OCA/sale-promotion",
