@@ -38,12 +38,12 @@
             <xpath expr="//label[@for='discount_type']" position="attributes">
                 <attribute
                     name="attrs"
-                >{"invisible": [("reward_type", "in", ("product", "free_shipping", "fixed_price"))]}</attribute>
+                >{"invisible": [("reward_type", "in", ("product", "free_shipping", "fixed_price", "discount_line"))]}</attribute>
             </xpath>
             <xpath expr="//field[@name='discount_type']/.." position="attributes">
                 <attribute
                     name="attrs"
-                >{"invisible": [("reward_type", "in", ("product", "free_shipping", "fixed_price"))]}</attribute>
+                >{"invisible": [("reward_type", "in", ("product", "free_shipping", "fixed_price", "discount_line"))]}</attribute>
             </xpath>
             <xpath expr="//label[@for='discount_max_amount']" position="attributes">
                 <attribute
