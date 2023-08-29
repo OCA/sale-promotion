@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="loyalty_program_view_form">
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button
+                    name="website_publish_button"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-globe"
+                    attrs="{'invisible': [('program_type', 'in', ('ewallet', 'gift_card'))]}"
+                >
+                    <field name="is_published" widget="website_publish_button" />
+                </button>
+            </xpath>
+            <xpath expr="//page[@name='rules_rewards']" position="after">
+                <page string="Website" name="website">
+                    <group>
+                        <field name="public_name" />
+                        <field name="image_1920" widget="image" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
