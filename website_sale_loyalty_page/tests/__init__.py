@@ -1,1 +1,1 @@
-from . import test_website_sale_coupon_page
+from . import test_website_sale_loyalty_page

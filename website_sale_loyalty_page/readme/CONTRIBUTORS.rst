@@ -3,3 +3,4 @@
   * Pedro M. Baeza
   * Carlos Roca
   * Stefan Ungureanu
+  * Pilar Vargas
