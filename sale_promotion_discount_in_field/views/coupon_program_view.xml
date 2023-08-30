@@ -7,8 +7,7 @@
         <field name="arch" type="xml">
             <field name="reward_product_id" position="attributes">
                 <attribute name="attrs">
-                    {"invisible": [("reward_type", "in", ("discount", "free_shipping",
-                    "discount_line"))], "required": [("reward_type", "=", "product")]}
+                    {"invisible": [("reward_type", "!=", "product")], "required": [("reward_type", "=", "product")]}
                 </attribute>
             </field>
             <field name="discount_line_product_id" position="attributes">
@@ -19,14 +18,12 @@
             </field>
             <xpath expr="//field[@name='discount_type']/.." position="attributes">
                 <attribute name="attrs">
-                    {"invisible": [("reward_type", "in", ("product", "free_shipping",
-                    "discount_line"))]}
+                    {"invisible": [("reward_type", "!=", "discount")]}
                 </attribute>
             </xpath>
             <xpath expr="//label[@for='discount_type']" position="attributes">
                 <attribute name="attrs">
-                    {"invisible": [("reward_type", "in", ("product", "free_shipping",
-                    "discount_line"))]}
+                    {"invisible": [("reward_type", "!=", "discount")]}
                 </attribute>
             </xpath>
             <xpath expr="//label[@for='discount_type']" position="before">
@@ -49,15 +46,13 @@
             </xpath>
             <xpath expr="//label[@for='discount_max_amount']" position="attributes">
                 <attribute name="attrs">
-                    {'invisible': ['|', ('reward_type', 'in', ('product',
-                    'free_shipping', "discount_line")), ('discount_type', '!=',
+                    {'invisible': ['|', ('reward_type', '!=', 'discount'), ('discount_type', '!=',
                     'percentage')]}
                 </attribute>
             </xpath>
             <xpath expr="//field[@name='discount_max_amount']/.." position="attributes">
                 <attribute name="attrs">
-                    {'invisible': ['|', ('reward_type', 'in', ('product',
-                    'free_shipping', "discount_line")), ('discount_type', '!=',
+                    {'invisible': ['|', ('reward_type', '!=', 'discount'), ('discount_type', '!=',
                     'percentage')]}
                 </attribute>
             </xpath>
