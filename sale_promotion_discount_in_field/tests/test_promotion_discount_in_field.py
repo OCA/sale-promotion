@@ -264,3 +264,56 @@ class CetmixTestSaleCouponProgram(SavepointCase):
             1,
             "You should get a coupon for you next order that will offer 10% discount",
         )
+
+    def _apply_coupon(self, order, coupon_code):
+        return self.env["sale.coupon.apply.code"].apply_coupon(order, coupon_code)
+
+    def test_program_reward_discount_line_with_applicability(self):
+        coupon_code = "test_coupon"
+        # Create a program with specific conditions
+        program = self.env["coupon.program"].create(
+            {
+                "name": "10% reduction program",
+                "promo_code_usage": "no_code_needed",
+                "reward_type": "discount_line",
+                "program_type": "promotion_program",
+                "discount_type": "percentage",
+                "discount_percentage": 10.0,
+                "active": True,
+                "discount_apply_on": "on_order",
+                "promo_code": coupon_code,
+                "promo_applicability": "on_current_order",
+                "maximum_use_number": 1,
+            }
+        )
+
+        # Test when error_status is empty (coupon is correct and exists).
+        error_status = program._check_promo_code(self.order, coupon_code)
+        self.assertFalse(error_status)
+
+        self.assertEqual(
+            self._apply_coupon(self.order, "wrong_coupon"),
+            {"not_found": "This coupon is invalid (wrong_coupon)."},
+            msg="coupon must not be found",
+        )
+
+        # Apply the program
+        result = self._apply_coupon(self.order, coupon_code)
+        self.assertEqual(
+            self.order.code_promo_program_id,
+            program,
+            msg="program must be added to order",
+        )
+        self.assertEqual(
+            self.order.amount_total,
+            2475.0,
+            "The order total with programs should be 2475.00",
+        )
+        self.assertEqual(result, {}, msg="Error must not occur")
+
+        # Try to use the applied coupon
+        error_status = program._check_promo_code(self.order, coupon_code)
+        result = self._apply_coupon(self.order, coupon_code)
+        self.assertEqual(
+            result, error_status, msg="The promo code is already applied on this order"
+        )
