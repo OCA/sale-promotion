@@ -41,6 +41,11 @@ Following new options are available:
 
 * **Reward: Discount in Line**: When selected discount will be added into the *Discount* field of the Sales Order Line.
 
+Known issues / Roadmap
+======================
+
+"This module should be renamed sale_coupon_discount_in_field in future migrations for naming consistency."
+
 Bug Tracker
 ===========
 
@@ -83,6 +88,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-CetmixGitDrone| image:: https://github.com/CetmixGitDrone.png?size=40px
+    :target: https://github.com/CetmixGitDrone
+    :alt: CetmixGitDrone
+.. |maintainer-Volodiay622| image:: https://github.com/Volodiay622.png?size=40px
+    :target: https://github.com/Volodiay622
+    :alt: Volodiay622
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-CetmixGitDrone| |maintainer-Volodiay622| 
 
 This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/14.0/sale_promotion_discount_in_field>`_ project on GitHub.
 
