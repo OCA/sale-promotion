@@ -45,6 +45,7 @@ msgstr ""
 #. module: sale_promotion_discount_in_field
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_coupon_program__display_name
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_coupon_reward__display_name
+#: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_sale_coupon_apply_code__display_name
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_sale_order__display_name
 msgid "Display Name"
 msgstr ""
@@ -52,6 +53,7 @@ msgstr ""
 #. module: sale_promotion_discount_in_field
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_coupon_program__id
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_coupon_reward__id
+#: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_sale_coupon_apply_code__id
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_sale_order__id
 msgid "ID"
 msgstr ""
@@ -59,6 +61,7 @@ msgstr ""
 #. module: sale_promotion_discount_in_field
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_coupon_program____last_update
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_coupon_reward____last_update
+#: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_sale_coupon_apply_code____last_update
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_sale_order____last_update
 msgid "Last Modified on"
 msgstr ""
@@ -73,6 +76,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_coupon_program__reward_type
 #: model:ir.model.fields,field_description:sale_promotion_discount_in_field.field_coupon_reward__reward_type
 msgid "Reward Type"
+msgstr ""
+
+#. module: sale_promotion_discount_in_field
+#: model:ir.model,name:sale_promotion_discount_in_field.model_sale_coupon_apply_code
+msgid "Sales Coupon Apply Code"
 msgstr ""
 
 #. module: sale_promotion_discount_in_field
