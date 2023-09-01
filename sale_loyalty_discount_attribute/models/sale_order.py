@@ -26,12 +26,19 @@ class SaleOrder(models.Model):
                 reward.limit_discounted_attributes
                 and reward.limit_discounted_attributes != "disabled"
             ):
-                for so_lines in self.order_line.filtered(lambda l: not l.reward_id):
-                    for value_line in so_lines.product_no_variant_attribute_value_ids:
-                        test_unit = price_unit
-                        test_unit += value_line.price_extra * discount_value
-                        if value_line.attribute_id not in reward_attributes:
-                            price_unit += value_line.price_extra * discount_value
+                attributes_wise_price_unit = 0.0
+                for so_lines in self.order_line.filtered(
+                    lambda l: not l.reward_id
+                    and l.product_id.id in reward.discount_product_ids.ids
+                ):
+                    for (
+                        value_line
+                    ) in so_lines.product_no_variant_attribute_value_ids.filtered(
+                        lambda l: l.attribute_id not in reward_attributes
+                    ):
+                        attributes_wise_price_unit += (
+                            value_line.price_extra * discount_value
+                        )
                     # if limit discounted attributes is set to attributes,
                     # sales list price should not be considered for discount as well
                     # and is counted as many times as the product repeats itself in the lines
@@ -41,6 +48,7 @@ class SaleOrder(models.Model):
                             * len(so_lines)
                             * discount_value
                         )
+                price_unit = -(abs(price_unit) - attributes_wise_price_unit)
                 discount.update({"price_unit": price_unit})
                 # replaces the discount line
                 res[i] = discount
