@@ -141,7 +141,7 @@ msgstr ""
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__message_needaction_counter
-msgid "Number of messages which requires an action"
+msgid "Number of messages requiring action"
 msgstr ""
 
 #. module: coupon_chatter
