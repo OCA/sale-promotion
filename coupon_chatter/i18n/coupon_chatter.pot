@@ -91,7 +91,7 @@ msgstr ""
 
 #. module: coupon_chatter
 #: model:ir.model,name:coupon_chatter.model_loyalty_program
-msgid "Loyalty Program"
+msgid "Loyalty display on a website"
 msgstr ""
 
 #. module: coupon_chatter
@@ -171,4 +171,14 @@ msgstr ""
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__activity_exception_decoration
 msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: coupon_chatter
+#: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: coupon_chatter
+#: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__website_message_ids
+msgid "Website communication history"
 msgstr ""
