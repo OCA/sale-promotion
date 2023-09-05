@@ -4,23 +4,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-16 13:58+0000\n"
-"PO-Revision-Date: 2021-07-16 15:59+0200\n"
-"Last-Translator: Carlos <carlos.roca@tecnativa.com>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: website_sale_loyalty_page
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_page.available_promotions
 msgid "<span>No promotions available</span>"
-msgstr "<span>No hay promociones disponibles</span>"
+msgstr ""
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__can_publish
@@ -30,7 +26,7 @@ msgstr ""
 #. module: website_sale_loyalty_page
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_page.promotion_item
 msgid "Close"
-msgstr "Cerrar"
+msgstr ""
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__image_1920
@@ -71,18 +67,16 @@ msgstr ""
 #: model:ir.model.fields,help:website_sale_loyalty_page.field_loyalty_program__public_name
 msgid "Name of the promo showed on website bellow the banner image."
 msgstr ""
-"Nombre de la promoción mostrado en el sitio web debajo del la imagen "
-"promocional."
 
 #. module: website_sale_loyalty_page
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_page.promotion_layout
 msgid "Promotions"
-msgstr "Cupones y Promociones"
+msgstr ""
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__public_name
 msgid "Public Name"
-msgstr "Nombre público"
+msgstr ""
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,help:website_sale_loyalty_page.field_loyalty_program__website_url
@@ -97,12 +91,9 @@ msgstr ""
 #. module: website_sale_loyalty_page
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_page.loyalty_program_view_form
 msgid "Website"
-msgstr "Sitio Web"
+msgstr ""
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__website_url
 msgid "Website URL"
 msgstr ""
-
-#~ msgid "Sales Coupon Program"
-#~ msgstr "Programa de cupones de ventas"
