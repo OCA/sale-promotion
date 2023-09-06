@@ -29,6 +29,7 @@ setuptools.setup(
         'odoo13-addon-sale_coupon_partner',
         'odoo13-addon-sale_coupon_portal',
         'odoo13-addon-sale_coupon_portal_commercial_partner_applicability',
+        'odoo13-addon-sale_coupon_promotion_generate_coupon',
         'odoo13-addon-sale_coupon_selection_wizard',
         'odoo13-addon-website_sale_coupon_page',
         'odoo13-addon-website_sale_coupon_restrict',
