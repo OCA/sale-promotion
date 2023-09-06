@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_coupon_promotion_generate_coupon
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_coupon_promotion_generate_coupon
+#: model_terms:ir.ui.view,arch_db:sale_coupon_promotion_generate_coupon.sale_coupon_program_view_promo_program_form
+msgid ""
+"<span class=\"oe_grey\">\n"
+"                        The generated coupons will follow the rules defined in the\n"
+"                        <b>Next Order Program</b>\n"
+"                    </span>"
+msgstr ""
+
+#. module: sale_coupon_promotion_generate_coupon
+#: model:ir.model.fields,field_description:sale_coupon_promotion_generate_coupon.field_sale_coupon_program__next_order_program_id
+msgid "Next Order Program"
+msgstr ""
+
+#. module: sale_coupon_promotion_generate_coupon
+#: model_terms:ir.ui.view,arch_db:sale_coupon_promotion_generate_coupon.sale_coupon_program_view_promo_program_form
+msgid "Next Program Coupons"
+msgstr ""
+
+#. module: sale_coupon_promotion_generate_coupon
+#: model:ir.model,name:sale_coupon_promotion_generate_coupon.model_sale_coupon_program
+msgid "Sales Coupon Program"
+msgstr ""
+
+#. module: sale_coupon_promotion_generate_coupon
+#: model:ir.model,name:sale_coupon_promotion_generate_coupon.model_sale_order
+msgid "Sales Order"
+msgstr ""
