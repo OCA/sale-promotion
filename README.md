@@ -42,6 +42,7 @@ addon | version | maintainers | summary
 [sale_coupon_partner](sale_coupon_partner/) | 13.0.1.0.0 |  | Sale Coupon Partner
 [sale_coupon_portal](sale_coupon_portal/) | 13.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Add possibility to see your coupons on portal
 [sale_coupon_portal_commercial_partner_applicability](sale_coupon_portal_commercial_partner_applicability/) | 13.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Add possibility to see your company coupons on portal
+[sale_coupon_promotion_generate_coupon](sale_coupon_promotion_generate_coupon/) | 13.0.1.0.0 |  | Allows to generate pending coupons in a coupon program
 [sale_coupon_selection_wizard](sale_coupon_selection_wizard/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | A wizard that allows salesmen to easily pick the best promotions
 [website_sale_coupon_page](website_sale_coupon_page/) | 13.0.2.0.0 |  | Website Sale Coupon Page
 [website_sale_coupon_restrict](website_sale_coupon_restrict/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for e-commerce only
