@@ -24,6 +24,7 @@ setuptools.setup(
         'odoo13-addon-sale_coupon_multiple_code_program',
         'odoo13-addon-sale_coupon_multiplier_free_product',
         'odoo13-addon-sale_coupon_order_line_link',
+        'odoo13-addon-sale_coupon_order_pending',
         'odoo13-addon-sale_coupon_order_suggestion',
         'odoo13-addon-sale_coupon_partner',
         'odoo13-addon-sale_coupon_portal',
