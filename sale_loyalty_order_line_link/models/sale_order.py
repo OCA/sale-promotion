@@ -7,36 +7,16 @@ from odoo.tools.safe_eval import safe_eval
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    def _get_reward_values_product(self, program):
-        """Add the link to the program in the discount line"""
-        res = super()._get_reward_values_product(program)
-        res["coupon_program_id"] = program.id
-        return res
-
-    def _get_reward_values_discount(self, program):
-        """Add the link to the program in the discount line. The original method returns
-        a dict.values() to support multiple taxes. We can safely return a list instead
-        as the main method just iterates over the result of these auxiliar products to
-        write vals. https://git.io/J88As
-        """
-        res = list(super()._get_reward_values_discount(program))
-        [r.update(coupon_program_id=program.id) for r in res]
-        return res
-
     def write(self, vals):
         """We're looking for reward lines set in the write, from those, we'll get
         the proper ids to write them into the related lines"""
         res = super().write(vals)
-        reward_lines = [
-            x[2]
-            for x in vals.get("order_line", [])
-            if len(x) > 2 and x[0] == 0 and x[2].get("is_reward_line")
-        ]
+        reward_lines = self.order_line.filtered(
+            lambda x: x.loyalty_program_id and x.is_reward_line
+        )
         if not reward_lines:
             return res
-        programs = self.env["coupon.program"].browse(
-            list({x.get("coupon_program_id") for x in reward_lines})
-        )
+        programs = reward_lines.loyalty_program_id.reward_ids
         for order in self:
             order._link_reward_lines(programs)
             order._link_reward_generated_lines(programs)
@@ -46,13 +26,16 @@ class SaleOrder(models.Model):
         """Hook method that allows to link lines from extra discount reward options"""
         # TODO: Should we add the lines that meet the criteria even if they aren't
         # on the filtered lines?
-        if program.discount_apply_on == "on_order":
+        if program.discount_applicability == "order":
             return self.order_line.filtered(lambda x: not x.is_reward_line)
-        elif program.discount_apply_on == "cheapest_product":
-            return self._get_cheapest_line()
-        elif program.discount_apply_on == "specific_products":
+        elif program.discount_applicability == "cheapest":
+            return self._cheapest_line()
+        elif program.discount_applicability == "specific":
             return self.order_line.filtered(
-                lambda x: x.product_id in program.discount_specific_product_ids
+                lambda x: x.product_id
+                in self.env["product.product"].search(
+                    program._get_discount_product_domain()
+                )
             )
         # An extra discount scope could not depend no this module. For integration
         # purposes, allways return at least an empty object
@@ -67,7 +50,7 @@ class SaleOrder(models.Model):
         Thes filters are the same the core methods use.
         """
         reward_lines = self.order_line.filtered(
-            lambda x: x.coupon_program_id == program
+            lambda x: x.loyalty_program_id == program.program_id
         )
         lines = self._get_discounted_lines(program)
         # Distribute different tax reward lines with their correspondant order lines.
@@ -85,14 +68,14 @@ class SaleOrder(models.Model):
         """We want to link to the reward those lines that generated it as well as
         the rewarded product, that could be not in the original domain"""
         reward_lines = self.order_line.filtered(
-            lambda x: x.coupon_program_id == program
+            lambda x: x.loyalty_program_id == program.program_id
         )
         lines_with_reward_product_id = self.order_line.filtered(
             lambda x: x.product_id == program.reward_product_id
         )
         # We'll just consider as many lines as the reward quantity can cover.
         lines = self.env["sale.order.line"]
-        reward_qty = program.reward_product_quantity
+        reward_qty = program.reward_product_qty
         for line in lines_with_reward_product_id:
             lines |= line
             if line.product_uom_qty >= reward_qty:
@@ -103,7 +86,7 @@ class SaleOrder(models.Model):
     def _link_reward_lines(self, programs):
         """We want to filter the lines that generated a condition and link them to
         the generated rewards. Every reward type has it's own cases depending on
-        how's applied. Another reward types (e.g: sale_coupon_delivey) should extend
+        how's applied. Another reward types (e.g: sale_loyalty_delivery) should extend
         this method adding its cases. Also to be noted that a single line could
         generate several rewards coming from different promotions."""
         for program in programs.filtered(lambda x: x.reward_type == "discount"):
@@ -115,28 +98,20 @@ class SaleOrder(models.Model):
         """Link the lines that generated reward lines to those lines"""
         for program in programs:
             reward_lines = self.order_line.filtered(
-                lambda x: x.coupon_program_id == program
+                lambda x: x.loyalty_program_id == program.program_id
             )
             self.order_line._filter_related_program_lines(program).write(
                 {"reward_generated_line_ids": [(4, rl.id) for rl in reward_lines]}
             )
 
-    def _create_new_no_code_promo_reward_lines(self):
-        """Ensure that the links remain"""
-        res = super()._create_new_no_code_promo_reward_lines()
-        for order in self:
-            order._link_reward_generated_lines(order.order_line.coupon_program_id)
-        return res
-
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
-    coupon_program_id = fields.Many2one(
-        comodel_name="coupon.program",
-        ondelete="restrict",
-        string="Coupon Program",
+    loyalty_program_id = fields.Many2one(
+        related="reward_id.program_id", store=True, string="Loyalty Program"
     )
+
     reward_line_ids = fields.Many2many(
         comodel_name="sale.order.line",
         relation="sale_line_reward_line_rel",
@@ -165,8 +140,8 @@ class SaleOrderLine(models.Model):
     def write(self, vals):
         """When the reward line is update we should refresh the line links as well"""
         res = super().write(vals)
-        if vals.get("is_reward_line") and vals.get("coupon_program_id"):
-            program = self.env["coupon.program"].browse(vals.get("coupon_program_id"))
+        if vals.get("is_reward_line") and vals.get("loyalty_program_id"):
+            program = self.env["loyalty.program"].browse(vals.get("loyalty_program_id"))
             for order in self.mapped("order_id"):
                 order._link_reward_lines(program)
         return res
@@ -176,9 +151,9 @@ class SaleOrderLine(models.Model):
         the product criteria rules, we can extend this method to return the proper
         records."""
         # No domain means that any product meets the promotion rules
-        if not program.rule_products_domain:
-            return self
-        domain = safe_eval(program.rule_products_domain)
+        if not program.program_id.rule_ids.product_domain:
+            return self.filtered(lambda x: not x.is_reward_line)
+        domain = safe_eval(program.program_id.rule_ids.product_domain)
         products = self.mapped("product_id").filtered_domain(domain)
         return self.filtered(
             lambda x: x.product_id in products and not x.is_reward_line
