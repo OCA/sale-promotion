@@ -5,19 +5,19 @@
         <field name="model">sale.report</field>
         <field name="arch" type="xml">
             <field name="user_id" position="before">
-                <field name="coupon_program_id" />
+                <field name="loyalty_program_id" />
                 <separator />
                 <filter
                     name="promotion"
                     string="Promotion Lines"
-                    domain="[('coupon_program_id','!=', False)]"
+                    domain="[('loyalty_program_id','!=', False)]"
                 />
             </field>
             <xpath expr="//filter[@name='status']" position="after">
                 <filter
-                    string="Coupon Program"
+                    string="Loyalty Program"
                     name="promotion_group"
-                    context="{'group_by': 'coupon_program_id'}"
+                    context="{'group_by': 'loyalty_program_id'}"
                 />
             </xpath>
         </field>
