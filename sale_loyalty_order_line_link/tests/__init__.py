@@ -1,1 +1,1 @@
-from . import test_coupon_order_line_link
+from . import test_sale_loyalty_order_line_link

@@ -5,36 +5,12 @@
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
             <xpath expr="//page[@name='other_information']" position="inside">
-                <group
-                    attrs="{'invisible': [('no_code_promo_program_ids', '=', []), ('code_promo_program_id', '=', False), ('applied_coupon_ids', '=', []), ('generated_coupon_ids', '=', [])]}"
-                >
+                <group attrs="{'invisible': [('applied_coupon_ids', '=', [])]}">
                     <group name="promo_info" string="Promotions">
-                        <field
-                            name="no_code_promo_program_ids"
-                            readonly="True"
-                            attrs="{'invisible': [('no_code_promo_program_ids', '=', [])]}"
-                            widget="many2many_tags"
-                        />
-                        <field
-                            name="code_promo_program_id"
-                            readonly="True"
-                            attrs="{'invisible': [('code_promo_program_id', '=', False)]}"
-                        />
-                        <field
-                            name="promo_code"
-                            readonly="True"
-                            attrs="{'invisible': [('promo_code', '=', False)]}"
-                        />
                         <field
                             name="applied_coupon_ids"
                             readonly="True"
                             attrs="{'invisible': [('applied_coupon_ids', '=', [])]}"
-                            widget="many2many_tags"
-                        />
-                        <field
-                            name="generated_coupon_ids"
-                            readonly="True"
-                            attrs="{'invisible': [('generated_coupon_ids', '=', [])]}"
                             widget="many2many_tags"
                         />
                     </group>
@@ -44,7 +20,7 @@
                 expr="//field[@name='order_line']/form//field[@name='tax_id']"
                 position="after"
             >
-                <field name="coupon_program_id" readonly="True" />
+                <field name="loyalty_program_id" readonly="True" optional="hide" />
                 <field name="reward_line_ids" readonly="True" widget="many2many_tags" />
                 <field
                     name="reward_generated_line_ids"
@@ -61,7 +37,7 @@
                 expr="//field[@name='order_line']/tree/field[@name='price_unit']"
                 position="after"
             >
-                <field name="coupon_program_id" readonly="True" optional="hide" />
+                <field name="loyalty_program_id" readonly="True" optional="hide" />
                 <field
                     name="reward_line_ids"
                     readonly="True"
@@ -88,7 +64,7 @@
         <field name="inherit_id" ref="sale.view_order_line_tree" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="coupon_program_id" readonly="True" optional="hide" />
+                <field name="loyalty_program_id" readonly="True" optional="hide" />
                 <field
                     name="reward_line_ids"
                     readonly="True"

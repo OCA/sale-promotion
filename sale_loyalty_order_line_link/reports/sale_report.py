@@ -7,22 +7,17 @@ from odoo import fields, models
 class SaleReport(models.Model):
     _inherit = "sale.report"
 
-    coupon_program_id = fields.Many2one(
-        comodel_name="coupon.program",
-        string="Coupon Program",
+    loyalty_program_id = fields.Many2one(
+        comodel_name="loyalty.program",
+        string="Loyalty Program",
     )
 
-    def _query(self, with_clause="", fields=None, groupby="", from_clause=""):
-        if fields is None:
-            fields = {}
-        select_str = """ ,
-            l.coupon_program_id as coupon_program_id
-        """
-        fields.update({"coupon_program_id": select_str})
-        groupby += ", l.coupon_program_id"
-        return super()._query(
-            with_clause=with_clause,
-            fields=fields,
-            groupby=groupby,
-            from_clause=from_clause,
-        )
+    def _select_additional_fields(self):
+        res = super()._select_additional_fields()
+        res["loyalty_program_id"] = "l.loyalty_program_id"
+        return res
+
+    def _group_by_sale(self):
+        res = super()._group_by_sale()
+        res += """, l.loyalty_program_id"""
+        return res

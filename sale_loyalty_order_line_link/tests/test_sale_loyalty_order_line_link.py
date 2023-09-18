@@ -36,23 +36,38 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         cls.tax_2 = cls.env["account.tax"].create(
             {"name": "Tax 4", "type_tax_use": "sale", "amount": 4}
         )
-        coupon_program_form = Form(
-            cls.env["coupon.program"],
-            view="sale_coupon.sale_coupon_program_view_promo_program_form",
+        cls.loyalty_program = cls.env["loyalty.program"].create(
+            {
+                "name": "Test Coupon Line Link Program",
+                "program_type": "promotion",
+                "trigger": "auto",
+                "applies_on": "current",
+                "rule_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "reward_point_mode": "order",
+                            "minimum_qty": 1,
+                        },
+                    )
+                ],
+                "reward_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "reward_type": "discount",
+                            "required_points": 1,
+                            "discount": 10,
+                            "discount_mode": "percent",
+                            "discount_applicability": "specific",
+                            "discount_product_ids": cls.product_a | cls.product_c,
+                        },
+                    )
+                ],
+            }
         )
-        coupon_program_form.name = "Test Coupon Line Link Program"
-        coupon_program_form.promo_code_usage = "no_code_needed"
-        coupon_program_form.reward_type = "discount"
-        coupon_program_form.discount_apply_on = "specific_products"
-        coupon_program_form.discount_type = "percentage"
-        coupon_program_form.discount_percentage = 10
-        coupon_program_form.rule_products_domain = [
-            ("id", "in", (cls.product_a | cls.product_b | cls.product_c).ids)
-        ]
-        coupon_program_form.discount_specific_product_ids.add(cls.product_a)
-        coupon_program_form.discount_specific_product_ids.add(cls.product_c)
-        cls.coupon_program = coupon_program_form.save()
-        # We'll be using this sale order
         sale_form = Form(cls.env["sale.order"])
         sale_form.partner_id = cls.partner
         with sale_form.order_line.new() as line_form:
@@ -71,6 +86,12 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
             line_form.tax_id.clear()
             line_form.tax_id.add(cls.tax_2)
         cls.sale = sale_form.save()
+        cls.sale._update_programs_and_rewards()
+        cls.wizard = (
+            cls.env["sale.loyalty.reward.wizard"]
+            .with_context(active_id=cls.sale)
+            .create({"selected_reward_id": cls.loyalty_program.reward_ids.id})
+        )
 
     def test_01_coupon_order_line_link_discount(self):
         """The reward lines always get the coupon program that applied it. For the order
@@ -78,7 +99,7 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         - Discount on specific products. Only those lines get link to the reward lines.
         - Global discount. All the order lines get the link to the reward lines.
         """
-        self.sale.recompute_coupon_lines()
+        self.wizard.action_apply()
         lines = self.sale.order_line
         discount_line_1 = lines.filtered(
             lambda x: x.is_reward_line and x.tax_id == self.tax_1
@@ -90,8 +111,8 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         line_b = lines.filtered(lambda x: x.product_id == self.product_b)
         line_c = lines.filtered(lambda x: x.product_id == self.product_c)
         # Two discount are created from the program
-        self.assertEqual(discount_line_1.coupon_program_id, self.coupon_program)
-        self.assertEqual(discount_line_2.coupon_program_id, self.coupon_program)
+        self.assertEqual(discount_line_1.reward_id, self.loyalty_program.reward_ids)
+        self.assertEqual(discount_line_2.reward_id, self.loyalty_program.reward_ids)
         # Only the program specific products get the link to the reward lines
         self.assertEqual(line_a.reward_line_ids, discount_line_1)
         self.assertFalse(line_b.reward_line_ids)
@@ -108,8 +129,8 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         )
         # Change the program discount type to a global discount. Now all the lines
         # have a link to the coupon reward lines
-        self.coupon_program.discount_apply_on = "on_order"
-        self.sale.recompute_coupon_lines()
+        self.loyalty_program.reward_ids.discount_applicability = "order"
+        self.sale._update_programs_and_rewards()
         self.assertEqual(line_a.reward_line_ids, discount_line_1)
         self.assertEqual(line_b.reward_line_ids, discount_line_1)
         self.assertEqual(line_c.reward_line_ids, discount_line_2)
@@ -117,8 +138,8 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
     def test_02_coupon_order_line_link_discount_cheapest(self):
         """Change the program discount type to a cheapest product. Now only the chepest
         line will get the reward."""
-        self.coupon_program.discount_apply_on = "cheapest_product"
-        self.sale.recompute_coupon_lines()
+        self.loyalty_program.reward_ids.discount_applicability = "cheapest"
+        self.wizard.action_apply()
         lines = self.sale.order_line
         discount_line_1 = lines.filtered(
             lambda x: x.is_reward_line and x.tax_id == self.tax_1
@@ -129,7 +150,7 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         line_a = lines.filtered(lambda x: x.product_id == self.product_a)
         line_b = lines.filtered(lambda x: x.product_id == self.product_b)
         line_c = lines.filtered(lambda x: x.product_id == self.product_c)
-        self.assertEqual(discount_line_1.coupon_program_id, self.coupon_program)
+        self.assertEqual(discount_line_1.reward_id, self.loyalty_program.reward_ids)
         self.assertEqual(line_b.reward_line_ids, discount_line_1)
         self.assertFalse(line_a.reward_line_ids)
         self.assertFalse(line_c.reward_line_ids)
@@ -143,10 +164,10 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         genereate the reward line are linked to that
         """
         # Let's set up the program for product rewards
-        self.coupon_program.reward_type = "product"
-        self.coupon_program.reward_product_id = self.product_c
-        self.coupon_program.reward_product_quantity = 5
-        self.coupon_program.rule_products_domain = [("id", "=", self.product_a.id)]
+        self.loyalty_program.reward_ids.reward_type = "product"
+        self.loyalty_program.reward_ids.reward_product_id = self.product_c
+        self.loyalty_program.reward_ids.reward_product_qty = 5
+        self.loyalty_program.rule_ids.product_domain = [("id", "=", self.product_a.id)]
         sale_form = Form(self.sale)
         with sale_form.order_line.new() as line_form:
             line_form.product_id = self.product_c
@@ -155,17 +176,20 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
             line_form.tax_id.add(self.tax_2)
         sale_form.save()
         # Refresh the order coupons
-        self.sale.recompute_coupon_lines()
+        self.wizard.action_apply()
         lines = self.sale.order_line
         reward_line = self.sale.order_line.filtered(lambda x: x.is_reward_line)
         line_a = lines.filtered(lambda x: x.product_id == self.product_a)
         line_b = lines.filtered(lambda x: x.product_id == self.product_b)
         lines_c = lines.filtered(lambda x: x.product_id == self.product_c)
-        self.assertEqual(reward_line.coupon_program_id, self.coupon_program)
+        self.assertEqual(reward_line.reward_id.program_id, self.loyalty_program)
         self.assertFalse(line_a.reward_line_ids)
         self.assertFalse(line_b.reward_line_ids)
-        for line in lines_c:
+        for line in lines_c.filtered(lambda x: not x.is_reward_line):
             self.assertEqual(line.reward_line_ids, reward_line)
             self.assertFalse(line.reward_generated_line_ids)
+        for line in lines_c.filtered(lambda x: x.is_reward_line):
+            self.assertEqual(line.reward_origin_generated_line_ids, line_a)
+            self.assertFalse(line.reward_line_ids)
         self.assertEqual(line_a.reward_generated_line_ids, reward_line)
         self.assertFalse(line_b.reward_generated_line_ids)
