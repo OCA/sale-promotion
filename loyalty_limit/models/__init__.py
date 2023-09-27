@@ -1,1 +1,1 @@
-from . import coupon_rule
+from . import loyalty_program

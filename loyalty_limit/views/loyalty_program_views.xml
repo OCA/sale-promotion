@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_program_view_form" model="ir.ui.view">
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="model">loyalty.program</field>
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <!-- max_customer_application -->
+                <label
+                    string="Max. Customer Applications"
+                    for="max_customer_application"
+                />
+                <div>
+                    <field name="max_customer_application" class="oe_inline" />
+                </div>
+                <!-- salesmen_limit_count -->
+                <label string="Max. Salesmen Applications" for="salesmen_limit_count" />
+                <div>
+                    <field name="salesmen_limit_count" class="oe_inline" />
+                    <span class="oe_grey"> (                        <field
+                            name="salesmen_limit_used_count"
+                            class="oe_inline"
+                        />
+ used already)</span>
+                </div>
+                <field name="salesmen_strict_limit" />
+                <field name="salesmen_limit_ids">
+                    <tree editable="bottom">
+                        <field
+                            sum="Total limit"
+                            name="max_salesman_application"
+                            string="Max"
+                        />
+                        <field name="user_id" />
+                        <field sum="Total used" name="times_used" />
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+</odoo>
