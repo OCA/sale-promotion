@@ -3,7 +3,7 @@
 from odoo import fields, models
 
 
-class SaleCouponProgram(models.Model):
-    _inherit = "coupon.program"
+class LoyaltyProgram(models.Model):
+    _inherit = "loyalty.program"
 
     partner_id = fields.Many2one(comodel_name="res.partner", string="Partner")
