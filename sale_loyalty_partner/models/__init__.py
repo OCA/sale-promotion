@@ -1,1 +1,1 @@
-from . import sale_coupon_program
+from . import loyalty_program
