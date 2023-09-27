@@ -3,7 +3,7 @@
 {
     "name": "Coupon Limit",
     "summary": "Restrict number of promotions per customer or salesman",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
@@ -11,9 +11,9 @@
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
     "depends": [
-        "coupon_limit",
+        "loyalty_limit",
         "sale_commercial_partner",
-        "sale_coupon_order_line_link",
+        "sale_loyalty_order_line_link",
     ],
     "data": ["security/ir.model.access.csv"],
 }
