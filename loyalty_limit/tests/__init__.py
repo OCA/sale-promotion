@@ -1,1 +1,1 @@
-from . import test_coupon_limit
+from . import test_loyalty_limit

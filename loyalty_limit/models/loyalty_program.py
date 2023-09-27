@@ -3,81 +3,81 @@
 from odoo import api, fields, models
 
 
-class CouponRule(models.Model):
-    _inherit = "coupon.rule"
+class LoyaltyProgram(models.Model):
+    _inherit = "loyalty.program"
 
-    rule_max_customer_application = fields.Integer(
+    max_customer_application = fields.Integer(
         string="Maximum Customer Applications",
         default=0,
         help="Maximum times that a program can be applied to a customer. "
         "0 for no limit.",
     )
-    rule_salesmen_limit_ids = fields.One2many(
+    salesmen_limit_ids = fields.One2many(
         string="Salesmen Limits",
-        comodel_name="coupon.rule.salesmen.limit",
-        inverse_name="rule_id",
+        comodel_name="loyalty.salesmen.limit",
+        inverse_name="program_id",
         help="Maximum times salesmen can apply a program. Empty for no limit.",
     )
-    rule_salesmen_strict_limit = fields.Boolean(
+    salesmen_strict_limit = fields.Boolean(
         default=False,
         string="Strict limit",
         help="If marked, promotion will only be allowed for the list of salesmen with "
         "their quantities",
     )
-    rule_salesmen_limit_count = fields.Integer(
+    salesmen_limit_count = fields.Integer(
         string="Salesmen maximum promotions",
-        compute="_compute_rule_salesmen_limit_count",
+        compute="_compute_salesmen_limit_count",
     )
-    rule_salesmen_limit_used_count = fields.Integer(
+    salesmen_limit_used_count = fields.Integer(
         string="Salesmen promotions used",
-        compute="_compute_rule_salesmen_limit_count",
+        compute="_compute_salesmen_limit_count",
     )
 
     @api.depends(
-        "rule_salesmen_limit_ids.rule_max_salesman_application",
-        "rule_salesmen_limit_ids.rule_times_used",
+        "salesmen_limit_ids.max_salesman_application",
+        "salesmen_limit_ids.times_used",
     )
-    def _compute_rule_salesmen_limit_count(self):
+    def _compute_salesmen_limit_count(self):
         """To be overriden"""
-        self.rule_salesmen_limit_count = 0
-        self.rule_salesmen_limit_used_count = 0
+        self.salesmen_limit_count = 0
+        self.salesmen_limit_used_count = 0
 
 
-class CouponRuleSalesmenLimit(models.Model):
-    _name = "coupon.rule.salesmen.limit"
-    _description = "Coupon Rule Salesmen limits"
+class LoyaltySalesmenLimit(models.Model):
+    _name = "loyalty.salesmen.limit"
+    _description = "Loyalty Salesmen limits"
 
-    rule_id = fields.Many2one(
-        comodel_name="coupon.rule",
+    program_id = fields.Many2one(
+        comodel_name="loyalty.program",
         auto_join=True,
         required=True,
         ondelete="cascade",
     )
-    rule_user_id = fields.Many2one(
+    user_id = fields.Many2one(
         comodel_name="res.users",
         string="Salesman",
         required=True,
         ondelete="cascade",
     )
-    rule_max_salesman_application = fields.Integer(
+    max_salesman_application = fields.Integer(
         string="Maximum Salesman Applications",
         default=0,
         help="Maximum times a salesman can apply a program. 0 for no limit.",
     )
-    rule_times_used = fields.Integer(
+    times_used = fields.Integer(
         string="Uses",
-        compute="_compute_rule_times_used",
+        compute="_compute_times_used",
     )
 
     _sql_constraints = [
         (
             "user_id_uniq",
-            "unique(rule_id, rule_user_id)",
+            "unique(program_id, user_id)",
             "This salesman limit is already configured",
         ),
     ]
 
-    @api.depends("rule_user_id", "rule_max_salesman_application")
-    def _compute_rule_times_used(self):
+    @api.depends("user_id", "max_salesman_application")
+    def _compute_times_used(self):
         """To be overriden"""
-        self.rule_times_used = 0
+        self.times_used = 0
