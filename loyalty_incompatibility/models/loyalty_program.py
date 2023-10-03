@@ -4,16 +4,17 @@
 from odoo import fields, models
 
 
-class CouponProgram(models.Model):
-    _inherit = "coupon.program"
+class LoyaltyProgram(models.Model):
+    _inherit = "loyalty.program"
 
     incompatible_promotion_ids = fields.Many2many(
-        comodel_name="coupon.program",
+        comodel_name="loyalty.program",
         relation="sale_coupon_program_incompatibility_rel",
         column1="program_id",
         column2="incompatible_program_id",
         inverse="_inverse_incompatible_promotion_ids",
         string="Incompatible Promotions",
+        domain="[('id', '!=', self.id)]",
     )
 
     def _inverse_incompatible_promotion_ids(self):

@@ -4,7 +4,7 @@
 from odoo.tests import TransactionCase
 
 
-class CouponIncompatibilityCase(TransactionCase):
+class LoyaltyIncompatibilityCase(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

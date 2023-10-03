@@ -1,1 +1,1 @@
-from . import test_coupon_incompatibility
+from . import test_loyalty_incompatibility
