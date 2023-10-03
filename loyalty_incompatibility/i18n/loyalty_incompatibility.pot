@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* coupon_incompatibility
+# 	* loyalty_incompatibility
 #
 msgid ""
 msgstr ""
@@ -13,12 +13,12 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: coupon_incompatibility
-#: model:ir.model,name:coupon_incompatibility.model_coupon_program
+#. module: loyalty_incompatibility
+#: model:ir.model,name:loyalty_incompatibility.model_coupon_program
 msgid "Coupon display on a website"
 msgstr ""
 
-#. module: coupon_incompatibility
-#: model:ir.model.fields,field_description:coupon_incompatibility.field_coupon_program__incompatible_promotion_ids
+#. module: loyalty_incompatibility
+#: model:ir.model.fields,field_description:loyalty_incompatibility.field_coupon_program__incompatible_promotion_ids
 msgid "Incompatible Promotions"
 msgstr ""
