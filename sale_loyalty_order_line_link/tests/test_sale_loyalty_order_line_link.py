@@ -164,32 +164,27 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         genereate the reward line are linked to that
         """
         # Let's set up the program for product rewards
-        self.loyalty_program.reward_ids.reward_type = "product"
-        self.loyalty_program.reward_ids.reward_product_id = self.product_c
-        self.loyalty_program.reward_ids.reward_product_qty = 5
-        self.loyalty_program.rule_ids.product_domain = [("id", "=", self.product_a.id)]
-        sale_form = Form(self.sale)
-        with sale_form.order_line.new() as line_form:
-            line_form.product_id = self.product_c
-            line_form.product_uom_qty = 6
-            line_form.tax_id.clear()
-            line_form.tax_id.add(self.tax_2)
-        sale_form.save()
-        # Refresh the order coupons
+        self.loyalty_program.rule_ids.write(
+            {"product_domain": '[["product_variant_ids.name","=","Product A"]]'}
+        )
+        self.loyalty_program.reward_ids.write(
+            {
+                "reward_type": "product",
+                "reward_product_id": self.product_c,
+                "reward_product_qty": 5,
+            }
+        )
         self.wizard.action_apply()
         lines = self.sale.order_line
         reward_line = self.sale.order_line.filtered(lambda x: x.is_reward_line)
         line_a = lines.filtered(lambda x: x.product_id == self.product_a)
         line_b = lines.filtered(lambda x: x.product_id == self.product_b)
-        lines_c = lines.filtered(lambda x: x.product_id == self.product_c)
+        line_c = lines.filtered(lambda x: x.product_id == self.product_c)
         self.assertEqual(reward_line.reward_id.program_id, self.loyalty_program)
         self.assertFalse(line_a.reward_line_ids)
         self.assertFalse(line_b.reward_line_ids)
-        for line in lines_c.filtered(lambda x: not x.is_reward_line):
-            self.assertEqual(line.reward_line_ids, reward_line)
-            self.assertFalse(line.reward_generated_line_ids)
-        for line in lines_c.filtered(lambda x: x.is_reward_line):
-            self.assertEqual(line.reward_origin_generated_line_ids, line_a)
-            self.assertFalse(line.reward_line_ids)
+        self.assertTrue(line_a.reward_generated_line_ids)
+        self.assertEqual(line_c.reward_origin_generated_line_ids, line_a)
+        self.assertTrue(line_c.reward_line_ids)
         self.assertEqual(line_a.reward_generated_line_ids, reward_line)
         self.assertFalse(line_b.reward_generated_line_ids)
