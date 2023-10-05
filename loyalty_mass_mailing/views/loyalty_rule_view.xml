@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="loyalty_rule_view_form" model="ir.ui.view">
+        <field name="model">loyalty.rule</field>
+        <field name="inherit_id" ref="loyalty.loyalty_rule_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <button
+                        class="oe_stat_button"
+                        type="object"
+                        icon="fa-envelope"
+                        name="action_mailing_count"
+                        groups="mass_mailing.group_mass_mailing_user"
+                    >
+                        <field
+                            name="mailing_count"
+                            string="Mailings"
+                            widget="statinfo"
+                        />
+                    </button>
+                </div>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

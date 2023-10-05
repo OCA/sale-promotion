@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form" />
         <field name="arch" type="xml">
             <label for="mailing_model_id" position="before">
-                <field name="program_id" readonly="1" />
+                <field name="rule_id" readonly="1" />
             </label>
         </field>
     </record>

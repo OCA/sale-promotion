@@ -4,12 +4,12 @@
 from odoo import api, fields, models
 
 
-class SaleCouponProgram(models.Model):
-    _inherit = "coupon.program"
+class LoyaltyRule(models.Model):
+    _inherit = "loyalty.rule"
 
     mailing_ids = fields.One2many(
         comodel_name="mailing.mailing",
-        inverse_name="program_id",
+        inverse_name="rule_id",
         string="Mailings",
         copy=False,
     )
@@ -20,9 +20,9 @@ class SaleCouponProgram(models.Model):
     @api.depends("mailing_ids")
     def _compute_mailing_count(self):
         mailing_data = self.env["mailing.mailing"].read_group(
-            [("program_id", "in", self.ids)], ["program_id"], ["program_id"]
+            [("rule_id", "in", self.ids)], ["rule_id"], ["rule_id"]
         )
-        mapped_data = {m["program_id"][0]: m["program_id_count"] for m in mailing_data}
+        mapped_data = {m["rule_id"][0]: m["rule_id_count"] for m in mailing_data}
         for program in self:
             program.mailing_count = mapped_data.get(program.id, 0)
 
@@ -33,10 +33,9 @@ class SaleCouponProgram(models.Model):
         if not self.mailing_count:
             mailing = self.env["mailing.mailing"].create(
                 {
-                    "program_id": self.id,
+                    "rule_id": self.id,
                     "mailing_model_id": model.id,
-                    "subject": self.name,
-                    "mailing_domain": self.rule_partners_domain,
+                    "subject": self.program_id.name,
                 }
             )
             result = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
@@ -49,8 +48,6 @@ class SaleCouponProgram(models.Model):
         # Set context and add defaults
         result["context"] = dict(self.env.context)
         result["context"]["default_mailing_model_id"] = model.id
-        result["context"]["default_program_id"] = self.id
-        result["context"]["default_subject"] = self.name
-        if self.rule_partners_domain:
-            result["context"]["default_mailing_domain"] = self.rule_partners_domain
+        result["context"]["default_rule_id"] = self.id
+        result["context"]["default_subject"] = self.program_id.name
         return result
