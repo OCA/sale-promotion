@@ -140,10 +140,14 @@ class SaleOrderLine(models.Model):
     def write(self, vals):
         """When the reward line is update we should refresh the line links as well"""
         res = super().write(vals)
-        if self.filtered(lambda x: x.is_reward_line and x.loyalty_program_id):
-            program = self.env["loyalty.program"].browse([self.loyalty_program_id.id])
+        if self.filtered(
+            lambda x: x.is_reward_line
+            and x.loyalty_program_id
+            and not x.reward_line_ids
+        ):
+            programs = self.env["loyalty.program"].browse(self.loyalty_program_id.ids)
             for order in self.mapped("order_id"):
-                order._link_reward_lines(program)
+                order._link_reward_lines(programs)
         return res
 
     def _filter_related_program_lines(self, program):
