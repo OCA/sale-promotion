@@ -22,7 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [coupon_chatter](coupon_chatter/) | 16.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Register messages and activities on the sale coupon records
-[sale_loyalty_order_line_link](sale_loyalty_order_line_link/) | 16.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between loyalty programs and their generated order linesfor easing tracking
+[sale_loyalty_order_line_link](sale_loyalty_order_line_link/) | 16.0.1.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between loyalty programs and their generated order linesfor easing tracking
 [website_sale_loyalty_page](website_sale_loyalty_page/) | 16.0.1.0.0 |  | Website Sale Loyalty Page
 
 [//]: # (end addons)
