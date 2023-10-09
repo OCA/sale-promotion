@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_rule_view_form" model="ir.ui.view">
+        <field name="inherit_id" ref="loyalty.loyalty_rule_view_form" />
+        <field name="model">loyalty.rule</field>
+        <field name="arch" type="xml">
+            <field name="minimum_qty" position="before">
+                <!-- rule_partners_domain -->
+                <field
+                    name="rule_partners_domain"
+                    widget="domain"
+                    options="{'model': 'res.partner', 'in_dialog': true}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
