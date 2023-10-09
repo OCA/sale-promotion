@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Tecnativa - Pilar Vargas Moreno
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="res_config_settings_view_form">
+        <field name="name">partner.applicability.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='coupon_settings']" position="after">
+                <div
+                    class="col-12 col-lg-6 o_setting_box"
+                    id="coupon_sharing"
+                    title="Allows a coupon generated for one partner to be used by any other member of your commercial entity."
+                >
+                    <div class="o_setting_left_pane">
+                        <field name="allow_coupon_sharing" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="allow_coupon_sharing" />
+                        <div class="text-muted" id="sale_coupon">
+                            Coupon sharing between partners within the commercial entity.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
