@@ -38,13 +38,13 @@ msgid "Sales Coupon Program"
 msgstr "Programa de cupones de ventas"
 
 #. module: website_sale_coupon_restrict
-#: code:addons/website_sale_coupon_restrict/models/sale_coupon.py:11
+#: code:addons/website_sale_coupon_restrict/models/sale_coupon.py:0
 #, python-format
 msgid "This coupon can only be used in the e-commerce"
 msgstr "Este cupón solo puede ser utilizado en el e-commerce"
 
 #. module: website_sale_coupon_restrict
-#: code:addons/website_sale_coupon_restrict/models/sale_coupon_program.py:16
+#: code:addons/website_sale_coupon_restrict/models/sale_coupon_program.py:0
 #, python-format
 msgid "This coupon can only be validated on the e-commerce"
 msgstr "Este cupón solo puede ser validado en el e-commerce"
