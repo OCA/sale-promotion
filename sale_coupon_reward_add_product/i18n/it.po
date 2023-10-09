@@ -61,8 +61,7 @@ msgstr "ID"
 #. module: sale_coupon_reward_add_product
 #: model:ir.model.fields,help:sale_coupon_reward_add_product.field_coupon_program__reward_product_add_if_missing
 #: model:ir.model.fields,help:sale_coupon_reward_add_product.field_coupon_reward__reward_product_add_if_missing
-msgid ""
-"If checked, the reward product will be automatically added to the order"
+msgid "If checked, the reward product will be automatically added to the order"
 msgstr ""
 "Se attivo, il prodotto ricompensa sarà aggiunto automaticamente all'ordine"
 
