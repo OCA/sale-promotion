@@ -53,12 +53,12 @@ msgstr ""
 #. module: sale_coupon_portal
 #: model_terms:ir.ui.view,arch_db:sale_coupon_portal.portal_my_coupons
 msgid ""
-"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-"
-"o\" aria-label=\"Reserved\" title=\"Reserved\" role=\"img\"/><span class=\"d-"
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-o"
+"\" aria-label=\"Reserved\" title=\"Reserved\" role=\"img\"/><span class=\"d-"
 "none d-md-inline\"> Reserved</span></span>"
 msgstr ""
-"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-"
-"o\" aria-label=\"Reserved\" title=\"Reserved\" role=\"img\"/><span class=\"d-"
+"<span class=\"badge badge-pill badge-warning\"><i class=\"fa fa-fw fa-clock-o"
+"\" aria-label=\"Reserved\" title=\"Reserved\" role=\"img\"/><span class=\"d-"
 "none d-md-inline\"> Reservado</span></span>"
 
 #. module: sale_coupon_portal
