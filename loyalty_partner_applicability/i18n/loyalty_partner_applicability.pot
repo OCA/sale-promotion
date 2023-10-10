@@ -1,0 +1,29 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* loyalty_partner_applicability
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: loyalty_partner_applicability
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_rule__rule_partners_domain
+msgid "Based on Customers"
+msgstr ""
+
+#. module: loyalty_partner_applicability
+#: model:ir.model,name:loyalty_partner_applicability.model_loyalty_rule
+msgid "Loyalty Rule"
+msgstr ""
+
+#. module: loyalty_partner_applicability
+#: model:ir.model.fields,help:loyalty_partner_applicability.field_loyalty_rule__rule_partners_domain
+msgid "Loyalty program will work for selected customers only"
+msgstr ""
