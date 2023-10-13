@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_coupon_criteria_multi_product
+# 	* sale_loyalty_criteria_multi_product
 #
 msgid ""
 msgstr ""
@@ -17,8 +17,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model,name:sale_coupon_criteria_multi_product.model_coupon_program
+#. module: sale_loyalty_criteria_multi_product
+#: model:ir.model,name:sale_loyalty_criteria_multi_product.model_coupon_program
 msgid "Coupon display on a website"
 msgstr ""
 
