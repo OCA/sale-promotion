@@ -1,1 +1,1 @@
-from . import test_sale_coupon_criteria_multi_product
+from . import test_sale_loyalty_criteria_multi_product
