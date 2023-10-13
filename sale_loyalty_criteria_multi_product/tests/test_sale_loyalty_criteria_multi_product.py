@@ -2,12 +2,12 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.tests import Form
 
-from odoo.addons.coupon_criteria_multi_product.tests import (
-    TestCouponCriteriaMultiProduct,
+from odoo.addons.loyalty_criteria_multi_product.tests import (
+    TestLoyaltyCriteriaMultiProduct,
 )
 
 
-class TestSaleCouponCriteriaMultiProduct(TestCouponCriteriaMultiProduct):
+class TestSaleLoyaltyCriteriaMultiProduct(TestLoyaltyCriteriaMultiProduct):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -31,18 +31,19 @@ class TestSaleCouponCriteriaMultiProduct(TestCouponCriteriaMultiProduct):
     def test_sale_coupon_test_criteria_multi_product(self):
         """Only when all the criterias are matched we can apply the program"""
         # The discount is correctly applied
-        self.sale.recompute_coupon_lines()
+        self.sale.action_open_reward_wizard()
         discount_line = self.sale.order_line.filtered("is_reward_line")
         self.assertTrue(bool(discount_line))
         # We can change product E by product D as the criteria is set to repeat
         line_e = self.sale.order_line.filtered(lambda x: x.product_id == self.product_e)
         line_e.product_id = self.product_d
-        self.sale.recompute_coupon_lines()
+        self.sale.action_open_reward_wizard()
         discount_line = self.sale.order_line.filtered("is_reward_line")
         self.assertTrue(bool(discount_line))
         # If the order doesn't fulfill all the criterias, the discount isn't applied
+
         line_e.product_uom_qty = 2
-        self.sale.recompute_coupon_lines()
+        self.sale.action_open_reward_wizard()
         discount_line = self.sale.order_line.filtered("is_reward_line")
         self.assertFalse(discount_line)
         # If the criteria doesn't repeat, all the products must be in the cart
@@ -50,6 +51,6 @@ class TestSaleCouponCriteriaMultiProduct(TestCouponCriteriaMultiProduct):
         line_e.product_uom_qty = 3
         # And now we'll remove B, that should be present
         self.sale.order_line.filtered(lambda x: x.product_id == self.product_b).unlink()
-        self.sale.recompute_coupon_lines()
+        self.sale.action_open_reward_wizard()
         discount_line = self.sale.order_line.filtered("is_reward_line")
         self.assertFalse(discount_line)

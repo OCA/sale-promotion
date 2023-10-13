@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_coupon_criteria_multi_product
+# 	* sale_loyalty_criteria_multi_product
 #
 msgid ""
 msgstr ""
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: sale_coupon_criteria_multi_product
-#: model:ir.model,name:sale_coupon_criteria_multi_product.model_coupon_program
+#. module: sale_loyalty_criteria_multi_product
+#: model:ir.model,name:sale_loyalty_criteria_multi_product.model_coupon_program
 msgid "Coupon display on a website"
 msgstr ""
