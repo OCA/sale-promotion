@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_program_view_form_common" model="ir.ui.view">
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="model">loyalty.program</field>
+        <field name="arch" type="xml">
+            <field name="rule_ids" position="before">
+                <field name="loyalty_criteria" widget="radio" />
+                <field
+                    name="loyalty_criteria_ids"
+                    attrs="{'invisible': [('loyalty_criteria', '!=', 'multi_product')]}"
+                >
+                    <tree editable="bottom">
+                        <field name="criterian_min_quantity" string="Qty" />
+                        <field name="product_ids" widget="many2many_tags" />
+                        <field name="repeat_product" />
+                    </tree>
+                </field>
+            </field>
+            <field name="rule_ids" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
