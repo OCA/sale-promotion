@@ -1,2 +1,2 @@
-from . import coupon_criteria
-from . import coupon_program
+from . import loyalty_criteria
+from . import loyalty_program

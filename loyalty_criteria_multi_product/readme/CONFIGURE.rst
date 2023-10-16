@@ -1,7 +1,7 @@
 To configure multiple product criterias:
 
-#. Go to *Sales > Catalog > Coupon Programs* and select or create a new one.
-#. On the *Coupon Criteria* field choose *Multi Product*.
+#. Go to *Sales > Catalog > Discount & Loyalty* and select or create a new one.
+#. On the *Loyalty Criteria* field choose *Multi Product*.
 #. The standard domain will be hidden and a criteria list will be shown.
 #. Add as many criterias as needed for the desired promotion behavior.
 
