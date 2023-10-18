@@ -1,1 +1,1 @@
-from . import coupon_reward
+from . import loyalty_reward
