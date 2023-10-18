@@ -1,9 +1,9 @@
 To configure multiple product rewards:
 
-#. Go to *Sales > Catalog > Coupon Programs* and select or create a new one.
+#. Go to *Sales > Products > Discount & Loyalty* and select or create a new one.
 #. Choose the criteria of appliance you want to use and the minimum quantities, that
    will be used to calculate the times the rewards can be applied.
-#. On the *Reward Type* field choose *Multi Gift*.
+#. On the *Program Type* field choose *Multi Gift*.
 #. You'll see a now the *Gift list* on which you can add the products you want to give
    away and the quantities for each of them.
 
