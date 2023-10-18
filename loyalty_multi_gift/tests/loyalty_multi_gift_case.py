@@ -3,7 +3,7 @@
 from odoo.tests import Form, TransactionCase
 
 
-class CouponMultiGiftCase(TransactionCase):
+class LoyaltyMultiGiftCase(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -39,26 +39,26 @@ class CouponMultiGiftCase(TransactionCase):
         cls.product_4 = cls.env["product.product"].create(
             {"name": "Test 4", "sale_ok": False, "list_price": 80}
         )
-        coupon_program_form = Form(
-            cls.env["coupon.program"],
+        loyalty_program_form = Form(
+            cls.env["loyalty.program"],
             view="coupon.coupon_program_view_promo_program_form",
         )
-        coupon_program_form.name = "Test Multiplier Program"
-        coupon_program_form.promo_code_usage = "no_code_needed"
-        coupon_program_form.reward_type = "multi_gift"
+        loyalty_program_form.name = "Test Multiplier Program"
+        loyalty_program_form.promo_code_usage = "no_code_needed"
+        loyalty_program_form.reward_type = "multi_gift"
         # For every two products that fulfill the domain condition, we'd get 2 units
         # of product 1 and 3 units of product 3 for free
-        coupon_program_form.rule_minimum_amount = 75
+        loyalty_program_form.rule_minimum_amount = 75
         # Every two we'll fulfill the condition
-        coupon_program_form.rule_min_quantity = 2
-        coupon_program_form.rule_products_domain = "[('id', '=', %s)]" % (
+        loyalty_program_form.rule_min_quantity = 2
+        loyalty_program_form.rule_products_domain = "[('id', '=', %s)]" % (
             cls.product_1.id
         )
-        with coupon_program_form.coupon_multi_gift_ids.new() as reward_line:
+        with loyalty_program_form.loyalty_multi_gift_ids.new() as reward_line:
             reward_line.reward_product_ids.add(cls.product_2)
             reward_line.reward_product_quantity = 2
-        with coupon_program_form.coupon_multi_gift_ids.new() as reward_line:
+        with loyalty_program_form.loyalty_multi_gift_ids.new() as reward_line:
             reward_line.reward_product_ids.add(cls.product_3)
             reward_line.reward_product_ids.add(cls.product_4)
             reward_line.reward_product_quantity = 3
-        cls.coupon_program = coupon_program_form.save()
+        cls.loyalty_program = loyalty_program_form.save()
