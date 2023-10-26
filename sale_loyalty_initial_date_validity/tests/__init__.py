@@ -1,0 +1,1 @@
+from . import test_sale_loyalty_initial_date_validity
