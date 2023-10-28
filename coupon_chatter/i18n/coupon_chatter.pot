@@ -80,7 +80,6 @@ msgstr ""
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__message_has_error
-#: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -152,11 +151,6 @@ msgstr ""
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_user_id
 msgid "Responsible User"
-msgstr ""
-
-#. module: coupon_chatter
-#: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_has_sms_error
-msgid "SMS Delivery error"
 msgstr ""
 
 #. module: coupon_chatter
