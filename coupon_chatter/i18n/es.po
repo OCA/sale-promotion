@@ -83,7 +83,6 @@ msgstr "Si está marcada, nuevos mensajes requieren su atención."
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__message_has_error
-#: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si está marcada, algunos mensajes tienen un error de entrega."
 
@@ -158,11 +157,6 @@ msgid "Responsible User"
 msgstr "Usuario Responsable"
 
 #. module: coupon_chatter
-#: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Error en la entrega de sms"
-
-#. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__activity_state
 msgid ""
 "Status based on activities\n"
@@ -189,3 +183,6 @@ msgstr "Mensajes de la página web"
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__website_message_ids
 msgid "Website communication history"
 msgstr "Historial de la comunicación en la página web"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Error en la entrega de sms"
