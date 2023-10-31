@@ -8,7 +8,7 @@ class TestSaleCouponFinancialRisk(common.TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.env.user.groups_id |= cls.env.ref(
-            "account_financial_risk.group_overpass_partner_risk_exception"
+            "account_financial_risk.group_account_financial_risk_manager"
         )
         cls.partner = cls.env["res.partner"].create(
             {"name": "Partner", "email": "demo@demo.com"}
