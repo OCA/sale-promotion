@@ -1,1 +1,0 @@
-from . import test_sale_coupon_apply_commercial_partner
