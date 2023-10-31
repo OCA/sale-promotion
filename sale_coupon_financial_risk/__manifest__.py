@@ -3,7 +3,7 @@
 
 {
     "name": "Coupon Financial Risk Compatibility",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     "summary": "Compatibilize coupons with sale financial risk",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",

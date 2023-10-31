@@ -40,7 +40,7 @@ addon | version | maintainers | summary
 [sale_coupon_delivery_auto_refresh](sale_coupon_delivery_auto_refresh/) | 15.0.1.0.1 |  | Allows to auto-apply the coupons after adding delivery line
 [sale_coupon_domain_free_product](sale_coupon_domain_free_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Rewards will be applied based on the products domain
 [sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 15.0.1.0.0 |  | Apply discount only to the domain matching products
-[sale_coupon_financial_risk](sale_coupon_financial_risk/) | 15.0.1.0.0 |  | Compatibilize coupons with sale financial risk
+[sale_coupon_financial_risk](sale_coupon_financial_risk/) | 15.0.1.0.1 |  | Compatibilize coupons with sale financial risk
 [sale_coupon_incompatibility](sale_coupon_incompatibility/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions
 [sale_coupon_limit](sale_coupon_limit/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [sale_coupon_multi_gift](sale_coupon_multi_gift/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure multiple gift rewards per promotion in sales
