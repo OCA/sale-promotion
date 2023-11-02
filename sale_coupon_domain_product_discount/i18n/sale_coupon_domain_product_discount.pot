@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: sale_coupon_domain_product_discount
+#: model:ir.model,name:sale_coupon_domain_product_discount.model_coupon_program
+msgid "Coupon display on a website"
+msgstr ""
+
+#. module: sale_coupon_domain_product_discount
 #: model:ir.model,name:sale_coupon_domain_product_discount.model_sale_order
 msgid "Sales Order"
 msgstr ""
