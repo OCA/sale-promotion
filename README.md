@@ -25,7 +25,7 @@ addon | version | maintainers | summary
 [coupon_commercial_partner_applicability](coupon_commercial_partner_applicability/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Coupons can be used by all the commercial entity partners
 [coupon_criteria_multi_product](coupon_criteria_multi_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set as promotion criteria multi-product conditions
 [coupon_domain_free_product](coupon_domain_free_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Rewards will be applied based on the products domain
-[coupon_domain_product_discount](coupon_domain_product_discount/) | 15.0.1.1.0 |  | Apply discount only to the domain matching products
+[coupon_domain_product_discount](coupon_domain_product_discount/) | 15.0.1.1.1 |  | Apply discount only to the domain matching products
 [coupon_incompatibility](coupon_incompatibility/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions
 [coupon_limit](coupon_limit/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
 [coupon_mass_mailing](coupon_mass_mailing/) | 15.0.1.0.0 |  | Coupon Mas Mailing
@@ -39,7 +39,7 @@ addon | version | maintainers | summary
 [sale_coupon_criteria_order_based](sale_coupon_criteria_order_based/) | 15.0.1.0.0 |  | Allows to set a sales order related domain for coupon
 [sale_coupon_delivery_auto_refresh](sale_coupon_delivery_auto_refresh/) | 15.0.1.0.1 |  | Allows to auto-apply the coupons after adding delivery line
 [sale_coupon_domain_free_product](sale_coupon_domain_free_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Rewards will be applied based on the products domain
-[sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 15.0.1.0.0 |  | Apply discount only to the domain matching products
+[sale_coupon_domain_product_discount](sale_coupon_domain_product_discount/) | 15.0.1.0.1 |  | Apply discount only to the domain matching products
 [sale_coupon_financial_risk](sale_coupon_financial_risk/) | 15.0.1.0.1 |  | Compatibilize coupons with sale financial risk
 [sale_coupon_incompatibility](sale_coupon_incompatibility/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions
 [sale_coupon_limit](sale_coupon_limit/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
