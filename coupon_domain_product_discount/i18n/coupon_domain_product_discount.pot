@@ -41,11 +41,6 @@ msgid "Coupon Rule"
 msgstr ""
 
 #. module: coupon_domain_product_discount
-#: model:ir.model,name:coupon_domain_product_discount.model_coupon_program
-msgid "Coupon display on a website"
-msgstr ""
-
-#. module: coupon_domain_product_discount
 #: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_program__discount_apply_on_domain_product_description
 #: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_reward__discount_apply_on_domain_product_description
 msgid "Description for coupons"
