@@ -11,7 +11,7 @@
     "license": "AGPL-3",
     "category": "Sales Management",
     "website": "https://github.com/OCA/sale-promotion",
-    "depends": ["sale_coupon"],
+    "depends": ["coupon"],
     "data": [
         "views/coupon_program_views.xml",
         "report/sale_coupon_report_template.xml",

@@ -11,7 +11,6 @@
     "category": "Sales Management",
     "website": "https://github.com/OCA/sale-promotion",
     "depends": ["sale_coupon", "coupon_domain_product_discount"],
-    "data": [],
     "installable": True,
     "application": False,
 }
