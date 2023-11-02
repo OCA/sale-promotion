@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-16 13:58+0000\n"
-"PO-Revision-Date: 2023-11-02 17:09+0000\n"
+"PO-Revision-Date: 2023-11-02 19:36+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -92,7 +92,7 @@ msgstr "URL completa de acceso al documento a través de la página web."
 #. module: website_sale_coupon_page
 #: model:ir.model.fields,field_description:website_sale_coupon_page.field_coupon_program__website_published
 msgid "Visible on current website"
-msgstr ""
+msgstr "Visible en la página web actual"
 
 #. module: website_sale_coupon_page
 #: model_terms:ir.ui.view,arch_db:website_sale_coupon_page.coupon_program_view_form_common
@@ -102,7 +102,7 @@ msgstr "Sitio Web"
 #. module: website_sale_coupon_page
 #: model:ir.model.fields,field_description:website_sale_coupon_page.field_coupon_program__website_url
 msgid "Website URL"
-msgstr ""
+msgstr "URL de la página web"
 
 #~ msgid "Sales Coupon Program"
 #~ msgstr "Programa de cupones de ventas"
