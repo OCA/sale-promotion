@@ -14,8 +14,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: loyalty_partner_applicability
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_res_config_settings__allow_coupon_sharing
+msgid "Allow coupon sharing"
+msgstr ""
+
+#. module: loyalty_partner_applicability
 #: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_rule__rule_partners_domain
 msgid "Based on Customers"
+msgstr ""
+
+#. module: loyalty_partner_applicability
+#: model:ir.model,name:loyalty_partner_applicability.model_res_config_settings
+msgid "Config Settings"
 msgstr ""
 
 #. module: loyalty_partner_applicability
