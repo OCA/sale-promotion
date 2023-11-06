@@ -6,43 +6,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-06 21:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: coupon_limit
 #: model:ir.model,name:coupon_limit.model_coupon_rule
 msgid "Coupon Rule"
-msgstr ""
+msgstr "Regla de Cupón"
 
 #. module: coupon_limit
 #: model:ir.model,name:coupon_limit.model_coupon_rule_salesmen_limit
 msgid "Coupon Rule Salesmen limits"
-msgstr ""
+msgstr "Regla del cupón Límites de los vendedores"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: coupon_limit
 #: model:ir.model.fields,help:coupon_limit.field_coupon_program__rule_salesmen_strict_limit
@@ -51,58 +53,64 @@ msgid ""
 "If marked, promotion will only be allowed for the list of salesmen with "
 "their quantities"
 msgstr ""
+"Si se marca, la promoción sólo se permitirá para la lista de vendedores con "
+"sus cantidades"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modifiación el"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Actualizado por Última vez por"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última Actualización el"
 
 #. module: coupon_limit
 #: model_terms:ir.ui.view,arch_db:coupon_limit.sale_coupon_program_view_form_common
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 #. module: coupon_limit
 #: model_terms:ir.ui.view,arch_db:coupon_limit.sale_coupon_program_view_form_common
 msgid "Max. Customer Applications"
-msgstr ""
+msgstr "Max. Aplicaciones del cliente"
 
 #. module: coupon_limit
 #: model_terms:ir.ui.view,arch_db:coupon_limit.sale_coupon_program_view_form_common
 msgid "Max. Salesmen Applications"
-msgstr ""
+msgstr "Max. Vendedores Aplicaciones"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_program__rule_max_customer_application
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule__rule_max_customer_application
 msgid "Maximum Customer Applications"
-msgstr ""
+msgstr "Máximas Aplicaciones para el Cliente"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__rule_max_salesman_application
 msgid "Maximum Salesman Applications"
-msgstr ""
+msgstr "Aplicaciones de Máximo Vendedor"
 
 #. module: coupon_limit
 #: model:ir.model.fields,help:coupon_limit.field_coupon_rule_salesmen_limit__rule_max_salesman_application
 msgid "Maximum times a salesman can apply a program. 0 for no limit."
 msgstr ""
+"Máximo de veces que un vendedor puede aplicar un programa. 0 para ningún "
+"límite."
 
 #. module: coupon_limit
 #: model:ir.model.fields,help:coupon_limit.field_coupon_program__rule_salesmen_limit_ids
 #: model:ir.model.fields,help:coupon_limit.field_coupon_rule__rule_salesmen_limit_ids
 msgid "Maximum times salesmen can apply a program. Empty for no limit."
 msgstr ""
+"Máximo de veces que los vendedores pueden aplicar un programa. Vacío para "
+"sin límite."
 
 #. module: coupon_limit
 #: model:ir.model.fields,help:coupon_limit.field_coupon_program__rule_max_customer_application
@@ -110,62 +118,64 @@ msgstr ""
 msgid ""
 "Maximum times that a program can be applied to a customer. 0 for no limit."
 msgstr ""
+"Máximo de veces que se puede aplicar un programa a un cliente. 0 para ningún "
+"límite."
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__rule_id
 msgid "Rule"
-msgstr ""
+msgstr "Regla"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__rule_user_id
 msgid "Salesman"
-msgstr ""
+msgstr "Vendedor"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_program__rule_salesmen_limit_ids
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule__rule_salesmen_limit_ids
 msgid "Salesmen Limits"
-msgstr ""
+msgstr "Límites para Vendedores"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_program__rule_salesmen_limit_count
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule__rule_salesmen_limit_count
 msgid "Salesmen maximum promotions"
-msgstr ""
+msgstr "Vendedores promociones máximas"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_program__rule_salesmen_limit_used_count
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule__rule_salesmen_limit_used_count
 msgid "Salesmen promotions used"
-msgstr ""
+msgstr "Promociones de vendedores utilizadas"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_program__rule_salesmen_strict_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule__rule_salesmen_strict_limit
 msgid "Strict limit"
-msgstr ""
+msgstr "Límite estricto"
 
 #. module: coupon_limit
 #: model:ir.model.constraint,message:coupon_limit.constraint_coupon_rule_salesmen_limit_user_id_uniq
 msgid "This salesman limit is already configured"
-msgstr ""
+msgstr "Este límite de vendedor ya está configurado"
 
 #. module: coupon_limit
 #: model_terms:ir.ui.view,arch_db:coupon_limit.sale_coupon_program_view_form_common
 msgid "Total limit"
-msgstr ""
+msgstr "Límite total"
 
 #. module: coupon_limit
 #: model_terms:ir.ui.view,arch_db:coupon_limit.sale_coupon_program_view_form_common
 msgid "Total used"
-msgstr ""
+msgstr "Total utilizado"
 
 #. module: coupon_limit
 #: model:ir.model.fields,field_description:coupon_limit.field_coupon_rule_salesmen_limit__rule_times_used
 msgid "Uses"
-msgstr ""
+msgstr "Usos"
 
 #. module: coupon_limit
 #: model_terms:ir.ui.view,arch_db:coupon_limit.sale_coupon_program_view_form_common
 msgid "used already)"
-msgstr ""
+msgstr "ya utilizado)"
