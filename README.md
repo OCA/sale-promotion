@@ -38,6 +38,7 @@ addon | version | maintainers | summary
 [sale_coupon_multiplier_free_product](sale_coupon_multiplier_free_product/) | 13.0.1.0.3 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure a coupon for e-commerce only
 [sale_coupon_order_line_link](sale_coupon_order_line_link/) | 13.0.1.2.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between coupons and their generated order lines for easing tracking
 [sale_coupon_order_pending](sale_coupon_order_pending/) | 13.0.1.0.0 |  | Show partner's pending coupons in sale order
+[sale_coupon_order_pending_commercial_partner](sale_coupon_order_pending_commercial_partner/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Glue module to show pending coupons of the commercial entity
 [sale_coupon_order_suggestion](sale_coupon_order_suggestion/) | 13.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Suggest promotions in the sale order line
 [sale_coupon_partner](sale_coupon_partner/) | 13.0.1.0.0 |  | Sale Coupon Partner
 [sale_coupon_portal](sale_coupon_portal/) | 13.0.1.0.0 | [![CarlosRoca13](https://github.com/CarlosRoca13.png?size=30px)](https://github.com/CarlosRoca13) | Add possibility to see your coupons on portal
