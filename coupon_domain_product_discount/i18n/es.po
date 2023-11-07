@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-22 09:39+0000\n"
-"PO-Revision-Date: 2023-02-22 10:43+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-11-07 22:38+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
-"Language: es_ES\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: coupon_domain_product_discount
 #: code:addons/coupon_domain_product_discount/models/coupon_reward.py:0
@@ -26,7 +26,7 @@ msgstr "%s%% de descuento en los productos seleccionados"
 #. module: coupon_domain_product_discount
 #: model_terms:ir.ui.view,arch_db:coupon_domain_product_discount.report_coupon
 msgid "*Valid for following products:"
-msgstr ""
+msgstr "*Válido para los siguientes productos:"
 
 #. module: coupon_domain_product_discount
 #: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_program__discount_apply_on_domain_product
@@ -48,7 +48,7 @@ msgstr "Regla de cupón"
 #: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_program__discount_apply_on_domain_product_description
 #: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_reward__discount_apply_on_domain_product_description
 msgid "Description for coupons"
-msgstr ""
+msgstr "Descripción de los cupones"
 
 #. module: coupon_domain_product_discount
 #: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_program__discount_apply_on_domain_product_description
@@ -57,6 +57,8 @@ msgid ""
 "Description to be displayed in the report when the option to applydiscount "
 "on the filtered products is set"
 msgstr ""
+"Descripción que se mostrará en el informe cuando se active la opción de "
+"aplicar descuento en los productos filtrados"
 
 #. module: coupon_domain_product_discount
 #: model:ir.model.fields,help:coupon_domain_product_discount.field_coupon_program__strict_per_product_limit
@@ -73,7 +75,7 @@ msgstr ""
 #. module: coupon_domain_product_discount
 #: model_terms:ir.ui.view,arch_db:coupon_domain_product_discount.report_coupon
 msgid "OFF ON SOME PRODUCTS*"
-msgstr ""
+msgstr "DESCUENTO EN ALGUNOS PRODUCTOS*"
 
 #. module: coupon_domain_product_discount
 #: model:ir.model.fields,field_description:coupon_domain_product_discount.field_coupon_program__discount_specific_product_ids
