@@ -7,20 +7,20 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-02-02 10:25+0000\n"
-"PO-Revision-Date: 2023-02-02 11:27+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-11-08 13:38+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
-"Language: es_ES\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: coupon_incompatibility
 #: model:ir.model,name:coupon_incompatibility.model_coupon_program
 msgid "Coupon display on a website"
-msgstr ""
+msgstr "Visualización de cupones en un sitio web"
 
 #. module: coupon_incompatibility
 #: model:ir.model.fields,field_description:coupon_incompatibility.field_coupon_program__incompatible_promotion_ids
