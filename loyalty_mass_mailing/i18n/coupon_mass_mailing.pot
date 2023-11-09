@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* coupon_mass_mailing
+# 	* loyalty_mass_mailing
 #
 msgid ""
 msgstr ""
@@ -13,28 +13,28 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: coupon_mass_mailing
-#: model:ir.model,name:coupon_mass_mailing.model_coupon_program
+#. module: loyalty_mass_mailing
+#: model:ir.model,name:loyalty_mass_mailing.model_coupon_program
 msgid "Coupon display on a website"
 msgstr ""
 
-#. module: coupon_mass_mailing
-#: model:ir.model.fields,field_description:coupon_mass_mailing.field_coupon_program__mailing_count
+#. module: loyalty_mass_mailing
+#: model:ir.model.fields,field_description:loyalty_mass_mailing.field_coupon_program__mailing_count
 msgid "Mailing count"
 msgstr ""
 
-#. module: coupon_mass_mailing
-#: model:ir.model.fields,field_description:coupon_mass_mailing.field_coupon_program__mailing_ids
-#: model_terms:ir.ui.view,arch_db:coupon_mass_mailing.sale_coupon_program_view_form_common_custom
+#. module: loyalty_mass_mailing
+#: model:ir.model.fields,field_description:loyalty_mass_mailing.field_coupon_program__mailing_ids
+#: model_terms:ir.ui.view,arch_db:loyalty_mass_mailing.sale_coupon_program_view_form_common_custom
 msgid "Mailings"
 msgstr ""
 
-#. module: coupon_mass_mailing
-#: model:ir.model,name:coupon_mass_mailing.model_mailing_mailing
+#. module: loyalty_mass_mailing
+#: model:ir.model,name:loyalty_mass_mailing.model_mailing_mailing
 msgid "Mass Mailing"
 msgstr ""
 
-#. module: coupon_mass_mailing
-#: model:ir.model.fields,field_description:coupon_mass_mailing.field_mailing_mailing__program_id
+#. module: loyalty_mass_mailing
+#: model:ir.model.fields,field_description:loyalty_mass_mailing.field_mailing_mailing__program_id
 msgid "Program"
 msgstr ""
