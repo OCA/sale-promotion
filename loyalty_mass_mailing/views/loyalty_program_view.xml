@@ -1,12 +1,8 @@
 <?xml version="1.0" ?>
 <odoo>
-    <record id="sale_coupon_program_view_form_common_custom" model="ir.ui.view">
-        <field name="model">coupon.program</field>
-        <field name="inherit_id" ref="coupon.coupon_program_view_form_common" />
-        <field
-            name="groups_id"
-            eval="[(4, ref('mass_mailing.group_mass_mailing_user'))]"
-        />
+    <record id="loyalty_program_view_form" model="ir.ui.view">
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
                 <button
@@ -14,6 +10,8 @@
                     type="object"
                     icon="fa-envelope"
                     name="action_mailing_count"
+                    groups="mass_mailing.group_mass_mailing_user"
+                    attrs="{'invisible': [('program_type', 'in', ('gift_card', 'ewallet'))]}"
                 >
                     <field name="mailing_count" string="Mailings" widget="statinfo" />
                 </button>
