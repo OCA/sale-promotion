@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="loyalty_program_view_form" model="ir.ui.view">
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="object"
+                    icon="fa-envelope"
+                    name="action_mailing_count"
+                    groups="mass_mailing.group_mass_mailing_user"
+                    attrs="{'invisible': [('program_type', 'in', ('gift_card', 'ewallet'))]}"
+                >
+                    <field name="mailing_count" string="Mailings" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
