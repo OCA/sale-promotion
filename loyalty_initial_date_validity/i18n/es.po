@@ -6,38 +6,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-11 15:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: loyalty_initial_date_validity
 #: model:ir.model.fields,field_description:loyalty_initial_date_validity.field_loyalty_program__date_to
 msgid "End date"
-msgstr ""
+msgstr "Fecha final"
 
 #. module: loyalty_initial_date_validity
 #: model:ir.model,name:loyalty_initial_date_validity.model_loyalty_program
 msgid "Loyalty display on a website"
-msgstr ""
+msgstr "Visualización de la fidelidad en un sitio web"
 
 #. module: loyalty_initial_date_validity
 #: model:ir.model.fields,field_description:loyalty_initial_date_validity.field_loyalty_program__date_from
 msgid "Start Date"
-msgstr ""
+msgstr "fecha de Inicio"
 
 #. module: loyalty_initial_date_validity
 #: model:ir.model.fields,help:loyalty_initial_date_validity.field_loyalty_program__date_to
 msgid "The end date is included in the validity period of this program"
 msgstr ""
+"La fecha de finalización está incluida en el periodo de validez de este "
+"programa"
 
 #. module: loyalty_initial_date_validity
 #: model:ir.model.fields,help:loyalty_initial_date_validity.field_loyalty_program__date_from
 msgid "The start date is included in the validity period of this program"
 msgstr ""
+"La fecha de inicio está incluida en el periodo de validez de este programa"
 
 #. module: loyalty_initial_date_validity
 #. odoo-python
@@ -46,3 +51,5 @@ msgstr ""
 msgid ""
 "The validity period's start date must be anterior or equal to its end date."
 msgstr ""
+"La fecha de inicio del periodo de validez debe ser anterior o igual a su "
+"fecha de finalización."
