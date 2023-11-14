@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [loyalty_mass_mailing](loyalty_mass_mailing/) | 16.0.1.0.0 |  | Loyalty Mass Mailing
 [loyalty_partner_applicability](loyalty_partner_applicability/) | 16.0.2.0.1 |  | Enables the definition of a customer filter for promotion rules that will only be applied to customers who meet the specified conditions in the filter.
 [sale_loyalty_order_line_link](sale_loyalty_order_line_link/) | 16.0.1.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between loyalty programs and their generated order linesfor easing tracking
+[sale_loyalty_partner_applicability](sale_loyalty_partner_applicability/) | 16.0.1.0.0 |  | Enables the definition of a customer filter for promotion rules that will only be applied to customers who meet the specified conditions in the filter.
 [website_sale_loyalty_page](website_sale_loyalty_page/) | 16.0.1.0.0 |  | Website Sale Loyalty Page
 
 [//]: # (end addons)
