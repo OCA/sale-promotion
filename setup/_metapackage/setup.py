@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-coupon_chatter>=16.0dev,<16.1dev',
         'odoo-addon-loyalty_initial_date_validity>=16.0dev,<16.1dev',
+        'odoo-addon-loyalty_limit>=16.0dev,<16.1dev',
         'odoo-addon-loyalty_mass_mailing>=16.0dev,<16.1dev',
         'odoo-addon-loyalty_partner_applicability>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_initial_date_validity>=16.0dev,<16.1dev',
