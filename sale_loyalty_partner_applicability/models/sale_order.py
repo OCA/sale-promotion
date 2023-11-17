@@ -40,7 +40,7 @@ class SaleOrder(models.Model):
         """
         for rule in program.rule_ids:
             partner_domain = self._get_partner_domain(rule, self.partner_id)
-            if partner_domain and self.env["res.partner"].search_count(partner_domain):
+            if self.env["res.partner"].search_count(partner_domain):
                 return True
         return False
 
