@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo-addon-loyalty_partner_applicability>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_initial_date_validity>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_order_line_link>=16.0dev,<16.1dev',
+        'odoo-addon-sale_loyalty_partner>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_partner_applicability>=16.0dev,<16.1dev',
         'odoo-addon-website_sale_loyalty_page>=16.0dev,<16.1dev',
     ],
