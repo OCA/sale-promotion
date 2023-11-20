@@ -26,6 +26,3 @@ msgstr ""
 #: model:ir.model.fields,field_description:loyalty_incompatibility.field_coupon_program__incompatible_promotion_ids
 msgid "Incompatible Promotions"
 msgstr "Promociones incompatibles"
-
-#~ msgid "Coupon Program"
-#~ msgstr "Programa de cupones"

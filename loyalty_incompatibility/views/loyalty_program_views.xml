@@ -5,7 +5,11 @@
         <field name="model">loyalty.program</field>
         <field name="arch" type="xml">
             <field name="currency_id" position="before">
-                <field name="incompatible_promotion_ids" widget="many2many_tags" />
+                <field
+                    name="incompatible_promotion_ids"
+                    attrs="{'invisible': [('program_type', 'in', ('promotion', 'buy_x_get_y', 'loyalty'))]}"
+                    widget="many2many_tags"
+                />
             </field>
         </field>
     </record>
