@@ -37,6 +37,3 @@ msgid ""
 msgstr ""
 "Esta promoción es incompatible con otra ya presente en la orden por lo que "
 "no se puede aplicar."
-
-#~ msgid "Coupon Program"
-#~ msgstr "Programa de cupones"

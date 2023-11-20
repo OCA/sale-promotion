@@ -1,8 +1,8 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
-    "name": "Loyalty incompatibilities",
-    "summary": "Allows to set incompatibility rules between promotions",
+    "name": "Loyalty incompatibilities in sales",
+    "summary": "Allows to set incompatibility rules between promotions in sale orders",
     "version": "16.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Sale",
