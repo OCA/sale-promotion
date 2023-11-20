@@ -9,12 +9,12 @@ class LoyaltyProgram(models.Model):
 
     incompatible_promotion_ids = fields.Many2many(
         comodel_name="loyalty.program",
-        relation="sale_coupon_program_incompatibility_rel",
+        relation="sale_loyalty_program_incompatibility_rel",
         column1="program_id",
         column2="incompatible_program_id",
         inverse="_inverse_incompatible_promotion_ids",
         string="Incompatible Promotions",
-        domain="[('id', '!=', self.id)]",
+        domain="[('id', '!=', id)]",
     )
 
     def _inverse_incompatible_promotion_ids(self):
