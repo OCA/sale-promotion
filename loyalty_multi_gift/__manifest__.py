@@ -11,5 +11,5 @@
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
     "depends": ["loyalty"],
-    "data": ["views/loyalty_program_views.xml", "security/ir.model.access.csv"],
+    "data": ["views/loyalty_reward_views.xml", "security/ir.model.access.csv"],
 }

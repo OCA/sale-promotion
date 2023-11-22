@@ -11,23 +11,37 @@ class LoyaltyReward(models.Model):
         inverse_name="reward_id",
         string="Gift list",
     )
+    multi_gift = fields.Boolean(compute="_compute_multi_gift")
     reward_type = fields.Selection(
         selection_add=[("multi_gift", "Multi Gift")],
         ondelete={"multi_gift": "set default"},
     )
 
-    def name_get(self):
-        """Add complete description for the multi gift reward type."""
-        res = super().name_get()
-        for reward in self.filtered(lambda x: x.program_type == "multi_gift"):
-            reward_string = _("Free Products - %(name)s") % {
-                "name": ", ".join(
-                    f"{reward.reward_product_quantity}x "
-                    f"{fields.first(reward.reward_product_ids).name}"
-                    for reward in reward.loyalty_multi_gift_ids
+    @api.depends("reward_type", "loyalty_multi_gift_ids.reward_product_ids")
+    def _compute_multi_gift(self):
+        for reward in self:
+            reward.multi_gift = (
+                reward.reward_type == "multi_gift"
+                and len(reward.loyalty_multi_gift_ids) > 0
+            )
+
+    @api.depends("loyalty_multi_gift_ids.reward_product_ids")
+    def _compute_description(self):
+        res = super()._compute_description()
+        for reward in self:
+            if reward.reward_type == "multi_gift":
+                reward_string = ""
+                products = self.env["product.product"].browse(
+                    reward.loyalty_multi_gift_ids.reward_default_product_id.ids
                 )
-            }
-            res.append((reward.id, reward_string))
+                product_names = products.with_context(
+                    display_default_code=False
+                ).mapped("display_name")
+                if len(products) == 0:
+                    reward_string = _("Multi Gift")
+                else:
+                    reward_string = _("Multi Gift - [%s]") % ", ".join(product_names)
+                reward.description = reward_string
         return res
 
 
@@ -43,7 +57,6 @@ class LoyaltyGift(models.Model):
     reward_default_product_id = fields.Many2one(
         comodel_name="product.product",
         compute="_compute_reward_default_product_id",
-        inverse="_inverse_reward_default_product_id",
         readonly=False,
     )
     reward_product_ids = fields.Many2many(
@@ -59,10 +72,6 @@ class LoyaltyGift(models.Model):
         to allow optional"""
         for line in self:
             line.reward_default_product_id = fields.first(line.reward_product_ids)
-
-    def _inverse_reward_default_product_id(self):
-        for line in self.filtered("reward_default_product_id"):
-            line.reward_product_ids = line.reward_default_product_id
 
     @api.onchange("reward_product_ids")
     def onchange_reward_product_ids(self):
