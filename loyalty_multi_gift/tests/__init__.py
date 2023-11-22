@@ -1,1 +1,1 @@
-from . import loyalty_multi_gift_case
+from . import test_loyalty_multi_gift_case

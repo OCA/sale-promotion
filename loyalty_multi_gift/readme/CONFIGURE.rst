@@ -18,4 +18,4 @@ An example:
 
 With a minimum quantity of 3, for every 3 units of products that fulfill the domain
 we'd get 3 units of A and 2 of B. So if the valid products quantities are 11, we'd
-get 9 of product A and 6 of product B.
+get 3 of product A and 2 of product B.
