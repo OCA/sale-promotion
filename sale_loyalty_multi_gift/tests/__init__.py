@@ -1,1 +1,1 @@
-from . import test_sale_coupon_multi_gift
+from . import test_sale_loyalty_multi_gift
