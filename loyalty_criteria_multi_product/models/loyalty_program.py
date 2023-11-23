@@ -1,38 +1,22 @@
 # Copyright 2021 Tecnativa - David Vidal
+# Copyright 2023 Tecnativa - pilar Vargas
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import fields, models
+from odoo import api, models
 
 
 class LoyaltyProgram(models.Model):
     _inherit = "loyalty.program"
 
-    loyalty_criteria = fields.Selection(
-        selection=[("domain", "Domain"), ("multi_product", "Multi Product")],
-        string="Loyalty criteria",
-        help="- Domain: Standard behavior. The products are evaluated by domain.\n"
-        "- Multi product: different rules can be applied to different products "
-        "and all of the have to be fulfilled",
-        default="domain",
-    )
-    loyalty_criteria_ids = fields.One2many(
-        string="Multi Product Criterias",
-        comodel_name="loyalty.criteria",
-        inverse_name="program_id",
-    )
-
-    # @api.onchange("loyalty_criteria")
-    # def _onchange_loyalty_criteria(self):
-    #     """Clear domain so we clear some other fields from the view"""
-    #     if self.loyalty_criteria == "multi_product":
-    #         self.rule_products_domain = False
-
-    def _get_valid_products_multi_product(self, products, criteria):
-        """Return valid products depending on the criteria repeat product setting. Then
-        the main method will check if the minimum quantities are acomplished."""
-        if criteria.repeat_product:
-            return products.browse(
-                [x.id for x in criteria.product_ids if x in products]
-            )
-        if not all([x in products for x in criteria.product_ids]):
-            return self.env["product.product"]
-        return criteria.product_ids
+    @api.model
+    def _program_type_default_values(self):
+        res = super()._program_type_default_values()
+        program_types_to_update = [
+            "promotion",
+            "loyalty",
+            "promo_code",
+            "buy_x_get_y",
+            "next_order_coupons",
+        ]
+        for program_type in program_types_to_update:
+            res[program_type]["rule_ids"][1][2].update({"loyalty_criteria": "domain"})
+        return res
