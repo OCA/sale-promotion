@@ -1,3 +1,2 @@
-id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access_criteria_salesman,salesman,model_coupon_criteria,sales_team.group_sale_salesman,1,0,0,0
-access_criteria_manager,criteria manager,model_coupon_criteria,sales_team.group_sale_manager,1,1,1,1
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+coupon_criteria_multi_product.access_coupon_criteria,access_coupon_criteria,coupon_criteria_multi_product.model_coupon_criteria,base.group_user,0,0,0,0
