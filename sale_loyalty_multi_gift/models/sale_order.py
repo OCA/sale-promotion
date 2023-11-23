@@ -1,186 +1,163 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+import random
+
 from odoo import _, fields, models
-from odoo.fields import first
+from odoo.exceptions import UserError
+from odoo.fields import Command, first
+from odoo.tools.float_utils import float_round
 
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    def _get_paid_order_lines(self):
-        """Add reward lines produced by multi gift promotions"""
-        lines = super()._get_paid_order_lines()
-        free_reward_products = (
-            self.env["coupon.program"]
-            .search([("reward_type", "=", "multi_gift")])
-            .mapped("coupon_multi_gift_ids.reward_product_ids")
-        )
-        free_reward_product_lines = self.order_line.filtered(
-            lambda x: x.is_reward_line and x.product_id in free_reward_products
-        )
-        return lines | free_reward_product_lines
+    def action_open_reward_wizard(self):
+        self.ensure_one()
+        self._update_programs_and_rewards()
+        claimable_rewards = self._get_claimable_rewards()
+        if (
+            len(claimable_rewards) == 1
+            and claimable_rewards.get(next(iter(claimable_rewards))).reward_type
+            == "multi_gift"
+            and any(
+                len(record.reward_product_ids) > 1
+                for record in claimable_rewards.get(
+                    next(iter(claimable_rewards))
+                ).loyalty_multi_gift_ids
+            )
+        ):
+            ctx = {
+                "default_selected_reward_id": claimable_rewards.get(
+                    next(iter(claimable_rewards))
+                ).id,
+            }
+            return {
+                "type": "ir.actions.act_window",
+                "view_mode": "form",
+                "res_model": "sale.loyalty.reward.wizard",
+                "target": "new",
+                "context": ctx,
+            }
+        else:
+            return super().action_open_reward_wizard()
 
-    def _get_reward_values_multi_gift_line(self, reward_line, program):
+    def _get_reward_values_multi_gift_line(
+        self, reward, coupon, cost, reward_line=False, product=False
+    ):
         """Multi Gift reward rules. For every gift reward rule, we'll create a new
         sale order line flagged as reward line with a 100% discount"""
-
-        def _execute_onchanges(records, field_name):
-            """Helper methods that executes all onchanges associated to a field."""
-            for onchange in records._onchange_methods.get(field_name, []):
-                for record in records:
-                    onchange(record)
-
-        # We could receive an optional product by context. Otherwise, the first product
-        # will apply. This feature can be used by modules like
-        # sale_coupon_selection_wizard.
-        optional_product = (
+        self.ensure_one()
+        assert reward.reward_type == "multi_gift"
+        selected_product = (
             self.env["product.product"].browse(
                 self.env.context.get("reward_line_options", {}).get(reward_line.id)
             )
             & reward_line.reward_product_ids
         )
-        reward_product_id = optional_product or first(reward_line.reward_product_ids)
-        # We prepare a new line and trigger the proper onchanges to ensure we get the
-        # right line values (price unit according to the customer pricelist, taxes, ect)
-        order_line = self.order_line.new(
-            {"order_id": self.id, "product_id": reward_product_id.id}
+        reward_product_id = (
+            selected_product or product or first(reward_line.reward_product_ids)
         )
-        _execute_onchanges(order_line, "product_id")
-        order_line.update({"product_uom_qty": reward_line.reward_product_quantity})
-        _execute_onchanges(order_line, "product_uom_qty")
-        vals = order_line._convert_to_write(order_line._cache)
-        vals.update(
-            {
-                "is_reward_line": True,
-                "name": _("Free Product") + " - " + reward_product_id.name,
-                "discount": 100,
-                "coupon_program_id": program.id,
-                "multi_gift_reward_line_id": reward_line.id,
-                "multi_gift_reward_line_id_option_product_id": reward_product_id.id,
-            }
+        if (
+            not reward_product_id
+            or reward_product_id not in reward.loyalty_multi_gift_ids.reward_product_ids
+        ):
+            raise UserError(_("Invalid product to claim."))
+        taxes = self.fiscal_position_id.map_tax(
+            reward_product_id.taxes_id.filtered(
+                lambda t: t.company_id == self.company_id
+            )
         )
+        vals = {
+            "order_id": self.id,
+            "is_reward_line": True,
+            "name": _(
+                "Free Product - %(product)s",
+                product=reward_product_id.with_context(
+                    display_default_code=False
+                ).display_name,
+            ),
+            "product_id": reward_product_id.id,
+            "price_unit": reward_product_id.list_price,
+            "discount": 100,
+            "product_uom_qty": reward_line.reward_product_quantity,
+            "reward_id": reward.id,
+            "coupon_id": coupon.id,
+            "points_cost": cost,
+            "reward_identifier_code": str(random.getrandbits(32)),
+            "product_uom": reward_product_id.uom_id.id,
+            "sequence": max(
+                self.order_line.filtered(lambda x: not x.is_reward_line).mapped(
+                    "sequence"
+                ),
+                default=10,
+            )
+            + 1,
+            "tax_id": [(Command.CLEAR, 0, 0)]
+            + [(Command.LINK, tax.id, False) for tax in taxes],
+            "loyalty_program_id": reward.program_id.id,
+            "multi_gift_reward_line_id": reward_line.id,
+            "multi_gift_reward_line_id_option_product_id": reward_product_id.id,
+        }
         return vals
 
-    def _get_reward_values_multi_gift(self, program):
+    def _get_reward_values_multi_gift(self, reward, coupon, **kwargs):
         """Wrapper to create the reward lines for a multi gift promotion"""
-        return [
-            self._get_reward_values_multi_gift_line(reward_line, program)
-            for reward_line in program.coupon_multi_gift_ids
-        ]
+        points = self._get_real_points_for_coupon(coupon)
+        claimable_count = (
+            float_round(
+                points / reward.required_points,
+                precision_rounding=1,
+                rounding_method="DOWN",
+            )
+            if not reward.clear_wallet
+            else 1
+        )
+        total_cost = (
+            points if reward.clear_wallet else claimable_count * reward.required_points
+        )
+        cost = total_cost / len(reward.loyalty_multi_gift_ids)
+        order_lines = self.order_line.filtered(
+            lambda x: x.is_reward_line
+            and x.reward_id.reward_type == "multi_gift"
+            and x.coupon_id == coupon
+        )
+        if order_lines:
+            return [
+                self._get_reward_values_multi_gift_line(
+                    reward,
+                    coupon,
+                    cost,
+                    reward_line=reward_line.multi_gift_reward_line_id,
+                    product=reward_line.multi_gift_reward_line_id_option_product_id,
+                )
+                for reward_line in order_lines
+            ]
+        else:
+            return [
+                self._get_reward_values_multi_gift_line(
+                    reward, coupon, cost, reward_line=reward_line
+                )
+                for reward_line in reward.loyalty_multi_gift_ids
+            ]
 
-    def _get_reward_line_values(self, program):
+    def _get_reward_line_values(self, reward, coupon, **kwargs):
         """Hook into the core method considering multi gift rewards"""
         self.ensure_one()
         self = self.with_context(lang=self.partner_id.lang)
-        program = program.with_context(lang=self.partner_id.lang)
-        if program.reward_type == "multi_gift":
-            return self._get_reward_values_multi_gift(program)
-        return super()._get_reward_line_values(program)
-
-    def _get_applicable_programs_multi_gift(self):
-        """Wrapper to avoid long method name limitations"""
-        programs = (
-            self._get_applicable_programs() + self._get_valid_applied_coupon_program()
-        )
-        programs = (
-            programs._keep_only_most_interesting_auto_applied_global_discount_program()
-        )
-        return programs
-
-    def _remove_invalid_reward_lines(self):
-        """We have to put some logic redundancy here as the main method doesn't have
-        enough granularity to avoid deleting the lines belonging to the multi gift
-        programs when the promotions are updated. So the main module expects that the
-        promotion lines products match with the promotion discount product
-        (https://git.io/JWpoU) , which is not the approach in this module, where we add
-        extra lines with the reward products themselves and the proper price tag and
-        discount. So in this method override, we'll save those correct lines from the
-        pyre via context that the unlink method will properly catch. We also have to
-        remove the proper invalid lines that wouldn't be detected"""
-        self.ensure_one()
-        # This part is a repetition of the logic so we can get the right programs
-        applied_programs = self._get_applied_programs()
-        applicable_programs = self.env["coupon.program"]
-        if applied_programs:
-            applicable_programs = self._get_applicable_programs_multi_gift()
-        programs_to_remove = applied_programs - applicable_programs
-        # We're only interested in the Multi Gift programs
-        multi_gift_applied_programs = applied_programs.filtered(
-            lambda x: x.reward_type == "multi_gift"
-        )
-        # These will be the ones to keep
-        valid_lines = self.order_line.filtered(
-            lambda x: x.is_reward_line
-            and x.coupon_program_id in multi_gift_applied_programs
-        )
-        multi_gift_programs_to_remove = programs_to_remove.filtered(
-            lambda x: x.reward_type == "multi_gift"
-        )
-        if multi_gift_programs_to_remove:
-            # Invalidate the generated coupons which we are not eligible anymore
-            self.generated_coupon_ids.filtered(
-                lambda x: x.program_id in multi_gift_programs_to_remove
-            ).write({"state": "expired"})
-            # Detect and remove the proper unvalid program order lines
-            self.order_line.filtered(
-                lambda x: x.is_reward_line
-                and x.coupon_program_id in multi_gift_programs_to_remove
-            ).unlink()
-        # We'll catch the context in the subsequent unlink() method
-        return super(
-            SaleOrder, self.with_context(valid_multi_gift_lines=valid_lines.ids)
-        )._remove_invalid_reward_lines()
-
-    def _update_existing_reward_lines(self):
-        """We need to match `multi gift` programs with their discount product"""
-        self.ensure_one()
-        res = super(
-            SaleOrder, self.with_context(only_reward_lines=True)
-        )._update_existing_reward_lines()
-        applied_programs = self._get_applied_programs_with_rewards_on_current_order()
-        for program in applied_programs.filtered(
-            lambda x: x.reward_type == "multi_gift"
-        ):
-            for reward_line in program.coupon_multi_gift_ids:
-                lines = self.order_line.filtered(
-                    lambda line: line.multi_gift_reward_line_id == reward_line
-                    and line.is_reward_line
-                    and line.coupon_program_id == program
-                )
-                applied_product = lines.multi_gift_reward_line_id_option_product_id
-                for product in applied_product:
-                    reward_line_options = {reward_line.id: product.id}
-                    values = self.with_context(
-                        reward_line_options=reward_line_options
-                    )._get_reward_values_multi_gift_line(reward_line, program)
-                    # Remove reward line if price or qty equal to 0
-                    if values.get("product_uom_qty") and values.get("price_unit"):
-                        lines.write(values)
-                    else:
-                        lines.unlink()
-        return res
+        reward = reward.with_context(lang=self.partner_id.lang)
+        if reward.reward_type == "multi_gift":
+            return self._get_reward_values_multi_gift(reward, coupon, **kwargs)
+        return super()._get_reward_line_values(reward, coupon, **kwargs)
 
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     multi_gift_reward_line_id = fields.Many2one(
-        comodel_name="coupon.reward.product_line",
+        comodel_name="loyalty.reward.product_line",
         readonly=True,
     )
     multi_gift_reward_line_id_option_product_id = fields.Many2one(
         comodel_name="product.product",
         readonly=True,
     )
-
-    def unlink(self):
-        """Avoid unlinking valid multi gift lines since they aren't linked to the
-        discount product of the promotion program"""
-        if not self.env.context.get("valid_multi_gift_lines"):
-            return super().unlink()
-        return super(
-            SaleOrderLine,
-            self.filtered(
-                lambda x: x.id not in self.env.context.get("valid_multi_gift_lines")
-            ),
-        ).unlink()

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sale_loyalty_reward_wizard_view_form_multi_gift" model="ir.ui.view">
+        <field name="model">sale.loyalty.reward.wizard</field>
+        <field
+            name="inherit_id"
+            ref="sale_loyalty.sale_loyalty_reward_wizard_view_form"
+        />
+        <field name="arch" type="xml">
+            <field name="selected_product_id" position="after">
+                <field name="multi_gift_reward" invisible="1" />
+                <field
+                    name="loyalty_gift_line_ids"
+                    nolabel="1"
+                    colspan="2"
+                    attrs="{'invisible': [('multi_gift_reward', '=', False)]}"
+                >
+                    <tree editable="bottom" create="0" delete="0">
+                        <field name="reward_id" invisible="1" />
+                        <field name="line_id" invisible="1" />
+                        <field name="gift_ids" widget="many2many_tags" readonly="1" />
+                        <field
+                            name="selected_gift_id"
+                            options="{'no_create': True, 'no_open': True}"
+                        />
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+</odoo>
