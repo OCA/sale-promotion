@@ -11,4 +11,5 @@
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
     "depends": ["coupon_criteria_multi_product", "sale_coupon"],
+    "data": ["security/ir.model.access.csv"],
 }
