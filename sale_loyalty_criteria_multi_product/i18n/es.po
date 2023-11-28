@@ -18,8 +18,15 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 
 #. module: sale_loyalty_criteria_multi_product
-#: model:ir.model,name:sale_loyalty_criteria_multi_product.model_coupon_program
-msgid "Coupon display on a website"
+#: model:ir.model,name:sale_loyalty_criteria_multi_product.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_loyalty_criteria_multi_product
+#. odoo-python
+#: code:addons/sale_loyalty_criteria_multi_product/models/sale_order.py:0
+#, python-format
+msgid "You don't have the required product quantities on your sales order."
 msgstr ""
 
 #~ msgid "Can product quantities count multiple times or not"
