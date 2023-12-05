@@ -1,9 +1,12 @@
 # Copyright 2022 Ooops404
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from odoo.tests import tagged
+
 from odoo.addons.sale_coupon.tests.common import TestSaleCouponCommon
 
 
+@tagged("post_install", "-at_install")
 class TestSaleCouponCriteriaOrderBased(TestSaleCouponCommon):
     @classmethod
     def setUpClass(cls):
