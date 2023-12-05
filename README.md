@@ -23,7 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [coupon_chatter](coupon_chatter/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Register messages and activities on the sale coupon records
 [coupon_commercial_partner_applicability](coupon_commercial_partner_applicability/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Coupons can be used by all the commercial entity partners
-[coupon_criteria_multi_product](coupon_criteria_multi_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set as promotion criteria multi-product conditions
+[coupon_criteria_multi_product](coupon_criteria_multi_product/) | 15.0.1.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set as promotion criteria multi-product conditions
 [coupon_domain_free_product](coupon_domain_free_product/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Rewards will be applied based on the products domain
 [coupon_domain_product_discount](coupon_domain_product_discount/) | 15.0.1.1.1 |  | Apply discount only to the domain matching products
 [coupon_incompatibility](coupon_incompatibility/) | 15.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions
