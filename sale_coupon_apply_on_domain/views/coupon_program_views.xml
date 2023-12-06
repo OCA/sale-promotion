@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2023 Akretion France (http://www.akretion.com)
+    @author Florian Mounier <florian.mounier@akretion.com>
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <!-- Coupon program form override -->
+    <record id="sale_coupon_program_view_coupon_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_coupon_program_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='discount_specific_product_ids']"
+                position="after"
+            >
+                <field
+                    name="discount_product_domain"
+                    placeholder="Select product"
+                    widget="domain"
+                    options="{'model': 'product.product', 'in_dialog': true}"
+                    attrs="{'invisible': ['|', '|', ('discount_apply_on', '!=', 'product_domain'),('discount_type', '!=', 'percentage'), ('reward_type', 'in', ('product', 'free_shipping'))], 'required': [('reward_type', '=', 'discount'),('discount_apply_on', '=', 'product_domain'),('discount_type', '=', 'percentage')]}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Promo program form override -->
+    <record id="sale_coupon_program_view_promo_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_promo_program_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='discount_specific_product_ids']"
+                position="after"
+            >
+                <field
+                    name="discount_product_domain"
+                    placeholder="Select product"
+                    widget="domain"
+                    options="{'model': 'product.product', 'in_dialog': true}"
+                    attrs="{'invisible': ['|', '|', ('discount_apply_on', '!=', 'product_domain'),('discount_type', '!=', 'percentage'), ('reward_type', 'in', ('product', 'free_shipping'))], 'required': [('reward_type', '=', 'discount'),('discount_apply_on', '=', 'product_domain'),('discount_type', '=', 'percentage')]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
