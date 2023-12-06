@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-10 10:09+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-12-06 17:33+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -18,20 +18,18 @@ msgstr ""
 
 #. module: sale_loyalty_limit
 #: model:ir.model,name:sale_loyalty_limit.model_loyalty_salesmen_limit
-#, fuzzy
 msgid "Loyalty Salesmen limits"
-msgstr "Limiti regola buono sconto addetto alle vendite"
+msgstr "Limiti programma fedeltà venditore"
 
 #. module: sale_loyalty_limit
 #: model:ir.model,name:sale_loyalty_limit.model_loyalty_program
-#, fuzzy
 msgid "Loyalty display on a website"
-msgstr "Mostra buono sconto su sito web"
+msgstr "Programma fedeltà visualizzato su sito web"
 
 #. module: sale_loyalty_limit
 #: model:ir.model,name:sale_loyalty_limit.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Ordine di vendita"
 
 #. module: sale_loyalty_limit
 #. odoo-python
@@ -65,7 +63,7 @@ msgstr "Questa promozione è riservata all'addetto alle vendite indicato."
 #. module: sale_loyalty_limit
 #. odoo-python
 #: code:addons/sale_loyalty_limit/models/sale_order.py:0
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "This promotion was already applied %(count)s times for this customer and "
 "there's an established limit of %(max)s."
