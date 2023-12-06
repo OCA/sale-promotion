@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-24 12:09+0000\n"
+"PO-Revision-Date: 2023-12-06 17:33+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -32,9 +32,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_loyalty_order_line_link.field_sale_order_line__loyalty_program_id
 #: model:ir.model.fields,field_description:sale_loyalty_order_line_link.field_sale_report__loyalty_program_id
 #: model_terms:ir.ui.view,arch_db:sale_loyalty_order_line_link.view_order_product_search
-#, fuzzy
 msgid "Loyalty Program"
-msgstr "Programma buoni sconto"
+msgstr "Programma fedeltà"
 
 #. module: sale_loyalty_order_line_link
 #: model:ir.model.fields,help:sale_loyalty_order_line_link.field_sale_order_line__reward_origin_generated_line_ids
