@@ -6,153 +6,155 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-12-12 11:33+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Azione richiesta"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "Attività"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Decorazione eccezione attività"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "Stato attività"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_type_icon
 msgid "Activity Type Icon"
-msgstr ""
+msgstr "Icona tipo attività"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Conteggio allegati"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Seguito da"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Seguito da (partner)"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
+msgstr "Icona Font Awesome es. fa-tasks"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Ha un messaggio"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "Icona"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr ""
+msgstr "Icona per indicare un'attività eccezione."
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Se selezionato, nuovi messaggi richiedono attenzione."
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Se selezionato, alcuni messaggi presentano un errore di consegna."
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Segue"
 
 #. module: coupon_chatter
 #: model:ir.model,name:coupon_chatter.model_loyalty_program
 msgid "Loyalty display on a website"
-msgstr ""
+msgstr "Programma fedeltà visualizzato su sito web"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Allegato principale"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Errore di consegna messaggio"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Messaggi"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__my_activity_date_deadline
 msgid "My Activity Deadline"
-msgstr ""
+msgstr "Scadenza mia attività"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Scadenza prossima attività"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "Riepilogo prossima attività"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
+msgstr "Tipo prossima attività"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Numero di azioni"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Numero di errori"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "Numero di messaggi che richiedono un'azione"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Numero di messaggi con errore di consegna"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Utente responsabile"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__activity_state
@@ -162,18 +164,22 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Stato in base alle attività\n"
+"Scaduto: la data richiesta è trascorsa\n"
+"Oggi: la data attività è oggi\n"
+"Pianificato: attività future."
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "Tipo di attività eccezione sul record."
 
 #. module: coupon_chatter
 #: model:ir.model.fields,field_description:coupon_chatter.field_loyalty_program__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "Messaggi sito web"
 
 #. module: coupon_chatter
 #: model:ir.model.fields,help:coupon_chatter.field_loyalty_program__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "Cronologia comunicazioni sito web"
