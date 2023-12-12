@@ -6,95 +6,98 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-12-12 11:33+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: website_sale_loyalty_page
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_page.available_promotions
 msgid "<span>No promotions available</span>"
-msgstr ""
+msgstr "<span>Nessuna promozione dsponibile</span>"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__can_publish
 msgid "Can Publish"
-msgstr ""
+msgstr "Può pubblicare"
 
 #. module: website_sale_loyalty_page
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_page.promotion_item
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__image_1920
 msgid "Image"
-msgstr ""
+msgstr "Immagine"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__image_1024
 msgid "Image 1024"
-msgstr ""
+msgstr "Immagine 1024"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__image_128
 msgid "Image 128"
-msgstr ""
+msgstr "Immagine 128"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__image_256
 msgid "Image 256"
-msgstr ""
+msgstr "Immagine 256"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__image_512
 msgid "Image 512"
-msgstr ""
+msgstr "Immagine 512"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__is_published
 msgid "Is Published"
-msgstr ""
+msgstr "È pubblicato"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model,name:website_sale_loyalty_page.model_loyalty_program
 msgid "Loyalty display on a website"
-msgstr ""
+msgstr "Programma fedeltà visualizzato su sito web"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,help:website_sale_loyalty_page.field_loyalty_program__public_name
 msgid "Name of the promo showed on website bellow the banner image."
 msgstr ""
+"Nme della promozine visualizzato nel sito web sotto l'immagine pubblicitaria."
 
 #. module: website_sale_loyalty_page
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_page.promotion_layout
 msgid "Promotions"
-msgstr ""
+msgstr "Promozioni"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__public_name
 msgid "Public Name"
-msgstr ""
+msgstr "Nome pubblico"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,help:website_sale_loyalty_page.field_loyalty_program__website_url
 msgid "The full URL to access the document through the website."
-msgstr ""
+msgstr "L'URL completo per accedere al documento attraverso il sito web."
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__website_published
 msgid "Visible on current website"
-msgstr ""
+msgstr "Visibile sul sito web attuale"
 
 #. module: website_sale_loyalty_page
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_page.loyalty_program_view_form
 msgid "Website"
-msgstr ""
+msgstr "Sito web"
 
 #. module: website_sale_loyalty_page
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__website_url
 msgid "Website URL"
-msgstr ""
+msgstr "URL sito web"
