@@ -44,6 +44,38 @@ class LoyaltyReward(models.Model):
                 reward.description = reward_string
         return res
 
+    def write(self, vals):
+        """Avoid duplicating the multi gift lines when updating the reward"""
+        if self.env.context.get("skip_muli_gift_updates") and vals.get(
+            "loyalty_multi_gift_ids"
+        ):
+            del vals["loyalty_multi_gift_ids"]
+            self.env.context = dict(self.env.context, skip_muli_gift_updates=False)
+        return super().write(vals)
+
+
+class LoyaltyProgram(models.Model):
+    _inherit = "loyalty.program"
+
+    def write(self, vals):
+        """In https://github.com/odoo/odoo/blob/69b1993fb45b76110c24f5189a0ecfe9eb59a2aa
+        /addons/loyalty/models/loyalty_program.py#L409
+        there is a call convert_to_cache on reward_ids that causes that one2many create
+        commands are called twice and thus we get a duplicated record."""
+        reward_vals = vals.get("reward_ids", [])
+        skip_muli_gift_updates = any(
+            [
+                cmd
+                for cmd in reward_vals
+                if len(cmd) == 3
+                and cmd[0] == 1
+                and cmd[2].get("loyalty_multi_gift_ids")
+            ]
+        )
+        if skip_muli_gift_updates:
+            self = self.with_context(skip_muli_gift_updates=True)
+        return super().write(vals)
+
 
 class LoyaltyGift(models.Model):
     _name = "loyalty.reward.product_line"
