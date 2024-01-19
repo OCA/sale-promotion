@@ -11,7 +11,7 @@ class SaleOrder(models.Model):
 
     def _get_partner_domain(self, rule, partner_id):
         domain = []
-        if rule.rule_partners_domain != "[]":
+        if rule.rule_partners_domain and rule.rule_partners_domain != "[]":
             allow_sharing = (
                 self.env["ir.config_parameter"].sudo().get_param("allow_coupon_sharing")
             )
