@@ -1,13 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <templates>
-    <div t-name="sale_coupon_order_suggestion.suggestPromotion">
-        <div t-att-class="!widget.data.is_reward_line ? '': 'invisible'">
-            <t t-if="widget.data.suggested_promotion_ids.count">
-                <a
-                    tabindex="0"
-                    class="fa fa-gift text-primary"
-                    title="Available promotions"
-                />
-            </t>
+    <t t-name="sale_loyalty_order_suggestion.suggestPromotion" owl="1">
+        <div>
+            <a
+                tabindex="0"
+                t-on-click="viewPromotionsWizard"
+                class="fa fa-gift text-primary"
+                title="Available promotions"
+            />
         </div>
-    </div>
+    </t>
 </templates>
