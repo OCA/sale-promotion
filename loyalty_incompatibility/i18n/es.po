@@ -18,11 +18,11 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 
 #. module: loyalty_incompatibility
-#: model:ir.model,name:loyalty_incompatibility.model_coupon_program
-msgid "Coupon display on a website"
-msgstr ""
-
-#. module: loyalty_incompatibility
-#: model:ir.model.fields,field_description:loyalty_incompatibility.field_coupon_program__incompatible_promotion_ids
+#: model:ir.model.fields,field_description:loyalty_incompatibility.field_loyalty_program__incompatible_promotion_ids
 msgid "Incompatible Promotions"
 msgstr "Promociones incompatibles"
+
+#. module: loyalty_incompatibility
+#: model:ir.model,name:loyalty_incompatibility.model_loyalty_program
+msgid "Loyalty display on a website"
+msgstr ""
