@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: loyalty_incompatibility
-#: model:ir.model,name:loyalty_incompatibility.model_coupon_program
-msgid "Coupon display on a website"
+#: model:ir.model.fields,field_description:loyalty_incompatibility.field_loyalty_program__incompatible_promotion_ids
+msgid "Incompatible Promotions"
 msgstr ""
 
 #. module: loyalty_incompatibility
-#: model:ir.model.fields,field_description:loyalty_incompatibility.field_coupon_program__incompatible_promotion_ids
-msgid "Incompatible Promotions"
+#: model:ir.model,name:loyalty_incompatibility.model_loyalty_program
+msgid "Loyalty display on a website"
 msgstr ""
