@@ -4,6 +4,7 @@
     "name": "Sale Loyalty Initial Date Validity",
     "summary": "",
     "version": "16.0.1.0.0",
+    "development_status": "Production/Stable",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",
