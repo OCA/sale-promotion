@@ -1,9 +1,10 @@
 # Copyright 2023 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.exceptions import ValidationError
-from odoo.tests import Form, TransactionCase
+from odoo.tests import Form, TransactionCase, tagged
 
 
+@tagged("-at_install", "post_install")
 class TestSaleLoyaltyPartnerApplicability(TransactionCase):
     @classmethod
     def setUpClass(cls):
@@ -210,7 +211,9 @@ class TestSaleLoyaltyPartnerApplicability(TransactionCase):
         sale_1 = self._create_sale(self.partner1)
         sale_1._update_programs_and_rewards()
         sale_1.action_confirm()
-        coupon_1 = self.next_order_coupon.coupon_ids
+        coupon_1 = self.next_order_coupon.coupon_ids.filtered(
+            lambda x: x.order_id == sale_1
+        )
         # New order for another member of the same trading entity to apply the
         # generated coupon
         sale_2 = self._create_sale(self.partner2)
@@ -220,7 +223,9 @@ class TestSaleLoyaltyPartnerApplicability(TransactionCase):
         sale_3 = self._create_sale(self.partner1)
         sale_3._update_programs_and_rewards()
         sale_3.action_confirm()
-        coupon_2 = self.next_order_coupon.coupon_ids[1]
+        coupon_2 = self.next_order_coupon.coupon_ids.filtered(
+            lambda x: x.order_id == sale_3
+        )
         # New order for another partner from another business entity. The coupon will
         # not be applied.
         sale_4 = self._create_sale(self.partner3)
