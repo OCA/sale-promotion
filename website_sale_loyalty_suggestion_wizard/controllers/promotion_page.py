@@ -2,10 +2,10 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.http import request, route
 
-from odoo.addons.website_sale_coupon_page.controllers.main import WebsiteSale
+from odoo.addons.website_sale_loyalty_page.controllers.main import WebsiteSale
 
 
-class CouponPage(WebsiteSale):
+class LoyaltyPage(WebsiteSale):
     @route()
     def promotion(self, **post):
         """Rules to render the 'Apply promotion' button"""
@@ -16,13 +16,8 @@ class CouponPage(WebsiteSale):
         promo_values = response.qcontext.get("promos", [])
         for promo_dict in promo_values:
             promo_dict["applicable"] = False
-            promo = request.env["coupon.program"].sudo().browse(promo_dict["id"])
-            if (
-                promo in (order.no_code_promo_program_ids | order.code_promo_program_id)
-            ) or (
-                promo
-                not in order.sudo()._available_multi_criteria_multi_gift_programs()
-            ):
+            promo = request.env["loyalty.program"].sudo().browse(promo_dict["id"])
+            if promo not in order.sudo()._filter_programs_by_rules_with_products():
                 continue
             promo_dict["applicable"] = True
         return response
