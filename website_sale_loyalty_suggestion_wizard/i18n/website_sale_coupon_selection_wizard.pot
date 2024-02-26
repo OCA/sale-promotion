@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_sale_coupon_selection_wizard
+# 	* website_sale_loyalty_suggestion_wizard
 #
 msgid ""
 msgstr ""
@@ -13,49 +13,49 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: website_sale_coupon_selection_wizard
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_selection_wizard.configure_promotion
+#. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure_promotion
 msgid "<i class=\"fa fa-gift\"/> Configure"
 msgstr ""
 
-#. module: website_sale_coupon_selection_wizard
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_selection_wizard.configure_promotion
+#. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure_promotion
 msgid "<span>×</span>"
 msgstr ""
 
-#. module: website_sale_coupon_selection_wizard
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_selection_wizard.website_sale_coupon_suggestion
+#. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.website_sale_loyalty_suggestion
 msgid "<strong>Add</strong>"
 msgstr ""
 
-#. module: website_sale_coupon_selection_wizard
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_selection_wizard.configure_promotion
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_selection_wizard.promotion_item
+#. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure_promotion
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_item
 msgid "Apply"
 msgstr ""
 
-#. module: website_sale_coupon_selection_wizard
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_selection_wizard.configure_promotion
+#. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure_promotion
 msgid "Close"
 msgstr ""
 
-#. module: website_sale_coupon_selection_wizard
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_selection_wizard.website_sale_coupon_suggestion
+#. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.website_sale_loyalty_suggestion
 msgid "Configurable promotions suggested"
 msgstr ""
 
-#. module: website_sale_coupon_selection_wizard
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_selection_wizard.configure_promotion
+#. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure_promotion
 msgid "In order to apply this promotion you need to configure some options."
 msgstr ""
 
-#. module: website_sale_coupon_selection_wizard
-#: model_terms:ir.ui.view,arch_db:website_sale_coupon_selection_wizard.website_sale_coupon_suggestion
+#. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.website_sale_loyalty_suggestion
 msgid "Suggested Promotions:"
 msgstr ""
 
-#. module: website_sale_coupon_selection_wizard
-#: code:addons/website_sale_coupon_selection_wizard/controllers/promotion_wizard.py:0
+#. module: website_sale_loyalty_suggestion_wizard
+#: code:addons/website_sale_loyalty_suggestion_wizard/controllers/promotion_wizard.py:0
 #, python-format
 msgid "This promotion can't be applied to this order"
 msgstr ""
