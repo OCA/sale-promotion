@@ -8,11 +8,11 @@ Option 1:
 
 Option 2:
 
-#. Add a product in the promotion criteria.
-#. A cart hint will show up.
+#. Add a product in the promotion rules.
+#. A cart suggestion will appear.
 #. Add the promotion and configure the options.
 
 Option 3:
 
-#. Add a promotion code.
-#. If the promotion needs to be configured (i.e.: select the present)
+#. Select a suggested promotion in the shopping cart from a list of "Suggested promotions".
+#. Add the promotion and configure the options.
