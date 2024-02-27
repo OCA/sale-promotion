@@ -4,7 +4,7 @@
     "name": "Sale Loyalty Partner Applicability",
     "summary": "Enables the definition of a customer filter for promotion rules that will "
     "only be applied to customers who meet the specified conditions in the filter.",
-    "version": "16.0.1.0.2",
+    "version": "16.0.1.0.3",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",
