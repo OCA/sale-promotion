@@ -1,0 +1,145 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* coupon_criteria_multi_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-03 09:00+0000\n"
+"PO-Revision-Date: 2023-11-06 21:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,help:coupon_criteria_multi_product.field_coupon_program__coupon_criteria
+msgid ""
+"- Domain: Standard behavior. The products are evaluated by domain.\n"
+"- Multi product: different rules can be applied to different products and "
+"all of the have to be fulfilled"
+msgstr ""
+"- Dominio: Comportamiento estándar. Los productos se evalúan por dominio.\n"
+"- Multiproducto: pueden aplicarse distintas normas a distintos productos y "
+"todas ellas deben cumplirse"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,help:coupon_criteria_multi_product.field_coupon_criteria__repeat_product
+msgid "Can product quantities count multiple times or not"
+msgstr "Las cantidades de productos pueden contarse varias veces o no"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model,name:coupon_criteria_multi_product.model_coupon_criteria
+msgid "Coupon Multi Product Criteria"
+msgstr "Criterios de cupones multiproducto"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_program__coupon_criteria
+msgid "Coupon criteria"
+msgstr "Criterios del cupón"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model,name:coupon_criteria_multi_product.model_coupon_program
+msgid "Coupon display on a website"
+msgstr "Cupón mostrado en la web"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields.selection,name:coupon_criteria_multi_product.selection__coupon_program__coupon_criteria__domain
+msgid "Domain"
+msgstr "Aplicar en el dominio de los productos"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__id
+msgid "ID"
+msgstr "ID"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__rule_min_quantity
+msgid "Min. Quantity"
+msgstr "Cantidad mínima"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,help:coupon_criteria_multi_product.field_coupon_criteria__rule_min_quantity
+msgid "Minimum required product quantity to get the reward"
+msgstr "Cantidad mínima de producto requerida para obtener la recompensa"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields.selection,name:coupon_criteria_multi_product.selection__coupon_program__coupon_criteria__multi_product
+msgid "Multi Product"
+msgstr "Multiproducto"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_program__coupon_criteria_ids
+msgid "Multi Product Criterias"
+msgstr "Criterios de multiproducto"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__product_ids
+msgid "Product"
+msgstr "Producto"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__program_id
+msgid "Program"
+msgstr "Programa"
+
+#. module: coupon_criteria_multi_product
+#: model_terms:ir.ui.view,arch_db:coupon_criteria_multi_product.coupon_program_view_form_common
+msgid "Qty"
+msgstr "Cantidad"
+
+#. module: coupon_criteria_multi_product
+#: model:ir.model.fields,field_description:coupon_criteria_multi_product.field_coupon_criteria__repeat_product
+msgid "Repeat"
+msgstr "Repetir"
+
+#. module: coupon_criteria_multi_product
+#: code:addons/coupon_criteria_multi_product/models/coupon_criteria.py:0
+#, python-format
+msgid ""
+"The minimum quantity can't be different from the number of products. Set the "
+"rule as repeatable to avoid this constraint."
+msgstr ""
+"La cantidad mínima no puede ser diferente del número de productos. "
+"Establezca la regla como repetible para evitar esta restricción."
+
+#~ msgid "Coupon Program"
+#~ msgstr "Programa de cupones"
+
+#~ msgid "Products"
+#~ msgstr "Productos"

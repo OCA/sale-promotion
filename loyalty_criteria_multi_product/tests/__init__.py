@@ -1,0 +1,1 @@
+from . import test_loyalty_criteria_multi_product
