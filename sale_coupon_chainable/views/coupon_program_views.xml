@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2023 Akretion France (http://www.akretion.com)
+    @author Florian Mounier <florian.mounier@akretion.com>
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <!-- Sortable list view -->
+    <record id="coupon_program_view_order_program_tree" model="ir.ui.view">
+        <field name="name">coupon.program.order.tree</field>
+        <field name="model">coupon.program</field>
+        <field name="arch" type="xml">
+            <tree
+                create="0"
+                edit="0"
+                delete="0"
+                duplicate="0"
+                decoration-primary="program_type == 'coupon_program'"
+                decoration-info="program_type == 'promotion_program'"
+            >
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="program_type" />
+                <field name="chainable" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Base list view overrides -->
+    <record id="coupon_program_view_tree" model="ir.ui.view">
+        <field name="name">coupon.program.tree</field>
+        <field name="model">coupon.program</field>
+        <field name="priority" eval="100" />
+        <field name="inherit_id" ref="coupon.coupon_program_view_tree" />
+
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sequence']" position="replace" />
+            <xpath expr="//tree" position="inside">
+                <field name="chainable" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="coupon_program_view_promo_program_tree" model="ir.ui.view">
+        <field name="name">coupon.promotion.program.tree</field>
+        <field name="model">coupon.program</field>
+        <field name="priority" eval="100" />
+        <field name="inherit_id" ref="coupon.coupon_program_view_promo_program_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sequence']" position="replace" />
+            <xpath expr="//tree" position="inside">
+                <field name="chainable" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Sortable view action -->
+    <record id="coupon_program_order_action" model="ir.actions.act_window">
+        <field name="name">Programs Order</field>
+        <field name="res_model">coupon.program</field>
+        <field name="view_mode">tree</field>
+        <field
+            name="view_ids"
+            eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('coupon_program_view_order_program_tree')})]"
+        />
+    </record>
+
+    <!-- Coupon program form override -->
+    <record id="sale_coupon_program_view_coupon_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_coupon_program_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='discount_max_amount']/.." position="after">
+                <field
+                    name="chainable"
+                    attrs="{'invisible': ['|', '|', ('discount_apply_on', 'not in', ['on_order', 'specific_products']), ('discount_type', '!=', 'percentage'), ('reward_type', '!=', 'discount')]}"
+                />
+            </xpath>
+            <div name="rule_minimum_amount" position="after">
+                <field
+                    name="rule_minimum_amount_chained"
+                    attrs="{'invisible': ['|', '|', '|', '|', '|', ('chainable', '=', False), ('rule_minimum_amount', '=', 0), ('discount_apply_on', 'not in', ['on_order', 'specific_products']), ('discount_type', '!=', 'percentage'), ('reward_type', '!=', 'discount')]}"
+                />
+            </div>
+        </field>
+    </record>
+
+    <!-- Promo program form override -->
+    <record id="sale_coupon_program_view_promo_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field name="priority" eval="100" />
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_promo_program_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='discount_max_amount']/.." position="after">
+                <field
+                    name="chainable"
+                    attrs="{'invisible': ['|', '|', '|', ('discount_apply_on', 'not in', ['on_order', 'specific_products']), ('discount_type', '!=', 'percentage'), ('reward_type', '!=', 'discount'), ('promo_applicability', '!=', 'on_current_order')]}"
+                />
+            </xpath>
+            <div name="rule_minimum_amount" position="after">
+                <field
+                    name="rule_minimum_amount_chained"
+                    attrs="{'invisible': ['|', '|', '|',  '|', '|', ('chainable', '=', False), ('rule_minimum_amount', '=', 0), ('discount_apply_on', 'not in', ['on_order', 'specific_products']), ('discount_type', '!=', 'percentage'), ('reward_type', '!=', 'discount'), ('promo_applicability', '!=', 'on_current_order')]}"
+                />
+            </div>
+            <!-- We need to remove the invisible sequence for the sequence to be generated -->
+            <field name="sequence" position="replace" />
+        </field>
+    </record>
+
+    <!-- We need to overrides base actions since they do not define view_id for tree mode, upstream bug ? -->
+    <record
+        id="coupon.coupon_program_action_coupon_program"
+        model="ir.actions.act_window"
+    >
+        <field name="name">Coupon Programs</field>
+        <field name="res_model">coupon.program</field>
+        <field
+            name="view_ids"
+            eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('coupon.coupon_program_view_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('coupon.coupon_program_view_coupon_program_form')})]"
+        />
+    </record>
+
+    <record
+        id="coupon.coupon_program_action_promo_program"
+        model="ir.actions.act_window"
+    >
+        <field name="name">Promotion Programs</field>
+        <field name="res_model">coupon.program</field>
+        <field
+            name="view_ids"
+            eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('coupon.coupon_program_view_promo_program_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('coupon.coupon_program_view_promo_program_form')})]"
+        />
+    </record>
+
+    <menuitem
+        id="menu_coupon_promotion_order_type_config"
+        action="coupon_program_order_action"
+        parent="sale.product_menu_catalog"
+        name="Programs Order"
+        groups="sales_team.group_sale_manager"
+        sequence="6"
+    />
+</odoo>

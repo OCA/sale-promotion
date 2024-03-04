@@ -104,13 +104,13 @@ class TestSaleCouponLimit(CouponLimitCase):
         coupon_1 = sale_1.generated_coupon_ids
         self.assertTrue(bool(coupon_1), "A coupon must be generated")
         # Apply it and generate another coupon in a second sale and apply it again
-        self._apply_coupon(self._create_sale(self.partner_1), coupon_1.code)
+        self._apply_coupon(sale_1, coupon_1.code)
         sale_2 = self._create_sale(self.partner_1)
         sale_2.recompute_coupon_lines()
         sale_2.action_confirm()
         coupon_2 = sale_2.generated_coupon_ids
         self.assertTrue(bool(coupon_2), "A second coupon must be generated")
-        self._apply_coupon(self._create_sale(self.partner_1), coupon_2.code)
+        self._apply_coupon(sale_2, coupon_2.code)
         # Finally, we can't generate more coupons from this promotion for this partner
         sale_3 = self._create_sale(self.partner_1)
         sale_3.recompute_coupon_lines()
