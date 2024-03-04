@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2023 Akretion France (http://www.akretion.com)
+    @author Florian Mounier <florian.mounier@akretion.com>
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <!-- Coupon program form override -->
+    <record id="sale_coupon_program_view_coupon_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon_chainable.sale_coupon_program_view_coupon_program_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='chainable']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', '|', ('discount_apply_on', 'not in', ['on_order', 'specific_products', 'product_domain']), ('discount_type', '!=', 'percentage'), ('reward_type', '!=', 'discount')]}</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='rule_minimum_amount_chained']"
+                position="attributes"
+            >
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', '|', '|', '|', ('chainable', '=', False), ('rule_minimum_amount', '=', 0), ('discount_apply_on', 'not in', ['on_order', 'specific_products', 'product_domain']), ('discount_type', '!=', 'percentage'), ('reward_type', '!=', 'discount')]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Promo program form override -->
+    <record id="sale_coupon_program_view_promo_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon_chainable.sale_coupon_program_view_promo_program_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='chainable']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', '|', '|', ('discount_apply_on', 'not in', ['on_order', 'specific_products', 'product_domain']), ('discount_type', '!=', 'percentage'), ('reward_type', '!=', 'discount'), ('promo_applicability', '!=', 'on_current_order')]}</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='rule_minimum_amount_chained']"
+                position="attributes"
+            >
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', '|', '|', '|', '|', ('chainable', '=', False), ('rule_minimum_amount', '=', 0), ('discount_apply_on', 'not in', ['on_order', 'specific_products', 'product_domain']), ('discount_type', '!=', 'percentage'), ('reward_type', '!=', 'discount'), ('promo_applicability', '!=', 'on_current_order')]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,1 @@
+This module makes sale_coupon_chainable works with sale_coupon_deferred_coupon_dedup.
