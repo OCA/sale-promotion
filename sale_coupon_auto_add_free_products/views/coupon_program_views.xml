@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2023 Akretion France (http://www.akretion.com)
+    @author Florian Mounier <florian.mounier@akretion.com>
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <!-- Base list view overrides -->
+    <record id="coupon_program_view_tree" model="ir.ui.view">
+        <field name="name">coupon.program.tree</field>
+        <field name="model">coupon.program</field>
+        <field name="priority" eval="100" />
+        <field name="inherit_id" ref="coupon.coupon_program_view_tree" />
+
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="auto_add_free_products" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="coupon_program_view_promo_program_tree" model="ir.ui.view">
+        <field name="name">coupon.promotion.program.tree</field>
+        <field name="model">coupon.program</field>
+        <field name="priority" eval="100" />
+        <field name="inherit_id" ref="coupon.coupon_program_view_promo_program_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="auto_add_free_products" />
+            </xpath>
+        </field>
+    </record>
+    <!-- Coupon program form override -->
+    <record id="sale_coupon_program_view_coupon_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_coupon_program_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='reward']" position="inside">
+                <field
+                    name="auto_add_free_products"
+                    attrs="{'invisible': ['|', ('discount_apply_on', '!=', 'on_order'), ('reward_type', '!=', 'product')]}"
+                />
+                <field
+                    name="always_reward_product"
+                    attrs="{'invisible': [('auto_add_free_products', '==', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Promo program form override -->
+    <record id="sale_coupon_program_view_promo_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.form</field>
+        <field name="model">coupon.program</field>
+        <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_promo_program_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='reward']" position="inside">
+                <field
+                    name="auto_add_free_products"
+                    attrs="{'invisible': ['|', '|', ('discount_apply_on', '!=', 'on_order'), ('reward_type', '!=', 'product'), ('promo_applicability', '!=', 'on_current_order')]}"
+                />
+                <field
+                    name="always_reward_product"
+                    attrs="{'invisible': [('auto_add_free_products', '==', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

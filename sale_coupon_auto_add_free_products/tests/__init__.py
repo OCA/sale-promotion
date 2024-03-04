@@ -1,0 +1,1 @@
+from . import test_program_auto_add_free_products
