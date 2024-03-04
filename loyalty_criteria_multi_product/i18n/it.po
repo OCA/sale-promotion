@@ -1,0 +1,135 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* loyalty_criteria_multi_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-03-04 15:35+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,help:loyalty_criteria_multi_product.field_loyalty_rule__loyalty_criteria
+msgid ""
+"- Domain: Standard behavior. The products are evaluated by domain.\n"
+"- Multi product: rules can be applied to different products and all of the have to be fulfilled"
+msgstr ""
+"- Domain: Comportamento standard. I prodotti sono valutati per dominio.\n"
+"- Multi prodotto: possono essere applicate regole a prodotti differenti e "
+"devono essere tutte soddisfatte"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields.selection,name:loyalty_criteria_multi_product.selection__loyalty_rule__loyalty_criteria__domain
+msgid "Domain"
+msgstr "Dominio"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria__id
+msgid "ID"
+msgstr "ID"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model,name:loyalty_criteria_multi_product.model_loyalty_criteria
+msgid "Loyalty Multi Product Criteria"
+msgstr "Criterio fedeltà multi prodotto"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model,name:loyalty_criteria_multi_product.model_loyalty_rule
+msgid "Loyalty Rule"
+msgstr "Regola programma fedeltà"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_rule__loyalty_criteria
+msgid "Loyalty criteria"
+msgstr "Criterio programma fedeltà"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model,name:loyalty_criteria_multi_product.model_loyalty_program
+msgid "Loyalty display on a website"
+msgstr "Programma fedeltà visualizzato su sito web"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria__rule_min_quantity
+msgid "Min. Quantity"
+msgstr "Quantità minima"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,help:loyalty_criteria_multi_product.field_loyalty_criteria__rule_min_quantity
+msgid "Minimum required product quantity to get the reward"
+msgstr "Quantità prodotto minima richiesta per ottenere il premio"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields.selection,name:loyalty_criteria_multi_product.selection__loyalty_rule__loyalty_criteria__multi_product
+msgid "Multi Product"
+msgstr "Multi prodotto"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_rule__loyalty_criteria_ids
+msgid "Multi Product Criterias"
+msgstr "Criteri multi prodotto"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria__product_ids
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: loyalty_criteria_multi_product
+#: model_terms:ir.ui.view,arch_db:loyalty_criteria_multi_product.loyalty_rule_view_form
+msgid "Qty"
+msgstr "Q.tà"
+
+#. module: loyalty_criteria_multi_product
+#: model:ir.model.fields,field_description:loyalty_criteria_multi_product.field_loyalty_criteria__rule_id
+msgid "Rule"
+msgstr "Regola"
+
+#. module: loyalty_criteria_multi_product
+#. odoo-python
+#: code:addons/loyalty_criteria_multi_product/models/loyalty_criteria.py:0
+#, python-format
+msgid ""
+"The minimum required product quantity to get the reward can't bedifferent "
+"from the number of products. Set the rule as repeatableto avoid this "
+"constraint."
+msgstr ""
+"La quantità minima prodotto richiesta per ottenere il premio non può essere "
+"diversa dal numero di prodotti. Impostare la regola come ripetibile per "
+"evitare questo vincolo."
