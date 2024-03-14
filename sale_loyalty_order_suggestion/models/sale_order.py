@@ -73,19 +73,28 @@ class SaleOrder(models.Model):
             ]
         return programs.filtered(lambda p: p.id not in programs_to_delete)
 
-    def _available_programs(self):
-        self.ensure_one()
+    def _filter_programs_by_rules_with_products(self):
+        """Hook method. The objective of this method is to filter by rules that establish
+        products as criteria in a loyalty program and then in other methods make the
+        filtering that corresponds to each functionality."""
         valid_programs = self._get_available_programs()
         # Filters programs that have rules with minimum_qty > 0
         programs_with_minimum_qty = valid_programs.filtered(
             lambda x: any(rule.minimum_qty > 0 for rule in x.rule_ids)
         )
+        return programs_with_minimum_qty
+
+    def _available_programs(self):
+        self.ensure_one()
+        filtered_programs = self._filter_programs_by_rules_with_products()
         programs = self.env["loyalty.program"]
-        if programs_with_minimum_qty:
+        if filtered_programs:
             product_id = self.env.context.get("product_id")
-            programs += programs_with_minimum_qty.filtered(
+            programs += filtered_programs.filtered(
                 lambda x: any(
-                    product_id in rule._get_valid_products().ids for rule in x.rule_ids
+                    product_id in rule._get_valid_products().ids
+                    and rule.minimum_qty > 0
+                    for rule in x.rule_ids
                 )
             )
         return programs
