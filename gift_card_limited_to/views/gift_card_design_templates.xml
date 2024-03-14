@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="page_gift_card_view_form" model="ir.ui.view">
+        <field name="name">page.gift.card.form Website</field>
+        <field name="model">gift.card</field>
+        <field name="inherit_id" ref="gift_card.gift_card_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='gift_card']" position="inside">
+                <field name="limited_to_product_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
