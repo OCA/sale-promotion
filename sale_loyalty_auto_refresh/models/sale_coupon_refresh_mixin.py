@@ -21,7 +21,7 @@ class SaleCouponRefreshMixin(models.AbstractModel):
 
         Configure additional triggers via config parameters, setting them up
         as list of fields separated by commas. For example, for sale.order,
-        the param key would be sale_coupon_auto_refresh.sale_order_triggers,
+        the param key would be sale_loyalty_auto_refresh.sale_order_triggers,
         and the value something like: "warehouse_id,carrier_id".
 
         The method is overriden in the proper modules to set some basic triggers though
@@ -29,7 +29,7 @@ class SaleCouponRefreshMixin(models.AbstractModel):
         additional_triggers = (
             self.env["ir.config_parameter"]
             .sudo()
-            .get_param("sale_coupon_auto_refresh.%s_triggers" % (self._table), "")
+            .get_param("sale_loyalty_auto_refresh.%s_triggers" % (self._table), "")
             .replace(" ", "")
             .split(",")
         )
@@ -58,6 +58,7 @@ class SaleCouponRefreshMixin(models.AbstractModel):
             of `self.read()`)
             The list is sorted by "id" key.
         """
+        self.invalidate_recordset(["auto_refresh_coupon_triggers_data"])
         return sorted(
             self.read(["auto_refresh_coupon_triggers_data"]), key=lambda d: d["id"]
         )
@@ -68,7 +69,7 @@ class SaleCouponRefreshMixin(models.AbstractModel):
         ensures that no trigger is missed in the meantime"""
         field_depends, _ = self._fields.get(
             "auto_refresh_coupon_triggers_data"
-        ).get_depends(self._name)
+        ).get_depends(self)
         triggers = self._get_auto_refresh_coupons_triggers()
         return {x for x in triggers if x not in field_depends}
 

@@ -4,13 +4,13 @@
 {
     "name": "Auto Refresh Coupons",
     "summary": "Allows to auto-apply the coupons with no user intervention",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Website",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Camptocamp, Odoo Community Association (OCA)",
     "maintainers": ["chienandalu", "SilvioC2C"],
     "license": "AGPL-3",
-    "depends": ["sale_coupon"],
+    "depends": ["sale_loyalty"],
     "data": ["views/res_config_settings_views.xml"],
 }

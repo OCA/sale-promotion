@@ -9,11 +9,11 @@ you want to extend the list of that fields:
 #. Go to *Settings > Technical > Config parameters*
 #. Add or update the key:
 
-   - For `sale.order`: `sale_coupon_auto_refresh.sale_order_triggers`
-   - For `sale.order.line`: `sale_coupon_auto_refresh.sale_order_line_triggers`
+   - For `sale.order`: `sale_loyalty_auto_refresh.sale_order_triggers`
+   - For `sale.order.line`: `sale_loyalty_auto_refresh.sale_order_line_triggers`
 #. In every add the fields seperated by commas that you want to add to the recomputation
    triggers.
 
-⚠️ After configuring or removiming a trigger a restart of Odoo is recommended so the
+⚠️ After configuring or removing a trigger a restart of Odoo is recommended so the
 depends are reloaded properly. Anyway it isn't mandatory and the module detects the
 new triggers so the auto-refresh works as expected as soon as they are set.
