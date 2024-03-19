@@ -5,6 +5,7 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
     _inherit = "sale.loyalty.reward.wizard"
     _description = "Sale Loyalty - Reward Selection Wizard"
 
+    product_id = fields.Many2one("product.product")
     # To ensure whether the selected promotion satisfies your rules and is directly
     # applicable or needs to satisfy your rules to be applied.
     applicable_program = fields.Boolean(
@@ -34,6 +35,7 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
 
     @api.depends("selected_reward_id")
     def _compute_loyalty_rule_line_ids(self):
+        self.loyalty_rule_line_ids = None
         units_required = min(
             self.selected_reward_id.program_id.rule_ids.mapped("minimum_qty"), default=0
         )
@@ -65,8 +67,6 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
                     )
                 )
             self.loyalty_rule_line_ids = lines_vals
-        else:
-            self.loyalty_rule_line_ids = None
 
     @api.depends_context("lang")
     @api.depends("selected_reward_id")

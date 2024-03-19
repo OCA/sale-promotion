@@ -16,6 +16,7 @@ export class SuggestPromotionWidget extends Component {
     }
 
     async viewPromotionsWizard() {
+        const productId = this.props.record.data.product_id[0];
         const SuggestedPromotions = this.getSuggestedPromotions();
         const record = this.__owl__.parent.parent.parent.props.record;
         await record.save();
@@ -23,6 +24,7 @@ export class SuggestPromotionWidget extends Component {
             additionalContext: {
                 default_active_id: record.data.id,
                 default_order_id: record.data.id,
+                default_product_id: productId,
                 default_reward_ids: SuggestedPromotions,
             },
         });
