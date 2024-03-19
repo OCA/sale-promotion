@@ -101,6 +101,7 @@ msgid "Pricelist"
 msgstr ""
 
 #. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_reward_wizard__product_id
 #: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__product_id
 msgid "Product"
 msgstr ""
