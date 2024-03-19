@@ -7,6 +7,7 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env["loyalty.program"].search([]).write({"active": False})
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.pricelist = cls.env["product.pricelist"].create(
             {
@@ -28,21 +29,25 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
             {"name": "Mr. Odoo", "property_product_pricelist": cls.pricelist.id}
         )
         cls.product = cls.env["product.product"].create({"name": "Test"})
-        coupon_program_form = Form(
-            cls.env["coupon.program"],
-            view="sale_coupon.sale_coupon_program_view_promo_program_form",
+        loyalty_program_form = Form(
+            cls.env["loyalty.program"],
+            view="sale_loyalty.loyalty_program_view_form_inherit_sale_loyalty",
         )
-        coupon_program_form.name = "Test Discount Program"
-        coupon_program_form.promo_code_usage = "no_code_needed"
-        coupon_program_form.discount_type = "percentage"
-        coupon_program_form.discount_percentage = 50
-        coupon_program_form.discount_apply_on = "on_order"
-        coupon_program_form.rule_minimum_amount = 100
-        cls.coupon_program = coupon_program_form.save()
-        cls.coupon_program.company_id.auto_refresh_coupon = True
+        loyalty_program_form.name = "Test Discount Program"
+        loyalty_program_form.program_type = "promotion"
+        cls.loyalty_program = loyalty_program_form.save()
+        cls.loyalty_program.applies_on = "current"
+        cls.loyalty_program.trigger = "auto"
+        reward = cls.loyalty_program.reward_ids
+        reward.reward_type = "discount"
+        reward.discount = 50
+        reward.discount_mode = "percent"
+        reward.discount_applicability = "order"
+        cls.loyalty_program.rule_ids.minimum_amount = 100
+        cls.loyalty_program.company_id.auto_refresh_coupon = True
         # Let's configure an extra trigger
         cls.env["ir.config_parameter"].set_param(
-            "sale_coupon_auto_refresh.sale_order_triggers", "note"
+            "sale_loyalty_auto_refresh.sale_order_triggers", "note"
         )
 
     def test_01_sale_coupon_auto_refresh_on_create(self):
@@ -154,3 +159,62 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
         discount_line = sale.order_line.filtered("is_reward_line")
         self.assertEqual(1, len(discount_line), "There should be a reward line")
         self.assertAlmostEqual(-100, discount_line.price_unit)
+
+    def test_05_multi_programs(self):
+        promo_60 = self.loyalty_program.copy(
+            {
+                "reward_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "reward_type": "discount",
+                            "discount": 60,
+                            "discount_mode": "percent",
+                            "discount_applicability": "order",
+                        },
+                    )
+                ]
+            }
+        )
+        reward_product = self.env["product.product"].create({"name": "Reward Product"})
+        promo_prod = self.loyalty_program.copy(
+            {
+                "reward_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "reward_type": "product",
+                            "reward_product_id": reward_product.id,
+                            "reward_product_qty": 1,
+                            "required_points": 1,
+                        },
+                    )
+                ]
+            }
+        )
+        sale_form = Form(self.env["sale.order"])
+        sale_form.partner_id = self.partner
+        # Create a product line that would trigger the reward but we disabled it by
+        # context
+        with sale_form.order_line.new() as line_form:
+            line_form.product_id = self.product
+            line_form.product_uom_qty = 10
+            line_form.price_unit = 20
+        sale = sale_form.save()
+        self.assertTrue(sale.coupon_point_ids)
+        line_loyalty_program = sale.order_line.filtered(
+            lambda line: line.reward_id == self.loyalty_program.reward_ids
+        )
+        line_promo_60 = sale.order_line.filtered(
+            lambda line: line.reward_id == promo_60.reward_ids
+        )
+        line_promo_prod = sale.order_line.filtered(
+            lambda line: line.reward_id == promo_prod.reward_ids
+        )
+        self.assertFalse(
+            line_loyalty_program
+        )  # Promo 60% is better, no select promo 50%
+        self.assertTrue(line_promo_60)
+        self.assertTrue(line_promo_prod)
