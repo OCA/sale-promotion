@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_multi_gift_salesman,salesman,loyalty_multi_gift.model_loyalty_reward_product_line,sales_team.group_sale_salesman,1,0,0,0
+access_multi_gift_manager,multi_gift manager,loyalty_multi_gift.model_loyalty_reward_product_line,sales_team.group_sale_manager,1,1,1,1
+sale_loyalty_multi_gift.access_sale_loyalty_reward_product_line_wizard,access_sale_loyalty_reward_product_line_wizard,sale_loyalty_multi_gift.model_sale_loyalty_reward_product_line_wizard,base.group_user,1,1,1,1
