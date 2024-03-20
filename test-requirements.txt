@@ -1,0 +1,1 @@
+odoo-addon-sale_loyalty_criteria_multi_product @ git+https://github.com/OCA/sale-promotion.git@refs/pull/185/head#subdirectory=setup/sale_loyalty_criteria_multi_product
