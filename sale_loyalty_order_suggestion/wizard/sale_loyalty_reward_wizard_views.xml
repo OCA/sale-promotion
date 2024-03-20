@@ -8,6 +8,7 @@
         />
         <field name="arch" type="xml">
             <field name="selected_product_id" position="after">
+                <field name="product_id" invisible="1" />
                 <field name="applicable_program" invisible="1" />
                 <field
                     name="loyalty_rule_line_description"
