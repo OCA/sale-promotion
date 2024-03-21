@@ -40,8 +40,10 @@ class Coupon(models.Model):
     def _generate_code(self):
         """Generate a more readable coupon code from a custom format."""
         # Inherits https://github.com/odoo/odoo/blob/14.0/addons/coupon/models/coupon.py#L15
-        # This method doesn't call super since it's only the code generation
+        # When used this method doesn't call super since it's only the code generation
 
+        if not self.program_id:
+            return super()._generate_code()
         choices = self._get_choice_collections()
         code = self._generate_code_from_mask(choices)
         retries = 0
