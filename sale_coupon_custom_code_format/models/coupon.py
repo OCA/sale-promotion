@@ -62,6 +62,7 @@ class Coupon(models.Model):
             if self.program_id.custom_code:
                 record.code = record._generate_code()
 
+    @api.model
     def create(self, vals):
         rv = super().create(vals)
         rv._affect_custom_code_maybe()
