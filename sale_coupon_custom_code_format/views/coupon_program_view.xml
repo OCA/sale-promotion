@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2023 Akretion France (http://www.akretion.com)
+    @author Florian Mounier <florian.mounier@akretion.com>
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+  <record id="sale_coupon_program_view_coupon_program_form" model="ir.ui.view">
+    <field name="name">coupon.program.form</field>
+    <field name="model">coupon.program</field>
+    <field
+            name="inherit_id"
+            ref="sale_coupon.sale_coupon_program_view_coupon_program_form"
+        />
+    <field name="arch" type="xml">
+      <xpath expr="//group[@name='validity']" position="before">
+        <group string="Custom Code Format">
+          <field name="custom_code" />
+          <field
+                        name="custom_code_mask"
+                        attrs="{'invisible': [('custom_code', '=', False)]}"
+                    />
+          <field
+                        name="custom_code_forbidden_characters"
+                        attrs="{'invisible': [('custom_code', '=', False)]}"
+                    />
+        </group>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>
