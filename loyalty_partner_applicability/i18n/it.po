@@ -1,0 +1,42 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* loyalty_partner_applicability
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-12-12 11:33+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: loyalty_partner_applicability
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_res_config_settings__allow_coupon_sharing
+msgid "Allow coupon sharing"
+msgstr "Consenti condivisine coupon"
+
+#. module: loyalty_partner_applicability
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_rule__rule_partners_domain
+msgid "Based on Customers"
+msgstr "Basato sui clienti"
+
+#. module: loyalty_partner_applicability
+#: model:ir.model,name:loyalty_partner_applicability.model_res_config_settings
+msgid "Config Settings"
+msgstr "Impostazioni configurazione"
+
+#. module: loyalty_partner_applicability
+#: model:ir.model,name:loyalty_partner_applicability.model_loyalty_rule
+msgid "Loyalty Rule"
+msgstr "Regola programma fedeltà"
+
+#. module: loyalty_partner_applicability
+#: model:ir.model.fields,help:loyalty_partner_applicability.field_loyalty_rule__rule_partners_domain
+msgid "Loyalty program will work for selected customers only"
+msgstr "Il rogramma fedeltà funzionerà solo per clienti selezionati"
