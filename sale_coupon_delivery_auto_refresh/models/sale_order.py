@@ -24,3 +24,24 @@ class SaleOrder(models.Model):
         sol = super(SaleOrder, self_ctx)._create_delivery_line(carrier, price_unit)
         self._auto_refresh_coupons()
         return sol
+
+    def copy(self, default=None):
+        return super(
+            SaleOrder,
+            self.with_context(
+                skip_auto_refresh_coupons=True, auto_refresh_delivery=True
+            ),
+        ).copy(default)
+
+    def copy_data(self, default=None):
+        vals_list = super().copy_data(default)
+        for vals in vals_list:
+            order_line = vals.get("order_line")
+            if order_line:
+                order_line = [
+                    i
+                    for i in order_line
+                    if not (i[2].get("is_reward_line") or i[2].get("is_delivery"))
+                ]
+                vals["order_line"] = order_line
+        return vals_list

@@ -33,6 +33,12 @@ class TestDeliveryAutoRefresh(common.SavepointCase):
             "delivery_auto_refresh.set_default_carrier", 1
         )
         cls.env["ir.config_parameter"].sudo().set_param(
+            "delivery_auto_refresh.auto_void_delivery_line", 1
+        )
+        cls.env["ir.config_parameter"].sudo().set_param(
+            "delivery_auto_refresh.refresh_after_picking", 1
+        )
+        cls.env["ir.config_parameter"].sudo().set_param(
             "delivery_auto_refresh.auto_add_delivery_line", 1
         )
         coupon_program_form = Form(
@@ -57,3 +63,9 @@ class TestDeliveryAutoRefresh(common.SavepointCase):
         self.order = order_form.save()
         self.assertTrue(self.order.order_line.filtered("is_reward_line"))
         self.assertTrue(self.order.order_line.filtered("is_delivery"))
+
+        # try to duplicate the sale order
+        so_copy = self.order.copy()
+
+        self.assertTrue(so_copy.order_line.filtered("is_reward_line"))
+        self.assertTrue(so_copy.order_line.filtered("is_delivery"))
