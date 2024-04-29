@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="ir_cron_birthday_rewards" model="ir.cron">
+        <field name="name">Birthday Loyalty Cron</field>
+        <field name="model_id" ref="model_loyalty_program"/>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="code">model.generate_birthday_loyalty_cards()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="(DateTime.now().replace(hour=0,minute=0)+timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+        <field name="active" eval="True"/>
+    </record>
+</odoo>
+
