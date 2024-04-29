@@ -10,9 +10,7 @@
         <field name="model">loyalty.program</field>
         <field name="inherit_id" ref="loyalty.loyalty_program_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//form/sheet/group[last()]" position="after">
-                <group>
-                    <separator string="Birthday Trigger" colspan="2"/>
+            <xpath expr="//field[@name='date_to']" position="after">
                     <field name="birthday_trigger_enabled"/>
                     <field name="birthday_trigger_mode" 
                         attrs="{'invisible': [('birthday_trigger_enabled', '=', False)]}"
@@ -20,7 +18,6 @@
                     <field name="birthday_check_days" 
                         attrs="{'invisible': ['|', ('birthday_trigger_enabled', '=', False), 
                                 ('birthday_trigger_mode', '=', 'exact')]}"/>
-                </group>
             </xpath>
         </field>
     </record>
