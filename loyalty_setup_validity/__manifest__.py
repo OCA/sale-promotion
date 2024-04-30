@@ -5,9 +5,12 @@
     "name": "Loyalty Setup Validity",
     "version": "16.0.1.0.0",
     "category": "Sale",
-    "author": "Moka",
+    "author": "Moka, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/sale-promotion",
-    "summary": "Allow to define a fixed validity or a validity after the generation date of a loyalty card.",
+    "summary": (
+        "Allow to define a fixed validity or a validity after"
+        " the generation date of a loyalty card."
+    ),
     "depends": ["loyalty"],
     "installable": True,
     "auto_install": False,
