@@ -3,7 +3,7 @@
 
 {
     "name": "Coupon Promotion Discount in Field",
-    "version": "14.0.1.1.0",
+    "version": "14.0.1.1.1",
     "summary": "Put promotion discount into discount field",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
     "maintainers": ["CetmixGitDrone", "Volodiay622"],

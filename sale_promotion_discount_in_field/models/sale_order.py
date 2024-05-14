@@ -28,7 +28,9 @@ class SaleOrder(models.Model):
             lines = self._get_cheapest_line()
         else:
             lines = self._get_discount_in_field_lines(program)
-        lines.discount = program.discount_percentage
+        if lines:
+            lines.write({"discount": program.discount_percentage})
+        return lines
 
     def _get_discount_in_field_lines(self, program):
         """
