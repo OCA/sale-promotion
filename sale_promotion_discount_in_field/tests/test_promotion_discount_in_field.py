@@ -5,7 +5,7 @@ from odoo.exceptions import UserError
 from odoo.tests.common import SavepointCase
 
 
-class CetmixTestSaleCouponProgram(SavepointCase):
+class TestSalePromotionDiscountInField(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

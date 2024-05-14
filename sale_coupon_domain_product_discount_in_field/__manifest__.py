@@ -4,7 +4,7 @@
 
 {
     "name": "Sale Coupon Promotion Product Domain Discount in Field",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "summary": "Apply discount only to the domain matching products to discount field",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
     "license": "AGPL-3",
