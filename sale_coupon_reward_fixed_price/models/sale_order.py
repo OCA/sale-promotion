@@ -76,9 +76,7 @@ class SaleOrder(models.Model):
         price_unit = program.price_unit
         lines = self._get_paid_order_lines()
         if program.discount_apply_on == "cheapest_product":
-            line = self._get_cheapest_line()
-            if line:
-                line.price_unit = price_unit
+            lines = self._get_cheapest_line()
         elif program.discount_apply_on in ["specific_products", "on_order"]:
             if program.discount_apply_on == "specific_products":
                 # We should not exclude reward line that offer this product
@@ -102,15 +100,13 @@ class SaleOrder(models.Model):
                     lambda x: x.product_id
                     in (program.discount_specific_product_ids | free_product_lines),
                 )
-            for line in lines:
-                line.price_unit = price_unit
         elif program.discount_apply_on == "domain_product":
             # for compatibility with `sale_promotion_domain_product_discount` module
             lines = (self.order_line - self._get_reward_lines()).filtered(
                 lambda line: program._get_valid_products(line.product_id),
             )
-            for line in lines:
-                line.price_unit = price_unit
+        lines.write({"price_unit": price_unit})
+        return lines
 
     def _get_reward_line_values(self, program):
         """
