@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo14-addon-sale_coupon_product_exclude',
         'odoo14-addon-sale_coupon_reward_add_product',
         'odoo14-addon-sale_coupon_reward_fixed_price',
+        'odoo14-addon-sale_coupon_reward_fixed_price_order_line_link',
         'odoo14-addon-sale_promotion_discount_in_field',
     ],
     classifiers=[

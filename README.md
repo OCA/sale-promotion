@@ -36,6 +36,7 @@ addon | version | maintainers | summary
 [sale_coupon_product_exclude](sale_coupon_product_exclude/) | 14.0.1.0.0 |  | Apply a discount to the order, excluding products matching the domain
 [sale_coupon_reward_add_product](sale_coupon_reward_add_product/) | 14.0.1.0.0 | [![jcoux](https://github.com/jcoux.png?size=30px)](https://github.com/jcoux) [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sale Coupon Automatic free product as normal
 [sale_coupon_reward_fixed_price](sale_coupon_reward_fixed_price/) | 14.0.1.1.0 |  | Apply fixed price for domain matching products
+[sale_coupon_reward_fixed_price_order_line_link](sale_coupon_reward_fixed_price_order_line_link/) | 14.0.1.0.0 | [![aleuffre](https://github.com/aleuffre.png?size=30px)](https://github.com/aleuffre) [![renda-dev](https://github.com/renda-dev.png?size=30px)](https://github.com/renda-dev) [![PicchiSeba](https://github.com/PicchiSeba.png?size=30px)](https://github.com/PicchiSeba) | Bridge module to track promotions on SOL with the discount in field
 [sale_promotion_discount_in_field](sale_promotion_discount_in_field/) | 14.0.1.1.0 | [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) [![Volodiay622](https://github.com/Volodiay622.png?size=30px)](https://github.com/Volodiay622) | Put promotion discount into discount field
 
 [//]: # (end addons)
