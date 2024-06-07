@@ -16,5 +16,6 @@ class SaleOrder(models.Model):
                 lambda line: program._get_valid_products(line.product_id),
             )
             lines.write({"price_unit": program.price_unit})
+            return lines
         else:
-            super()._set_reward_fixed_price_for_lines(program)
+            return super()._set_reward_fixed_price_for_lines(program)
