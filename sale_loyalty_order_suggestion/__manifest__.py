@@ -3,7 +3,7 @@
 {
     "name": "Sale Loyalty Suggestions",
     "summary": "Suggest promotions in the sale order line",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.0.2",
     "development_status": "Production/Stable",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
