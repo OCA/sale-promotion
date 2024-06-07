@@ -119,6 +119,7 @@ class SaleOrderLine(models.Model):
     def _compute_suggested_promotion_ids(self):
         self.suggested_promotion_ids = False
         self.suggested_reward_ids = False
+        self.suggested_promotions = False
         for line in self.filtered("product_id"):
             line.suggested_promotion_ids = line.order_id.with_context(
                 product_id=line.product_id.id
