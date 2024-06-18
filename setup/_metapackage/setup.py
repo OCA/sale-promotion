@@ -25,6 +25,7 @@ setuptools.setup(
         'odoo14-addon-sale_coupon_reward_fixed_price',
         'odoo14-addon-sale_coupon_reward_fixed_price_order_line_link',
         'odoo14-addon-sale_promotion_discount_in_field',
+        'odoo14-addon-sale_promotion_discount_in_field_order_line_link',
     ],
     classifiers=[
         'Programming Language :: Python',
