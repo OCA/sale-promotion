@@ -13,8 +13,5 @@ class SaleOrder(models.Model):
             and program.discount_apply_on_domain_product
         ):
             domain = program.rule_products_domain
-            super()._set_reward_discount_for_lines(
-                program.with_context(promo_domain_product=domain)
-            )
-        else:
-            super()._set_reward_discount_for_lines(program)
+            program = program.with_context(promo_domain_product=domain)
+        return super()._set_reward_discount_for_lines(program)
