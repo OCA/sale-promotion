@@ -21,7 +21,7 @@ def migrate(env, version):
     openupgrade.rename_tables(
         env.cr, [("coupon_rule_salesmen_limit", "loyalty_salesmen_limit")]
     )
-    openupgrade.rename_fields(env.cr, _field_renames)
+    openupgrade.rename_fields(env, _field_renames)
     # Create the 'program_id' field if it does not exist in the 'loyalty_salesmen_limit'
     # table and fill the 'program_id' field with values from 'loyalty_rule.program_id'
     # where 'loyalty_rule.id' is equal to old field 'loyalty_salesmen_limit.rule_id'
