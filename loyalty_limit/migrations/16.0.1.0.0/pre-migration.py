@@ -58,13 +58,6 @@ def migrate(env, version):
         env.cr,
         """
         ALTER TABLE loyalty_program
-        ADD COLUMN IF NOT EXISTS salesmen_limit_ids INT
-        """,
-    )
-    openupgrade.logged_query(
-        env.cr,
-        """
-        ALTER TABLE loyalty_program
         ADD COLUMN IF NOT EXISTS salesmen_strict_limit BOOLEAN
         """,
     )
@@ -74,7 +67,6 @@ def migrate(env, version):
         UPDATE loyalty_program AS lp
         SET
             max_customer_application = lr.rule_max_customer_application,
-            salesmen_limit_ids = lr.rule_salesmen_limit_ids,
             salesmen_strict_limit = lr.rule_salesmen_strict_limit
         FROM loyalty_rule AS lr
         WHERE lp.id = lr.program_id
