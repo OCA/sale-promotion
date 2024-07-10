@@ -26,7 +26,7 @@ def migrate(env, version):
         env.cr,
         """
         UPDATE sale_order_line AS sol
-        SET sol.reward_id = lr.id
+        SET reward_id = lr.id
         FROM loyalty_reward AS lr
         WHERE sol.loyalty_program_id = lr.program_id;
         """,
