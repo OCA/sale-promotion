@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_reward_view_form" model="ir.ui.view">
+        <field name="inherit_id" ref="loyalty.loyalty_reward_view_form" />
+        <field name="model">loyalty.reward</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@id='reward_type_group']" position="after">
+                <group
+                    string="Multi Gift"
+                    attrs="{'invisible': [('reward_type', '!=', 'multi_gift')]}"
+                >
+                    <field name="loyalty_multi_gift_ids">
+                        <tree editable="top">
+                            <field name="reward_product_quantity" string="Qty" />
+                            <field
+                                name="reward_default_product_id"
+                                string="Default gift"
+                                readonly="1"
+                            />
+                            <field
+                                name="reward_product_ids"
+                                widget="many2many_tags"
+                                required="1"
+                            />
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
