@@ -32,6 +32,7 @@ addon | version | maintainers | summary
 [sale_loyalty_incompatibility](sale_loyalty_incompatibility/) | 16.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to set incompatibility rules between promotions in sale orders
 [sale_loyalty_initial_date_validity](sale_loyalty_initial_date_validity/) | 16.0.1.0.1 |  | Sale Loyalty Initial Date Validity
 [sale_loyalty_limit](sale_loyalty_limit/) | 16.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Restrict number of promotions per customer or salesman
+[sale_loyalty_multi_gift](sale_loyalty_multi_gift/) | 16.0.1.0.0 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Allows to configure multiple gift rewards per promotion in sales
 [sale_loyalty_order_info](sale_loyalty_order_info/) | 16.0.1.0.0 |  | Add info on sale order about applied loyalties
 [sale_loyalty_order_line_link](sale_loyalty_order_line_link/) | 16.0.1.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Adds a link between loyalty programs and their generated order linesfor easing tracking
 [sale_loyalty_order_suggestion](sale_loyalty_order_suggestion/) | 16.0.1.0.2 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Suggest promotions in the sale order line

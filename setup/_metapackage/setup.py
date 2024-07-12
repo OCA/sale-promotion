@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo-addon-sale_loyalty_incompatibility>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_initial_date_validity>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_limit>=16.0dev,<16.1dev',
+        'odoo-addon-sale_loyalty_multi_gift>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_order_info>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_order_line_link>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_order_suggestion>=16.0dev,<16.1dev',
