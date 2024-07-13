@@ -10,7 +10,7 @@ def move_coupon_criteria_to_rule(env):
         env.cr,
         """
         ALTER TABLE loyalty_rule
-        ADD COLUMN IF NOT EXISTS loyalty_criteria CHAR
+        ADD COLUMN IF NOT EXISTS loyalty_criteria VARCHAR
         """,
     )
     # Set the value of "lotalty_rule.loyalty_criteria" previously defined in
@@ -39,9 +39,7 @@ def move_coupon_criteria_to_rule(env):
         UPDATE loyalty_criteria
         SET rule_id = loyalty_rule.id
         FROM loyalty_rule
-        WHERE
-            loyalty_rule.program_id = loyalty_criteria.program_id
-            AND loyalty_rule.loyalty_criteria = 'multi_gift'
+        WHERE loyalty_rule.program_id = loyalty_criteria.program_id
         """,
     )
 
