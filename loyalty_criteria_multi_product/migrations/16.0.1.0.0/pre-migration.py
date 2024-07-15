@@ -19,10 +19,9 @@ def move_coupon_criteria_to_rule(env):
         env.cr,
         """
         UPDATE loyalty_rule AS lr
-        SET loyalty_criteria = 'multi_product'
+        SET loyalty_criteria = lp.coupon_criteria
         FROM loyalty_program AS lp
         WHERE lr.program_id = lp.id
-        AND lp.coupon_criteria = 'multi_product'
         """,
     )
     # coupon_criteria_ids to loyalty_criteria_ids
