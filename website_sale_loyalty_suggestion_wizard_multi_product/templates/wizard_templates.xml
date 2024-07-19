@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Wizard layout -->
+    <template
+        id="configure"
+        inherit_id="website_sale_loyalty_suggestion_wizard.configure"
+    >
+        <xpath expr="//t[@t-set='mandatory_options']" position="attributes">
+            <attribute
+                name="t-value"
+            >len(mandatory_program_options) == 1 or mandatory_program_options.wizard_id.multi_criteria</attribute>
+        </xpath>
+    </template>
+</odoo>
