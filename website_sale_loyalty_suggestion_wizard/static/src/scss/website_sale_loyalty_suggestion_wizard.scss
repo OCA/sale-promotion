@@ -1,0 +1,33 @@
+.oe_promotion_wizard_item_infos {
+    font-size: 0.9rem;
+}
+.oe_scw_criteria_condition,
+.oe_scw_reward_retribution {
+    font-weight: bold;
+    font-size: 3rem;
+    -webkit-text-stroke: 1px white;
+}
+.oe_scw_reward_retribution {
+    font-size: 2rem;
+}
+.js_promotion_item_quantity {
+    max-width: 4rem;
+    padding: 0.7rem;
+    text-align: center;
+    border-color: transparent;
+}
+.csw_optional_reward {
+    cursor: pointer;
+}
+.csw_reward_img {
+    height: 2rem;
+    width: 2rem;
+    object-fit: cover;
+    border: 1px solid;
+}
+.js_promotion {
+    h6.card-title {
+        margin: 0;
+        padding: 10px;
+    }
+}
