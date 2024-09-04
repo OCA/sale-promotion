@@ -29,18 +29,15 @@ class TestDeliveryAutoRefresh(common.SavepointCase):
                 "property_product_pricelist": pricelist.id,
             }
         )
-        cls.env["ir.config_parameter"].sudo().set_param(
-            "delivery_auto_refresh.set_default_carrier", 1
-        )
-        cls.env["ir.config_parameter"].sudo().set_param(
-            "delivery_auto_refresh.auto_void_delivery_line", 1
-        )
-        cls.env["ir.config_parameter"].sudo().set_param(
-            "delivery_auto_refresh.refresh_after_picking", 1
-        )
-        cls.env["ir.config_parameter"].sudo().set_param(
-            "delivery_auto_refresh.auto_add_delivery_line", 1
-        )
+        cls.env["res.config.settings"].create(
+            {
+                "sale_auto_assign_carrier_on_create": True,
+                "sale_auto_add_delivery_line": True,
+                "sale_refresh_delivery_after_picking": True,
+                "sale_auto_void_delivery_line": True,
+            }
+        ).execute()
+
         coupon_program_form = Form(
             cls.env["coupon.program"],
             view="sale_coupon.sale_coupon_program_view_promo_program_form",
