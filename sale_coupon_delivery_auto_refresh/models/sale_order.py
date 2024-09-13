@@ -9,9 +9,7 @@ class SaleOrder(models.Model):
         Override to change context value to refresh coupons after creation
         delivery line
         """
-        self = self.with_context(
-            skip_auto_refresh_coupons=False, auto_refresh_delivery=True
-        )
+        self = self.with_context(skip_auto_refresh_coupons=False)
         return super(SaleOrder, self)._auto_refresh_delivery()
 
     def _create_delivery_line(self, carrier, price_unit):

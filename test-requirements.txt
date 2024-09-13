@@ -1,0 +1,1 @@
+ odoo14-addon-delivery_auto_refresh @ git+https://github.com/OCA/delivery-carrier.git@refs/pull/849/head#subdirectory=setup/delivery_auto_refresh
