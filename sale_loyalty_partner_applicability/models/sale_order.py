@@ -34,7 +34,8 @@ class SaleOrder(models.Model):
         in the partner domain of each rule. When the partner is found eligible for a
         rule, the program is considered valid.
         Args:
-            program (recordset): The loyalty program for which partner eligibility is checked.
+            program (recordset): The loyalty program for which partner eligibility
+            is checked.
         Returns:
             bool: True if the partner is eligible for the program, False otherwise.
         """
