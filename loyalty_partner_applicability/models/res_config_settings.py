@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class ResConfigSettings(models.TransientModel):
-
     _inherit = "res.config.settings"
 
     # Allows a coupon generated for one partner to be used by any other member
