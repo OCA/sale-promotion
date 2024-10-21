@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="coupon_program_view_promo_program_form" model="ir.ui.view">
+        <field name="name">coupon.program.view.form</field>
+        <field name="model">coupon.program</field>
+        <field name="inherit_id" ref="coupon.coupon_program_view_promo_program_form" />
+        <field name="arch" type="xml">
+            <field name="rule_partners_domain" position="after">
+                <field
+                    name="rule_order_domain"
+                    placeholder="Select order"
+                    widget="domain"
+                    options="{'model': 'sale.order', 'in_dialog': true}"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>
