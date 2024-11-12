@@ -72,9 +72,14 @@ msgid "Mixin class for sale coupon auto-refresh features"
 msgstr ""
 
 #. module: sale_loyalty_auto_refresh
-#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_coupon_apply_code
-msgid "Sales Coupon Apply Code"
-msgstr "Utiliser le code promotionnel"
+#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_loyalty_coupon_wizard
+msgid "Sale Loyalty - Apply Coupon Wizard"
+msgstr ""
+
+#. module: sale_loyalty_auto_refresh
+#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_loyalty_reward_wizard
+msgid "Sale Loyalty - Reward Selection Wizard"
+msgstr ""
 
 #. module: sale_loyalty_auto_refresh
 #: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_order
@@ -94,6 +99,9 @@ msgid ""
 msgstr ""
 "Quand le devis est mis à jour, recalcule automatiquement les programmes de "
 "promotions configurés pour application automatique"
+
+#~ msgid "Sales Coupon Apply Code"
+#~ msgstr "Utiliser le code promotionnel"
 
 #~ msgid "Display Name"
 #~ msgstr "Nom affiché"
