@@ -72,9 +72,14 @@ msgid "Mixin class for sale coupon auto-refresh features"
 msgstr ""
 
 #. module: sale_loyalty_auto_refresh
-#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_coupon_apply_code
-msgid "Sales Coupon Apply Code"
-msgstr "销售优惠券申请代码"
+#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_loyalty_coupon_wizard
+msgid "Sale Loyalty - Apply Coupon Wizard"
+msgstr ""
+
+#. module: sale_loyalty_auto_refresh
+#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_loyalty_reward_wizard
+msgid "Sale Loyalty - Reward Selection Wizard"
+msgstr ""
 
 #. module: sale_loyalty_auto_refresh
 #: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_order
@@ -92,6 +97,9 @@ msgid ""
 "When the sale order is updated, auto-refresh the promotion programs which "
 "are set to auto apply"
 msgstr "当销售订单更新时，自动刷新设置为自动应用的促销计划"
+
+#~ msgid "Sales Coupon Apply Code"
+#~ msgstr "销售优惠券申请代码"
 
 #~ msgid "Display Name"
 #~ msgstr "显示名称"
