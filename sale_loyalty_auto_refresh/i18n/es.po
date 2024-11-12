@@ -72,9 +72,14 @@ msgid "Mixin class for sale coupon auto-refresh features"
 msgstr "Clase mixta de actualización automática de cupones de descuento"
 
 #. module: sale_loyalty_auto_refresh
-#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_coupon_apply_code
-msgid "Sales Coupon Apply Code"
-msgstr "Cupón de descuento Aplicar código"
+#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_loyalty_coupon_wizard
+msgid "Sale Loyalty - Apply Coupon Wizard"
+msgstr ""
+
+#. module: sale_loyalty_auto_refresh
+#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_loyalty_reward_wizard
+msgid "Sale Loyalty - Reward Selection Wizard"
+msgstr ""
 
 #. module: sale_loyalty_auto_refresh
 #: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_order
@@ -94,6 +99,9 @@ msgid ""
 msgstr ""
 "Cuando se actualice un pedido de venta, auto actualizar los programas de "
 "oferta configurados para auto aplicarse"
+
+#~ msgid "Sales Coupon Apply Code"
+#~ msgstr "Cupón de descuento Aplicar código"
 
 #~ msgid "Sale Order"
 #~ msgstr "Pedido de Venta"
