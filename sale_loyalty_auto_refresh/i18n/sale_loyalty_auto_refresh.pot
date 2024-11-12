@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -67,8 +67,13 @@ msgid "Mixin class for sale coupon auto-refresh features"
 msgstr ""
 
 #. module: sale_loyalty_auto_refresh
-#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_coupon_apply_code
-msgid "Sales Coupon Apply Code"
+#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_loyalty_coupon_wizard
+msgid "Sale Loyalty - Apply Coupon Wizard"
+msgstr ""
+
+#. module: sale_loyalty_auto_refresh
+#: model:ir.model,name:sale_loyalty_auto_refresh.model_sale_loyalty_reward_wizard
+msgid "Sale Loyalty - Reward Selection Wizard"
 msgstr ""
 
 #. module: sale_loyalty_auto_refresh
