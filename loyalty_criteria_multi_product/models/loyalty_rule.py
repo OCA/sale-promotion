@@ -24,7 +24,10 @@ class LoyaltyRule(models.Model):
     def _onchange_loyalty_criteria(self):
         """Clear domain so we clear some other fields from the view"""
         if self.loyalty_criteria == "multi_product":
+            self.minimum_amount = 0.00
             self.product_domain = False
             self.product_ids = False
             self.product_category_id = False
             self.product_tag_id = False
+        else:
+            self.loyalty_criteria_ids = False

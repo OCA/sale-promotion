@@ -9,6 +9,21 @@
                     name="attrs"
                 >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
             </field>
+            <field name="minimum_amount" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+            </field>
+            <label for="minimum_amount" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+            </label>
+            <div class="d-flex flex-row" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+            </div>
             <field name="product_domain" position="attributes">
                 <attribute
                     name="attrs"
