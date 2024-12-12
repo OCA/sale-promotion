@@ -14,7 +14,7 @@ class SaleOrder(models.Model):
             if program.max_customer_application:
                 customer_domain = [
                     ("order_line.loyalty_program_id", "=", program.id),
-                    ("id", "!=", self.id),
+                    ("id", "!=", self._origin.id),
                     (
                         "commercial_partner_id",
                         "=",
@@ -68,7 +68,7 @@ class SaleOrder(models.Model):
                                 salesman_rule.user_id.id,
                             ),
                             ("order_id.state", "!=", "cancel"),
-                            ("order_id", "!=", self.id),
+                            ("order_id", "!=", self._origin.id),
                         ],
                         ["order_id"],
                         ["order_id"],
