@@ -17,21 +17,21 @@ Sale Loyalty Partner Applicability
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--promotion-lightgray.png?logo=github
-    :target: https://github.com/OCA/sale-promotion/tree/16.0/sale_loyalty_partner_applicability
+    :target: https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_partner_applicability
     :alt: OCA/sale-promotion
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/sale-promotion-16-0/sale-promotion-16-0-sale_loyalty_partner_applicability
+    :target: https://translation.odoo-community.org/projects/sale-promotion-18-0/sale-promotion-18-0-sale_loyalty_partner_applicability
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the loyalty_partner_applicability functionality. When this filter
-is defined, the promotion rule will only be applied to customers who meet the specified
-conditions in the filter.
-The coupons generated in a sales order for a specific member promotion can be shared
+This module extends the loyalty_partner_applicability functionality.
+When this filter is defined, the promotion rule will only be applied to
+customers who meet the specified conditions in the filter. The coupons
+generated in a sales order for a specific member promotion can be shared
 between members of the same trading entity.
 
 **Table of contents**
@@ -44,18 +44,20 @@ Configuration
 
 To configure the partner based promotion filter:
 
-Go to *Sales > Products > Discount & Loyalty* and select or create a new one.
-In conditional rules set the condition based on customers.
+Go to *Sales > Products > Discount & Loyalty* and select or create a new
+one. In conditional rules set the condition based on customers.
 
-In promotions that generate coupons for the next sale, we can allow coupon sharing
-between members of the same commercial entity.
-To allow this, go to *Settings > Sales > Pricing* and check the option "Allow coupon sharing".
+In promotions that generate coupons for the next sale, we can allow
+coupon sharing between members of the same commercial entity. To allow
+this, go to *Settings > Sales > Pricing* and check the option "Allow
+coupon sharing".
 
 Usage
 =====
 
-Go to a sales order and apply the promotion accordingly. If the sales order meets the
-requirements set in the partner based filter the promotion will be applied to that order.
+Go to a sales order and apply the promotion accordingly. If the sales
+order meets the requirements set in the partner based filter the
+promotion will be applied to that order.
 
 Bug Tracker
 ===========
@@ -63,7 +65,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-promotion/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_partner_applicability%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_partner_applicability%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -71,19 +73,19 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pilar Vargas
+   -  Pilar Vargas
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -95,6 +97,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/16.0/sale_loyalty_partner_applicability>`_ project on GitHub.
+This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_partner_applicability>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
