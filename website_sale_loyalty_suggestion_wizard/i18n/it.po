@@ -6,91 +6,93 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-12-14 18:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure
 msgid "<i class=\"fa fa-gift fa-2x pe-2\"/> Rewards"
-msgstr ""
+msgstr "<i class=\"fa fa-gift fa-2x pe-2\"/> Premi"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure_promotion
 msgid "<i class=\"fa fa-gift\"/> Configure"
-msgstr ""
+msgstr "<i class=\"fa fa-gift\"/> Configura"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.website_sale_loyalty_suggestion
 msgid "<strong>Add</strong>"
-msgstr ""
+msgstr "<strong>Aggiungi</strong>"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_wizard_reward_card
 msgid "<strong>Discount</strong><br/>"
-msgstr ""
+msgstr "<strong>Sconto</strong><br/>"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure_promotion
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_item
 msgid "Apply"
-msgstr ""
+msgstr "Applica"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure_promotion
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.website_sale_loyalty_suggestion
 msgid "Configurable promotions suggested"
-msgstr ""
+msgstr "Promozioni configurabili suggerite"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure_promotion
 msgid "In order to apply this promotion you need to configure some options."
-msgstr ""
+msgstr "Per applicare questa prmozione serve configurare alune opzioni."
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_wizard_product_card
 msgid "Price:"
-msgstr ""
+msgstr "Prezzo:"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.website_sale_loyalty_suggestion
 msgid "Suggested Promotions:"
-msgstr ""
+msgstr "Promozioni suggerite:"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure
 msgid "These products and their quantities are mandatory:"
-msgstr ""
+msgstr "Questi prodotti e le loro quantità sono obbligatori:"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_wizard_product_card
 msgid "already on current order."
-msgstr ""
+msgstr "già nell'ordine attuale."
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure
 msgid "more"
-msgstr ""
+msgstr "altro"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_wizard_product_card
 msgid "will be added."
-msgstr ""
+msgstr "verrà aggiunto."
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure
 msgid "x units"
-msgstr ""
+msgstr "x unità"
