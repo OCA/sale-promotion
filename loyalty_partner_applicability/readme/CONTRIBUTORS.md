@@ -1,0 +1,4 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pilar Vargas
+- [ACSONE SA/NV](https://www.acsone.eu):
+  - Souheil Bejaoui
