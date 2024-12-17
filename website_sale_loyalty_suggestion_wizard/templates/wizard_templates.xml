@@ -24,7 +24,7 @@
                                 t-att-alt="product.display_name"
                             />
                             <strong>x<t t-out="reward_qty" /></strong> <span
-                                t-out="product.name"
+                                t-out="product.with_context(display_default_code=False).display_name"
                             />
                         </p>
                     </div>
