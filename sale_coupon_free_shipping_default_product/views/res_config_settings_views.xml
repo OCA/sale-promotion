@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_res_config_settings_shipping_default_prod" model="ir.ui.view">
+        <field name="name">res.config.settings.shipping.default.prod</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='sale_coupon']" position="after">
+                <label for="free_shipping_product_default" />
+                <field name="free_shipping_product_default" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
