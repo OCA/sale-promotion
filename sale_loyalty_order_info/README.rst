@@ -66,6 +66,8 @@ Contributors
 
   - Marie Lejeune <marie.lejeune@acsone.eu>
 
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+
 Maintainers
 -----------
 
