@@ -31,8 +31,8 @@ class SaleOrder(models.Model):
                 ):
                     res[program] = {
                         "error": _(
-                            "You don't have the required product quantities on your sales "
-                            "order."
+                            "You don't have the required product quantities "
+                            "on your sales order."
                         )
                     }
         return res
