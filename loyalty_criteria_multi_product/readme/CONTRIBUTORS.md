@@ -1,0 +1,7 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+  - David Vidal
+  - Stefan Ungureanu
+  - Pilar Vargas
+- [Domatix](https://www.domatix.com):
+  - Álvaro López Oró
