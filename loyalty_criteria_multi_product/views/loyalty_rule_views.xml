@@ -5,44 +5,28 @@
         <field name="model">loyalty.rule</field>
         <field name="arch" type="xml">
             <field name="minimum_qty" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="minimum_amount" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <label for="minimum_amount" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </label>
             <div class="d-flex flex-row" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </div>
             <field name="product_domain" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="product_ids" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="product_category_id" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="product_tag_id" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="minimum_qty" position="before">
                 <field name="loyalty_criteria" widget="radio" />
@@ -50,7 +34,7 @@
             <field name="product_domain" position="before">
                 <field
                     name="loyalty_criteria_ids"
-                    attrs="{'invisible': [('loyalty_criteria', '!=', 'multi_product')]}"
+                    invisible="loyalty_criteria != 'multi_product'"
                 >
                     <tree editable="bottom">
                         <field name="rule_min_quantity" string="Qty" />
@@ -67,7 +51,7 @@
             <xpath expr="//t[@t-if='record.code.raw_value']" position="before">
                 <field
                     name="loyalty_criteria"
-                    attrs="{'invisible': [('loyalty_criteria', '!=', 'multi_product')]}"
+                    invisible="loyalty_criteria != 'multi_product'"
                 />
             </xpath>
         </field>

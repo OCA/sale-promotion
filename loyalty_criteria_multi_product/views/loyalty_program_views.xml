@@ -8,7 +8,7 @@
                 <field name="loyalty_criteria" widget="radio" />
                 <field
                     name="loyalty_criteria_ids"
-                    attrs="{'invisible': [('loyalty_criteria', '!=', 'multi_product')]}"
+                    invisible="loyalty_criteria != 'multi_product'"
                 >
                     <tree editable="bottom">
                         <field name="criterian_min_quantity" string="Qty" />
@@ -18,9 +18,7 @@
                 </field>
             </field>
             <field name="rule_ids" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
         </field>
     </record>
