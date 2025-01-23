@@ -1,20 +1,20 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import common
+from odoo import Command
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestLoyaltyCriteriaMultiProduct(common.TransactionCase):
+class TestLoyaltyCriteriaMultiProduct(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         product_obj = cls.env["product.product"]
         cls.pricelist = cls.env["product.pricelist"].create(
             {
-                "name": "Test pricelist",
+                "name": "Test Pricelist",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -43,66 +43,70 @@ class TestLoyaltyCriteriaMultiProduct(common.TransactionCase):
                 "trigger": "auto",
                 "applies_on": "current",
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "loyalty_criteria": "multi_product",
                             "loyalty_criteria_ids": [
-                                (
-                                    0,
-                                    0,
+                                Command.create(
                                     {
-                                        "product_ids": [(4, cls.product_a.id)],
+                                        "product_ids": [Command.link(cls.product_a.id)],
                                     },
                                 ),
-                                (
-                                    0,
-                                    0,
+                                Command.create(
                                     {
                                         "product_ids": [
-                                            (4, cls.product_b.id),
-                                            (4, cls.product_c.id),
+                                            Command.link(cls.product_b.id),
+                                            Command.link(cls.product_c.id),
                                         ],
                                     },
                                 ),
                             ],
-                        },
-                    ),
-                    (
-                        0,
-                        0,
-                        {
-                            "reward_point_mode": "order",
-                            "loyalty_criteria": "multi_product",
-                            "loyalty_criteria_ids": [
-                                (
-                                    0,
-                                    0,
-                                    {
-                                        "product_ids": [
-                                            (4, cls.product_a.id),
-                                            (4, cls.product_c.id),
-                                        ],
-                                    },
-                                ),
-                            ],
-                        },
-                    ),
-                ],
-                "reward_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "reward_type": "discount",
-                            "required_points": 1,
-                            "discount": 10,
-                            "discount_mode": "percent",
-                            "discount_applicability": "order",
                         },
                     )
                 ],
             }
+        )
+
+    def test_loyalty_criteria_compute_min_quantity(self):
+        """Test computation of rule_min_quantity."""
+        criteria = self.env["loyalty.criteria"].create(
+            {
+                "product_ids": [
+                    Command.link(self.product_a.id),
+                    Command.link(self.product_b.id),
+                ]
+            }
+        )
+        self.assertEqual(
+            criteria.rule_min_quantity, 2, "Min quantity should match product count."
+        )
+
+    def test_loyalty_rule_onchange(self):
+        """Test onchange behavior for loyalty criteria."""
+        rule = self.env["loyalty.rule"].create(
+            {
+                "loyalty_criteria": "multi_product",
+                "program_id": self.loyalty_program.id,
+            }
+        )
+        rule._onchange_loyalty_criteria()
+        self.assertFalse(rule.minimum_amount, "Minimum amount should be reset.")
+        self.assertFalse(rule.product_ids, "Product IDs should be cleared.")
+        self.assertFalse(rule.product_domain, "Product domain should be cleared.")
+        self.assertFalse(
+            rule.loyalty_criteria_ids, "Loyalty criteria IDs should be cleared."
+        )
+
+    def test_program_type_default_values(self):
+        """Test default values for program types."""
+        program_values = self.env["loyalty.program"]._program_type_default_values()
+        promotion_values = program_values.get("promotion")
+        self.assertIsNotNone(
+            promotion_values, "Promotion type should be in the defaults."
+        )
+        self.assertEqual(
+            promotion_values["rule_ids"][1][2].get("loyalty_criteria"),
+            "domain",
+            "Loyalty criteria should default to domain.",
         )

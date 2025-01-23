@@ -5,3 +5,6 @@
   - Pilar Vargas
 - [Domatix](https://www.domatix.com):
   - Álvaro López Oró
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
+
