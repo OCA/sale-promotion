@@ -1,0 +1,5 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - David Vidal
+  - Pilar Vargas
+- [Domatix](https://www.domatix.com):
+  - Carolina Ferrer
