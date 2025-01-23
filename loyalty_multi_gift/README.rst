@@ -113,6 +113,8 @@ Contributors
 
   - Carolina Ferrer
 
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+
 Maintainers
 -----------
 
