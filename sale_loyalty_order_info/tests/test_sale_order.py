@@ -141,7 +141,8 @@ class TestSaleOrder(TestSaleCouponCommon):
                 "total_included"
             ],
             2,
-            "Tax included reward amount should be 50% of tax included unit price of product A",
+            "Tax included reward amount should be 50% of "
+            "tax included unit price of product A",
         )
         self.assertEqual(self.order.program_ids.ids, [program.id])
 
