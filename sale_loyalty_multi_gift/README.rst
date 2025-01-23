@@ -82,6 +82,10 @@ Contributors
 
   - Carolina Ferrer
 
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
+
 Maintainers
 -----------
 

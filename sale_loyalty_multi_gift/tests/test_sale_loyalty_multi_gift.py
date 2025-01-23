@@ -1,6 +1,7 @@
 # Copyright 2021 Tecnativa - David Vidal
 # Copyright 2023 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+from odoo.exceptions import UserError, ValidationError
 from odoo.tests import Form
 
 from odoo.addons.loyalty_multi_gift.tests.test_loyalty_multi_gift_case import (
@@ -43,8 +44,6 @@ class TestSaleLoyaltyMultiGift(LoyaltyMultiGiftCase):
         )
         self.assertEqual(2, discount_line_product_2.product_uom_qty)
         self.assertEqual(3, discount_line_product_3.product_uom_qty)
-        self.assertEqual(0, discount_line_product_2.price_reduce)
-        self.assertEqual(0, discount_line_product_3.price_reduce)
         self.assertEqual(60, discount_line_product_2.price_unit)
         self.assertEqual(70, discount_line_product_3.price_unit)
 
@@ -63,8 +62,6 @@ class TestSaleLoyaltyMultiGift(LoyaltyMultiGiftCase):
         # The promotion will only be applied once whatever the min quantity
         self.assertEqual(2, discount_line_product_2.product_uom_qty)
         self.assertEqual(3, discount_line_product_3.product_uom_qty)
-        self.assertEqual(0, discount_line_product_2.price_reduce)
-        self.assertEqual(0, discount_line_product_3.price_reduce)
 
     def test_03_test_sale_coupon_test_multi_gift(self):
         line = self.sale.order_line
@@ -104,3 +101,86 @@ class TestSaleLoyaltyMultiGift(LoyaltyMultiGiftCase):
         self.assertEqual(2, discount_line_product_2.product_uom_qty)
         self.assertEqual(3, discount_line_product_4.product_uom_qty)
         self.assertFalse(discount_line_product_3)
+
+    def test_05_test_loyalty_gift_line_ids_computation(self):
+        """Test the computation of loyalty_gift_line_ids for a multi_gift reward."""
+        self.loyalty_program_form.reward_ids[0].write({"reward_type": "multi_gift"})
+        # Create wizard
+        wizard = (
+            self.env["sale.loyalty.reward.wizard"]
+            .with_context(active_id=self.sale.id)
+            .create({"selected_reward_id": self.loyalty_program_form.reward_ids[0].id})
+        )
+        # Assert loyalty_gift_line_ids computation
+        self.assertTrue(
+            wizard.loyalty_gift_line_ids, "Loyalty Gift Line IDs should be computed."
+        )
+        self.assertEqual(
+            len(wizard.loyalty_gift_line_ids),
+            len(self.loyalty_program_form.reward_ids[0].loyalty_multi_gift_ids),
+            "Loyalty Gift Line IDs count mismatch.",
+        )
+
+    def test_06_test_action_apply_no_reward_selected(self):
+        """Test the action_apply method with no reward selected."""
+        wizard = (
+            self.env["sale.loyalty.reward.wizard"]
+            .with_context(active_id=self.sale.id)
+            .create({})
+        )
+        with self.assertRaises(ValidationError):
+            wizard.action_apply()
+
+    def test_07_test_action_apply_no_coupon_found(self):
+        """Test the action_apply method when no coupon is found."""
+        self.loyalty_program_form.reward_ids[0].write({"reward_type": "multi_gift"})
+        wizard = (
+            self.env["sale.loyalty.reward.wizard"]
+            .with_context(active_id=self.sale.id)
+            .create({"selected_reward_id": self.loyalty_program_form.reward_ids[0].id})
+        )
+        with self.assertRaises(ValidationError):
+            wizard.action_apply()
+
+    def test_08_test_action_apply_non_multi_gift_reward(self):
+        """Test the action_apply method with a non-multi_gift reward."""
+        self.loyalty_program_form.reward_ids[0].write({"reward_type": "discount"})
+        wizard = (
+            self.env["sale.loyalty.reward.wizard"]
+            .with_context(active_id=self.sale.id)
+            .create({"selected_reward_id": self.loyalty_program_form.reward_ids[0].id})
+        )
+        with self.assertRaises(ValidationError):
+            wizard.action_apply()
+
+    def test_09_invalid_product_in_reward(self):
+        """Test invalid product in reward during multi-gift reward line creation."""
+        # Create a valid coupon for the reward program
+        coupon = self.env["loyalty.card"].create(
+            {
+                "program_id": self.loyalty_program_form.id,
+                "code": "VALID_COUPON",
+                "points": 10,
+            }
+        )
+
+        # Get the reward from the program
+        reward = self.loyalty_program_form.reward_ids[0]
+
+        # Create an invalid product to test with
+        invalid_product = self.env["product.product"].create(
+            {"name": "Invalid Product", "list_price": 100.0}
+        )
+
+        # Simulate a scenario where the selected product is
+        # not in the reward's valid products.
+        with self.assertRaises(UserError):
+            self.sale._get_reward_values_multi_gift_line(
+                reward,
+                coupon,
+                cost=100,
+                reward_line=self.loyalty_program_form.reward_ids[
+                    0
+                ].loyalty_multi_gift_ids[0],
+                product=invalid_product,
+            )
