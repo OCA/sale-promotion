@@ -17,13 +17,13 @@ Loyalty multi gift
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--promotion-lightgray.png?logo=github
-    :target: https://github.com/OCA/sale-promotion/tree/16.0/loyalty_multi_gift
+    :target: https://github.com/OCA/sale-promotion/tree/17.0/loyalty_multi_gift
     :alt: OCA/sale-promotion
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/sale-promotion-16-0/sale-promotion-16-0-loyalty_multi_gift
+    :target: https://translation.odoo-community.org/projects/sale-promotion-17-0/sale-promotion-17-0-loyalty_multi_gift
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -38,51 +38,50 @@ This module allows to define multiple reward products on promotions.
 Use Cases / Context
 ===================
 
-For the 'buy_x_get_y' type promotion, the 'Reward_type' field is restricted to the 'Product'
-option only and the possibility to select 'Multigift' is disabled. This restriction is implemented
-because, in this scenario, the 'reward_type' field becomes 'readonly'.
+For the 'buy_x_get_y' type promotion, the 'Reward_type' field is
+restricted to the 'Product' option only and the possibility to select
+'Multigift' is disabled. This restriction is implemented because, in
+this scenario, the 'reward_type' field becomes 'readonly'.
 
-It is crucial to note that modifying the values displayed in this field to set different
-values according to the type of promotion may generate conflicts with other modules that
-contribute to the configuration of this same field. Therefore, it is recommended not to
-alter these values directly, as this may affect the consistency and functionality of other
+It is crucial to note that modifying the values displayed in this field
+to set different values according to the type of promotion may generate
+conflicts with other modules that contribute to the configuration of
+this same field. Therefore, it is recommended not to alter these values
+directly, as this may affect the consistency and functionality of other
 components of the system.
 
-To configure similar promotions, it is suggested to modify another type of promotion by
-adapting its rules and rewards according to specific needs. This provides a more secure
-and consistent way to manage custom configurations without compromising the integrity of
-the system.
+To configure similar promotions, it is suggested to modify another type
+of promotion by adapting its rules and rewards according to specific
+needs. This provides a more secure and consistent way to manage custom
+configurations without compromising the integrity of the system.
 
 Configuration
 =============
 
 To configure multiple product rewards:
 
-#. Go to *Sales > Products > Discount & Loyalty* and select or create a new one.
-#. Choose the criteria of appliance you want to use and the minimum quantities, that
-   will be used to calculate the times the rewards can be applied.
-#. On the *Program Type* field choose *Multi Gift*.
-#. You'll see a now the *Gift list* on which you can add the products you want to give
-   away and the quantities for each of them.
+1. Go to *Sales > Products > Discount & Loyalty* and select or create a
+   new one.
+2. Choose the criteria of appliance you want to use and the minimum
+   quantities, that will be used to calculate the times the rewards can
+   be applied.
+3. On the *Program Type* field choose *Multi Gift*.
+4. You'll see a now the *Gift list* on which you can add the products
+   you want to give away and the quantities for each of them.
 
 An example:
 
- ===== ================
-  Qty      Products
- ===== ================
-    3   Prod A
-    2   Prod B
- ===== ================
+   [TABLE]
 
-With a minimum quantity of 3, for every 3 units of products that fulfill the domain
-we'd get 3 units of A and 2 of B. So if the valid products quantities are 11, we'd
-get 3 of product A and 2 of product B.
+With a minimum quantity of 3, for every 3 units of products that fulfill
+the domain we'd get 3 units of A and 2 of B. So if the valid products
+quantities are 11, we'd get 3 of product A and 2 of product B.
 
 Usage
 =====
 
-This module is a base to be used by extra modules that use it in sale orders, PoS
-orders, etc.
+This module is a base to be used by extra modules that use it in sale
+orders, PoS orders, etc.
 
 Bug Tracker
 ===========
@@ -90,7 +89,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-promotion/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20loyalty_multi_gift%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20loyalty_multi_gift%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -98,24 +97,24 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+- `Tecnativa <https://www.tecnativa.com>`__:
 
-  * David Vidal
-  * Pilar Vargas
+  - David Vidal
+  - Pilar Vargas
 
-* `Domatix <https://www.domatix.com>`_:
+- `Domatix <https://www.domatix.com>`__:
 
-  * Carolina Ferrer
+  - Carolina Ferrer
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -135,6 +134,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-chienandalu| 
 
-This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/16.0/loyalty_multi_gift>`_ project on GitHub.
+This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/17.0/loyalty_multi_gift>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

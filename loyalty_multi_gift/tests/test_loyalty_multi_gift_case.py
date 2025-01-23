@@ -119,9 +119,9 @@ class LoyaltyMultiGiftCase(TransactionCase):
         )
         self.assertEqual(gift_options_qty, 3)
         # This will fail. When modifying the amount of gifts from the promotion (as it
-        # is done in the form) if we increase that gift in 1 more, we should have in total
-        # 4 gifts, the previous 3 + 1, in this case 2 records are being created for the
-        # same gift and instead of having 4, there will be 5 (failure).
+        # is done in the form) if we increase that gift in 1 more, we should have in
+        # total 4 gifts, the previous 3 + 1, in this case 2 records are being created
+        # for the same gift and instead of having 4, there will be 5 (failure).
         self.loyalty_program_form.write(
             {
                 "reward_ids": [
