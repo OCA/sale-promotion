@@ -45,8 +45,8 @@ class TestSaleLoyaltyCriteriaMultiProduct(
         self.assertTrue(bool(self.sale.order_line.filtered("is_reward_line")))
 
     def test_02_sales_order_no_meets_the_criteria(self):
-        """ "When all the criteria do not match, we cannot apply the program. At least one
-        of the rules must be fulfilled"."""
+        """ "When all the criteria do not match, we cannot apply the program.
+        At least one of the rules must be fulfilled"."""
         self.sale.order_line.filtered(lambda x: x.product_id == self.product_c).unlink()
         with self.assertRaises(ValidationError):
             self._action_apply_program(self.sale, self.loyalty_program)
@@ -66,9 +66,10 @@ class TestSaleLoyaltyCriteriaMultiProduct(
         self.assertTrue(bool(self.sale.order_line.filtered("is_reward_line")))
 
     def test_04_not_all_rules_have_defined_criteria(self):
-        """When not all rules have defined criteria, then the criteria will have no effect
-        on the application of the program, only a program with defined criteria in all its
-        rules will be able to restrict the application of the program."""
+        """When not all rules have defined criteria, then the criteria will
+        have no effect on the application of the program, only a program with
+         defined criteria in all its rules will be able to
+         restrict the application of the program."""
         self.loyalty_program.rule_ids[0].loyalty_criteria = "domain"
         self.sale.order_line.filtered(lambda x: x.product_id == self.product_c).unlink()
         self._action_apply_program(self.sale, self.loyalty_program)
