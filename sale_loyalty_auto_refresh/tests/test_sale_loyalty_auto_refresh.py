@@ -1,9 +1,12 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import Form, common
+from odoo import Command
+from odoo.tests import Form
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
+class TestWebsiteSaleCouponAutorefresh(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -13,9 +16,7 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
             {
                 "name": "Test pricelist",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -82,37 +83,41 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
 
         # Update product line in order to trigger reward line creation
         # (minimum amount >= 100 => create a reward line)
-        sale_form = Form(sale.with_context(skip_auto_refresh_coupons=False))
-        with sale_form.order_line.edit(index=0) as line_form:
-            line_form.product_uom_qty = 10
-            line_form.price_unit = 20
-        sale_form.save()
+        with Form(sale.with_context(skip_auto_refresh_coupons=False)) as sale_form:
+            with sale_form.order_line.edit(0) as line_form:
+                line_form.product_uom_qty = 10
+                line_form.price_unit = 20
+        sale = sale_form.save()
         discount_line = sale.order_line.filtered("is_reward_line")
         self.assertEqual(1, len(discount_line))
         self.assertAlmostEqual(-100, discount_line.price_unit)
 
         # Create another product line that will trigger a reward line update
         # (total amount has changed => reward line price unit must change)
-        sale_form = Form(sale.with_context(skip_auto_refresh_coupons=False))
-        with sale_form.order_line.new() as line_form:
-            line_form.product_id = self.product
-            line_form.product_uom_qty = 1
-            line_form.price_unit = 40
-        sale_form.save()
+        with Form(sale.with_context(skip_auto_refresh_coupons=False)) as sale_form:
+            with sale_form.order_line.new() as line_form:
+                line_form.product_id = self.product
+                line_form.product_uom_qty = 1
+                line_form.price_unit = 40
+        sale = sale_form.save()
         discount_line = sale.order_line.filtered("is_reward_line")
         self.assertEqual(1, len(discount_line))
         self.assertAlmostEqual(-120, discount_line.price_unit)
 
         # Update product lines in order to delete reward line
         # (minimum amount < 100 => delete reward line)
-        sale_form = Form(sale.with_context(skip_auto_refresh_coupons=False))
-        with sale_form.order_line.edit(index=0) as line_form:
-            line_form.product_uom_qty = 1
-            line_form.price_unit = 1
-        with sale_form.order_line.edit(index=2) as line_form:
-            line_form.product_uom_qty = 1
-            line_form.price_unit = 1
-        sale_form.save()
+        with Form(sale.with_context(skip_auto_refresh_coupons=False)) as sale_form:
+            # Update the first line
+            with sale_form.order_line.edit(0) as line_form:
+                line_form.product_uom_qty = 1
+                line_form.price_unit = 1
+
+            # Update the second line (product line, not the reward line)
+            with sale_form.order_line.edit(1) as line_form:
+                line_form.product_uom_qty = 1
+                line_form.price_unit = 1
+
+        sale = sale_form.save()
         discount_line = sale.order_line.filtered("is_reward_line")
         self.assertFalse(bool(discount_line))
 
@@ -164,9 +169,7 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
         promo_60 = self.loyalty_program.copy(
             {
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "discount",
                             "discount": 60,
@@ -181,9 +184,7 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
         promo_prod = self.loyalty_program.copy(
             {
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "product",
                             "reward_product_id": reward_product.id,

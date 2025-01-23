@@ -115,6 +115,10 @@ Contributors
 
   - Nguyen Minh Chien <chien@trobz.com>
 
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
+
 Maintainers
 -----------
 
