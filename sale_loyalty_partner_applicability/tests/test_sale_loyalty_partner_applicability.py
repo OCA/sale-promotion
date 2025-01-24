@@ -192,11 +192,17 @@ class TestSaleLoyaltyPartnerApplicability(TransactionCase):
 
     def test_02_sale_loyalty_partner_applicability_promo_code(self):
         # The test is executed with a promotion code which states in its rules that
-        # the promotion will be applicable on partner1 and partner2.
+        # the promotion will be applicable on partner1
         sale_1 = self._create_sale(self.partner1)
         self._apply_promo_code(sale_1, "10DISCOUNT")
         self.assertTrue(bool(sale_1.order_line.filtered("is_reward_line")))
         sale_2 = self._create_sale(self.partner2)
+        with self.assertRaises(ValidationError), self.cr.savepoint():
+            # the rule at the origin of the promotion code does not apply to partner2
+            self._apply_promo_code(sale_2, "10DISCOUNT")
+        # since partner1 and partner2 are from the same commercial entity, the coupon
+        # can be shared if allowed by the configuration.
+        self.env["ir.config_parameter"].set_param("allow_coupon_sharing", "True")
         self._apply_promo_code(sale_2, "10DISCOUNT")
         self.assertTrue(bool(sale_2.order_line.filtered("is_reward_line")))
         sale_3 = self._create_sale(self.partner3)
