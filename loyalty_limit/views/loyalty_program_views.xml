@@ -18,9 +18,9 @@
                 <div>
                     <field name="salesmen_limit_count" class="oe_inline" />
                     <span class="oe_grey"> (                        <field
-                            name="salesmen_limit_used_count"
-                            class="oe_inline"
-                        />
+                        name="salesmen_limit_used_count"
+                        class="oe_inline"
+                    />
  used already)</span>
                 </div>
                 <field name="salesmen_strict_limit" />

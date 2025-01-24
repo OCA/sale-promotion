@@ -45,8 +45,8 @@ def migrate(env, version):
     openupgrade.delete_sql_constraint_safely(
         env, "loyalty_limit", "loyalty_salesmen_limit", "user_id_uniq"
     )
-    # Move fields 'max_customer_application', 'salesmen_limit_ids' and 'salesmen_strict_limit'
-    # from loyalty_rule to loyalty_program table
+    # Move fields 'max_customer_application', 'salesmen_limit_ids'
+    # and 'salesmen_strict_limit' from loyalty_rule to loyalty_program table
     openupgrade.logged_query(
         env.cr,
         """

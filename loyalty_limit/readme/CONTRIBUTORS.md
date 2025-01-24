@@ -1,0 +1,6 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+  - David Vidal
+  - Pilar Vargas
+- [Akretion](https://www.akretion.com):
+  - Florian Mounier
