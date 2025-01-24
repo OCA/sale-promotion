@@ -1,6 +1,6 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, models
+from odoo import models
 
 
 class SaleOrder(models.Model):
@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
         for program in result:
             if any({x in order_programs for x in program.incompatible_promotion_ids}):
                 result[program] = {
-                    "error": _(
+                    "error": self.env._(
                         "This promotion is incompatible with other set already in the "
                         "order so it can't be applied."
                     )
