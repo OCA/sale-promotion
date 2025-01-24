@@ -1,6 +1,6 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class LoyaltyReward(models.Model):
@@ -38,9 +38,11 @@ class LoyaltyReward(models.Model):
                     display_default_code=False
                 ).mapped("display_name")
                 if len(products) == 0:
-                    reward_string = _("Multi Gift")
+                    reward_string = self.env._("Multi Gift")
                 else:
-                    reward_string = _("Multi Gift - [%s]") % ", ".join(product_names)
+                    reward_string = self.env._("Multi Gift - [%s]") % ", ".join(
+                        product_names
+                    )
                 reward.description = reward_string
         return res
 
