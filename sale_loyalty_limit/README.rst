@@ -17,20 +17,20 @@ Coupon Limit
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--promotion-lightgray.png?logo=github
-    :target: https://github.com/OCA/sale-promotion/tree/16.0/sale_loyalty_limit
+    :target: https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_limit
     :alt: OCA/sale-promotion
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/sale-promotion-16-0/sale-promotion-16-0-sale_loyalty_limit
+    :target: https://translation.odoo-community.org/projects/sale-promotion-18-0/sale-promotion-18-0-sale_loyalty_limit
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows to configure a limit on the times a promotion can be applied. Two
-limits can be configured: customer and salesman. Those limits apply to either programs
-or coupons.
+This module allows to configure a limit on the times a promotion can be
+applied. Two limits can be configured: customer and salesman. Those
+limits apply to either programs or coupons.
 
 **Table of contents**
 
@@ -42,27 +42,33 @@ Configuration
 
 To configure customer limits:
 
-#. Go to *Sales > Products > Discount & Loyalty* and select or create a new one.
-#. Set the *Maximum Customer Applications* to the number of times a program can be used
-   by a customer.
+1. Go to *Sales > Products > Discount & Loyalty* and select or create a
+   new one.
+2. Set the *Maximum Customer Applications* to the number of times a
+   program can be used by a customer.
 
-NOTE: The customer limit is applied at commercial entity level, not for each contact
-inside the entity.
+NOTE: The customer limit is applied at commercial entity level, not for
+each contact inside the entity.
 
 To configure salesmen limits:
 
-#. Go to *Sales > Products > Discount & Loyalty* and select or create a new one.
-#. Add salesmen to the *Salesmen Limits* list and their maximum number of applications.
-#. You can add different limits to different salesmen groups.
-#. If you want to constrain the use of the promotion to the salesmen list, set the
-   option *Strict limit* on, so any other salesman won't be able to apply the promotion.
+1. Go to *Sales > Products > Discount & Loyalty* and select or create a
+   new one.
+2. Add salesmen to the *Salesmen Limits* list and their maximum number
+   of applications.
+3. You can add different limits to different salesmen groups.
+4. If you want to constrain the use of the promotion to the salesmen
+   list, set the option *Strict limit* on, so any other salesman won't
+   be able to apply the promotion.
 
 Usage
 =====
 
-Once the program limits are configured, apply the programs as usual in your sale orders.
+Once the program limits are configured, apply the programs as usual in
+your sale orders.
 
-Once the limit for a customer or a salesman is reached, if we try to apply a promotion:
+Once the limit for a customer or a salesman is reached, if we try to
+apply a promotion:
 
 - A code promotion will raise an error.
 - A program with no code won't be applied.
@@ -75,7 +81,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-promotion/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_limit%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_limit%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -83,25 +89,25 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+- `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pedro M. Baeza
-  * David Vidal
-  * Pilar Vargas
+  - Pedro M. Baeza
+  - David Vidal
+  - Pilar Vargas
 
-* `Akretion <https://www.akretion.com>`_:
+- `Akretion <https://www.akretion.com>`__:
 
-  * Florian Mounier
+  - Florian Mounier
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -121,6 +127,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-chienandalu| 
 
-This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/16.0/sale_loyalty_limit>`_ project on GitHub.
+This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_limit>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

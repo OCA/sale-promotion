@@ -26,9 +26,9 @@ class SaleOrder(models.Model):
                 if limit_reached and self.applied_coupon_ids:
                     res[program] = {
                         "error": _(
-                            "This promo code was already applied %(count)s times for this "
-                            "customer and there's an stablished limit of %(max)s for this "
-                            "promotion."
+                            "This promo code was already applied %(count)s times for"
+                            "this customer and there's an stablished limit of %(max)s"
+                            "for this promotion."
                         )
                         % {
                             "count": order_count,
@@ -54,10 +54,10 @@ class SaleOrder(models.Model):
             if salesman_rule:
                 max_rule = salesman_rule.max_salesman_application
                 # It is necessary to recalculate the number of times it has been used
-                # omitting the current sell order because when a sell order is confirmed,
-                # the "_update_programs_and_rewards" method is re-executed which triggers
-                # the compute method again and in this method the current sell order is
-                # not excluded.
+                # omitting the current sell order because when a sell order is
+                # confirmed,the "_update_programs_and_rewards" method is re-executed
+                # which triggers the compute method again and in this method the current
+                # sell order is not excluded.
                 times_used = len(
                     self.env["sale.order.line"].read_group(
                         [
@@ -79,9 +79,9 @@ class SaleOrder(models.Model):
                 if times_used >= max_rule:
                     res[program] = {
                         "error": _(
-                            "This promo code was already applied %(times)s times for this "
-                            "salesman and there's an stablished limit of %(max)s for this "
-                            "promotion."
+                            "This promo code was already applied %(times)s times for"
+                            "this salesman and there's an stablished limit of %(max)s"
+                            " for this promotion."
                         )
                         % {"times": times_used, "max": max_rule}
                     }
