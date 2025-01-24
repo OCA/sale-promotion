@@ -1,9 +1,11 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import TransactionCase
+from odoo import Command
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class LoyaltyLimitCase(TransactionCase):
+class LoyaltyLimitCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -12,9 +14,7 @@ class LoyaltyLimitCase(TransactionCase):
             {
                 "name": "Test pricelist",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -45,9 +45,7 @@ class LoyaltyLimitCase(TransactionCase):
                 "applies_on": "current",
                 "max_customer_application": 2,
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
@@ -55,9 +53,7 @@ class LoyaltyLimitCase(TransactionCase):
                     ),
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "discount",
                             "required_points": 1,
@@ -76,17 +72,13 @@ class LoyaltyLimitCase(TransactionCase):
                 "trigger": "auto",
                 "applies_on": "current",
                 "salesmen_limit_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "user_id": cls.salesman_1.id,
                             "max_salesman_application": 2,
                         },
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "user_id": cls.salesman_2.id,
                             "max_salesman_application": 2,
@@ -95,9 +87,7 @@ class LoyaltyLimitCase(TransactionCase):
                 ],
                 "salesmen_strict_limit": False,
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
@@ -105,9 +95,7 @@ class LoyaltyLimitCase(TransactionCase):
                     ),
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "discount",
                             "required_points": 1,
@@ -127,9 +115,7 @@ class LoyaltyLimitCase(TransactionCase):
                 "applies_on": "current",
                 "max_customer_application": 2,
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
@@ -137,9 +123,7 @@ class LoyaltyLimitCase(TransactionCase):
                     ),
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "discount",
                             "required_points": 1,
@@ -158,17 +142,13 @@ class LoyaltyLimitCase(TransactionCase):
                 "program_type": "coupons",
                 "applies_on": "current",
                 "salesmen_limit_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "user_id": cls.salesman_1.id,
                             "max_salesman_application": 2,
                         },
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "user_id": cls.salesman_2.id,
                             "max_salesman_application": 2,
@@ -176,9 +156,7 @@ class LoyaltyLimitCase(TransactionCase):
                     ),
                 ],
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
@@ -186,9 +164,7 @@ class LoyaltyLimitCase(TransactionCase):
                     ),
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "discount",
                             "required_points": 1,
@@ -208,9 +184,7 @@ class LoyaltyLimitCase(TransactionCase):
                 "applies_on": "future",
                 "max_customer_application": 2,
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
@@ -219,9 +193,7 @@ class LoyaltyLimitCase(TransactionCase):
                     )
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "discount",
                             "required_points": 1,
@@ -240,17 +212,13 @@ class LoyaltyLimitCase(TransactionCase):
                 "trigger": "auto",
                 "applies_on": "future",
                 "salesmen_limit_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "user_id": cls.salesman_1.id,
                             "max_salesman_application": 2,
                         },
                     ),
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "user_id": cls.salesman_2.id,
                             "max_salesman_application": 2,
@@ -258,9 +226,7 @@ class LoyaltyLimitCase(TransactionCase):
                     ),
                 ],
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
@@ -269,9 +235,7 @@ class LoyaltyLimitCase(TransactionCase):
                     )
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "discount",
                             "required_points": 1,
@@ -283,3 +247,21 @@ class LoyaltyLimitCase(TransactionCase):
                 ],
             }
         )
+
+    def test_salesmen_limit_fields_default_computation(self):
+        """Test that the default computation sets limit counts to 0."""
+        program = self.promotion_with_salesman_limit
+        self.assertEqual(
+            program.salesmen_limit_count,
+            0,
+            "Expected salesmen_limit_count to be 0 by default",
+        )
+        self.assertEqual(
+            program.salesmen_limit_used_count,
+            0,
+            "Expected salesmen_limit_used_count to be 0 by default",
+        )
+        for limit in program.salesmen_limit_ids:
+            self.assertEqual(
+                limit.times_used, 0, "Expected times_used to be 0 by default"
+            )

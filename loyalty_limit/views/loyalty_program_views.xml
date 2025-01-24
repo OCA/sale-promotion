@@ -25,7 +25,7 @@
                 </div>
                 <field name="salesmen_strict_limit" />
                 <field name="salesmen_limit_ids">
-                    <tree editable="bottom">
+                    <list editable="bottom">
                         <field
                             sum="Total limit"
                             name="max_salesman_application"
@@ -33,7 +33,7 @@
                         />
                         <field name="user_id" />
                         <field sum="Total used" name="times_used" />
-                    </tree>
+                    </list>
                 </field>
             </field>
         </field>

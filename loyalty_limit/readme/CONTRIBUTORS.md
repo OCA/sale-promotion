@@ -4,3 +4,5 @@
   - Pilar Vargas
 - [Akretion](https://www.akretion.com):
   - Florian Mounier
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
