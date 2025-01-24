@@ -42,8 +42,8 @@ class TestSaleLoyaltyIncompatibility(LoyaltyIncompatibilityCase):
             status = order._apply_program_reward(rewards, coupons)
 
     def test_01_program_without_incompatibilities(self):
-        """When there are no incompatibilities, both coupons and promotions can be applied
-        to the same sales order."""
+        """When there are no incompatibilities, both coupons and promotions
+        can be applied to the same sales order."""
         # Create coupons for the coupon program
         self.env["loyalty.generate.wizard"].with_context(
             active_id=self.coupon_program_without_incompatibility.id
@@ -56,8 +56,8 @@ class TestSaleLoyaltyIncompatibility(LoyaltyIncompatibilityCase):
         self.assertTrue(len(sale.order_line.filtered("is_reward_line")) == 2)
 
     def test_02_program_with_incompatibilities(self):
-        """When an incompatible promotion is set up, the incompatible promotion cannot be
-        applied with the coupons."""
+        """When an incompatible promotion is set up, the incompatible
+        promotion cannot be applied with the coupons."""
         # Create coupons for the coupon program
         self.env["loyalty.generate.wizard"].with_context(
             active_id=self.coupon_program_with_incompatibility.id
