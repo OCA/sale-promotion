@@ -1,4 +1,4 @@
-from odoo import _, models
+from odoo import models
 
 
 class SaleOrder(models.Model):
@@ -25,7 +25,7 @@ class SaleOrder(models.Model):
                 limit_reached = order_count >= program.max_customer_application
                 if limit_reached and self.applied_coupon_ids:
                     res[program] = {
-                        "error": _(
+                        "error": self.env._(
                             "This promo code was already applied %(count)s times for"
                             "this customer and there's an stablished limit of %(max)s"
                             "for this promotion."
@@ -37,7 +37,7 @@ class SaleOrder(models.Model):
                     }
                 if limit_reached and not self.applied_coupon_ids:
                     res[program] = {
-                        "error": _(
+                        "error": self.env._(
                             "This promotion was already applied %(count)s times "
                             "for this customer and there's an established limit "
                             "of %(max)s."
@@ -78,7 +78,7 @@ class SaleOrder(models.Model):
                     continue
                 if times_used >= max_rule:
                     res[program] = {
-                        "error": _(
+                        "error": self.env._(
                             "This promo code was already applied %(times)s times for"
                             "this salesman and there's an stablished limit of %(max)s"
                             " for this promotion."
@@ -87,6 +87,8 @@ class SaleOrder(models.Model):
                     }
             if program.salesmen_strict_limit and not salesman_rule:
                 res[program] = {
-                    "error": _("This promotion is restricted to the listed salesmen.")
+                    "error": self.env._(
+                        "This promotion is restricted to the listed salesmen."
+                    )
                 }
         return res

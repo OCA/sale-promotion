@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,32 +31,28 @@ msgstr ""
 #. module: sale_loyalty_limit
 #. odoo-python
 #: code:addons/sale_loyalty_limit/models/sale_order.py:0
-#, python-format
 msgid ""
-"This promo code was already applied %(count)s times for this customer and "
+"This promo code was already applied %(count)s times forthis customer and "
+"there's an stablished limit of %(max)sfor this promotion."
+msgstr ""
+
+#. module: sale_loyalty_limit
+#. odoo-python
+#: code:addons/sale_loyalty_limit/models/sale_order.py:0
+msgid ""
+"This promo code was already applied %(times)s times forthis salesman and "
 "there's an stablished limit of %(max)s for this promotion."
 msgstr ""
 
 #. module: sale_loyalty_limit
 #. odoo-python
 #: code:addons/sale_loyalty_limit/models/sale_order.py:0
-#, python-format
-msgid ""
-"This promo code was already applied %(times)s times for this salesman and "
-"there's an stablished limit of %(max)s for this promotion."
-msgstr ""
-
-#. module: sale_loyalty_limit
-#. odoo-python
-#: code:addons/sale_loyalty_limit/models/sale_order.py:0
-#, python-format
 msgid "This promotion is restricted to the listed salesmen."
 msgstr ""
 
 #. module: sale_loyalty_limit
 #. odoo-python
 #: code:addons/sale_loyalty_limit/models/sale_order.py:0
-#, python-format
 msgid ""
 "This promotion was already applied %(count)s times for this customer and "
 "there's an established limit of %(max)s."
