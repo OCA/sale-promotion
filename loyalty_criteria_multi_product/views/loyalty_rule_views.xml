@@ -5,44 +5,28 @@
         <field name="model">loyalty.rule</field>
         <field name="arch" type="xml">
             <field name="minimum_qty" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="minimum_amount" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <label for="minimum_amount" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </label>
             <div class="d-flex flex-row" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </div>
             <field name="product_domain" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="product_ids" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="product_category_id" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="product_tag_id" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('loyalty_criteria', '!=', 'domain')]}</attribute>
+                <attribute name="invisible">loyalty_criteria != 'domain'</attribute>
             </field>
             <field name="minimum_qty" position="before">
                 <field name="loyalty_criteria" widget="radio" />
@@ -50,12 +34,12 @@
             <field name="product_domain" position="before">
                 <field
                     name="loyalty_criteria_ids"
-                    attrs="{'invisible': [('loyalty_criteria', '!=', 'multi_product')]}"
+                    invisible="loyalty_criteria != 'multi_product'"
                 >
-                    <tree editable="bottom">
+                    <list editable="bottom">
                         <field name="rule_min_quantity" string="Qty" />
                         <field name="product_ids" widget="many2many_tags" />
-                    </tree>
+                    </list>
                 </field>
             </field>
         </field>
@@ -64,10 +48,10 @@
         <field name="inherit_id" ref="loyalty.loyalty_rule_view_kanban" />
         <field name="model">loyalty.rule</field>
         <field name="arch" type="xml">
-            <xpath expr="//t[@t-if='record.code.raw_value']" position="before">
+            <xpath expr="//t//div[@t-if='record.code.raw_value']" position="before">
                 <field
                     name="loyalty_criteria"
-                    attrs="{'invisible': [('loyalty_criteria', '!=', 'multi_product')]}"
+                    invisible="loyalty_criteria != 'multi_product'"
                 />
             </xpath>
         </field>
