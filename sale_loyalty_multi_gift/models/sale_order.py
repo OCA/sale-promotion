@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 import random
 
-from odoo import _, fields, models
+from odoo import fields, models
 from odoo.exceptions import UserError
 from odoo.fields import Command, first
 from odoo.tools.float_utils import float_round
@@ -61,7 +61,7 @@ class SaleOrder(models.Model):
             not reward_product_id
             or reward_product_id not in reward.loyalty_multi_gift_ids.reward_product_ids
         ):
-            raise UserError(_("Invalid product to claim."))
+            raise UserError(self.env._("Invalid product to claim."))
         taxes = self.fiscal_position_id.map_tax(
             reward_product_id.taxes_id.filtered(
                 lambda t: t.company_id == self.company_id
@@ -70,7 +70,7 @@ class SaleOrder(models.Model):
         vals = {
             "order_id": self.id,
             "is_reward_line": True,
-            "name": _(
+            "name": self.env._(
                 "Free Product - %(product)s",
                 product=reward_product_id.with_context(
                     display_default_code=False

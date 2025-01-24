@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import Command, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -26,13 +26,13 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
         if self.selected_reward_id.reward_type == "multi_gift":
             for line in self.loyalty_multi_gift_ids:
                 lines_vals.append(
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "wizard_id": self.id,
                             "reward_id": self.selected_reward_id.id,
-                            "multi_gift_ids": [(6, 0, self.loyalty_multi_gift_ids.ids)],
+                            "multi_gift_ids": [
+                                Command.set(self.loyalty_multi_gift_ids.ids)
+                            ],
                             "line_id": line.id,
                         },
                     )
@@ -42,7 +42,7 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
     def action_apply(self):
         self.ensure_one()
         if not self.selected_reward_id:
-            raise ValidationError(_("No reward selected."))
+            raise ValidationError(self.env._("No reward selected."))
         claimable_rewards = self.order_id._get_claimable_rewards()
         selected_coupon = False
         for coupon, rewards in claimable_rewards.items():
@@ -51,7 +51,7 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
                 break
         if not selected_coupon:
             raise ValidationError(
-                _(
+                self.env._(
                     "Coupon not found while trying to add the following reward: %s",
                     self.selected_reward_id.description,
                 )
@@ -74,6 +74,7 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
 
 class SaleLoyaltyRewardProductLineWizard(models.TransientModel):
     _name = "sale.loyalty.reward.product_line.wizard"
+    _description = "Sale Loyalty Reward Product Line Wizard"
 
     wizard_id = fields.Many2one(comodel_name="sale.loyalty.reward.wizard")
     reward_id = fields.Many2one(related="wizard_id.selected_reward_id", store=True)

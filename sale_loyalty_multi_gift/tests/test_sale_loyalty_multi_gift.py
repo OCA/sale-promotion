@@ -43,8 +43,6 @@ class TestSaleLoyaltyMultiGift(LoyaltyMultiGiftCase):
         )
         self.assertEqual(2, discount_line_product_2.product_uom_qty)
         self.assertEqual(3, discount_line_product_3.product_uom_qty)
-        self.assertEqual(0, discount_line_product_2.price_reduce)
-        self.assertEqual(0, discount_line_product_3.price_reduce)
         self.assertEqual(60, discount_line_product_2.price_unit)
         self.assertEqual(70, discount_line_product_3.price_unit)
 
@@ -63,8 +61,6 @@ class TestSaleLoyaltyMultiGift(LoyaltyMultiGiftCase):
         # The promotion will only be applied once whatever the min quantity
         self.assertEqual(2, discount_line_product_2.product_uom_qty)
         self.assertEqual(3, discount_line_product_3.product_uom_qty)
-        self.assertEqual(0, discount_line_product_2.price_reduce)
-        self.assertEqual(0, discount_line_product_3.price_reduce)
 
     def test_03_test_sale_coupon_test_multi_gift(self):
         line = self.sale.order_line

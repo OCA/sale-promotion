@@ -3,7 +3,7 @@
 {
     "name": "Sale Loyalty Multi Gift",
     "summary": "Allows to configure multiple gift rewards per promotion in sales",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "development_status": "Beta",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
