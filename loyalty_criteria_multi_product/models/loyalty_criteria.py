@@ -35,8 +35,8 @@ class LoyaltyCriteria(models.Model):
             if len(criteria.product_ids) != criteria.rule_min_quantity:
                 raise ValidationError(
                     _(
-                        "The minimum required product quantity to get the reward can't be"
-                        "different from the number of products. Set the rule as repeatable"
-                        "to avoid this constraint."
+                        "The minimum required product quantity to get the"
+                        "reward can't be different from the number of products."
+                        "Set the rule as repeatable to avoid this constraint."
                     )
                 )
