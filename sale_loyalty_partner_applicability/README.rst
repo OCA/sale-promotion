@@ -84,6 +84,10 @@ Contributors
 
    -  Pilar Vargas
 
+-  `ACSONE SA/NV <https://acsone.eu>`__:
+
+   -  Laurent Mignon laurent.mignon@acsone.eu
+
 Maintainers
 -----------
 
