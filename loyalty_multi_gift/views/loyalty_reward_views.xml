@@ -37,10 +37,9 @@
                 position="after"
             >
                 <t t-if="record.reward_type.raw_value === 'multi_gift'">
-                    <div class="d-flex"><field
-                            name="description"
-                            class="d-inline"
-                        /></div>
+                    <div class="d-flex">
+                        <field name="description" class="d-inline" />
+                    </div>
                 </t>
             </xpath>
         </field>
