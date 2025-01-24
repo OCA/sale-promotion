@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - David Vidal
 # Copyright 2023 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import _, models
+from odoo import models
 
 
 class SaleOrder(models.Model):
@@ -30,7 +30,7 @@ class SaleOrder(models.Model):
                     for rule in program.rule_ids
                 ):
                     res[program] = {
-                        "error": _(
+                        "error": self.env._(
                             "You don't have the required product quantities "
                             "on your sales order."
                         )
