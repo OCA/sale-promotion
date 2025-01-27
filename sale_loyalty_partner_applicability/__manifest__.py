@@ -7,7 +7,7 @@
     "version": "16.0.1.0.3",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
-    "author": "Tecnativa, Odoo Community Association (OCA)",
+    "author": "Tecnativa,ACSONE SA/NV,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["sale_loyalty", "loyalty_partner_applicability"],
     "data": [

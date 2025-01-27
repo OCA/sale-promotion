@@ -74,6 +74,7 @@ Authors
 ~~~~~~~
 
 * Tecnativa
+* ACSONE SA/NV
 
 Contributors
 ~~~~~~~~~~~~
