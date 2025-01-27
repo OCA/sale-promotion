@@ -15,9 +15,12 @@ class LoyaltyProgram(models.Model):
         # This allows to check the partner of the order and filter
         # the rules based on the partner domain.
         if current_so:
+            applicable_partner = (
+                current_so._get_applicable_partner_for_loyalty_program()
+            )
             new_rule_products = {}
             for rule, rule_product in rule_products.items():
-                if rule._is_partner_valid(current_so.partner_id):
+                if rule._is_partner_valid(applicable_partner):
                     new_rule_products[rule] = rule_product
             rule_products = new_rule_products
         return rule_products
