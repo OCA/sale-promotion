@@ -54,7 +54,7 @@ class TestLoyaltyMassMailing(common.TransactionCase):
                         0,
                         0,
                         {
-                            "rule_partners_domain": [("id", "=", cls.partner1.id)],
+                            "partner_domain": [("id", "=", cls.partner1.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
@@ -95,7 +95,7 @@ class TestLoyaltyMassMailing(common.TransactionCase):
                         0,
                         0,
                         {
-                            "rule_partners_domain": [("id", "=", cls.partner1.id)],
+                            "partner_domain": [("id", "=", cls.partner1.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
@@ -104,7 +104,7 @@ class TestLoyaltyMassMailing(common.TransactionCase):
                         0,
                         0,
                         {
-                            "rule_partners_domain": [("id", "=", cls.partner2.id)],
+                            "partner_domain": [("id", "=", cls.partner2.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
@@ -148,8 +148,8 @@ class TestLoyaltyMassMailing(common.TransactionCase):
         self.assertEqual(self.program_all_partners.mailing_count, 1)
 
     def test_program_all_partners_2(self):
-        # Cuando hay varias reglas y en alguna no está definido el dominio para
-        # partners, entonces el mailing_domain será = [ ]
+        #  When there are several rules and in some of them the domain for
+        #  partners is not defined, then the mailing_domain will be = [ ].
         self.assertEqual(self.program_all_partners_2.mailing_count, 0)
         self.program_all_partners_2.action_mailing_count()
         self.assertEqual(self.program_all_partners_2.mailing_count, 1)
