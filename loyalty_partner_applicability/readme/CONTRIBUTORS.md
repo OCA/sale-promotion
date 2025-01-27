@@ -1,4 +1,5 @@
 - [Tecnativa](https://www.tecnativa.com):
   - Pilar Vargas
 - [ACSONE SA/NV](https://www.acsone.eu):
+  - Laurent Mignon <laurent.mignon@acsone.eu>
   - Souheil Bejaoui
