@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="loyalty_program_form_view">
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <field name="trigger_product_ids" position="before">
+                <field name="is_nominative" invisible="1" />
+                <field
+                    name="beneficiary_partner_type"
+                    attrs="{'invisible': [('is_nominative', '=', False)], 'required': [('is_nominative', '=', True)]}"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>
