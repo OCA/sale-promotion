@@ -1,0 +1,16 @@
+<odoo>
+
+    <!-- Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+    <record model="ir.ui.view" id="loyalty_program_form_view_inherit">
+        <field name="name">loyalty.program.form.inherit</field>
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='portal_point_name']" position="after">
+                <field name="duration_days" invisible="program_type != 'gift_card'" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
