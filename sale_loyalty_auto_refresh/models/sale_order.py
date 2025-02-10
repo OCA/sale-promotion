@@ -27,7 +27,7 @@ class SaleOrder(models.Model):
         self_ctx = self.with_context(skip_auto_refresh_coupons=True)
         orders = super(SaleOrder, self_ctx).create(vals_list)
         orders._auto_refresh_coupons()
-        return orders
+        return self.browse(orders.ids)
 
     def write(self, vals):
         if self._check_skip_refresh():

@@ -62,6 +62,13 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
             line_form.product_uom_qty = 1
             line_form.price_unit = 150
         sale = sale_form.save()
+        # The context of the sale order and its lines should not
+        # be modified by the auto-refresh mechanism
+        ctx = self.env.context
+        sale_ctx = sale.env.context
+        self.assertEqual(ctx, sale_ctx)
+        line_ctx = sale.order_line.env.context
+        self.assertEqual(ctx, line_ctx)
         discount_line = sale.order_line.filtered("is_reward_line")
         self.assertAlmostEqual(-75, discount_line.price_unit)
 
@@ -218,3 +225,17 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
         )  # Promo 60% is better, no select promo 50%
         self.assertTrue(line_promo_60)
         self.assertTrue(line_promo_prod)
+
+    def test_06_context_on_created_line(self):
+        so = self.env["sale.order"].create({"partner_id": self.partner.id})
+        line = self.env["sale.order.line"].create(
+            {
+                "order_id": so.id,
+                "product_id": self.product.id,
+                "product_uom_qty": 1,
+                "price_unit": 150,
+            }
+        )
+        ctx = self.env.context
+        line_ctx = line.env.context
+        self.assertEqual(ctx, line_ctx)
