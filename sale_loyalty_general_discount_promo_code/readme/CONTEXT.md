@@ -1,0 +1,2 @@
+Currently when a discount code is added to a sales order in Odoo, the discount is added as a single sales order line. This causes issues with the way taxes are calculated on the order, leading to potential tax errors and audit issues.
+This update would apply the discount to each applicable line item to be displayed in the discount percentage (Disc. %) column instead of adding a single discount line item to the order.
