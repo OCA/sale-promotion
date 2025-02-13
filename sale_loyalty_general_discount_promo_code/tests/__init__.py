@@ -1,0 +1,1 @@
+from . import test_sale_loyalty_general_discount_promo_code
