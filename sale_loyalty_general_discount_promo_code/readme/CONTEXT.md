@@ -1,0 +1,1 @@
+Currently when a discount code is added to a sales order in Odoo, the discount is added as a single sales order line. This causes issues with the way taxes are calculated on the order, leading to potential tax errors and audit issues.
