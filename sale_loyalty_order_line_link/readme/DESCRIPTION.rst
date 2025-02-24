@@ -9,3 +9,5 @@ It also links the reward lines to:
 
     - In a discount promo: the cheapest product, specific products or the whole order.
     - In a product promo: the product lines over which the reward is discounted.
+
+Additionally, this module adds a button in the loyalty program form view to open related sale orders.
