@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="loyalty_program_view_form_inherit" model="ir.ui.view">
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='communications']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': ['&amp;', '|', ('applies_on', '=', 'current'), ('program_type', 'in', ('ewallet','gift_card')), ('program_type', '!=', 'coupons')]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
