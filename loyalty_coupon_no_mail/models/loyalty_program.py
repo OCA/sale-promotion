@@ -9,7 +9,7 @@ class LoyaltyProgram(models.Model):
         """
         Override to set communication plan trigger to 'never' for coupon programs.
         """
-        result = super(LoyaltyProgram, self)._program_type_default_values()
+        result = super()._program_type_default_values()
         comm_plans = result["coupons"]["communication_plan_ids"]
         for plan in comm_plans:
             if plan[0] == 0:

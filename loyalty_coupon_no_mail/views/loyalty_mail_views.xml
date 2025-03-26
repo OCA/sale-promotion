@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record id="loyalty_mail_view_tree_inherit" model="ir.ui.view">
         <field name="model">loyalty.mail</field>
         <field name="inherit_id" ref="loyalty.loyalty_mail_view_tree" />
@@ -12,5 +11,4 @@
             </xpath>
         </field>
     </record>
-
 </odoo>
