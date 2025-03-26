@@ -1,76 +1,78 @@
 from odoo import fields
 from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
 from odoo.tools import format_amount
 
+from odoo.addons.base.tests.common import BaseCommon
 
-class TestSaleOrderRewards(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.env["ir.config_parameter"].set_param(
+
+class TestSaleOrderRewards(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.env["ir.config_parameter"].set_param(
             "sale_loyalty_general_discount_promo_code."
             "automatically_apply_promo_code_discount_percentage",
             True,
         )
-        self.currency = self.env.ref("base.USD")
-        self.pricelist = self.env["product.pricelist"].create(
-            {"name": "Test Pricelist", "currency_id": self.currency.id}
+        cls.currency = cls.env.ref("base.USD")
+        cls.pricelist = cls.env["product.pricelist"].create(
+            {"name": "Test Pricelist", "currency_id": cls.currency.id}
         )
-        self.product_1 = self.env["product.product"].create(
+        cls.product_1 = cls.env["product.product"].create(
             {"name": "Product 1", "lst_price": 100}
         )
-        self.product_2 = self.env["product.product"].create(
+        cls.product_2 = cls.env["product.product"].create(
             {"name": "Product 2", "lst_price": 50}
         )
-        self.partner = self.env["res.partner"].create({"name": "Test Customer"})
-        self.sale_order = self.env["sale.order"].create(
+        cls.partner = cls.env["res.partner"].create({"name": "Test Customer"})
+        cls.sale_order = cls.env["sale.order"].create(
             {
-                "partner_id": self.partner.id,
-                "pricelist_id": self.pricelist.id,
+                "partner_id": cls.partner.id,
+                "pricelist_id": cls.pricelist.id,
             }
         )
-        self.line_1 = self.env["sale.order.line"].create(
+        cls.line_1 = cls.env["sale.order.line"].create(
             {
-                "order_id": self.sale_order.id,
-                "product_id": self.product_1.id,
+                "order_id": cls.sale_order.id,
+                "product_id": cls.product_1.id,
                 "price_unit": 100,
                 "product_uom_qty": 1,
             }
         )
-        self.line_2 = self.env["sale.order.line"].create(
+        cls.line_2 = cls.env["sale.order.line"].create(
             {
-                "order_id": self.sale_order.id,
-                "product_id": self.product_2.id,
+                "order_id": cls.sale_order.id,
+                "product_id": cls.product_2.id,
                 "price_unit": 50,
                 "product_uom_qty": 1,
             }
         )
-        self.program = self.env["loyalty.program"].create(
+        cls.program = cls.env["loyalty.program"].create(
             {
                 "name": "Test Program",
                 "program_type": "coupons",
             }
         )
-        self.loyalty_rule = self.env["loyalty.rule"].create(
+        cls.loyalty_rule = cls.env["loyalty.rule"].create(
             {
-                "program_id": self.program.id,
+                "program_id": cls.program.id,
                 "minimum_qty": 1,
             }
         )
-        self.reward = self.env["loyalty.reward"].create(
+        cls.reward = cls.env["loyalty.reward"].create(
             {
                 "reward_type": "discount",
                 "discount_mode": "percent",
                 "discount": 10,
                 "discount_applicability": "order",
-                "program_id": self.program.id,
+                "program_id": cls.program.id,
             }
         )
-        self.coupon = self.env["loyalty.card"].create(
+        cls.coupon = cls.env["loyalty.card"].create(
             {
                 "code": "coupon_code_test",
-                "program_id": self.program.id,
-                "partner_id": self.partner.id,
+                "program_id": cls.program.id,
+                "partner_id": cls.partner.id,
                 "points": 1,
             }
         )

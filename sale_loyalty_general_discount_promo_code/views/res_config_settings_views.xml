@@ -5,23 +5,14 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="sale.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='coupon_settings']" position="after">
-                <div class="col-12 col-lg-6 o_setting_box">
-                    <div class="o_setting_left_pane">
-                        <field
-                            name="automatically_apply_promo_code_discount_percentage"
-                        />
-                    </div>
-                    <div class="o_setting_right_pane">
-                        <label
-                            for="automatically_apply_promo_code_discount_percentage"
-                            string="Automatically Apply Promo Code Discount Percentage"
-                        />
-                        <div class="text-muted" id="sale_coupon">
-                            Automatically apply promo code discount percentage to each sale order line
-                        </div>
-                    </div>
-                </div>
+            <xpath expr="//setting[@id='coupon_settings']" position="after">
+                <setting
+                    id="promo_code_settings"
+                    string="Automatically Apply Promo Code Discount Percentage"
+                    help="Automatically apply promo code discount percentage to each sale order line"
+                >
+                    <field name="automatically_apply_promo_code_discount_percentage" />
+                </setting>
             </xpath>
         </field>
     </record>

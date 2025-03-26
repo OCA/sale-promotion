@@ -1,4 +1,4 @@
-from odoo import _, models
+from odoo import models
 from odoo.tools import format_amount
 
 
@@ -72,7 +72,8 @@ class SaleOrder(models.Model):
         ):
             return rewards
 
-        # Display percentage discount as a single note line rather than multiple discount lines
+        # Display percentage discount as a single note line
+        # rather than multiple discount lines
         if (
             reward.reward_type == "discount"
             and reward.discount_mode == "percent"
@@ -91,8 +92,9 @@ class SaleOrder(models.Model):
                 first_reward.update(
                     {
                         "display_type": "line_note",
-                        "name": _(
-                            f"You saved {saved_amount} with promo '{reward.program_id.name}'"
+                        "name": self.env._(
+                            f"You saved {saved_amount} with promo "
+                            f"'{reward.program_id.name}'"
                         ),
                         "price_unit": 0,
                         "product_uom_qty": 0,

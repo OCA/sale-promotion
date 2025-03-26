@@ -3,7 +3,7 @@
 {
     "name": "Sale Loyalty General Discount Promo Code",
     "summary": "Apply the promo code discount percentage to each sales order line",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "web",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Kencove, Odoo Community Association (OCA)",
