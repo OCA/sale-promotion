@@ -6,8 +6,8 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='communications']" position="attributes">
                 <attribute
-                    name="attrs"
-                >{'invisible': ['&amp;', '|', ('applies_on', '=', 'current'), ('program_type', 'in', ('ewallet','gift_card')), ('program_type', '!=', 'coupons')]}</attribute>
+                    name="invisible"
+                >program_type != 'coupons' and (applies_on == 'current' or program_type in ('gift_card', 'ewallet'))</attribute>
             </xpath>
         </field>
     </record>

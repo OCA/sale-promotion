@@ -3,7 +3,7 @@
 {
     "name": "Loyalty Coupon No Mail",
     "summary": "Generate coupons without triggering email notifications",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "web",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Kencove, Odoo Community Association (OCA)",
