@@ -122,7 +122,6 @@ class SaleOrder(models.Model):
         }
 
         for line in order_lines:
-
             # Update discount based on `order` rewards
             for reward in reward_groups["order"]:
                 line.apply_reward(reward)
