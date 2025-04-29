@@ -1,0 +1,1 @@
+odoo-addon-loyalty-partner-applicability @ git+https://github.com/OCA/sale-promotion.git@refs/pull/231/head#subdirectory=loyalty_partner_applicability
