@@ -14,6 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: sale_loyalty_order_suggestion_multi_product
+#. odoo-python
+#: code:addons/sale_loyalty_order_suggestion_multi_product/wizard/sale_loyalty_reward_wizard.py:0
+#, python-format
+msgid "<b>* Required quantity:</b> 1 unit of %(products)s"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion_multi_product
 #: model:ir.model.fields,field_description:sale_loyalty_order_suggestion_multi_product.field_sale_loyalty_reward_wizard__multi_criteria
 #: model:ir.model.fields,field_description:sale_loyalty_order_suggestion_multi_product.field_sale_loyalty_rule_product_line_wizard__multi_criteria
 msgid "Multi Criteria"
