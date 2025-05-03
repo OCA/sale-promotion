@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-04-28 09:24+0000\n"
+"PO-Revision-Date: 2025-05-03 17:24+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: code:addons/sale_loyalty_order_suggestion_multi_product/wizard/sale_loyalty_reward_wizard.py:0
 #, python-format
 msgid "<b>* Required quantity:</b> 1 unit of %(products)s"
-msgstr ""
+msgstr "<b>* Quanità richiesta:</b> 1 unità di %(products)s"
 
 #. module: sale_loyalty_order_suggestion_multi_product
 #: model:ir.model.fields,field_description:sale_loyalty_order_suggestion_multi_product.field_sale_loyalty_reward_wizard__multi_criteria
