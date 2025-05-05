@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
+"POT-Creation-Date: 2025-05-05 05:58+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Pedro M. Baeza <pedro.baeza@tecnativa.com>\n"
 "Language-Team: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. module: sale_loyalty_order_suggestion_multi_product
 #. odoo-python
@@ -51,3 +51,10 @@ msgstr "Pedido de venta"
 #, python-format
 msgid "The quantities necessary to apply the promotion are not added."
 msgstr "No se han añadido las cantidades necesarias para aplicar la promoción."
+
+#. module: sale_loyalty_order_suggestion_multi_product
+#. odoo-python
+#: code:addons/sale_loyalty_order_suggestion_multi_product/wizard/sale_loyalty_reward_wizard.py:0
+#, python-format
+msgid "and"
+msgstr "y"

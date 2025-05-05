@@ -53,14 +53,17 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
 
     def _compute_loyalty_rule_line_description(self):
         self.loyalty_rule_line_description = False
-        products = list(
-            set(
-                self.selected_reward_id.program_id.rule_ids.loyalty_criteria_ids.product_ids
-            )
+        products = (
+            self.selected_reward_id.program_id.rule_ids.loyalty_criteria_ids.product_ids
         )
         if self.selected_reward_id and not self.applicable_program and products:
             if len(products) > 1:
-                products_str = f"{', '.join(map(str, [product.name for product in products][:-1]))} {_('and')} {[product.name for product in products][-1]}"  # noqa: B950
+                product_names = products.mapped("name")
+                products_str = "%s %s %s" % (
+                    ", ".join(product_names[:-1]),
+                    _("and"),
+                    product_names[-1],
+                )
             self.loyalty_rule_line_description = _(
                 "<b>* Required quantity:</b> 1 unit of %(products)s"
             ) % {"products": products_str}

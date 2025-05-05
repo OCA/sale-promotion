@@ -47,3 +47,10 @@ msgstr ""
 #, python-format
 msgid "The quantities necessary to apply the promotion are not added."
 msgstr ""
+
+#. module: sale_loyalty_order_suggestion_multi_product
+#. odoo-python
+#: code:addons/sale_loyalty_order_suggestion_multi_product/wizard/sale_loyalty_reward_wizard.py:0
+#, python-format
+msgid "and"
+msgstr ""
