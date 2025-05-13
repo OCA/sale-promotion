@@ -1,4 +1,4 @@
-When the promotions/coupons are published you can see the result at
-*/promotions*. There you will see all published items.
+Once the discounts or loyalty offers are published, you can see them at /promotions.
+There, you'll find everything that's currently available.
 
-To enlarge the image, just click it.
+To see a larger version of an image, just click on it.
