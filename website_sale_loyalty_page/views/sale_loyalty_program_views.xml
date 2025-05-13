@@ -10,13 +10,17 @@
                     type="object"
                     class="oe_stat_button"
                     icon="fa-globe"
-                    attrs="{'invisible': [('program_type', 'in', ('ewallet', 'gift_card'))]}"
+                    invisible="program_type in ('gift_card', 'ewallet')"
                 >
                     <field name="is_published" widget="website_publish_button" />
                 </button>
             </xpath>
             <xpath expr="//page[@name='rules_rewards']" position="after">
-                <page string="Website" name="website">
+                <page
+                    string="Website"
+                    name="website"
+                    invisible="program_type in ('gift_card', 'ewallet')"
+                >
                     <group>
                         <field name="public_name" />
                         <field name="image_1920" widget="image" />

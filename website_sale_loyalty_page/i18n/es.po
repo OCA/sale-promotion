@@ -103,6 +103,3 @@ msgstr "Sitio Web"
 #: model:ir.model.fields,field_description:website_sale_loyalty_page.field_loyalty_program__website_url
 msgid "Website URL"
 msgstr "URL de la página web"
-
-#~ msgid "Sales Coupon Program"
-#~ msgstr "Programa de cupones de ventas"
