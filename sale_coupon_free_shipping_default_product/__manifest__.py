@@ -1,6 +1,7 @@
 {
     "name": "Sale coupon free shipping default product",
-    "summary": "avoids creating multiple free shipping products",
+    "summary": """avoids creating multiple free shipping products and
+    creating multiple discount products if a coupon program is duplicated""",
     "version": "14.0.1.0.0",
     "category": "Hidden/Tools",
     "author": "Ooops, Odoo Community Association (OCA)",
