@@ -73,7 +73,7 @@ class LoyaltyProgram(models.Model):
         result["context"]["default_program_id"] = self.id
         result["context"]["default_subject"] = self.name
         if self.partner_applicability_domain:
-            result["context"][
-                "default_mailing_domain"
-            ] = self.partner_applicability_domain
+            result["context"]["default_mailing_domain"] = (
+                self.partner_applicability_domain
+            )
         return result
