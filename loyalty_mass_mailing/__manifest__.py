@@ -3,7 +3,7 @@
 
 {
     "name": "Loyalty Mass Mailing",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/sale-promotion",
     "license": "AGPL-3",

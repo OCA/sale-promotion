@@ -14,5 +14,5 @@ class MailingMailing(models.Model):
 
     @api.onchange("program_id")
     def onchange_program_id(self):
-        if self.program_id.rule_ids:
-            self.mailing_domain = self.program_id.partner_applicability_domain
+        if self.program_id.partner_domain:
+            self.mailing_domain = self.program_id.partner_domain

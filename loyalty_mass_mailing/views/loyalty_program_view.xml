@@ -11,7 +11,7 @@
                     icon="fa-envelope"
                     name="action_mailing_count"
                     groups="mass_mailing.group_mass_mailing_user"
-                    attrs="{'invisible': [('program_type', 'in', ('gift_card', 'ewallet'))]}"
+                    invisible="program_type in ('gift_card', 'ewallet')"
                 >
                     <field name="mailing_count" string="Mailings" widget="statinfo" />
                 </button>
