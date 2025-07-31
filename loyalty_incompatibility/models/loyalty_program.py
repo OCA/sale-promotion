@@ -28,8 +28,11 @@ class LoyaltyProgram(models.Model):
                     ("id", "!=", program.id),
                 ]
             )
-            for other in incompatible_programs:
-                if other not in program.incompatible_promotion_ids:
-                    other.incompatible_promotion_ids -= program
+            if not self.env.context.get("avoid_incompatibility_loop", False):
+                for other in incompatible_programs:
+                    if other not in program.incompatible_promotion_ids:
+                        other.incompatible_promotion_ids -= program
             for incompatible in program.incompatible_promotion_ids:
-                incompatible.incompatible_promotion_ids |= program
+                incompatible.with_context(
+                    avoid_incompatibility_loop=True
+                ).incompatible_promotion_ids |= program
