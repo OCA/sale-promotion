@@ -3,14 +3,14 @@
 {
     "name": "Sale Loyalty Suggestions",
     "summary": "Suggest promotions in the sale order line",
-    "version": "16.0.1.0.4",
+    "version": "18.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "maintainers": ["pilarvargas-tecnativa"],
     "license": "AGPL-3",
-    "depends": ["sale_loyalty", "sale_loyalty_initial_date_validity"],
+    "depends": ["sale_loyalty"],
     "data": [
         "security/ir.model.access.csv",
         "views/sale_order_views.xml",

@@ -26,7 +26,6 @@ class SaleOrder(models.Model):
 
     def _get_available_programs(self):
         programs = self.env["loyalty.program"]
-        self._update_programs_and_rewards()
         programs_applied = self._get_reward_programs()
         domain = expression.AND(
             [
@@ -74,9 +73,9 @@ class SaleOrder(models.Model):
         return programs.filtered(lambda p: p.id not in programs_to_delete)
 
     def _filter_programs_by_rules_with_products(self):
-        """Hook method. The objective of this method is to filter by rules that establish
-        products as criteria in a loyalty program and then in other methods make the
-        filtering that corresponds to each functionality."""
+        """Hook method. The objective of this method is to filter by rules that
+        establish products as criteria in a loyalty program and then in other methods
+        make the filtering that corresponds to each functionality."""
         valid_programs = self._get_available_programs()
         # Filters programs that have rules with minimum_qty > 0
         programs_with_minimum_qty = valid_programs.filtered(
