@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import Command, _, api, fields, models
 
 
 class SaleLoyaltyRewardWizard(models.TransientModel):
@@ -52,12 +52,11 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
             ]
             for record in products:
                 units_included = self.order_id.order_line.filtered(
-                    lambda x: x.product_id == record and not x.is_reward_line
+                    lambda x, record=record: x.product_id == record
+                    and not x.is_reward_line
                 ).product_uom_qty
                 lines_vals.append(
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "wizard_id": self.id,
                             "product_id": record.id,
@@ -112,7 +111,7 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
         ):
             # Filter existing order lines based on the product of the loyalty rule line
             order_line = self.order_id.order_line.filtered(
-                lambda x: x.product_id == line.product_id
+                lambda x, line=line: x.product_id == line.product_id
             )
             if order_line:
                 self._update_order_line_with_units(order_line, line.units_to_include)
@@ -122,7 +121,7 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
         super().action_apply()
         return {
             "type": "ir.actions.client",
-            "tag": "reload",
+            "tag": "soft_reload",
         }
 
 

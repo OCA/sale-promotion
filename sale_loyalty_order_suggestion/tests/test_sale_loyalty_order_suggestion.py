@@ -1,9 +1,12 @@
 # Copyright 2023 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests.common import Form, TransactionCase
+from odoo import Command
+from odoo.tests import Form
+
+from odoo.addons.sale.tests.common import SaleCommon
 
 
-class TestSaleLoyaltyOrderSuggestion(TransactionCase):
+class TestSaleLoyaltyOrderSuggestion(SaleCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -12,9 +15,7 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
             {
                 "name": "Test pricelist",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -27,9 +28,27 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
         cls.partner = cls.env["res.partner"].create(
             {"name": "Mr. Odoo", "property_product_pricelist": cls.pricelist.id}
         )
-        cls.product_a = product_obj.create({"name": "Product A", "list_price": 50})
-        cls.product_b = product_obj.create({"name": "Product B", "list_price": 10})
-        cls.product_c = product_obj.create({"name": "Product C", "list_price": 70})
+        cls.product_a = product_obj.create(
+            {
+                "name": "Product A",
+                "list_price": 50,
+                "sale_ok": True,
+            }
+        )
+        cls.product_b = product_obj.create(
+            {
+                "name": "Product B",
+                "list_price": 10,
+                "sale_ok": True,
+            }
+        )
+        cls.product_c = product_obj.create(
+            {
+                "name": "Product C",
+                "list_price": 70,
+                "sale_ok": True,
+            }
+        )
         cls.loyalty_program = cls.env["loyalty.program"].create(
             {
                 "name": "Test Loyalty Order Suggestion",
@@ -37,38 +56,28 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
                 "trigger": "auto",
                 "applies_on": "current",
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 3,
                             "product_ids": [
-                                (
-                                    6,
-                                    0,
-                                    [
-                                        cls.product_a.id,
-                                        cls.product_b.id,
-                                        cls.product_c.id,
-                                    ],
-                                )
+                                Command.link(cls.product_a.id),
+                                Command.link(cls.product_b.id),
+                                Command.link(cls.product_c.id),
                             ],
-                        },
-                    )
+                        }
+                    ),
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "discount",
                             "required_points": 1,
                             "discount": 10,
                             "discount_mode": "percent",
                             "discount_applicability": "order",
-                        },
-                    )
+                        }
+                    ),
                 ],
             }
         )
@@ -99,7 +108,8 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
         self.assertEqual(wizard.reward_ids, line_a.suggested_promotion_ids.reward_ids)
         # Select promotion to apply
         wizard.selected_reward_id = self.loyalty_program.reward_ids[0].id
-        # The promotion is not directly applicable as it does not comply with all the rules.
+        # The promotion is not directly applicable as it does not comply with all the
+        # rules.
         self.assertFalse(wizard.applicable_program)
         # The wizard contains 3 lines, one for each product configured in the rules
         self.assertEqual(len(wizard.loyalty_rule_line_ids), 3)
