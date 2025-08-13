@@ -17,21 +17,22 @@ Sale Loyalty Suggestions
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--promotion-lightgray.png?logo=github
-    :target: https://github.com/OCA/sale-promotion/tree/16.0/sale_loyalty_order_suggestion
+    :target: https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_order_suggestion
     :alt: OCA/sale-promotion
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/sale-promotion-16-0/sale-promotion-16-0-sale_loyalty_order_suggestion
+    :target: https://translation.odoo-community.org/projects/sale-promotion-18-0/sale-promotion-18-0-sale_loyalty_order_suggestion
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of the `sale_loyalty` wizard by giving hints of
-available promotions and products needed to apply them to the seller placing the sales
-order. A product added to the lines of a sales order will be marked with a gift icon if
-there is a promotion containing that product as part of its rules.
+This module extends the functionality of the sale_loyalty wizard by
+giving hints of available promotions and products needed to apply them
+to the seller placing the sales order. A product added to the lines of a
+sales order will be marked with a gift icon if there is a promotion
+containing that product as part of its rules.
 
 **Table of contents**
 
@@ -43,13 +44,14 @@ Usage
 
 To use this module:
 
-* Configure or create a promotion and set in its rules products and a required quantity.
-* Create a sales order and add to the order lines one of the products that were part of
-  the promotion rules. This line will then be marked with an icon (🎁) which will appear
-  at the end on the right.
-* Click on the icon and the wizard will open with the available promotions of which the
-  product is part of its rules.
-* Select the promotion and the products needed to apply it.
+-  Configure or create a promotion and set in its rules products and a
+   required quantity.
+-  Create a sales order and add to the order lines one of the products
+   that were part of the promotion rules. This line will then be marked
+   with an icon (🎁) which will appear at the end on the right.
+-  Click on the icon and the wizard will open with the available
+   promotions of which the product is part of its rules.
+-  Select the promotion and the products needed to apply it.
 
 Bug Tracker
 ===========
@@ -57,7 +59,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-promotion/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_order_suggestion%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_order_suggestion%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -65,21 +67,21 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pedro M. Baeza
-  * David Vidal
-  * Pilar Vargas
+   -  Pedro M. Baeza
+   -  David Vidal
+   -  Pilar Vargas
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -99,6 +101,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-pilarvargas-tecnativa| 
 
-This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/16.0/sale_loyalty_order_suggestion>`_ project on GitHub.
+This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_order_suggestion>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
