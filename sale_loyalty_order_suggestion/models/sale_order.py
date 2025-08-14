@@ -26,7 +26,6 @@ class SaleOrder(models.Model):
 
     def _get_available_programs(self):
         programs = self.env["loyalty.program"]
-        self._update_programs_and_rewards()
         programs_applied = self._get_reward_programs()
         domain = expression.AND(
             [

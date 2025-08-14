@@ -1,5 +1,6 @@
 # Copyright 2023 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from odoo import Command
 from odoo.tests.common import Form, TransactionCase
 
 
@@ -148,3 +149,40 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
         self.assertEqual(len(wizard.loyalty_rule_line_ids), 0)
         wizard.action_apply()
         self.assertTrue(self.sale.order_line.filtered(lambda x: x.is_reward_line))
+
+    def test_no_extra_coupons_on_promotion_suggestion(self):
+        next_order_coupon = self.env["loyalty.program"].create(
+            {
+                "name": "Test Loyalty Next Order Coupons",
+                "program_type": "next_order_coupons",
+                "trigger": "auto",
+                "applies_on": "future",
+                "rule_ids": [
+                    Command.create(
+                        {
+                            "reward_point_mode": "order",
+                            "minimum_qty": 1,
+                            "minimum_amount": 50,
+                        },
+                    )
+                ],
+                "reward_ids": [
+                    Command.create(
+                        {
+                            "reward_type": "discount",
+                            "required_points": 1,
+                            "discount": 10,
+                            "discount_mode": "percent",
+                            "discount_applicability": "order",
+                        },
+                    )
+                ],
+            }
+        )
+        self.assertFalse(next_order_coupon.coupon_ids)
+        sale_form = Form(self.env["sale.order"])
+        sale_form.partner_id = self.partner
+        with sale_form.order_line.new() as line_form:
+            line_form.product_id = self.product_a
+            line_form.product_uom_qty = 1
+        self.assertFalse(next_order_coupon.coupon_ids)
