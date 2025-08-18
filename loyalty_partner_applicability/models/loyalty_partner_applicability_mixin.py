@@ -14,15 +14,15 @@ class LoyaltyPartnerApplicabilityMixin(models.AbstractModel):
     _description = "Manage the applicability of loyalty elements to partners"
 
     partner_ids = fields.Many2many(
-        string="Specific customers",
+        string="Allowed partners",
         comodel_name="res.partner",
-        help="This field allow to restrict the applicability to a specific set of partners",
+        help="Only the selected partners will be eligible for this promotion.",
         default=lambda p: p.env.context.get("default_partner_ids"),
     )
 
     partner_domain = fields.Char(
-        string="Specific customers domain",
-        help="Applicable to the customers that match the domain",
+        string="Allowed partners domain",
+        help="Define the domain to restrict which partners are eligible for this promotion.",
         default="[]",
     )
 
