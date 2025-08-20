@@ -4,12 +4,12 @@
     "name": "Website Sale Loyalty Suggestion Wizard",
     "summary": "Suggests promotions and allows you to configure and apply these "
     "promotions directly from the website",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "development_status": "Beta",
     "category": "eCommerce",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",
-    "maintainers": ["chienandalu"],
+    "maintainers": ["pilarvargas-tecnativa"],
     "license": "AGPL-3",
     "depends": [
         "sale_loyalty",

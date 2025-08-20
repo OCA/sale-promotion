@@ -10,7 +10,7 @@ class WebsiteSaleLoyaltySuggestionWizardController(WebsiteSale):
     def _process_promotion_lines(self, wizard_id, promotion_lines):
         for product, qty in promotion_lines.items():
             line = wizard_id.loyalty_rule_line_ids.filtered(
-                lambda x: x.product_id.id == int(product)
+                lambda x, product=product: x.product_id.id == int(product)
             )
             if len(promotion_lines) == 1:
                 qty = line.units_required - line.units_included
