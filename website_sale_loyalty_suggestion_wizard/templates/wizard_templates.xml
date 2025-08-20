@@ -23,7 +23,8 @@
                                 t-att-src="'/web/image/product.product/%s/image_128' % product.id"
                                 t-att-alt="product.display_name"
                             />
-                            <strong>x<t t-out="reward_qty" /></strong> <span
+                            <strong>x<t t-out="reward_qty" /></strong>
+                            <span
                                 t-out="product.with_context(display_default_code=False).display_name"
                             />
                         </p>
@@ -37,7 +38,8 @@
         <t t-if="reward.reward_type == 'discount'">
             <div class="card-text">
                 <p class="medium text-italic m-0 text-success csw_optional_reward">
-                    <strong>Discount</strong><br />
+                    <strong>Discount</strong>
+                    <br />
                     <t t-out="reward.description" />
                 </p>
             </div>
@@ -95,17 +97,17 @@
                                 </strong>
                                 <small t-if="mandatory_option.product_id.default_code">
                                     [<t
-                                        t-out="mandatory_option.product_id.default_code"
-                                    />]
+                                    t-out="mandatory_option.product_id.default_code"
+                                />]
                                 </small>
                             </div>
                             <div class="oe_promotion_wizard_item_infos">
                                 <p>
                                     <t t-if="mandatory_option.units_included">
                                         <u
-                                            class="text-primary font-weight-bold"
-                                            t-out="'{} {}'.format(mandatory_option.units_included, mandatory_option.product_id.sudo().uom_id.name)"
-                                        /> already on current order.
+                                        class="text-primary font-weight-bold"
+                                        t-out="'{} {}'.format(mandatory_option.units_included, mandatory_option.product_id.sudo().uom_id.name)"
+                                    /> already on current order.
                                     </t>
                                     <t
                                         t-set="qty_to_add"
@@ -113,17 +115,17 @@
                                     />
                                     <t t-if="mandatory_options and qty_to_add">
                                         <u
-                                            class="text-success font-weight-bold"
-                                            t-out="'+{} {}'.format(qty_to_add, mandatory_option.product_id.sudo().uom_id.name)"
-                                        /> will be added.
+                                        class="text-success font-weight-bold"
+                                        t-out="'+{} {}'.format(qty_to_add, mandatory_option.product_id.sudo().uom_id.name)"
+                                    /> will be added.
                                     </t>
                                 </p>
                                 <p>
                                     Price: <span
-                                        t-out="mandatory_option.price_unit"
-                                        style="white-space: nowrap;"
-                                        t-options="{'widget': 'monetary', 'display_currency': mandatory_option.currency_id}"
-                                    />
+                                    t-out="mandatory_option.price_unit"
+                                    style="white-space: nowrap;"
+                                    t-options="{'widget': 'monetary', 'display_currency': mandatory_option.currency_id}"
+                                />
                                 </p>
                             </div>
                         </div>
@@ -240,16 +242,16 @@
                             </h4>
                             <h4 t-else="">
                                 <i
-                                    class="fa fa-sun-o text-warning csw_criteria_icon"
-                                /> <span
-                                    t-out="min(promotion_id.rule_ids.mapped('minimum_qty'))"
-                                    class="font-weight-bold csw_criteria_min_quantity"
-                                />x units
+                                class="fa fa-sun-o text-warning csw_criteria_icon"
+                            /> <span
+                                t-out="min(promotion_id.rule_ids.mapped('minimum_qty'))"
+                                class="font-weight-bold csw_criteria_min_quantity"
+                            />x units
                                 <span class="badge bg-primary">Add <span
-                                        t-out="criteria_needed_qty"
-                                        class="csw_criteria_needed_qty"
-                                        t-att-data-qty="criteria_needed_qty"
-                                    /> more</span>
+                                t-out="criteria_needed_qty"
+                                class="csw_criteria_needed_qty"
+                                t-att-data-qty="criteria_needed_qty"
+                            /> more</span>
                             </h4>
                         </div>
                     </div>

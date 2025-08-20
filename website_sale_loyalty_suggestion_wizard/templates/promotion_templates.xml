@@ -30,19 +30,19 @@
                     <strong t-out="promotion_id.public_name" />
                      In order to apply this promotion you need to configure some options.
                     <a
-                        href="/promotions/dismiss"
-                        type="button"
-                        class="btn-close"
-                        aria-label="Close"
-                    />
+                    href="/promotions/dismiss"
+                    type="button"
+                    class="btn-close"
+                    aria-label="Close"
+                />
                     <hr />
                     <!-- Button trigger modal -->
                     <button
-                        type="button"
-                        class="btn btn-warning"
-                        data-bs-toggle="modal"
-                        data-bs-target="#o_promo_configure_modal"
-                    >
+                    type="button"
+                    class="btn btn-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#o_promo_configure_modal"
+                >
                         <i class="fa fa-gift" /> Configure
                     </button>
                 </div>
