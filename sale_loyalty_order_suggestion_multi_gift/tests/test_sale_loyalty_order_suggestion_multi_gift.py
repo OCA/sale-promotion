@@ -1,20 +1,20 @@
 # Copyright 2024 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests.common import Form, TransactionCase
+from odoo import Command
+from odoo.tests import Form
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestSaleLoyaltyOrderSuggestion(TransactionCase):
+class TestSaleLoyaltyOrderSuggestion(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.pricelist = cls.env["product.pricelist"].create(
             {
                 "name": "Test pricelist",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -46,9 +46,7 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
                 "trigger": "auto",
                 "applies_on": "current",
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 2,
@@ -57,24 +55,18 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
                     ),
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "multi_gift",
                             "required_points": 1,
                             "loyalty_multi_gift_ids": [
-                                (
-                                    0,
-                                    0,
+                                Command.create(
                                     {
                                         "reward_product_ids": [(4, cls.product_2.id)],
                                         "reward_product_quantity": 2,
                                     },
                                 ),
-                                (
-                                    0,
-                                    0,
+                                Command.create(
                                     {
                                         "reward_product_ids": [
                                             (4, cls.product_3.id),
@@ -110,10 +102,10 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
         return wizard
 
     def test_01_suggested_promotion_for_product_no_applicable(self):
-        # In this test a suggestion is made for a promotion which contains in its rewards
-        # multi-gift product added to the order lines but does not meet all of the
-        # requirements to be applied so it will be necessary to configure the products in the
-        # products in the wizard.
+        # In this test a suggestion is made for a promotion which contains in its
+        # rewards multi-gift product added to the order lines but does not meet all of
+        # the requirements to be applied so it will be necessary to configure the
+        # products in the products in the wizard.
         self.sale.order_line.filtered(lambda x: x.product_id == self.product_1).unlink()
         line_2 = self.sale.order_line.filtered(lambda x: x.product_id == self.product_2)
         wizard = self._open_suggested_promotion_wizard(line_2.suggested_reward_ids)
@@ -123,7 +115,8 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
         )
         # Select promotion to apply
         wizard.selected_reward_id = self.loyalty_program_form.reward_ids[0].id
-        # The promotion is not directly applicable as it does not comply with all the rules.
+        # The promotion is not directly applicable as it does not comply with all the
+        # rules.
         self.assertFalse(wizard.applicable_program)
         # The wizard contains all the products to add as no specific product has been
         # set but among these products is the product added to the order lines and this
@@ -137,8 +130,9 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
         self.assertEqual(wiz_line_2.units_to_include, 0)
         # More units are added to make the promotion compliant and applicable.
         # If more quantity of the reward product is added from the wizard to apply the
-        # promotion, it is considered that more quantity of product is wanted in addition
-        # to the reward so the initial quantity added to the sales order will be respected.
+        # promotion, it is considered that more quantity of product is wanted in
+        # addition to the reward so the initial quantity added to the sales order will
+        # be respected.
         wiz_line_2.units_to_include = 1
         wizard.action_apply()
         self.assertEqual(

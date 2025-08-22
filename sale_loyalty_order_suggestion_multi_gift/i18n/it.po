@@ -30,6 +30,3 @@ msgstr "Procedura guidata premio fedeltà vendite linea prodotto"
 #: model:ir.model,name:sale_loyalty_order_suggestion_multi_gift.model_sale_order
 msgid "Sales Order"
 msgstr "Ordine di vendita"
-
-#~ msgid "sale.loyalty.reward.product_line.wizard"
-#~ msgstr "sale.loyalty.reward.product_line.wizard"
