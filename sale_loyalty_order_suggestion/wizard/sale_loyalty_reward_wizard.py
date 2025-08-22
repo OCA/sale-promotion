@@ -105,7 +105,7 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
             }
         )
 
-    def action_apply(self):
+    def _apply_loyalty_rule_lines_to_order(self):
         for line in self.loyalty_rule_line_ids.filtered(
             lambda x: x.units_to_include > 0
         ):
@@ -118,6 +118,9 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
             else:
                 self._create_new_order_line(line.product_id, line.units_to_include)
         self.order_id._update_programs_and_rewards()
+
+    def action_apply(self):
+        self._apply_loyalty_rule_lines_to_order()
         super().action_apply()
         return {
             "type": "ir.actions.client",
