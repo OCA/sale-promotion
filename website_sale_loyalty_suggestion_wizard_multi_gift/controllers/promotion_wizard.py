@@ -10,7 +10,7 @@ class WebsiteSaleLoyaltySuggestionWizardController(WebsiteSale):
         if wizard_id.multi_gift_reward:
             selected_product_ids = reward_line_options.get("selected_product_ids")
             for gift_line, selected_product_id in zip(
-                wizard_id.loyalty_gift_line_ids, selected_product_ids
+                wizard_id.loyalty_gift_line_ids, selected_product_ids, strict=False
             ):
                 gift_line.selected_gift_id = int(selected_product_id)
         return response
