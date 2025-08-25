@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import Command, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -16,10 +16,11 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
 
     def _compute_loyalty_rule_line_ids(self):
         self.loyalty_rule_line_ids = None
-        # The products of the rule with criteria "multi_product" related to the product_id
-        # of the line are taken into consideration in case the line contains a product of
-        # the rules, otherwise the product_id will coincide with a reward product and in
-        # that case the products of the first rule "multi_product" are taken into consideration.
+        # The products of the rule with criteria "multi_product" related to the
+        # product_id of the line are taken into consideration in case the line contains
+        # a product of the rules, otherwise the product_id will coincide with a reward
+        # product and in that case the products of the first rule "multi_product" are
+        # taken into consideration.
         products = (
             self.selected_reward_id.program_id.rule_ids.filtered(
                 lambda x: x.loyalty_criteria == "multi_product"
@@ -33,12 +34,11 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
             lines_vals = []
             for record in products:
                 units_included = self.order_id.order_line.filtered(
-                    lambda x: x.product_id == record and not x.is_reward_line
+                    lambda x, record=record: x.product_id == record
+                    and not x.is_reward_line
                 ).product_uom_qty
                 lines_vals.append(
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "wizard_id": self.id,
                             "product_id": record.id,
@@ -58,15 +58,18 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
         )
         if self.selected_reward_id and not self.applicable_program and products:
             if len(products) > 1:
-                product_names = products.mapped("name")
-                products_str = "%s %s %s" % (
-                    ", ".join(product_names[:-1]),
-                    _("and"),
-                    product_names[-1],
+                product_names = products.with_context(
+                    display_default_code=False
+                ).mapped("display_name")
+                products_str = "{products_list} {and_word} {last_product}".format(
+                    products_list=", ".join(product_names[:-1]),
+                    and_word=self.env._("and"),
+                    last_product=product_names[-1],
                 )
-            self.loyalty_rule_line_description = _(
-                "<b>* Required quantity:</b> 1 unit of %(products)s"
-            ) % {"products": products_str}
+            self.loyalty_rule_line_description = self.env._(
+                "<b>* Required quantity:</b> 1 unit of %(products)s",
+                products=products_str,
+            )
         else:
             return super()._compute_loyalty_rule_line_description()
 
@@ -78,13 +81,18 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
                 line.units_to_include > 0 or line.units_included > 0
                 for line in self.loyalty_rule_line_ids
             ):
-                return super().action_apply()
+                self._apply_loyalty_rule_lines_to_order()
+                return super(
+                    SaleLoyaltyRewardWizard,
+                    self.with_context(skip_apply_loyalty_rule_lines=True),
+                ).action_apply()
             else:
                 raise ValidationError(
-                    _("The quantities necessary to apply the promotion are not added.")
+                    self.env._(
+                        "The quantities necessary to apply the promotion are not added."
+                    )
                 )
-        else:
-            return super().action_apply()
+        return super().action_apply()
 
 
 class SaleLoyaltyRuleProductLineWizard(models.TransientModel):
