@@ -3,7 +3,6 @@
 
 
 from odoo import api, fields, models
-from odoo.osv import expression
 
 
 class LoyaltyProgram(models.Model):
@@ -26,27 +25,11 @@ class LoyaltyProgram(models.Model):
     @api.depends(
         "partner_domain",
         "partner_ids",
-        "rule_ids.partner_domain",
-        "rule_ids.partner_ids",
     )
     def _compute_partner_applicability_domain(self):
         for program in self:
-            programs_domain = []
-            program_domain = program._get_eval_partner_domain()
-            if program_domain:
-                programs_domain.append(program_domain)
-            rules_domain = []
-            for rule in program.rule_ids:
-                rule_domain = rule._get_eval_partner_domain()
-                rules_domain.append(rule_domain)
-            if all(rules_domain):
-                # If one of the rules has no domain, we don't want to apply any domain
-                rules_domain = expression.OR(rules_domain)
-                programs_domain.append(rules_domain)
-            if programs_domain:
-                program.partner_applicability_domain = expression.AND(programs_domain)
-            else:
-                program.partner_applicability_domain = "[]"
+            program_domain = program._get_eval_partner_domain() or "[]"
+            program.partner_applicability_domain = program_domain
 
     @api.depends("mailing_ids")
     def _compute_mailing_count(self):

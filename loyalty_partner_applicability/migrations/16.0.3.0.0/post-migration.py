@@ -13,10 +13,20 @@ def migrate(cr, version):
     )
     env = api.Environment(cr, SUPERUSER_ID, {})
     programs = env["loyalty.program"].search([])
+    cr.execute(
+        """
+        SELECT
+            id,
+            rule_partners_domain
+        FROM loyalty_rule
+        WHERE rule_partners_domain IS NOT NULL AND rule_partners_domain != '[]'
+        """
+    )
+    domain_by_rule = {row[0]: row[1] for row in cr.fetchall()}
     for program in programs:
         program_partner_domains = []
         for rule in program.rule_ids:
-            domain = rule.partner_domain
+            domain = domain_by_rule.get(rule.id, "[]")
             py_domain = ast.literal_eval(domain)
             if py_domain and py_domain not in program_partner_domains:
                 program_partner_domains.append(py_domain)
@@ -24,11 +34,13 @@ def migrate(cr, version):
                     f"Adding domain {py_domain} to program {program.name} "
                     "from rule {rule.display_name}"
                 )
-            rule.write({"partner_domain": "[]"})
         if program_partner_domains:
-            program.write(
-                {"partner_domain": str(expression.OR(program_partner_domains))}
+            domain = (
+                expression.OR(program_partner_domains)
+                if len(program_partner_domains) > 1
+                else program_partner_domains[0]
             )
+            program.write({"partner_domain": str(domain)})
             _logger.info(
                 f"Set domain {program.partner_domain} to program {program.name}"
             )

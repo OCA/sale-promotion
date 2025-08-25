@@ -10,5 +10,5 @@
     "author": "Tecnativa,ACSONE SA/NV,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["loyalty"],
-    "data": ["views/loyalty_rule_view_form.xml", "views/loyalty_program_view_form.xml"],
+    "data": ["views/loyalty_program_view_form.xml"],
 }
