@@ -120,7 +120,10 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
         self.order_id._update_programs_and_rewards()
 
     def action_apply(self):
-        self._apply_loyalty_rule_lines_to_order()
+        # Added `skip_apply_loyalty_rule_lines` context check in to allow dependent
+        # modules to control when _apply_loyalty_rule_lines_to_order is executed.
+        if not self.env.context.get("skip_apply_loyalty_rule_lines"):
+            self._apply_loyalty_rule_lines_to_order()
         super().action_apply()
         return {
             "type": "ir.actions.client",
