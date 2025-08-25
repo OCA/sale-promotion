@@ -46,7 +46,4 @@ class SaleOrder(models.Model):
         for program in rules.mapped("program_id"):
             if not program._is_partner_valid(applicable_partner):
                 return {"error": _("The customer doesn't have access to this reward.")}
-        for rule in rules:
-            if not rule._is_partner_valid(applicable_partner):
-                return {"error": _("The customer doesn't have access to this reward.")}
         return res

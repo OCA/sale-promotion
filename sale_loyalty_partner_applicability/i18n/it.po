@@ -32,13 +32,17 @@ msgstr ""
 "Condivisione coupon tra partner all'interno della stessa entità commerciale."
 
 #. module: sale_loyalty_partner_applicability
+#: model:ir.model,name:sale_loyalty_partner_applicability.model_loyalty_program
+msgid "Loyalty display on a website"
+msgstr ""
+
+#. module: sale_loyalty_partner_applicability
 #: model:ir.model,name:sale_loyalty_partner_applicability.model_sale_order
 msgid "Sales Order"
 msgstr "Ordine di vendita"
 
 #. module: sale_loyalty_partner_applicability
 #. odoo-python
-#: code:addons/sale_loyalty_partner_applicability/models/sale_order.py:0
 #: code:addons/sale_loyalty_partner_applicability/models/sale_order.py:0
 #, python-format
 msgid "The customer doesn't have access to this reward."
