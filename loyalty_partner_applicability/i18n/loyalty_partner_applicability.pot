@@ -19,8 +19,13 @@ msgid "Allow coupon sharing"
 msgstr ""
 
 #. module: loyalty_partner_applicability
-#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_rule__rule_partners_domain
-msgid "Based on Customers"
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_program__partner_ids
+msgid "Allowed partners"
+msgstr ""
+
+#. module: loyalty_partner_applicability
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_program__partner_domain
+msgid "Allowed partners domain"
 msgstr ""
 
 #. module: loyalty_partner_applicability
@@ -29,11 +34,18 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: loyalty_partner_applicability
-#: model:ir.model,name:loyalty_partner_applicability.model_loyalty_rule
-msgid "Loyalty Rule"
+#: model:ir.model.fields,help:loyalty_partner_applicability.field_loyalty_program__partner_domain
+msgid ""
+"Define the domain to restrict which partners are eligible for this "
+"promotion."
 msgstr ""
 
 #. module: loyalty_partner_applicability
-#: model:ir.model.fields,help:loyalty_partner_applicability.field_loyalty_rule__rule_partners_domain
-msgid "Loyalty program will work for selected customers only"
+#: model:ir.model,name:loyalty_partner_applicability.model_loyalty_program
+msgid "Loyalty display on a website"
+msgstr ""
+
+#. module: loyalty_partner_applicability
+#: model:ir.model.fields,help:loyalty_partner_applicability.field_loyalty_program__partner_ids
+msgid "Only the selected partners will be eligible for this promotion."
 msgstr ""
