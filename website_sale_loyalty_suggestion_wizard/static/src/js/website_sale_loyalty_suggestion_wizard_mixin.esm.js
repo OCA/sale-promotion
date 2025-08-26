@@ -24,7 +24,7 @@ var CouponSelectionMixin = {
         var $inputs = $row.find("input");
         var needed_qty = parseInt($needed_qty_span.data("qty"), 10);
         var current_row_qty = 0;
-        _.each($inputs, function (inp) {
+        $inputs.forEach((inp) => {
             current_row_qty += parseInt(inp.value, 10);
         });
         needed_qty = Math.max(needed_qty - current_row_qty, 0);
@@ -77,13 +77,13 @@ var CouponSelectionMixin = {
         var $input_siblings = $(ev.currentTarget.closest(".row")).find(
             "input[name='reward']"
         );
-        _.each($input_siblings, function ($sibling) {
-            $($sibling)
+        $input_siblings.each(function () {
+            $(this)
                 .closest(".csw_optional_reward")
                 .not(ev.currentTarget)
                 .find(".bg-info")
                 .removeClass("bg-info");
-            $($sibling).closest(".csw_optional_reward").removeClass("bg-success");
+            $(this).closest(".csw_optional_reward").removeClass("bg-success");
         });
         $input.prop("checked", true);
         $(ev.currentTarget).addClass("bg-success");
@@ -119,8 +119,8 @@ var CouponSelectionMixin = {
         var $input_siblings = $(ev.currentTarget.closest(".card-body")).find(
             "input[name='" + group + "']"
         );
-        _.each($input_siblings, function ($sibling) {
-            $($sibling).closest(".card").removeClass("bg-info");
+        $input_siblings.each(function () {
+            $(this).closest(".card").removeClass("bg-info");
         });
         $input.prop("checked", true);
         $(ev.currentTarget).addClass("bg-info");
