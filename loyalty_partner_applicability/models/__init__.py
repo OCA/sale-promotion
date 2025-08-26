@@ -1,2 +1,2 @@
-from . import loyalty_rule
+from . import loyalty_program
 from . import res_config_settings

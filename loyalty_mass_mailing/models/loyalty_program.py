@@ -2,10 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 
-from ast import literal_eval
-
 from odoo import api, fields, models
-from odoo.osv import expression
 
 
 class LoyaltyProgram(models.Model):
@@ -25,18 +22,14 @@ class LoyaltyProgram(models.Model):
         compute="_compute_partner_applicability_domain",
     )
 
-    @api.depends("rule_ids.rule_partners_domain")
+    @api.depends(
+        "partner_domain",
+        "partner_ids",
+    )
     def _compute_partner_applicability_domain(self):
         for program in self:
-            partner_domains = [
-                literal_eval(domain)
-                for domain in program.rule_ids.mapped("rule_partners_domain")
-                if domain
-            ]
-            if all(partner_domains):
-                program.partner_applicability_domain = expression.OR(partner_domains)
-            else:
-                program.partner_applicability_domain = "[]"
+            program_domain = program._get_eval_partner_domain() or "[]"
+            program.partner_applicability_domain = program_domain
 
     @api.depends("mailing_ids")
     def _compute_mailing_count(self):

@@ -74,6 +74,7 @@ Authors
 ~~~~~~~
 
 * Tecnativa
+* ACSONE SA/NV
 
 Contributors
 ~~~~~~~~~~~~
@@ -81,6 +82,10 @@ Contributors
 * `Tecnativa <https://www.tecnativa.com>`_:
 
   * Pilar Vargas
+
+* `ACSONE SA/NV <https://acsone.eu>`_:
+
+  * Laurent Mignon <laurent.mignon@acsone.eu>
 
 Maintainers
 ~~~~~~~~~~~

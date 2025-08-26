@@ -49,12 +49,12 @@ class TestLoyaltyMassMailing(common.TransactionCase):
                 "program_type": "promotion",
                 "trigger": "auto",
                 "applies_on": "current",
+                "partner_domain": [("id", "=", cls.partner1.id)],
                 "rule_ids": [
                     (
                         0,
                         0,
                         {
-                            "rule_partners_domain": [("id", "=", cls.partner1.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
@@ -90,12 +90,12 @@ class TestLoyaltyMassMailing(common.TransactionCase):
                 "program_type": "promotion",
                 "trigger": "auto",
                 "applies_on": "current",
+                "partner_domain": [("id", "in", [cls.partner1.id, cls.partner2.id])],
                 "rule_ids": [
                     (
                         0,
                         0,
                         {
-                            "rule_partners_domain": [("id", "=", cls.partner1.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
@@ -104,7 +104,6 @@ class TestLoyaltyMassMailing(common.TransactionCase):
                         0,
                         0,
                         {
-                            "rule_partners_domain": [("id", "=", cls.partner2.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
@@ -146,27 +145,6 @@ class TestLoyaltyMassMailing(common.TransactionCase):
             action["context"]["default_subject"], self.program_all_partners.name
         )
         self.assertEqual(self.program_all_partners.mailing_count, 1)
-
-    def test_program_all_partners_2(self):
-        # Cuando hay varias reglas y en alguna no está definido el dominio para
-        # partners, entonces el mailing_domain será = [ ]
-        self.assertEqual(self.program_all_partners_2.mailing_count, 0)
-        self.program_all_partners_2.action_mailing_count()
-        self.assertEqual(self.program_all_partners_2.mailing_count, 1)
-        mailing = self.program_all_partners_2.mailing_ids.filtered(
-            lambda x: x.program_id == self.program_all_partners_2
-        )
-        self.assertEqual(mailing, self.program_all_partners_2.mailing_ids[0])
-        self.assertFalse(mailing.mailing_domain != "[]")
-        self.assertEqual(mailing.subject, self.program_all_partners_2.name)
-        action = self.program_all_partners_2.action_mailing_count()
-        self.assertEqual(
-            action["context"]["default_program_id"], self.program_all_partners_2.id
-        )
-        self.assertEqual(
-            action["context"]["default_subject"], self.program_all_partners_2.name
-        )
-        self.assertEqual(self.program_all_partners_2.mailing_count, 1)
 
     def test_program_custom_partners(self):
         # When all the rules have the domain for partners defined, then the

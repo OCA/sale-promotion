@@ -31,10 +31,30 @@ Loyalty Partner Applicability
 This module extends the Loyalty functionality by allowing the definition of a customer
 filter for promotion rules. This module is a base to be extended.
 
+It allows to restrict the applicability of a promotion and its rules to a subset of customers.
+This is useful when you want to target a specific group of customers with a promotion.
+The restriction can be defined at the program level.
+
+When a restriction is defined at the program level, the promotion will only be available to
+customers that match the filter.
+
 **Table of contents**
 
 .. contents::
    :local:
+
+Usage
+=====
+
+Restriction on partners can be expressed in the following ways:
+
+- By selecting a list of specific partners
+- By providing a domain to filter partners
+
+If both are provided, the condition will be a logical OR.
+
+When you define a domain the datetime object is available as a variable `datetime` 
+to allow for dynamic filtering based on the current datetime.
 
 Bug Tracker
 ===========
@@ -53,6 +73,7 @@ Authors
 ~~~~~~~
 
 * Tecnativa
+* ACSONE SA/NV
 
 Contributors
 ~~~~~~~~~~~~
@@ -60,6 +81,10 @@ Contributors
 * `Tecnativa <https://www.tecnativa.com>`_:
 
   * Pilar Vargas
+
+* `ACSONE SA/NV <https://acsone.eu>`_:
+
+  * Laurent Mignon <laurent.mignon@@acsone.eu>
 
 Maintainers
 ~~~~~~~~~~~
