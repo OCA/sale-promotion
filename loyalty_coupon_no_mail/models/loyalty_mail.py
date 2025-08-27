@@ -9,3 +9,9 @@ class LoyaltyMailInherit(models.Model):
         default="never",
         ondelete={"never": "cascade"},
     )
+    mail_template_id = fields.Many2one(
+        default=lambda self: (
+            self.env.ref("loyalty.mail_template_loyalty_card", raise_if_not_found=False)
+            or self.env["mail.template"]
+        ).id,
+    )

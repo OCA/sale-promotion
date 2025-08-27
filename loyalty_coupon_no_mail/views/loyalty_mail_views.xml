@@ -5,9 +5,7 @@
         <field name="inherit_id" ref="loyalty.loyalty_mail_view_tree" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='mail_template_id']" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'invisible': [('trigger', '=', 'never')]}</attribute>
+                <attribute name="invisible">trigger == 'never'</attribute>
             </xpath>
         </field>
     </record>
