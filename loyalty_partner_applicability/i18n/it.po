@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-12-12 11:33+0000\n"
+"PO-Revision-Date: 2025-08-27 15:25+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: loyalty_partner_applicability
 #: model:ir.model.fields,field_description:loyalty_partner_applicability.field_res_config_settings__allow_coupon_sharing
@@ -24,12 +24,12 @@ msgstr "Consenti condivisine coupon"
 #. module: loyalty_partner_applicability
 #: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_program__partner_ids
 msgid "Allowed partners"
-msgstr ""
+msgstr "Partner consentiti"
 
 #. module: loyalty_partner_applicability
 #: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_program__partner_domain
 msgid "Allowed partners domain"
-msgstr ""
+msgstr "Dominio partner consentiti"
 
 #. module: loyalty_partner_applicability
 #: model:ir.model,name:loyalty_partner_applicability.model_res_config_settings
@@ -41,16 +41,18 @@ msgstr "Impostazioni configurazione"
 msgid ""
 "Define the domain to restrict which partners are eligible for this promotion."
 msgstr ""
+"Definire il dominio per limitare i partner qualificabili per questa "
+"promozione."
 
 #. module: loyalty_partner_applicability
 #: model:ir.model,name:loyalty_partner_applicability.model_loyalty_program
 msgid "Loyalty display on a website"
-msgstr ""
+msgstr "Programma fedeltà visualizzato su sito web"
 
 #. module: loyalty_partner_applicability
 #: model:ir.model.fields,help:loyalty_partner_applicability.field_loyalty_program__partner_ids
 msgid "Only the selected partners will be eligible for this promotion."
-msgstr ""
+msgstr "Solo i partner selezionati saranno qualificati per questa promozione."
 
 #~ msgid "Based on Customers"
 #~ msgstr "Basato sui clienti"
