@@ -373,6 +373,12 @@ ul.auto-toc {
 <p>This module extends the Loyalty functionality by allowing the definition
 of a customer filter for promotion rules. This module is a base to be
 extended.</p>
+<p>It allows to restrict the applicability of a promotion and its rules to
+a subset of customers. This is useful when you want to target a specific
+group of customers with a promotion. The restriction can be defined at
+the program level.</p>
+<p>When a restriction is defined at the program level, the promotion will
+only be available to customers that match the filter.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -395,7 +401,8 @@ extended.</p>
 </ul>
 <p>If both are provided, the condition will be a logical OR.</p>
 <p>When you define a domain the datetime object is available as a variable
-datetime to allow for dynamic filtering based on the current datetime.</p>
+<tt class="docutils literal">datetime</tt> to allow for dynamic filtering based on the current
+datetime.</p>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-2">Bug Tracker</a></h1>
@@ -419,6 +426,10 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <ul class="simple">
 <li><a class="reference external" href="https://www.tecnativa.com">Tecnativa</a>:<ul>
 <li>Pilar Vargas</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://acsone.eu">ACSONE SA/NV</a>:<ul>
+<li>Laurent Mignon <a class="reference external" href="mailto:laurent.mignon&#64;acsone.eu">laurent.mignon&#64;acsone.eu</a></li>
 </ul>
 </li>
 </ul>

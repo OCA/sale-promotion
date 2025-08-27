@@ -142,59 +142,26 @@ class TestLoyaltyPartnerApplicabilityCase(BaseCommon):
                 ],
             }
         )
-        cls.program_and_rule_restricted = cls.env["loyalty.program"].create(
-            {
-                "name": "Test Loyalty Program with restriction at program level "
-                "and rule level",
-                "program_type": "promotion",
-                "trigger": "auto",
-                "applies_on": "current",
-                "partner_ids": [
-                    Command.link(cls.partner1.id),
-                    Command.link(cls.partner2.id),
-                ],
-                "rule_ids": [
-                    Command.create(
-                        {
-                            "partner_ids": [Command.link(cls.partner1.id)],
-                            "reward_point_mode": "order",
-                            "minimum_qty": 1,
-                        },
-                    ),
-                    Command.create(
-                        {
-                            "partner_ids": [Command.link(cls.partner2.id)],
-                            "reward_point_mode": "order",
-                            "minimum_qty": 1,
-                        },
-                    ),
-                    Command.create(
-                        {
-                            "partner_ids": [Command.link(cls.partner3.id)],
-                            "reward_point_mode": "order",
-                            "minimum_qty": 1,
-                        },
-                    ),
-                ],
-            }
-        )
         cls.promotion_program = cls.env["loyalty.program"].create(
             {
                 "name": "Test Promotions Sale Loyalty Partner Applicability",
                 "program_type": "promotion",
                 "trigger": "auto",
                 "applies_on": "current",
+                "partner_domain": [
+                    "|",
+                    ("id", "=", cls.partner1.id),
+                    ("id", "=", cls.partner2.id),
+                ],
                 "rule_ids": [
                     Command.create(
                         {
-                            "partner_domain": [("id", "=", cls.partner1.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
                     ),
                     Command.create(
                         {
-                            "partner_domain": [("id", "=", cls.partner2.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
@@ -219,18 +186,21 @@ class TestLoyaltyPartnerApplicabilityCase(BaseCommon):
                 "program_type": "promo_code",
                 "trigger": "with_code",
                 "applies_on": "current",
+                "partner_domain": [
+                    "|",
+                    ("id", "=", cls.partner1.id),
+                    ("id", "=", cls.partner2.id),
+                ],
                 "rule_ids": [
                     Command.create(
                         {
                             "code": "10DISCOUNT",
-                            "partner_domain": [("id", "=", cls.partner1.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
                     ),
                     Command.create(
                         {
-                            "partner_domain": [("id", "=", cls.partner2.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
@@ -255,10 +225,10 @@ class TestLoyaltyPartnerApplicabilityCase(BaseCommon):
                 "program_type": "next_order_coupons",
                 "trigger": "auto",
                 "applies_on": "future",
+                "partner_domain": [("id", "=", cls.partner1.id)],
                 "rule_ids": [
                     Command.create(
                         {
-                            "partner_domain": [("id", "=", cls.partner1.id)],
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
                         },
