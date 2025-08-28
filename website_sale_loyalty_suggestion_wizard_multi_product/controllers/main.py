@@ -45,7 +45,7 @@ class WebsiteSaleLoyaltySuggestionWizardMultiProductController(WebsiteSale):
                 # configured promotion
                 request.session["multi_product_id"] = product.id
                 mandatory_program_options = wizard_id.loyalty_rule_line_ids
-                response.qcontext[
-                    "mandatory_program_options"
-                ] = mandatory_program_options
+                response.qcontext["mandatory_program_options"] = (
+                    mandatory_program_options
+                )
         return response

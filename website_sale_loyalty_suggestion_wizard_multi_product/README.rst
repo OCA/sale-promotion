@@ -17,19 +17,20 @@ Website Sale Loyalty Suggestion Wizard Multi Product
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--promotion-lightgray.png?logo=github
-    :target: https://github.com/OCA/sale-promotion/tree/16.0/website_sale_loyalty_suggestion_wizard_multi_product
+    :target: https://github.com/OCA/sale-promotion/tree/18.0/website_sale_loyalty_suggestion_wizard_multi_product
     :alt: OCA/sale-promotion
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/sale-promotion-16-0/sale-promotion-16-0-website_sale_loyalty_suggestion_wizard_multi_product
+    :target: https://translation.odoo-community.org/projects/sale-promotion-18-0/sale-promotion-18-0-website_sale_loyalty_suggestion_wizard_multi_product
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the promotion suggestions module on the website by making suggestions
-for multi-product promotions, allowing you to configure and apply these promotions using the wizard.
+This module extends the promotion suggestions module on the website by
+making suggestions for multi-product promotions, allowing you to
+configure and apply these promotions using the wizard.
 
 **Table of contents**
 
@@ -43,20 +44,21 @@ To apply promotions:
 
 Option 1:
 
-#. Go to /promotions and choose the one apply.
-#. You'll be prompted to check the promotion configuration.
-#. Apply after that.
+1. Go to /promotions and choose the one apply.
+2. You'll be prompted to check the promotion configuration.
+3. Apply after that.
 
 Option 2:
 
-#. Add a product in the promotion multi-product rules.
-#. A cart suggestion will appear.
-#. Add the promotion and configure the options.
+1. Add a product in the promotion multi-product rules.
+2. A cart suggestion will appear.
+3. Add the promotion and configure the options.
 
 Option 3:
 
-#. Select a suggested promotion in the shopping cart from a list of "Suggested promotions".
-#. Add the promotion and configure the options.
+1. Select a suggested promotion in the shopping cart from a list of
+   "Suggested promotions".
+2. Add the promotion and configure the options.
 
 Bug Tracker
 ===========
@@ -64,7 +66,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-promotion/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20website_sale_loyalty_suggestion_wizard_multi_product%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20website_sale_loyalty_suggestion_wizard_multi_product%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -72,19 +74,19 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pilar Vargas
+   -  Pilar Vargas
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -104,6 +106,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-pilarvargas-tecnativa| 
 
-This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/16.0/website_sale_loyalty_suggestion_wizard_multi_product>`_ project on GitHub.
+This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/18.0/website_sale_loyalty_suggestion_wizard_multi_product>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
