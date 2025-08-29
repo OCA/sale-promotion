@@ -2,9 +2,9 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Website Sale Loyalty Suggestion Wizard Multi Product",
-    "summary": "Suggests promotions multi-product and allows you to configure and apply these "
-    "promotions directly from the website",
-    "version": "16.0.1.0.0",
+    "summary": "Suggests promotions multi-product and allows you to configure and "
+    "apply these promotions directly from the website",
+    "version": "18.0.1.0.0",
     "category": "eCommerce",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",

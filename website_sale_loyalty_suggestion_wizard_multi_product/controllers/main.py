@@ -34,8 +34,8 @@ class WebsiteSaleLoyaltySuggestionWizardMultiProductController(WebsiteSale):
                     # If there are no products in the shopping cart that match the rules
                     # of the promotion being configured since it is being applied from
                     # "/promotions", the first multi-product rule is searched for and
-                    # the first product is set up to calculate the "loyalty_rule_line_ids
-                    # in the wizard_id
+                    # the first product is set up to calculate the
+                    # "loyalty_rule_line_ids in the wizard_id
                     product = wizard_id.selected_reward_id.program_id.rule_ids.filtered(
                         lambda x: x.loyalty_criteria == "multi_product"
                     )[:1].loyalty_criteria_ids.product_ids[:1]
