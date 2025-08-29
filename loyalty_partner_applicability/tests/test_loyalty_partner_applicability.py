@@ -24,7 +24,6 @@ class TestLoyaltyPartnerApplicability(TestLoyaltyPartnerApplicabilityCase):
     def test_program_no_restriction(self):
         program = self.program_no_restriction
         self.assertFalse(program._is_coupon_sharing_allowed())
-        self.assertFalse(program._is_coupon_sharing_allowed())
         self._assertCheckValidPartner(program, self.partner1, True)
         self._assertCheckValidPartner(program, self.partner2, True)
         self._assertCheckValidPartner(program, self.partner3, True)

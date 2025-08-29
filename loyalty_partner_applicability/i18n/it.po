@@ -53,12 +53,3 @@ msgstr "Programma fedeltà visualizzato su sito web"
 #: model:ir.model.fields,help:loyalty_partner_applicability.field_loyalty_program__partner_ids
 msgid "Only the selected partners will be eligible for this promotion."
 msgstr "Solo i partner selezionati saranno qualificati per questa promozione."
-
-#~ msgid "Based on Customers"
-#~ msgstr "Basato sui clienti"
-
-#~ msgid "Loyalty Rule"
-#~ msgstr "Regola programma fedeltà"
-
-#~ msgid "Loyalty program will work for selected customers only"
-#~ msgstr "Il rogramma fedeltà funzionerà solo per clienti selezionati"

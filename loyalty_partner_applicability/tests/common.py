@@ -88,7 +88,7 @@ class TestLoyaltyPartnerApplicabilityCase(BaseCommon):
                 "program_type": "promotion",
                 "trigger": "auto",
                 "applies_on": "current",
-                "partner_domain": "[('id', '=', %s)]" % cls.partner2.id,
+                "partner_domain": [("id", "=", cls.partner2.id)],
                 "rule_ids": [
                     Command.create(
                         {
@@ -114,12 +114,13 @@ class TestLoyaltyPartnerApplicabilityCase(BaseCommon):
             "loyalty.program"
         ].create(
             {
-                "name": "Test Loyalty Program Restricted to Partner Domain and Partner ids",
+                "name": "Test Loyalty Program Restricted to Partner Domain and "
+                "Partner ids",
                 "program_type": "promotion",
                 "trigger": "auto",
                 "applies_on": "current",
                 "partner_ids": [Command.link(cls.partner1.id)],
-                "partner_domain": "[('id', '=', %s)]" % cls.partner2.id,
+                "partner_domain": [("id", "=", cls.partner2.id)],
                 "rule_ids": [
                     Command.create(
                         {

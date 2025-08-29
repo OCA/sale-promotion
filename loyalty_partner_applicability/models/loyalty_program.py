@@ -19,7 +19,8 @@ class LoyaltyProgram(models.Model):
 
     partner_domain = fields.Char(
         string="Allowed partners domain",
-        help="Define the domain to restrict which partners are eligible for this promotion.",
+        help="Define the domain to restrict which partners are eligible for this "
+        "promotion.",
         default="[]",
     )
 
@@ -49,24 +50,20 @@ class LoyaltyProgram(models.Model):
     def _get_partner_domain(self, partner):
         self.ensure_one()
         domain = []
-        if (self.partner_domain and self.partner_domain != "[]") or self.partner_ids:
-            if self._is_coupon_sharing_allowed():
-                domain = [
-                    ("commercial_partner_id", "=", partner.commercial_partner_id.id)
-                ]
-
+        if self._is_coupon_sharing_allowed():
+            domain = [("commercial_partner_id", "=", partner.commercial_partner_id.id)]
+        else:
+            domain = [("id", "=", partner.id)]
+        partner_domain = []
+        if self.partner_ids:
+            partner_domain = [("id", "in", self.partner_ids.ids)]
+        if self.partner_domain and self.partner_domain != "[]":
+            eval_domain = self._get_eval_partner_domain()
+            if partner_domain:
+                partner_domain = expression.OR([partner_domain, eval_domain])
             else:
-                domain = [("id", "=", partner.id)]
-
-            partner_domain = []
-            if self.partner_ids:
-                partner_domain = [("id", "in", self.partner_ids.ids)]
-            if self.partner_domain and self.partner_domain != "[]":
-                partner_domain = expression.OR(
-                    [partner_domain, self._get_eval_partner_domain()]
-                )
-
-            domain = expression.AND([domain, partner_domain])
+                partner_domain = eval_domain
+        domain = expression.AND([domain, partner_domain])
         return domain
 
     def _is_partner_valid(self, partner):
@@ -92,15 +89,16 @@ class LoyaltyProgram(models.Model):
         if self.partner_ids:
             partner_valid = partner in self.partner_ids
         if self.partner_domain and self.partner_domain != "[]":
-            # (partner_valid and self.partner_ids) is required since we assume that if the
-            # partner_ids is not set but the partner_domain is set, the partner must match the
-            # partner_domain (IOW before we check the domain we assume that the partner is not
-            # valid if partner_ids is not set and partner_domain is set)
+            # (partner_valid and self.partner_ids) is required since we assume that if
+            # the partner_ids is not set but the partner_domain is set, the partner must
+            # match the partner_domain (IOW before we check the domain we assume that
+            # the partner is not valid if partner_ids is not set and partner_domain is
+            # set)
             partner_valid = (partner_valid and bool(self.partner_ids)) or (
                 partner.filtered_domain(self._get_eval_partner_domain()) == partner
             )
-        # if the partner is not valid but coupon sharing is allowed, check if the partner has
-        # the same commercial parent as the partner in the restrictions
+        # if the partner is not valid but coupon sharing is allowed, check if the
+        # partner has the same commercial parent as the partner in the restrictions
         if not partner_valid and coupon_sharing_allowed:
             partner_domain = self._get_partner_domain(partner)
             partner_valid = self.env["res.partner"].search_count(partner_domain) > 0
