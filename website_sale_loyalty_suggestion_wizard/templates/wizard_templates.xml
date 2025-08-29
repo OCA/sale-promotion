@@ -227,8 +227,12 @@
                     t-if="promotion_id.reward_ids not in list(order_id._get_claimable_rewards().values())"
                 >
                     <t
+                        t-set="min_qty"
+                        t-value="promotion_id.rule_ids.mapped('minimum_qty') and min(promotion_id.rule_ids.mapped('minimum_qty')) or 0"
+                    />
+                    <t
                         t-set="criteria_needed_qty"
-                        t-value="min(promotion_id.rule_ids.mapped('minimum_qty')) - int(sum(mandatory_program_options.mapped('units_included')))"
+                        t-value="min_qty - (int(sum(mandatory_program_options.mapped('units_included'))) if min_qty > 0 else 0)"
                     />
                     <t
                         t-set="mandatory_options"
@@ -244,6 +248,7 @@
                                 <i
                                 class="fa fa-sun-o text-warning csw_criteria_icon"
                             /> <span
+                                t-if="min_qty"
                                 t-out="min(promotion_id.rule_ids.mapped('minimum_qty'))"
                                 class="font-weight-bold csw_criteria_min_quantity"
                             />x units
