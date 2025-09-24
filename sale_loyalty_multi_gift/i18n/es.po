@@ -44,7 +44,7 @@ msgstr ""
 #: code:addons/sale_loyalty_multi_gift/models/sale_order.py:0
 #, fuzzy, python-format
 msgid "Free Product - %(product)s"
-msgstr "Producto gratis"
+msgstr "Producto gratis - %(product)s"
 
 #. module: sale_loyalty_multi_gift
 #: model:ir.model.fields,field_description:sale_loyalty_multi_gift.field_sale_loyalty_reward_product_line_wizard__gift_ids
