@@ -28,12 +28,12 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
                     ).units_to_include
                     or False
                 )
-                if not units_to_include:
+                if not units_to_include and order_line.product_uom_qty > product_qty:
                     update_qty = order_line.product_uom_qty - product_qty
-                    if update_qty < 1:
-                        order_line.unlink()
-                    else:
-                        self._update_order_line_with_units(order_line, -abs(update_qty))
+                    if update_qty > 1:
+                        self._update_order_line_with_units(
+                            order_line, -abs(product_qty)
+                        )
         return {
             "type": "ir.actions.client",
             "tag": "soft_reload",
