@@ -9,10 +9,10 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
 
     @api.depends("reward_ids", "selected_reward_id")
     def _compute_multi_criteria(self):
-        self.multi_criteria = (
-            self.selected_reward_id.program_id.rule_ids.loyalty_criteria
-            == "multi_product"
+        criteria = self.selected_reward_id.program_id.rule_ids.mapped(
+            "loyalty_criteria"
         )
+        self.multi_criteria = "multi_product" in criteria
 
     def _compute_loyalty_rule_line_ids(self):
         self.loyalty_rule_line_ids = None
