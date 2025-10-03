@@ -21,6 +21,8 @@ class LoyaltyProgram(models.Model):
         """We'll be ensuring that any program that could have been removed from the
         field will be compatible again and that any new program in the field will
         be incompatible with this one. So we will ensure that A ⊥ B as B ⊥ A"""
+        if self.env.context.get("avoid_incompatibility_loop", False):
+            return
         for program in self:
             incompatible_programs = self.search(
                 [
@@ -28,10 +30,11 @@ class LoyaltyProgram(models.Model):
                     ("id", "!=", program.id),
                 ]
             )
-            if not self.env.context.get("avoid_incompatibility_loop", False):
-                for other in incompatible_programs:
-                    if other not in program.incompatible_promotion_ids:
-                        other.incompatible_promotion_ids -= program
+            for other in incompatible_programs:
+                if other not in program.incompatible_promotion_ids:
+                    other.with_context(
+                        avoid_incompatibility_loop=True
+                    ).incompatible_promotion_ids -= program
             for incompatible in program.incompatible_promotion_ids:
                 incompatible.with_context(
                     avoid_incompatibility_loop=True
