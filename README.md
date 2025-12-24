@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[coupon_copy_product](coupon_copy_product/) | 14.0.1.0.0 | <a href='https://github.com/SirPyTech'><img src='https://github.com/SirPyTech.png' width='32' height='32' style='border-radius:50%;' alt='SirPyTech'/></a> | Duplicated Coupon Rewards share the same Product
 [coupon_limit](coupon_limit/) | 14.0.1.0.0 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Restrict number of promotions per customer or salesman
 [sale_coupon_auto_refresh](sale_coupon_auto_refresh/) | 14.0.2.0.1 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> <a href='https://github.com/SilvioC2C'><img src='https://github.com/SilvioC2C.png' width='32' height='32' style='border-radius:50%;' alt='SilvioC2C'/></a> | Allows to auto-apply the coupons with no user intervention
 [sale_coupon_criteria_multi_product](sale_coupon_criteria_multi_product/) | 14.0.1.0.0 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Allows to set as promotion criteria multi-product conditions

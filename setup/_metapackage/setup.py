@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-sale-promotion Odoo addons",
     version=version,
     install_requires=[
+        'odoo14-addon-coupon_copy_product',
         'odoo14-addon-coupon_limit',
         'odoo14-addon-sale_coupon_auto_refresh',
         'odoo14-addon-sale_coupon_criteria_multi_product',
