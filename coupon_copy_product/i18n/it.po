@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* coupon_copy_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: coupon_copy_product
+#: model:ir.model,name:coupon_copy_product.model_coupon_reward
+msgid "Coupon Reward"
+msgstr ""
+
+#. module: coupon_copy_product
+#: model:ir.model.fields,field_description:coupon_copy_product.field_coupon_reward__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: coupon_copy_product
+#: model:ir.model.fields,field_description:coupon_copy_product.field_coupon_reward__id
+msgid "ID"
+msgstr ""
+
+#. module: coupon_copy_product
+#: model:ir.model.fields,field_description:coupon_copy_product.field_coupon_reward____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: coupon_copy_product
+#: model:ir.model.fields,help:coupon_copy_product.field_coupon_program__discount_line_product_id
+#: model:ir.model.fields,help:coupon_copy_product.field_coupon_reward__discount_line_product_id
+msgid ""
+"Product used in the sales order to apply the discount. Each coupon program "
+"has its own reward product for reporting purpose"
+msgstr ""
+
+#. module: coupon_copy_product
+#: model:ir.model.fields,field_description:coupon_copy_product.field_coupon_program__discount_line_product_id
+#: model:ir.model.fields,field_description:coupon_copy_product.field_coupon_reward__discount_line_product_id
+msgid "Reward Line Product"
+msgstr ""
