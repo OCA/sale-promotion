@@ -1,20 +1,20 @@
 # Copyright 2024 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests.common import Form, TransactionCase
+from odoo import Command
+from odoo.tests.common import Form
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestSaleLoyaltyOrderSuggestion(TransactionCase):
+class TestSaleLoyaltyOrderSuggestion(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.pricelist = cls.env["product.pricelist"].create(
             {
                 "name": "Test pricelist",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -46,9 +46,7 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
                 "trigger": "auto",
                 "applies_on": "current",
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 2,
@@ -57,24 +55,18 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
                     ),
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "multi_gift",
                             "required_points": 1,
                             "loyalty_multi_gift_ids": [
-                                (
-                                    0,
-                                    0,
+                                Command.create(
                                     {
                                         "reward_product_ids": [(4, cls.product_2.id)],
                                         "reward_product_quantity": 2,
                                     },
                                 ),
-                                (
-                                    0,
-                                    0,
+                                Command.create(
                                     {
                                         "reward_product_ids": [
                                             (4, cls.product_3.id),
@@ -86,6 +78,43 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
                             ],
                         },
                     )
+                ],
+            }
+        )
+        cls.loyalty_program_same_product = cls.env["loyalty.program"].create(
+            {
+                "name": "Test Same Product Buy2 Get2",
+                "program_type": "promotion",
+                "trigger": "auto",
+                "applies_on": "current",
+                "rule_ids": [
+                    Command.create(
+                        {
+                            "reward_point_mode": "order",
+                            "minimum_qty": 2,
+                            "minimum_amount": 0,
+                            "product_ids": [(4, cls.product_2.id)],
+                        },
+                    ),
+                ],
+                "reward_ids": [
+                    Command.create(
+                        {
+                            "reward_type": "multi_gift",
+                            "required_points": 1,
+                            "loyalty_multi_gift_ids": [
+                                Command.create(
+                                    {
+                                        "reward_product_ids": [
+                                            (4, cls.product_2.id),
+                                            (4, cls.product_4.id),
+                                        ],
+                                        "reward_product_quantity": 2,
+                                    },
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             }
         )
@@ -173,4 +202,78 @@ class TestSaleLoyaltyOrderSuggestion(TransactionCase):
         line_1 = self.sale.order_line.filtered(lambda x: x.product_id == self.product_1)
         self.assertFalse(
             self.loyalty_program_form in line_1.suggested_reward_ids.program_id
+        )
+
+    def test_03_same_product_buy2_get2_buy2_results_in_2_paid_and_2_free(self):
+        # Check that if the order complies with the rules, even if the promotion is
+        # suggested, the correct quantities are applied to the order lines.
+        # For example: if the rule requires 2 and rewards 2 of the same product,
+        # when buying 2, 2 are paid for + 2 are rewarded.
+        sale_form = Form(self.env["sale.order"])
+        sale_form.partner_id = self.partner
+        with sale_form.order_line.new() as line_form:
+            line_form.product_id = self.product_2
+            line_form.product_uom_qty = 2
+        sale = sale_form.save()
+        sale._update_programs_and_rewards()
+        line_2 = sale.order_line.filtered(lambda l: l.product_id == self.product_2)
+        wizard = (
+            self.env["sale.loyalty.reward.wizard"]
+            .with_context(active_id=sale)
+            .create({"order_id": sale.id})
+        )
+        wizard.reward_ids = line_2.suggested_reward_ids
+        reward = wizard.reward_ids.filtered(
+            lambda r: r.program_id == self.loyalty_program_same_product
+        )[:1]
+        wizard.selected_reward_id = reward.id
+        wizard.action_apply()
+        self.assertEqual(
+            sale.order_line.filtered(
+                lambda x: x.product_id == self.product_2 and not x.is_reward_line
+            ).product_uom_qty,
+            2,
+        )
+        self.assertEqual(
+            sale.order_line.filtered(
+                lambda x: x.product_id == self.product_2 and x.is_reward_line
+            ).product_uom_qty,
+            2,
+        )
+
+    def test_04_same_product_buy2_get2_buy8_results_in_6_paid_and_2_free(self):
+        # Check that if the order complies with the rules, even if the promotion is
+        # suggested, the correct quantities are applied to the order lines.
+        # For example: if the rule requires 2 and rewards 2 of the same product,
+        # when buying 8, 6 are paid for + 2 are rewarded.
+        sale_form = Form(self.env["sale.order"])
+        sale_form.partner_id = self.partner
+        with sale_form.order_line.new() as line_form:
+            line_form.product_id = self.product_2
+            line_form.product_uom_qty = 8
+        sale = sale_form.save()
+        sale._update_programs_and_rewards()
+        line_2 = sale.order_line.filtered(lambda l: l.product_id == self.product_2)
+        wizard = (
+            self.env["sale.loyalty.reward.wizard"]
+            .with_context(active_id=sale)
+            .create({"order_id": sale.id})
+        )
+        wizard.reward_ids = line_2.suggested_reward_ids
+        reward = wizard.reward_ids.filtered(
+            lambda r: r.program_id == self.loyalty_program_same_product
+        )[:1]
+        wizard.selected_reward_id = reward.id
+        wizard.action_apply()
+        self.assertEqual(
+            sale.order_line.filtered(
+                lambda x: x.product_id == self.product_2 and not x.is_reward_line
+            ).product_uom_qty,
+            6,
+        )
+        self.assertEqual(
+            sale.order_line.filtered(
+                lambda x: x.product_id == self.product_2 and x.is_reward_line
+            ).product_uom_qty,
+            2,
         )
