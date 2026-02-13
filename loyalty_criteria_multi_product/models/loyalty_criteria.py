@@ -15,7 +15,6 @@ class LoyaltyCriteria(models.Model):
         string="Min. Quantity",
         compute="_compute_rule_min_quantity",
         store=True,
-        readonly=True,
         help="Minimum required product quantity to get the reward",
     )
     product_ids = fields.Many2many(
