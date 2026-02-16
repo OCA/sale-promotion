@@ -40,19 +40,22 @@ class LoyaltyReward(models.Model):
                 if len(products) == 0:
                     reward_string = self.env._("Multi Gift")
                 else:
-                    reward_string = self.env._("Multi Gift - [%s]") % ", ".join(
-                        product_names
+                    reward_string = self.env._(
+                        "Multi Gift - [%s]", ", ".join(product_names)
                     )
                 reward.description = reward_string
         return res
 
     def write(self, vals):
         """Avoid duplicating the multi gift lines when updating the reward"""
-        if self.env.context.get("skip_muli_gift_updates") and vals.get(
-            "loyalty_multi_gift_ids"
+        if (
+            self.env.context.get("from_loyalty_reward_update")
+            # This is called after the `_convert_to_cache` method.
+            and self.env.context.get("loyalty_skip_reward_check")
+            and vals.get("loyalty_multi_gift_ids")
         ):
             del vals["loyalty_multi_gift_ids"]
-            self.env.context = dict(self.env.context, skip_muli_gift_updates=False)
+            self = self.with_context(from_loyalty_reward_update=False)
         return super().write(vals)
 
 
@@ -75,7 +78,7 @@ class LoyaltyProgram(models.Model):
             ]
         )
         if skip_muli_gift_updates:
-            self = self.with_context(skip_muli_gift_updates=True)
+            self = self.with_context(from_loyalty_reward_update=True)
         return super().write(vals)
 
 
@@ -105,8 +108,12 @@ class LoyaltyGift(models.Model):
         Another module like `sale_loyalty_selection_wizard` can dismiss it in order
         to allow optional"""
         for line in self:
-            line.reward_default_product_id = fields.first(line.reward_product_ids)
+            line.reward_default_product_id = (
+                line.reward_product_ids[:1] if line.reward_product_ids else None
+            )
 
     @api.onchange("reward_product_ids")
     def onchange_reward_product_ids(self):
-        self.reward_default_product_id = fields.first(self.reward_product_ids)._origin
+        self.reward_default_product_id = (
+            self.reward_product_ids[:1]._origin if self.reward_product_ids else None
+        )
