@@ -4,6 +4,9 @@ import {standardFieldProps} from "@web/views/fields/standard_field_props";
 import {useService} from "@web/core/utils/hooks";
 
 export class SuggestPromotionWidget extends Component {
+    static template = "sale_loyalty_order_suggestion.suggestPromotion";
+    static props = standardFieldProps;
+
     setup() {
         super.setup();
         this.actionService = useService("action");
@@ -29,9 +32,6 @@ export class SuggestPromotionWidget extends Component {
         });
     }
 }
-
-SuggestPromotionWidget.template = "sale_loyalty_order_suggestion.suggestPromotion";
-SuggestPromotionWidget.props = standardFieldProps;
 
 registry
     .category("fields")
