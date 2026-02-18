@@ -75,3 +75,33 @@ class TestSaleLoyaltyIncompatibility(LoyaltyIncompatibilityCase):
         # Once the coupon has been applied the promotion cannot be applied.
         with self.assertRaises(ValidationError):
             self._action_apply_program(sale, self.promotion)
+
+    def test_03_program_check_with_multiple_programs(self):
+        """Only programs incompatible with an applied reward are rejected."""
+        self.env["loyalty.generate.wizard"].with_context(
+            active_id=self.coupon_program_with_incompatibility.id
+        ).create({"coupon_qty": 1}).generate_coupons()
+        coupon = self.coupon_program_with_incompatibility.coupon_ids
+        sale = self._create_sale(self.partner)
+        self._apply_promo_code(sale, coupon.code)
+
+        result = sale._program_check_compute_points(self.promotion | self.promotion_2)
+
+        self.assertEqual(
+            result[self.promotion]["error"],
+            sale.env._(
+                "This promotion is incompatible with other set already in the "
+                "order so it can't be applied."
+            ),
+        )
+        self.assertNotIn("error", result[self.promotion_2])
+        self.assertIn("points", result[self.promotion_2])
+
+    def test_04_program_check_without_programs(self):
+        """Checking an empty program set returns an empty result."""
+        sale = self._create_sale(self.partner, self.env.user)
+
+        self.assertEqual(sale.user_id, self.env.user)
+        self.assertEqual(
+            sale._program_check_compute_points(self.env["loyalty.program"]), {}
+        )
