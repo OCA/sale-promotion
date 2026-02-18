@@ -2,6 +2,7 @@
 # Copyright 2023 Tecnativa - Stefan Ungureanu
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import fields, models
+from odoo.fields import Domain
 
 
 class LoyaltyProgram(models.Model):
@@ -14,7 +15,7 @@ class LoyaltyProgram(models.Model):
         column2="incompatible_program_id",
         inverse="_inverse_incompatible_promotion_ids",
         string="Incompatible Promotions",
-        domain="[('id', '!=', id)]",
+        domain=lambda self: Domain([("id", "not in", self.ids)]),
     )
 
     def _inverse_incompatible_promotion_ids(self):
@@ -23,10 +24,8 @@ class LoyaltyProgram(models.Model):
         be incompatible with this one. So we will ensure that A ⊥ B as B ⊥ A"""
         for program in self:
             incompatible_programs = self.search(
-                [
-                    ("incompatible_promotion_ids", "in", program.ids),
-                    ("id", "!=", program.id),
-                ]
+                Domain([("incompatible_promotion_ids", "in", program.ids)])
+                & Domain([("id", "!=", program.id)])
             )
             to_remove_programs = (
                 incompatible_programs - program.incompatible_promotion_ids

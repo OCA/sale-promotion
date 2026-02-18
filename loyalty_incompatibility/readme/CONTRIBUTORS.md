@@ -5,3 +5,5 @@
   - Pilar Vargas
 - [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
   - Bhavesh Heliconia
+- [Studio73](https://www.studio73.es)
+  - Miguel Gandía
