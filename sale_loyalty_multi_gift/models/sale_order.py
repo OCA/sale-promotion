@@ -15,31 +15,28 @@ class SaleOrder(models.Model):
         self.ensure_one()
         self._update_programs_and_rewards()
         claimable_rewards = self._get_claimable_rewards()
-        if (
-            len(claimable_rewards) == 1
-            and claimable_rewards.get(next(iter(claimable_rewards))).reward_type
-            == "multi_gift"
-            and any(
-                len(record.reward_product_ids) > 1
-                for record in claimable_rewards.get(
-                    next(iter(claimable_rewards))
-                ).loyalty_multi_gift_ids
-            )
-        ):
-            ctx = {
-                "default_selected_reward_id": claimable_rewards.get(
-                    next(iter(claimable_rewards))
-                ).id,
-            }
-            return {
-                "type": "ir.actions.act_window",
-                "view_mode": "form",
-                "res_model": "sale.loyalty.reward.wizard",
-                "target": "new",
-                "context": ctx,
-            }
-        else:
-            return super().action_open_reward_wizard()
+        if len(claimable_rewards) == 1:
+            coupon = next(iter(claimable_rewards))
+            rewards = claimable_rewards[coupon]
+            if (
+                len(rewards) == 1
+                and rewards.reward_type == "multi_gift"
+                and any(
+                    len(record.reward_product_ids) > 1
+                    for record in rewards.loyalty_multi_gift_ids
+                )
+            ):
+                ctx = {
+                    "default_selected_reward_id": rewards.id,
+                }
+                return {
+                    "type": "ir.actions.act_window",
+                    "view_mode": "form",
+                    "res_model": "sale.loyalty.reward.wizard",
+                    "target": "new",
+                    "context": ctx,
+                }
+        return super().action_open_reward_wizard()
 
     def _get_reward_values_multi_gift_line(
         self, reward, coupon, cost, reward_line=False, product=False
