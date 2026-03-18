@@ -17,15 +17,15 @@ var CouponSelectionMixin = {
      * @param {InputEvent} ev
      */
     _onchange_quantity: function (ev) {
-        var $row = $(ev.currentTarget).closest(".row.pl-3.pr-3");
+        var $row = $(ev.currentTarget).closest(".row.ps-3.pe-3");
         var $needed_qty_span = $row.find(".csw_criteria_needed_qty");
         var $criteria_icon = $row.find(".csw_criteria_icon");
         var $row_add_buttons = $row.find(".csw_add_quantity");
         var $inputs = $row.find("input");
         var needed_qty = parseInt($needed_qty_span.data("qty"), 10);
         var current_row_qty = 0;
-        $inputs.forEach((inp) => {
-            current_row_qty += parseInt(inp.value, 10);
+        $inputs.each(function () {
+            current_row_qty += parseInt(this.value, 10) || 0;
         });
         needed_qty = Math.max(needed_qty - current_row_qty, 0);
         if (needed_qty) {
