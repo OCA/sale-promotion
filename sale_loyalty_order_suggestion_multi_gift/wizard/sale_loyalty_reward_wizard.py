@@ -6,7 +6,10 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
 
     def action_apply(self):
         self._apply_loyalty_rule_lines_to_order()
-        super().action_apply()
+        super(
+            SaleLoyaltyRewardWizard,
+            self.with_context(skip_apply_loyalty_rule_lines=True),
+        ).action_apply()
         # It's necessary to adjust the order line when suggestions are made on order
         # lines that contain products that are part of a multi-gift reward, i.e. if
         # product A is added to the order and a promotion is suggested that has product
