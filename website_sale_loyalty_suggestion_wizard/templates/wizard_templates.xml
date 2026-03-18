@@ -222,7 +222,7 @@
                     </div>
                 </t>
             </div>
-            <div class="row pl-3 pr-3">
+            <div class="row ps-3 pe-3">
                 <t
                     t-if="promotion_id.reward_ids not in list(order_id._get_claimable_rewards().values())"
                 >
