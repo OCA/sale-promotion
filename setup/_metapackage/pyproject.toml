@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-sale-promotion"
-version = "18.0.20251003.0"
+version = "18.0.20260327.0"
 dependencies = [
     "odoo-addon-loyalty_coupon_no_mail==18.0.*",
     "odoo-addon-loyalty_criteria_multi_product==18.0.*",
@@ -14,6 +14,7 @@ dependencies = [
     "odoo-addon-sale_loyalty_incompatibility==18.0.*",
     "odoo-addon-sale_loyalty_limit==18.0.*",
     "odoo-addon-sale_loyalty_multi_gift==18.0.*",
+    "odoo-addon-sale_loyalty_order_info==18.0.*",
     "odoo-addon-sale_loyalty_order_line_link==18.0.*",
     "odoo-addon-sale_loyalty_order_suggestion==18.0.*",
     "odoo-addon-sale_loyalty_order_suggestion_multi_gift==18.0.*",
