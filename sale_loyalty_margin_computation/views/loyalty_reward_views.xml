@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_margin_product_loyalty_reward_form_view" model="ir.ui.view">
+        <field name="model">loyalty.reward</field>
+        <field
+            name="inherit_id"
+            ref="loyalty_margin_computation.margin_product_loyalty_reward_form_view"
+        />
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='variables_to_use']//ul" position="inside">
+                <li><code>context</code>: The context</li>
+                <li><code>origin_lines</code>: The origin sale order lines</li>
+                <li><code>reward_line</code>: The Reward line</li>
+            </xpath>
+            <xpath expr="//div[@name='example_to_use']" position="inside">
+                <pre
+                    style="white-space: pre-wrap"
+                >result = origin_lines[0].price_unit * origin_lines[0].product_uom_qty - 11</pre>
+            </xpath>
+        </field>
+    </record>
+</odoo>
