@@ -9,8 +9,11 @@
                 <label
                     string="Max. Customer Applications"
                     for="max_customer_application"
+                    attrs="{'invisible': [('program_type', 'in', ('gift_card', 'ewallet'))]}"
                 />
-                <div>
+                <div
+                    attrs="{'invisible': [('program_type', 'in', ('gift_card', 'ewallet'))]}"
+                >
                     <field name="max_customer_application" class="oe_inline" />
                 </div>
                 <!-- salesmen_limit_count -->
