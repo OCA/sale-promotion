@@ -48,3 +48,20 @@ class TestLoyaltyPartnerApplicability(TestLoyaltyPartnerApplicabilityCase):
         self._assertCheckValidPartner(program, self.partner1, True)
         self._assertCheckValidPartner(program, self.partner2, True)
         self._assertCheckValidPartner(program, self.partner3, False)
+
+    def test_empty_partner(self):
+        empty_partner = self.env["res.partner"]
+        # Program with no restriction should be valid for empty partner
+        self.assertTrue(self.program_no_restriction._is_partner_valid(empty_partner))
+        # Restricted programs should be invalid for empty partner
+        self.assertFalse(
+            self.program_restricted_to_partner_ids._is_partner_valid(empty_partner)
+        )
+        self.assertFalse(
+            self.program_restricted_to_partner_domain._is_partner_valid(empty_partner)
+        )
+        self.assertFalse(
+            self.program_restricted_to_partner_domain_and_partner_ids._is_partner_valid(
+                empty_partner
+            )
+        )

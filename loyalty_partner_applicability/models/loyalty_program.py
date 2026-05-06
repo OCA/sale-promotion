@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 from odoo.tools.safe_eval import datetime, safe_eval
 
 
@@ -49,22 +49,22 @@ class LoyaltyProgram(models.Model):
 
     def _get_partner_domain(self, partner):
         self.ensure_one()
-        domain = []
         if self._is_coupon_sharing_allowed():
-            domain = [("commercial_partner_id", "=", partner.commercial_partner_id.id)]
+            domain = Domain(
+                "commercial_partner_id", "=", partner.commercial_partner_id.id
+            )
         else:
-            domain = [("id", "=", partner.id)]
-        partner_domain = []
+            domain = Domain("id", "=", partner.id)
+        partner_domain = Domain.TRUE
         if self.partner_ids:
-            partner_domain = [("id", "in", self.partner_ids.ids)]
+            partner_domain = Domain("id", "in", self.partner_ids.ids)
         if self.partner_domain and self.partner_domain != "[]":
-            eval_domain = self._get_eval_partner_domain()
-            if partner_domain:
-                partner_domain = expression.OR([partner_domain, eval_domain])
+            eval_domain = Domain(self._get_eval_partner_domain())
+            if self.partner_ids:
+                partner_domain = Domain.OR([partner_domain, eval_domain])
             else:
                 partner_domain = eval_domain
-        domain = expression.AND([domain, partner_domain])
-        return domain
+        return list(domain & partner_domain)
 
     def _is_partner_valid(self, partner):
         """
@@ -83,6 +83,10 @@ class LoyaltyProgram(models.Model):
         # If no restriction is set, the partner is always valid
         if not self.partner_ids and not self.partner_domain:
             return True
+        if not partner and (
+            self.partner_ids or (self.partner_domain and self.partner_domain != "[]")
+        ):
+            return False
         coupon_sharing_allowed = self._is_coupon_sharing_allowed()
         # In any case, if restrictions are set and the partner matches them, it is valid
         partner_valid = True
