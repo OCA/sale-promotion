@@ -1,10 +1,12 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import Command
+from odoo.tests import new_test_user, tagged
 
 from odoo.addons.base.tests.common import BaseCommon
 
 
+@tagged("post_install", "-at_install")
 class LoyaltyLimitCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
@@ -30,11 +32,11 @@ class LoyaltyLimitCase(BaseCommon):
         cls.partner_2 = cls.env["res.partner"].create(
             {"name": "Mrs. Odoo", "property_product_pricelist": cls.pricelist.id}
         )
-        cls.salesman_1 = cls.env["res.users"].create(
-            {"name": "Salesman 1", "login": "test_salesman_1"}
+        cls.salesman_1 = new_test_user(
+            cls.env, login="test_salesman_1", name="Salesman 1"
         )
-        cls.salesman_2 = cls.env["res.users"].create(
-            {"name": "Salesman 2", "login": "test_salesman_2"}
+        cls.salesman_2 = new_test_user(
+            cls.env, login="test_salesman_2", name="Salesman 2"
         )
         cls.product_a = product_obj.create({"name": "Product A", "list_price": 50})
         cls.promotion_with_customer_limit = cls.env["loyalty.program"].create(

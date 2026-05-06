@@ -3,7 +3,7 @@
 {
     "name": "Loyalty Limit",
     "summary": "Restrict number of promotions per customer or salesman",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",
@@ -11,5 +11,5 @@
     "maintainers": ["chienandalu"],
     "license": "AGPL-3",
     "depends": ["loyalty"],
-    "data": ["views/loyalty_program_views.xml", "security/ir.model.access.csv"],
+    "data": ["security/ir.model.access.csv", "views/loyalty_program_views.xml"],
 }

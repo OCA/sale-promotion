@@ -49,7 +49,6 @@ class LoyaltySalesmenLimit(models.Model):
 
     program_id = fields.Many2one(
         comodel_name="loyalty.program",
-        auto_join=True,
         required=True,
         ondelete="cascade",
     )
@@ -69,13 +68,10 @@ class LoyaltySalesmenLimit(models.Model):
         compute="_compute_times_used",
     )
 
-    _sql_constraints = [
-        (
-            "user_id_uniq",
-            "unique(program_id, user_id)",
-            "This salesman limit is already configured",
-        ),
-    ]
+    _user_id_uniq = models.Constraint(
+        "unique(program_id, user_id)",
+        "This salesman limit is already configured",
+    )
 
     @api.depends("user_id", "max_salesman_application")
     def _compute_times_used(self):
