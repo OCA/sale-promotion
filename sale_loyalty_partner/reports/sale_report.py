@@ -19,7 +19,7 @@ class SaleReport(models.Model):
 
     def _from_sale(self):
         res = super()._from_sale()
-        res += """ left join loyalty_program scp on (l.loyalty_program_id = scp.id)"""
+        res += """ left join loyalty_program scp on (clr.program_id = scp.id)"""
         return res
 
     def _group_by_sale(self):

@@ -3,16 +3,16 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import Command
-from odoo.tests import Form
+from odoo.tests import Form, tagged
 
 from odoo.addons.base.tests.common import BaseCommon
 
 
+@tagged("post_install", "-at_install")
 class TestLoyaltyProgramPartner(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.partner = cls.env["res.partner"].create({"name": "Test Partner"})
         cls.loyalty_program_a = cls._create_loyalty_program()
         cls.loyalty_program_b = cls._create_loyalty_program()
         cls.loyalty_program_b.partner_id = cls.partner
