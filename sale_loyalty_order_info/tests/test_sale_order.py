@@ -2,10 +2,12 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import Command
+from odoo.tests import tagged
 
 from odoo.addons.sale_loyalty.tests.common import TestSaleCouponCommon
 
 
+@tagged("post_install", "-at_install")
 class TestSaleOrder(TestSaleCouponCommon):
     @classmethod
     def setUpClass(cls):

@@ -22,7 +22,13 @@ class SaleOrder(models.Model):
         self.ensure_one()
         return self.order_line.filtered("is_reward_line")
 
-    @api.depends("order_line")
+    @api.depends(
+        "order_line.is_reward_line",
+        "order_line.price_subtotal",
+        "order_line.price_tax",
+        "order_line.product_uom_qty",
+        "order_line.reward_id.reward_type",
+    )
     def _compute_reward_total_tax_incl(self):
         for order in self:
             reward_amount_tax_incl = 0
@@ -32,7 +38,12 @@ class SaleOrder(models.Model):
                 else:
                     # Free product are 'regular' product lines with
                     # a price_subtotal and price_tax of 0
-                    reward_amount_tax_incl -= line.product_id.taxes_id.compute_all(
+                    taxes = line.tax_ids or line.product_id.taxes_id.filtered(
+                        lambda t, company=order.company_id: (
+                            not t.company_id or t.company_id == company
+                        )
+                    )
+                    reward_amount_tax_incl -= taxes.compute_all(
                         line.product_id.lst_price,
                         product=line.product_id,
                         quantity=line.product_uom_qty,
@@ -50,8 +61,7 @@ class SaleOrder(models.Model):
             else:
                 order.promo_codes = "[]"
 
-    @api.depends("order_line", "applied_coupon_ids", "code_enabled_rule_ids")
+    @api.depends("order_line.reward_id.program_id")
     def _compute_programs(self):
-        self.program_ids = self.env["loyalty.program"]
         for order in self:
             order.program_ids = order.order_line.reward_id.program_id
