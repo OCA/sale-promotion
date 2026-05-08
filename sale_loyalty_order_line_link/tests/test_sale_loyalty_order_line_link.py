@@ -1,9 +1,13 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import Form, TransactionCase
+from odoo import Command
+from odoo.tests import Form, tagged
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestSaleCouponCriteriaMultiProduct(TransactionCase):
+@tagged("post_install", "-at_install")
+class TestSaleCouponCriteriaMultiProduct(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -12,9 +16,7 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
             {
                 "name": "Test pricelist",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -30,11 +32,24 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         cls.product_a = product_obj.create({"name": "Product A", "list_price": 50})
         cls.product_b = product_obj.create({"name": "Product B", "list_price": 10})
         cls.product_c = product_obj.create({"name": "Product C", "list_price": 70})
+        cls.tax_group = cls.env["account.tax.group"].create({"name": "Test Tax Group"})
         cls.tax_1 = cls.env["account.tax"].create(
-            {"name": "Tax 10", "type_tax_use": "sale", "amount": 10}
+            {
+                "name": "Tax 10",
+                "type_tax_use": "sale",
+                "amount": 10,
+                "tax_group_id": cls.tax_group.id,
+                "country_id": cls.env.company.country_id.id,
+            }
         )
         cls.tax_2 = cls.env["account.tax"].create(
-            {"name": "Tax 4", "type_tax_use": "sale", "amount": 4}
+            {
+                "name": "Tax 4",
+                "type_tax_use": "sale",
+                "amount": 4,
+                "tax_group_id": cls.tax_group.id,
+                "country_id": cls.env.company.country_id.id,
+            }
         )
         cls.loyalty_program = cls.env["loyalty.program"].create(
             {
@@ -43,9 +58,7 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
                 "trigger": "auto",
                 "applies_on": "current",
                 "rule_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_point_mode": "order",
                             "minimum_qty": 1,
@@ -53,9 +66,7 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
                     )
                 ],
                 "reward_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "reward_type": "discount",
                             "required_points": 1,
@@ -73,18 +84,18 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         with sale_form.order_line.new() as line_form:
             line_form.product_id = cls.product_a
             line_form.product_uom_qty = 1
-            line_form.tax_id.clear()
-            line_form.tax_id.add(cls.tax_1)
+            line_form.tax_ids.clear()
+            line_form.tax_ids.add(cls.tax_1)
         with sale_form.order_line.new() as line_form:
             line_form.product_id = cls.product_b
             line_form.product_uom_qty = 1
-            line_form.tax_id.clear()
-            line_form.tax_id.add(cls.tax_1)
+            line_form.tax_ids.clear()
+            line_form.tax_ids.add(cls.tax_1)
         with sale_form.order_line.new() as line_form:
             line_form.product_id = cls.product_c
             line_form.product_uom_qty = 1
-            line_form.tax_id.clear()
-            line_form.tax_id.add(cls.tax_2)
+            line_form.tax_ids.clear()
+            line_form.tax_ids.add(cls.tax_2)
         cls.sale = sale_form.save()
         cls.sale._update_programs_and_rewards()
         cls.wizard = (
@@ -102,10 +113,10 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         self.wizard.action_apply()
         lines = self.sale.order_line
         discount_line_1 = lines.filtered(
-            lambda x: x.is_reward_line and x.tax_id == self.tax_1
+            lambda x: x.is_reward_line and self.tax_1 in x.tax_ids
         )
         discount_line_2 = lines.filtered(
-            lambda x: x.is_reward_line and x.tax_id == self.tax_2
+            lambda x: x.is_reward_line and self.tax_2 in x.tax_ids
         )
         line_a = lines.filtered(lambda x: x.product_id == self.product_a)
         line_b = lines.filtered(lambda x: x.product_id == self.product_b)
@@ -138,14 +149,22 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
     def test_02_coupon_order_line_link_discount_cheapest(self):
         """Change the program discount type to a cheapest product. Now only the chepest
         line will get the reward."""
-        self.loyalty_program.reward_ids.discount_applicability = "cheapest"
+        self.loyalty_program.reward_ids.write(
+            {
+                "discount_applicability": "cheapest",
+                "discount_product_ids": [Command.link(self.product_b.id)],
+            }
+        )
+        self.sale.order_line.filtered(
+            lambda x: x.product_id == self.product_b
+        ).product_uom_qty = 1
         self.wizard.action_apply()
         lines = self.sale.order_line
         discount_line_1 = lines.filtered(
-            lambda x: x.is_reward_line and x.tax_id == self.tax_1
+            lambda x: x.is_reward_line and self.tax_1 in x.tax_ids
         )
         discount_line_2 = lines.filtered(
-            lambda x: x.is_reward_line and x.tax_id == self.tax_2
+            lambda x: x.is_reward_line and self.tax_2 in x.tax_ids
         )
         line_a = lines.filtered(lambda x: x.product_id == self.product_a)
         line_b = lines.filtered(lambda x: x.product_id == self.product_b)
@@ -155,7 +174,7 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         self.assertFalse(line_a.reward_line_ids)
         self.assertFalse(line_c.reward_line_ids)
         discount_line_2 = self.sale.order_line.filtered(
-            lambda x: x.is_reward_line and x.tax_id == self.tax_2
+            lambda x: x.is_reward_line and self.tax_2 in x.tax_ids
         )
         self.assertFalse(discount_line_2, "There shouldn't be a reward for tax 2")
 
@@ -196,7 +215,7 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
 
         # Assert that the loyalty_program_id field is included
         self.assertIn(
-            "l.loyalty_program_id",
+            "clr.program_id",
             fields.values(),
             "The 'loyalty_program_id' field is not added to the select statement.",
         )
@@ -206,9 +225,9 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
         sale_report = self.env["sale.report"]
         group_by_fields = sale_report._group_by_sale()
 
-        # Assert that 'l.loyalty_program_id' is included in the GROUP BY clause
+        # Assert that 'clr.program_id' is included in the GROUP BY clause
         self.assertIn(
-            "l.loyalty_program_id",
+            "clr.program_id",
             group_by_fields,
             "The 'loyalty_program_id' field is not included in the GROUP BY clause.",
         )

@@ -2,9 +2,9 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Link loyalty programs to order lines",
-    "summary": "Adds a link between loyalty programs and their generated order lines"
+    "summary": "Adds a link between loyalty programs and their generated order lines "
     "for easing tracking",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-promotion",

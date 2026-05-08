@@ -1,6 +1,6 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import fields, models
+from odoo import Command, fields, models
 
 
 class SaleOrder(models.Model):
@@ -11,14 +11,26 @@ class SaleOrder(models.Model):
         the proper ids to write them into the related lines"""
         res = super().write(vals)
         reward_lines = self.order_line.filtered(
-            lambda x: x.loyalty_program_id and x.is_reward_line
+            lambda x: x.reward_id.program_id and x.is_reward_line
         )
         if not reward_lines:
             return res
-        programs = reward_lines.loyalty_program_id
+        programs = reward_lines.reward_id.program_id
         for order in self:
             order._link_reward_lines(programs)
             order._link_reward_generated_lines(programs)
+        return res
+
+    def _update_programs_and_rewards(self):
+        res = super()._update_programs_and_rewards()
+        reward_lines = self.order_line.filtered(
+            lambda x: x.reward_id.program_id and x.is_reward_line
+        )
+        if reward_lines:
+            programs = reward_lines.reward_id.program_id
+            for order in self:
+                order._link_reward_lines(programs)
+                order._link_reward_generated_lines(programs)
         return res
 
     def _get_discounted_lines(self, program):
@@ -30,7 +42,7 @@ class SaleOrder(models.Model):
             if reward.discount_applicability == "order":
                 lines = self.order_line.filtered(lambda x: not x.is_reward_line)
             elif reward.discount_applicability == "cheapest":
-                lines = self._cheapest_line()
+                lines = self._cheapest_line(reward)
             elif reward.discount_applicability == "specific":
                 lines = self._get_specific_discountable_lines(reward)
         # An extra discount scope could not depend no this module. For integration
@@ -46,25 +58,28 @@ class SaleOrder(models.Model):
         Thes filters are the same the core methods use.
         """
         reward_lines = self.order_line.filtered(
-            lambda x: x.loyalty_program_id == program
+            lambda x: x.reward_id.program_id == program
         )
         lines = self._get_discounted_lines(program)
         # Distribute different tax reward lines with their correspondant order lines.
         # We use a dictionary so we can compare taxes even if they are composed.
         tax_reward_map = {}
         for reward_line in reward_lines:
-            tax_reward_map.setdefault(reward_line.tax_id, self.env["sale.order.line"])
-            tax_reward_map[reward_line.tax_id] |= reward_line
-        for tax, tax_reward_lines in tax_reward_map.items():
-            lines.filtered(lambda x, tax_data=tax: x.tax_id == tax_data).write(
-                {"reward_line_ids": [(4, rl.id) for rl in tax_reward_lines]}
+            key = tuple(sorted(reward_line.tax_ids.ids))
+            tax_reward_map.setdefault(key, self.env["sale.order.line"])
+            tax_reward_map[key] |= reward_line
+        for tax_ids, tax_reward_lines in tax_reward_map.items():
+            matching_lines = lines.filtered(
+                lambda x, tax_data=tax_ids: set(x.tax_ids.ids) == set(tax_data)
             )
+            for line in matching_lines:
+                line.reward_line_ids |= tax_reward_lines
 
     def _link_reward_product_lines(self, program):
         """We want to link to the reward those lines that generated it as well as
         the rewarded product, that could be not in the original domain"""
         reward_lines = self.order_line.filtered(
-            lambda x: x.loyalty_program_id == program
+            lambda x: x.reward_id.program_id == program
         )
         lines_with_reward_product_id = self.order_line.filtered(
             lambda x: any(
@@ -80,7 +95,7 @@ class SaleOrder(models.Model):
                 if line.product_uom_qty >= reward_qty:
                     break
                 reward_qty -= line.product_uom_qty
-        lines.write({"reward_line_ids": [(4, rl.id) for rl in reward_lines]})
+        lines.write({"reward_line_ids": [Command.link(rl.id) for rl in reward_lines]})
 
     def _link_reward_lines(self, programs):
         """We want to filter the lines that generated a condition and link them to
@@ -102,7 +117,11 @@ class SaleOrder(models.Model):
                 lambda x, program_data=program: x.loyalty_program_id == program_data
             )
             self.order_line._filter_related_program_lines(program).write(
-                {"reward_generated_line_ids": [(4, rl.id) for rl in reward_lines]}
+                {
+                    "reward_generated_line_ids": [
+                        Command.link(rl.id) for rl in reward_lines
+                    ]
+                }
             )
 
 

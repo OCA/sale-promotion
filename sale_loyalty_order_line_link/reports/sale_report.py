@@ -14,10 +14,15 @@ class SaleReport(models.Model):
 
     def _select_additional_fields(self):
         res = super()._select_additional_fields()
-        res["loyalty_program_id"] = "l.loyalty_program_id"
+        res["loyalty_program_id"] = "clr.program_id"
+        return res
+
+    def _from_sale(self):
+        res = super()._from_sale()
+        res += """ left join loyalty_reward clr on (l.reward_id = clr.id)"""
         return res
 
     def _group_by_sale(self):
         res = super()._group_by_sale()
-        res += """, l.loyalty_program_id"""
+        res += """, clr.program_id"""
         return res

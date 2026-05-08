@@ -17,7 +17,7 @@
                 </group>
             </xpath>
             <xpath
-                expr="//field[@name='order_line']/form//field[@name='tax_id']"
+                expr="//field[@name='order_line']/form//field[@name='tax_ids']"
                 position="after"
             >
                 <field name="loyalty_program_id" readonly="True" optional="hide" />
