@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 import logging
 
-from odoo import _, models
+from odoo import models
 from odoo.osv import expression
 
 _logger = logging.getLogger(__name__)
@@ -45,5 +45,9 @@ class SaleOrder(models.Model):
             rules = program.rule_ids
         for program in rules.mapped("program_id"):
             if not program._is_partner_valid(applicable_partner):
-                return {"error": _("The customer doesn't have access to this reward.")}
+                return {
+                    "error": self.env._(
+                        "The customer doesn't have access to this reward."
+                    )
+                }
         return res
