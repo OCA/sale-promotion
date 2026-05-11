@@ -20,10 +20,10 @@ class LoyaltyProgram(models.Model):
 
     @api.depends("mailing_ids")
     def _compute_mailing_count(self):
-        mailing_data = self.env["mailing.mailing"].read_group(
-            [("program_id", "in", self.ids)], ["program_id"], ["program_id"]
+        mailing_data = self.env["mailing.mailing"]._read_group(
+            [("program_id", "in", self.ids)], ["program_id"], ["__count"]
         )
-        mapped_data = {m["program_id"][0]: m["program_id_count"] for m in mailing_data}
+        mapped_data = {program.id: count for program, count in mailing_data}
         for program in self:
             program.mailing_count = mapped_data.get(program.id, 0)
 
