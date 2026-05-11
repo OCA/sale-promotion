@@ -55,7 +55,7 @@ class SaleOrder(models.Model):
                 # which triggers the compute method again and in this method the current
                 # sell order is not excluded.
                 times_used = len(
-                    self.env["sale.order.line"].read_group(
+                    self.env["sale.order.line"]._read_group(
                         [
                             ("loyalty_program_id", "=", program.id),
                             (

@@ -35,7 +35,7 @@ class LoyaltySalesmenLimit(models.Model):
             )
             for salesman_limit in salesmen_limits:
                 salesman_limit.times_used = len(
-                    self.env["sale.order.line"].read_group(
+                    self.env["sale.order.line"]._read_group(
                         [
                             ("loyalty_program_id", "=", program["id"]),
                             (
@@ -45,7 +45,6 @@ class LoyaltySalesmenLimit(models.Model):
                             ),
                             ("order_id.state", "!=", "cancel"),
                         ],
-                        ["order_id"],
                         ["order_id"],
                     )
                 )
