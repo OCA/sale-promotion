@@ -26,26 +26,22 @@ class SaleOrder(models.Model):
                 if limit_reached and self.applied_coupon_ids:
                     res[program] = {
                         "error": self.env._(
-                            "This promo code was already applied %(count)s times for"
-                            "this customer and there's an stablished limit of %(max)s"
-                            "for this promotion."
+                            "This promo code was already applied %(count)s times for "
+                            "this customer and there's an established limit of %(max)s "
+                            "for this promotion.",
+                            count=order_count,
+                            max=program.max_customer_application,
                         )
-                        % {
-                            "count": order_count,
-                            "max": program.max_customer_application,
-                        }
                     }
                 if limit_reached and not self.applied_coupon_ids:
                     res[program] = {
                         "error": self.env._(
                             "This promotion was already applied %(count)s times "
                             "for this customer and there's an established limit "
-                            "of %(max)s."
+                            "of %(max)s.",
+                            count=order_count,
+                            max=program.max_customer_application,
                         )
-                        % {
-                            "count": order_count,
-                            "max": program.max_customer_application,
-                        }
                     }
             # Salesmen limit rules
             salesman_rule = program.salesmen_limit_ids.filtered(
@@ -71,7 +67,6 @@ class SaleOrder(models.Model):
                             ("order_id", "!=", self._origin.id),
                         ],
                         ["order_id"],
-                        ["order_id"],
                     )
                 )
                 if times_used == 0 or times_used < max_rule:
@@ -79,11 +74,12 @@ class SaleOrder(models.Model):
                 if times_used >= max_rule:
                     res[program] = {
                         "error": self.env._(
-                            "This promo code was already applied %(times)s times for"
-                            "this salesman and there's an stablished limit of %(max)s"
-                            " for this promotion."
+                            "This promo code was already applied %(times)s times for "
+                            "this salesman and there's an established limit of %(max)s "
+                            "for this promotion.",
+                            times=times_used,
+                            max=max_rule,
                         )
-                        % {"times": times_used, "max": max_rule}
                     }
             if program.salesmen_strict_limit and not salesman_rule:
                 res[program] = {
