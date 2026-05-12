@@ -25,34 +25,41 @@ class LoyaltyReward(models.Model):
                 and len(reward.loyalty_multi_gift_ids) > 0
             )
 
-    @api.depends("loyalty_multi_gift_ids.reward_product_ids")
+    @api.depends("reward_type", "loyalty_multi_gift_ids.reward_product_ids")
     def _compute_description(self):
         res = super()._compute_description()
         for reward in self:
             if reward.reward_type == "multi_gift":
-                reward_string = ""
-                products = self.env["product.product"].browse(
-                    reward.loyalty_multi_gift_ids.reward_default_product_id.ids
-                )
-                product_names = products.with_context(
-                    display_default_code=False
-                ).mapped("display_name")
-                if len(products) == 0:
-                    reward_string = self.env._("Multi Gift")
+                product_names = []
+                for line in reward.loyalty_multi_gift_ids:
+                    if line.reward_product_ids:
+                        product_names.append(
+                            line.reward_product_ids[0]
+                            .with_context(display_default_code=False)
+                            .display_name
+                        )
+                if not product_names:
+                    reward.description = self.env._("Multi Gift")
                 else:
-                    reward_string = self.env._("Multi Gift - [%s]") % ", ".join(
-                        product_names
+                    reward.description = self.env._(
+                        "Multi Gift - [%s]", ", ".join(product_names)
                     )
-                reward.description = reward_string
         return res
 
     def write(self, vals):
-        """Avoid duplicating the multi gift lines when updating the reward"""
-        if self.env.context.get("skip_muli_gift_updates") and vals.get(
-            "loyalty_multi_gift_ids"
+        """Avoid duplicating the multi gift lines when updating the reward.
+        We skip the update if we are in the `convert_to_cache` call of
+        `loyalty.program`, which we detect by the presence of
+        `skip_multi_gift_updates` and the absence of
+        `loyalty_skip_reward_check`."""
+        if (
+            self.env.context.get("skip_multi_gift_updates")
+            and not self.env.context.get("loyalty_skip_reward_check")
+            and "loyalty_multi_gift_ids" in vals
         ):
-            del vals["loyalty_multi_gift_ids"]
-            self.env.context = dict(self.env.context, skip_muli_gift_updates=False)
+            new_vals = dict(vals)
+            del new_vals["loyalty_multi_gift_ids"]
+            return super().write(new_vals)
         return super().write(vals)
 
 
@@ -65,17 +72,13 @@ class LoyaltyProgram(models.Model):
         there is a call convert_to_cache on reward_ids that causes that one2many create
         commands are called twice and thus we get a duplicated record."""
         reward_vals = vals.get("reward_ids", [])
-        skip_muli_gift_updates = any(
-            [
-                cmd
-                for cmd in reward_vals
-                if len(cmd) == 3
-                and cmd[0] == 1
-                and cmd[2].get("loyalty_multi_gift_ids")
-            ]
+        skip_multi_gift_updates = any(
+            cmd
+            for cmd in reward_vals
+            if len(cmd) == 3 and cmd[0] == 1 and cmd[2].get("loyalty_multi_gift_ids")
         )
-        if skip_muli_gift_updates:
-            self = self.with_context(skip_muli_gift_updates=True)
+        if skip_multi_gift_updates:
+            self = self.with_context(skip_multi_gift_updates=True)
         return super().write(vals)
 
 
@@ -105,8 +108,8 @@ class LoyaltyGift(models.Model):
         Another module like `sale_loyalty_selection_wizard` can dismiss it in order
         to allow optional"""
         for line in self:
-            line.reward_default_product_id = fields.first(line.reward_product_ids)
+            line.reward_default_product_id = line.reward_product_ids[:1]
 
     @api.onchange("reward_product_ids")
     def onchange_reward_product_ids(self):
-        self.reward_default_product_id = fields.first(self.reward_product_ids)._origin
+        self.reward_default_product_id = self.reward_product_ids[:1]._origin

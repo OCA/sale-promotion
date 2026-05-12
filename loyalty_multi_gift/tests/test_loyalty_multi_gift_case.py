@@ -2,10 +2,12 @@
 # Copyright 2023 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import Command
+from odoo.tests import tagged
 
 from odoo.addons.base.tests.common import BaseCommon
 
 
+@tagged("post_install", "-at_install")
 class LoyaltyMultiGiftCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
