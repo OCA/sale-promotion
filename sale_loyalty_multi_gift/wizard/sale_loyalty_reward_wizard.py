@@ -60,13 +60,13 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
             reward_line_options = {}
             for line in self.loyalty_gift_line_ids:
                 reward_line_options.update({line.line_id.id: line.selected_gift_id.id})
-            order = self.env["sale.order"].browse(self.order_id.id)
-            order.with_context(
+            self.order_id.with_context(
                 reward_line_options=reward_line_options
             )._apply_program_reward(self.selected_reward_id, coupon)
-            order.with_context(
+            self.order_id.with_context(
                 reward_line_options=reward_line_options
             )._update_programs_and_rewards()
+            self._unlink_unused_coupon_ids()
         else:
             return super().action_apply()
         return True

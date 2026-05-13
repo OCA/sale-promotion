@@ -4,7 +4,7 @@ import random
 
 from odoo import fields, models
 from odoo.exceptions import UserError
-from odoo.fields import Command, first
+from odoo.fields import Command
 from odoo.tools.float_utils import float_round
 
 
@@ -15,28 +15,31 @@ class SaleOrder(models.Model):
         self.ensure_one()
         self._update_programs_and_rewards()
         claimable_rewards = self._get_claimable_rewards()
-        if len(claimable_rewards) == 1:
-            coupon = next(iter(claimable_rewards))
-            rewards = claimable_rewards[coupon]
-            if (
-                len(rewards) == 1
-                and rewards.reward_type == "multi_gift"
-                and any(
-                    len(record.reward_product_ids) > 1
-                    for record in rewards.loyalty_multi_gift_ids
-                )
-            ):
-                ctx = {
-                    "default_selected_reward_id": rewards.id,
-                }
-                return {
-                    "type": "ir.actions.act_window",
-                    "view_mode": "form",
-                    "res_model": "sale.loyalty.reward.wizard",
-                    "target": "new",
-                    "context": ctx,
-                }
-        return super().action_open_reward_wizard()
+        if (
+            len(claimable_rewards) == 1
+            and claimable_rewards.get(next(iter(claimable_rewards))).reward_type
+            == "multi_gift"
+            and any(
+                len(record.reward_product_ids) > 1
+                for record in claimable_rewards.get(
+                    next(iter(claimable_rewards))
+                ).loyalty_multi_gift_ids
+            )
+        ):
+            ctx = {
+                "default_selected_reward_id": claimable_rewards.get(
+                    next(iter(claimable_rewards))
+                ).id,
+            }
+            return {
+                "type": "ir.actions.act_window",
+                "view_mode": "form",
+                "res_model": "sale.loyalty.reward.wizard",
+                "target": "new",
+                "context": ctx,
+            }
+        else:
+            return super().action_open_reward_wizard()
 
     def _get_reward_values_multi_gift_line(
         self, reward, coupon, cost, reward_line=False, product=False
@@ -52,7 +55,7 @@ class SaleOrder(models.Model):
             & reward_line.reward_product_ids
         )
         reward_product_id = (
-            selected_product or product or first(reward_line.reward_product_ids)
+            selected_product or product or reward_line.reward_product_ids[:1]
         )
         if (
             not reward_product_id
@@ -60,9 +63,7 @@ class SaleOrder(models.Model):
         ):
             raise UserError(self.env._("Invalid product to claim."))
         taxes = self.fiscal_position_id.map_tax(
-            reward_product_id.taxes_id.filtered(
-                lambda t: t.company_id == self.company_id
-            )
+            reward_product_id.taxes_id._filter_taxes_by_company(self.company_id)
         )
         vals = {
             "order_id": self.id,
@@ -81,7 +82,7 @@ class SaleOrder(models.Model):
             "coupon_id": coupon.id,
             "points_cost": cost,
             "reward_identifier_code": str(random.getrandbits(32)),
-            "product_uom": reward_product_id.uom_id.id,
+            "product_uom_id": reward_product_id.uom_id.id,
             "sequence": max(
                 self.order_line.filtered(lambda x: not x.is_reward_line).mapped(
                     "sequence"
@@ -89,8 +90,7 @@ class SaleOrder(models.Model):
                 default=10,
             )
             + 1,
-            "tax_id": [(Command.CLEAR, 0, 0)]
-            + [(Command.LINK, tax.id, False) for tax in taxes],
+            "tax_ids": [Command.clear()] + [Command.link(tax.id) for tax in taxes],
             "loyalty_program_id": reward.program_id.id,
             "multi_gift_reward_line_id": reward_line.id,
             "multi_gift_reward_line_id_option_product_id": reward_product_id.id,
@@ -140,8 +140,8 @@ class SaleOrder(models.Model):
     def _get_reward_line_values(self, reward, coupon, **kwargs):
         """Hook into the core method considering multi gift rewards"""
         self.ensure_one()
-        self = self.with_context(lang=self.partner_id.lang)
-        reward = reward.with_context(lang=self.partner_id.lang)
+        self = self.with_context(lang=self._get_lang())
+        reward = reward.with_context(lang=self._get_lang())
         if reward.reward_type == "multi_gift":
             return self._get_reward_values_multi_gift(reward, coupon, **kwargs)
         return super()._get_reward_line_values(reward, coupon, **kwargs)
