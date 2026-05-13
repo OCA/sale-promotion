@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class SaleOrder(models.Model):
@@ -27,7 +27,7 @@ class SaleOrder(models.Model):
     def _get_available_programs(self):
         programs = self.env["loyalty.program"]
         programs_applied = self._get_reward_programs()
-        domain = expression.AND(
+        domain = Domain.AND(
             [
                 self._get_available_programs_domain(),
                 [("id", "not in", programs_applied.ids)],
