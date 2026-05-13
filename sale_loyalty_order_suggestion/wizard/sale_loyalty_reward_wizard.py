@@ -1,4 +1,4 @@
-from odoo import Command, _, api, fields, models
+from odoo import Command, api, fields, models
 
 
 class SaleLoyaltyRewardWizard(models.TransientModel):
@@ -81,15 +81,16 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
         ):
             products = self.loyalty_rule_line_ids.mapped("product_id.name")
             if len(products) > 1:
-                products_str = f"{', '.join(products[:-1])} {_('or')} {products[-1]}"
+                products_str = (
+                    f"{', '.join(products[:-1])} {self.env._('or')} {products[-1]}"
+                )
             else:
                 products_str = products[0] if products else ""
-            self.loyalty_rule_line_description = _(
-                "<b>* Required quantity:</b> %(units)s units of %(products)s"
-            ) % {
-                "units": units_required,
-                "products": products_str,
-            }
+            self.loyalty_rule_line_description = self.env._(
+                "<b>* Required quantity:</b> %(units)s units of %(products)s",
+                units=units_required,
+                products=products_str,
+            )
 
     def _update_order_line_with_units(self, order_line, units):
         """Updates an existing order line with the provided units."""
