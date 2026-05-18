@@ -1,0 +1,8 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+  - David Vidal
+  - Stefan Ungureanu
+  - Pilar Vargas
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
+
