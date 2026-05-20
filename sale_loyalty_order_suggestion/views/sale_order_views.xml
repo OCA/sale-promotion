@@ -17,6 +17,26 @@
                     widget="suggest_promotion_widget"
                 />
             </xpath>
+            <xpath expr="//field[@name='order_line']/kanban/control" position="before">
+                <field name="suggested_reward_ids" />
+                <field name="suggested_promotions" />
+                <field name="order_id" />
+                <field name="is_reward_line" />
+            </xpath>
+            <xpath
+                expr="//field[@name='order_line']/kanban//main//field[@name='product_id'][hasclass('fw-bold')]/.."
+                position="after"
+            >
+                <div class="col-1">
+                    <field
+                        name="id"
+                        nolabel="1"
+                        context="{'active_id': id, 'active_ids': [id]}"
+                        invisible="is_reward_line or not suggested_promotions"
+                        widget="suggest_promotion_widget"
+                    />
+                </div>
+            </xpath>
         </field>
     </record>
 </odoo>
