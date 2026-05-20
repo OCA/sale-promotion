@@ -92,6 +92,12 @@ msgid "will be added."
 msgstr ""
 
 #. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_wizard_product_card
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_wizard_reward_product
+msgid "x"
+msgstr ""
+
+#. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure
 msgid "x units"
 msgstr ""
