@@ -35,9 +35,10 @@ msgstr "<strong>Añadir</strong>"
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_wizard_reward_card
-#, fuzzy
-msgid "<strong>Discount</strong><br/>"
-msgstr "<strong>Añadir</strong>"
+msgid ""
+"<strong>Discount</strong>\n"
+"                    <br/>"
+msgstr ""
 
 #. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure
@@ -96,9 +97,19 @@ msgid "will be added."
 msgstr ""
 
 #. module: website_sale_loyalty_suggestion_wizard
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_wizard_product_card
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.promotion_wizard_reward_product
+msgid "x"
+msgstr ""
+
+#. module: website_sale_loyalty_suggestion_wizard
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty_suggestion_wizard.configure
 msgid "x units"
 msgstr ""
+
+#, fuzzy
+#~ msgid "<strong>Discount</strong><br/>"
+#~ msgstr "<strong>Añadir</strong>"
 
 #~ msgid "<span>×</span>"
 #~ msgstr "<span>×</span>"
