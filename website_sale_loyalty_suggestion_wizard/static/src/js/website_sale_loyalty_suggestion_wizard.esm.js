@@ -61,7 +61,7 @@ publicWidget.registry.WebsiteSaleLoyaltySuggestionWizard = publicWidget.Widget.e
                 reward_line_options: reward_line_options,
             });
             $("#o_promo_configure_modal").modal("hide");
-            // eslint-disable-next-line no-undef
+
             window.location = "/shop/cart";
         },
     }

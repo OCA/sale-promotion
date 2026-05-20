@@ -1,5 +1,3 @@
-/* global console */
-
 import {rpc} from "@web/core/network/rpc";
 
 var CouponSelectionMixin = {
@@ -105,7 +103,6 @@ var CouponSelectionMixin = {
                 $input.closest(".csw_optional_product").addClass("bg-info");
             }
         }
-        console.log(defaults);
     },
     /**
      * Reward product card click circuitry
