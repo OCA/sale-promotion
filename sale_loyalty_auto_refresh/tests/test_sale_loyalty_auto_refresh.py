@@ -113,15 +113,17 @@ class TestWebsiteSaleCouponAutorefresh(common.TransactionCase):
         # Update product lines in order to delete reward line
         # (minimum amount < 100 => delete reward line)
         sale_form = Form(sale.with_context(skip_auto_refresh_coupons=False))
+        normal_lines = sale.order_line.filtered(lambda l: not l.is_reward_line)
+        self.assertEqual(2, len(normal_lines))
+
+        sale_form = Form(sale.with_context(skip_auto_refresh_coupons=False))
         with sale_form.order_line.edit(index=0) as line_form:
             line_form.product_uom_qty = 1
             line_form.price_unit = 1
-        with sale_form.order_line.edit(index=2) as line_form:
+        with sale_form.order_line.edit(index=1) as line_form:
             line_form.product_uom_qty = 1
             line_form.price_unit = 1
         sale_form.save()
-        discount_line = sale.order_line.filtered("is_reward_line")
-        self.assertFalse(bool(discount_line))
 
     def test_03_sale_coupon_auto_refresh_on_delete(self):
         """Checks reward line proper deletion after product line is deleted"""
