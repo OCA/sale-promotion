@@ -20,7 +20,6 @@
             <xpath expr="//field[@name='order_line']/kanban/control" position="before">
                 <field name="suggested_reward_ids" />
                 <field name="suggested_promotions" />
-                <field name="order_id" />
                 <field name="is_reward_line" />
             </xpath>
             <xpath
