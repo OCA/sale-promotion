@@ -29,7 +29,7 @@ class SaleCouponRefreshMixin(models.AbstractModel):
         additional_triggers = (
             self.env["ir.config_parameter"]
             .sudo()
-            .get_param("sale_loyalty_auto_refresh.%s_triggers" % (self._table), "")
+            .get_param(f"sale_loyalty_auto_refresh.{self._table}_triggers", "")
             .replace(" ", "")
             .split(",")
         )
