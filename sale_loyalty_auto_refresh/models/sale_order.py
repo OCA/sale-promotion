@@ -55,13 +55,13 @@ class SaleOrder(models.Model):
     def action_apply_rewards(self):
         self.ensure_one()
         claimable_rewards = self._get_claimable_rewards()
-        for coupon, reward in claimable_rewards.items():
-            try:
-                self._apply_program_reward(reward, coupon)
-                self._update_programs_and_rewards()
-            except (UserError, ValidationError) as e:
-                # Ignore exception errors to unblock the user when creating/writing
-                logger.debug(e)
+        for coupon, rewards in claimable_rewards.items():
+            for reward in rewards:
+                try:
+                    self._apply_program_reward(reward, coupon)
+                except (UserError, ValidationError) as e:
+                    logger.debug(e)
+        self._update_programs_and_rewards()
 
     def _allow_recompute_coupon_lines(self):
         """Check  if reward lines in ``self`` can be recomputed automatically.

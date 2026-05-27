@@ -17,18 +17,19 @@ Auto Refresh Coupons
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--promotion-lightgray.png?logo=github
-    :target: https://github.com/OCA/sale-promotion/tree/16.0/sale_loyalty_auto_refresh
+    :target: https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_auto_refresh
     :alt: OCA/sale-promotion
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/sale-promotion-16-0/sale-promotion-16-0-sale_loyalty_auto_refresh
+    :target: https://translation.odoo-community.org/projects/sale-promotion-18-0/sale-promotion-18-0-sale_loyalty_auto_refresh
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows to auto apply the programs without the need of the user intervention.
+This module allows to auto apply the programs without the need of the
+user intervention.
 
 **Table of contents**
 
@@ -40,38 +41,44 @@ Configuration
 
 You can set this feature on or off in every company. To do so:
 
-#. Go to *Sales > Configuration > Settings*
-#. In the *Pricing* section you'll find the option *Auto refresh promotions*.
+1. Go to *Sales > Configuration > Settings*
+2. In the *Pricing* section you'll find the option *Auto refresh
+   promotions*.
 
-The auto-refresh in the backend is triggered over a minimum set of fields changes. If
-you want to extend the list of that fields:
+The auto-refresh in the backend is triggered over a minimum set of
+fields changes. If you want to extend the list of that fields:
 
-#. Go to *Settings > Technical > Config parameters*
-#. Add or update the key:
+1. Go to *Settings > Technical > Config parameters*
+2. Add or update the key:
 
-   - For `sale.order`: `sale_loyalty_auto_refresh.sale_order_triggers`
-   - For `sale.order.line`: `sale_loyalty_auto_refresh.sale_order_line_triggers`
-#. In every add the fields seperated by commas that you want to add to the recomputation
-   triggers.
+   - For \`sale.order\`: sale_loyalty_auto_refresh.sale_order_triggers
+   - For \`sale.order.line\`:
+     sale_loyalty_auto_refresh.sale_order_line_triggers
 
-⚠️ After configuring or removing a trigger a restart of Odoo is recommended so the
-depends are reloaded properly. Anyway it isn't mandatory and the module detects the
-new triggers so the auto-refresh works as expected as soon as they are set.
+3. In every add the fields seperated by commas that you want to add to
+   the recomputation triggers.
+
+⚠️ After configuring or removing a trigger a restart of Odoo is
+recommended so the depends are reloaded properly. Anyway it isn't
+mandatory and the module detects the new triggers so the auto-refresh
+works as expected as soon as they are set.
 
 Usage
 =====
 
-You need to configure a *Promotion program* with the option *Program trigger* set to
-*Automatic* (shown in Debug mode only, read-only computed field). This can be done in *Sales > Products > Discount & Loyalty*.
+You need to configure a *Promotion program* with the option *Program
+trigger* set to *Automatic* (shown in Debug mode only, read-only
+computed field). This can be done in *Sales > Products > Discount &
+Loyalty*.
 
-Now, make a quotation that fulfill the promotion condition and the promotion will be
-automatically applied.
+Now, make a quotation that fulfill the promotion condition and the
+promotion will be automatically applied.
 
 Known issues / Roadmap
 ======================
 
-* This module should be ported to OCA in v13 as Odoo released enterprise modules and
-  they are now on the community side.
+- This module should be ported to OCA in v13 as Odoo released enterprise
+  modules and they are now on the community side.
 
 Bug Tracker
 ===========
@@ -79,7 +86,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-promotion/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_auto_refresh%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_auto_refresh%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -87,29 +94,29 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 * Camptocamp
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+- `Tecnativa <https://www.tecnativa.com>`__:
 
-  * David Vidal
-  * Pilar Vargas
+  - David Vidal
+  - Pilar Vargas
 
-* `Camptocamp <https://www.camptocamp.com>`_:
+- `Camptocamp <https://www.camptocamp.com>`__:
 
-  * Silvio Gregorini
+  - Silvio Gregorini
 
-* `Trobz <https://www.trobz.com>`_:
+- `Trobz <https://www.trobz.com>`__:
 
-  * Nguyen Minh Chien <chien@trobz.com>
+  - Nguyen Minh Chien <chien@trobz.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -132,6 +139,6 @@ Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-chienandalu| |maintainer-SilvioC2C| 
 
-This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/16.0/sale_loyalty_auto_refresh>`_ project on GitHub.
+This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_auto_refresh>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
