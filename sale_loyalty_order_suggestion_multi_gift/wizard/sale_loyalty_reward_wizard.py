@@ -16,6 +16,9 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
         # A as a reward, that order line will become an order reward line or the
         # quantity indicated in the promotion reward.
         if self.multi_gift_reward:
+            required_products = (
+                self.selected_reward_id.program_id.rule_ids._get_valid_products()
+            )
             for gift_line in self.loyalty_gift_line_ids:
                 selected_product = gift_line.selected_gift_id
                 product_qty = gift_line.line_id.reward_product_quantity
@@ -31,12 +34,16 @@ class SaleLoyaltyRewardWizard(models.TransientModel):
                     ).units_to_include
                     or False
                 )
-                if not units_to_include and order_line.product_uom_qty > product_qty:
-                    update_qty = order_line.product_uom_qty - product_qty
-                    if update_qty > 1:
-                        self._update_order_line_with_units(
-                            order_line, -abs(product_qty)
-                        )
+                qty_to_remove = min(order_line.product_uom_qty, product_qty)
+                if (
+                    selected_product not in required_products
+                    and not units_to_include
+                    and qty_to_remove
+                ):
+                    if order_line.product_uom_qty == qty_to_remove:
+                        order_line.unlink()
+                    else:
+                        self._update_order_line_with_units(order_line, -qty_to_remove)
         return {
             "type": "ir.actions.client",
             "tag": "soft_reload",

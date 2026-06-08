@@ -245,11 +245,11 @@ class TestSaleLoyaltyOrderSuggestion(BaseCommon):
             2,
         )
 
-    def test_04_same_product_buy2_get2_buy8_results_in_6_paid_and_2_free(self):
+    def test_04_same_product_buy2_get2_buy8_results_in_8_paid_and_2_free(self):
         # Check that if the order complies with the rules, even if the promotion is
         # suggested, the correct quantities are applied to the order lines.
         # For example: if the rule requires 2 and rewards 2 of the same product,
-        # when buying 8, 6 are paid for + 2 are rewarded.
+        # when buying 8, 8 are paid for + 2 are rewarded.
         sale_form = Form(self.env["sale.order"])
         sale_form.partner_id = self.partner
         with sale_form.order_line.new() as line_form:
@@ -275,7 +275,7 @@ class TestSaleLoyaltyOrderSuggestion(BaseCommon):
             sale.order_line.filtered(
                 lambda x: x.product_id == self.product_2 and not x.is_reward_line
             ).product_uom_qty,
-            6,
+            8,
         )
         self.assertEqual(
             sale.order_line.filtered(
