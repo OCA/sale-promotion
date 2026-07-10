@@ -13,6 +13,19 @@ from odoo.tests.common import HttpCase
 class WebsiteSaleHttpCase(HttpCase):
     def setUp(self):
         super().setUp()
+        # Ensure portal user exists for the tour login
+        portal_user = self.env.ref("base.demo_user0", raise_if_not_found=False)
+        if not portal_user:
+            self.env["res.users"].create(
+                {
+                    "name": "Portal",
+                    "login": "portal",
+                    "password": "portal",
+                    "group_ids": [(6, 0, [self.env.ref("base.group_portal").id])],
+                }
+            )
+        else:
+            portal_user.write({"password": "portal"})
         # Creation of generic test banner
         f = io.BytesIO()
         Image.new("RGB", (800, 500), "#FF0000").save(f, "JPEG")
@@ -43,3 +56,7 @@ class WebsiteSaleHttpCase(HttpCase):
             "website_sale_loyalty_page_portal",
             login="portal",
         )
+
+    def test_promotions_route(self):
+        res = self.url_open("/promotions")
+        self.assertEqual(res.status_code, 200)
