@@ -3,7 +3,7 @@
 
 {
     "name": "Website Sale Loyalty Page",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",
