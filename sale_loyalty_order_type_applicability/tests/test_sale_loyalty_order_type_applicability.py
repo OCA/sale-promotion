@@ -4,10 +4,11 @@
 from odoo import Command
 from odoo.exceptions import ValidationError
 from odoo.tests import Form
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestSaleLoyaltyOrderTypeApplicability(TransactionCase):
+class TestSaleLoyaltyOrderTypeApplicability(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
