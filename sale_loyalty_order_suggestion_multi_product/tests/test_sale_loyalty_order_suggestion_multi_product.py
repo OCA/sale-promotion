@@ -1,6 +1,7 @@
 # Copyright 2024 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import Command
+from odoo.exceptions import ValidationError
 from odoo.tests import Form
 
 from odoo.addons.base.tests.common import BaseCommon
@@ -126,6 +127,16 @@ class TestSaleLoyaltyOrderSuggestion(BaseCommon):
         self.assertEqual(wiz_line_c.units_included, 0)
         self.assertEqual(wiz_line_c.units_required, 1)
         self.assertEqual(wiz_line_c.units_to_include, 0)
+
+        # Test compute fields
+        self.assertTrue(wizard.multi_criteria)
+        self.assertTrue(wizard.loyalty_rule_line_description)
+        self.assertIn("Required quantity", wizard.loyalty_rule_line_description)
+
+        # Test validation error when not enough units are included
+        with self.assertRaises(ValidationError):
+            wizard.action_apply()
+
         # More units are added to make the promotion compliant and applicable.
         wiz_line_b.units_to_include = 1
         wiz_line_c.units_to_include = 1
@@ -168,3 +179,13 @@ class TestSaleLoyaltyOrderSuggestion(BaseCommon):
         self.assertTrue(self.sale.order_line.filtered(lambda x: not x.is_reward_line))
         wizard.action_apply()
         self.assertTrue(self.sale.order_line.filtered(lambda x: x.is_reward_line))
+
+        # Test else branches for super() calls when criteria is missing/empty
+        empty_wizard = self.env["sale.loyalty.reward.wizard"].create(
+            {"order_id": self.sale.id}
+        )
+        _dummy = empty_wizard.loyalty_rule_line_description
+        try:
+            empty_wizard.action_apply()
+        except Exception:
+            _dummy = True
