@@ -2,7 +2,6 @@
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 import CouponSelectionMixin from "@website_sale_loyalty_suggestion_wizard/js/website_sale_loyalty_suggestion_wizard_mixin.esm";
 import publicWidget from "@web/legacy/js/public/public_widget";
-import "@website_sale/js/cart";
 import {rpc} from "@web/core/network/rpc";
 
 publicWidget.registry.WebsiteSaleLoyaltySuggestionWizard = publicWidget.Widget.extend(
@@ -22,6 +21,10 @@ publicWidget.registry.WebsiteSaleLoyaltySuggestionWizard = publicWidget.Widget.e
                 .first()
                 .data().orderId;
             $("span.js_promotion_change").trigger("change");
+
+            // Open the modal by default when the widget starts
+            $("#o_promo_configure_modal").modal("show");
+
             return def;
         },
         /**
@@ -66,16 +69,3 @@ publicWidget.registry.WebsiteSaleLoyaltySuggestionWizard = publicWidget.Widget.e
         },
     }
 );
-
-const websiteSaleCart = publicWidget.registry.websiteSaleCart;
-
-websiteSaleCart.include({
-    /**
-     * Opens the promotion modal by default when the cart is reloaded
-     * @override
-     */
-    async start() {
-        await this._super(...arguments);
-        $("#o_promo_configure_modal").modal("show");
-    },
-});

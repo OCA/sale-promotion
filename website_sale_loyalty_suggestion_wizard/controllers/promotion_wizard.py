@@ -32,7 +32,7 @@ class WebsiteSaleLoyaltySuggestionWizardController(WebsiteSale):
 
     @route(
         "/website_sale_loyalty_suggestion_wizard/get_defaults",
-        type="json",
+        type="jsonrpc",
         auth="public",
         methods=["POST"],
     )
@@ -50,7 +50,7 @@ class WebsiteSaleLoyaltySuggestionWizardController(WebsiteSale):
 
     @route(
         "/website_sale_loyalty_suggestion_wizard/apply",
-        type="json",
+        type="jsonrpc",
         auth="public",
         methods=["POST"],
     )

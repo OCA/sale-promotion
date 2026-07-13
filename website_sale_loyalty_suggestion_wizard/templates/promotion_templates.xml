@@ -76,11 +76,13 @@
                             </div>
                             <div class="modal-body" id="o_promo_config_body">
                                 <div
-                                    t-if="request.session.error_promo_code"
+                                    t-if="request.session.get('error_promo_code')"
                                     class="alert alert-danger"
                                     role="alert"
                                 >
-                                    <span t-out="request.session.error_promo_code" />
+                                    <span
+                                        t-out="request.session.get('error_promo_code')"
+                                    />
                                 </div>
                                 <t
                                     t-call="website_sale_loyalty_suggestion_wizard.configure"
@@ -119,16 +121,16 @@
         customize_show="True"
         name="Promotions suggestions"
     >
-        <xpath expr="//t[@t-if='line.product_id']" position="before">
+        <xpath
+            expr="//t[@t-foreach='website_sale_order.website_order_line']"
+            position="before"
+        >
             <t
                 t-set="promotions"
                 t-value="website_sale_order.website_order_line.suggested_promotion_ids.filtered(lambda x: x.is_published)[:1].id"
             />
-            <!-- <t t-if="promotions">
-                <th />
-            </t> -->
         </xpath>
-        <xpath expr="//t[@t-if='line.product_id']/div" position="before">
+        <xpath expr="//div[hasclass('o_cart_product')]" position="before">
             <div
                 class="td-promo-suggestion d-flex align-items-center"
                 t-if="promotions"

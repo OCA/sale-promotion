@@ -10,7 +10,7 @@ class LoyaltyPage(WebsiteSale):
     def promotion(self, **post):
         """Rules to render the 'Apply promotion' button"""
         response = super().promotion(**post)
-        order = request.website.sale_get_order(force_create=True)
+        order = request.cart or request.website._create_cart()
         if not order:
             return response
         promo_values = response.qcontext.get("promos", [])

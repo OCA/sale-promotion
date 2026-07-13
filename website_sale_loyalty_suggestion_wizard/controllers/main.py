@@ -3,10 +3,11 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.http import request, route
 
+from odoo.addons.website_sale.controllers.cart import Cart
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 
 
-class WebsiteSaleLoyaltySuggestionWizard(WebsiteSale):
+class WebsiteSaleLoyaltySuggestionWizard(WebsiteSale, Cart):
     def _get_sale_loyalty_reward_wizard(self, order, program):
         wizard = (
             request.env["sale.loyalty.reward.wizard"]
@@ -16,6 +17,15 @@ class WebsiteSaleLoyaltySuggestionWizard(WebsiteSale):
         )
         return wizard
 
+    def _get_order_for_promotion(self, program):
+        order = request.cart
+        if order and order.state != "draft":
+            request.website.sale_reset()
+            order = request.website._get_and_cache_current_cart()
+        if order and program in order._get_reward_programs():
+            return order, True
+        return order, False
+
     @route(
         ["/promotions/<int:program_id>/apply"], type="http", auth="public", website=True
     )
@@ -24,17 +34,13 @@ class WebsiteSaleLoyaltySuggestionWizard(WebsiteSale):
         request.session.pop("wizard_id", None)
         if not program or not program.active or not program.is_published:
             return request.redirect("/shop/cart")
-        # Prevent to apply a promotion to a processed order
-        order = request.website.sale_get_order()
-        if order and order.state != "draft":
-            request.session["sale_order_id"] = None
-            order = request.website.sale_get_order()
-        # We won't apply it twice
-        if program in order._get_reward_programs():
+        order, redirect = self._get_order_for_promotion(program)
+        if redirect:
             return request.redirect("/shop/cart")
         # Let's inject some context into the view
-        request.session["promotion_id"] = program.id
-        request.session["order_id"] = order.id
+        if order:
+            request.session["promotion_id"] = program.id
+            request.session["order_id"] = order.id
         return request.redirect("/shop/cart")
 
     @route()
@@ -43,7 +49,7 @@ class WebsiteSaleLoyaltySuggestionWizard(WebsiteSale):
         response = super().cart(**post)
         promotion = request.session.get("promotion_id")
         order = request.session.get("sale_order_id")
-        if promotion:
+        if promotion and order:
             program_id = request.env["loyalty.program"].sudo().browse(promotion)
             order_id = request.env["sale.order"].browse(order)
             wizard_id = self._get_sale_loyalty_reward_wizard(order_id, program_id)

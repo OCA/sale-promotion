@@ -135,14 +135,14 @@
                     >
                         <div class="input-group-prepend">
                             <button
-                                class="csw_remove_quantity js_add_cart_json btn d-flex align-items-center justify-content-center btn-primary"
+                                class="csw_remove_quantity btn d-flex align-items-center justify-content-center btn-primary"
                             >
                                 <i class="fa fa-minus" />
                             </button>
                         </div>
                         <input
                             type="text"
-                            class="js_promotion_item_quantity js_quantity form-control"
+                            class="js_promotion_item_quantity form-control"
                             data-min="1"
                             t-att-value="add_qty or '0'"
                             t-att-data-product_id="mandatory_option.product_id.id"
@@ -151,7 +151,7 @@
                         />
                         <div class="input-group-append">
                             <button
-                                class="csw_add_quantity js_add_cart_json btn d-flex align-items-center justify-content-center btn-primary"
+                                class="csw_add_quantity btn d-flex align-items-center justify-content-center btn-primary"
                             >
                                 <i class="fa fa-plus" />
                             </button>
