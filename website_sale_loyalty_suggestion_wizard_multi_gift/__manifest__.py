@@ -4,7 +4,7 @@
     "name": "Website Sale Loyalty Suggestion Wizard Multi Gift",
     "summary": "Suggests promotions multi-gift and allows you to configure and apply "
     "these promotions directly from the website",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "eCommerce",
     "website": "https://github.com/OCA/sale-promotion",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -15,4 +15,6 @@
         "sale_loyalty_order_suggestion_multi_gift",
     ],
     "data": ["templates/wizard_templates.xml"],
+    "application": False,
+    "auto_install": False,
 }
