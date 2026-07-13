@@ -58,9 +58,9 @@ class SaleOrderLine(models.Model):
                 "discount",
                 "product_id",
                 "price_unit",
-                "product_uom",
+                "product_uom_id",
                 "product_uom_qty",
-                "tax_id",
+                "tax_ids",
             }
         )
         return triggers

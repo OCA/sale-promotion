@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 ====================
 Auto Refresh Coupons
 ====================
@@ -13,17 +17,17 @@ Auto Refresh Coupons
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--promotion-lightgray.png?logo=github
-    :target: https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_auto_refresh
+    :target: https://github.com/OCA/sale-promotion/tree/19.0/sale_loyalty_auto_refresh
     :alt: OCA/sale-promotion
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/sale-promotion-18-0/sale-promotion-18-0-sale_loyalty_auto_refresh
+    :target: https://translation.odoo-community.org/projects/sale-promotion-19-0/sale-promotion-19-0-sale_loyalty_auto_refresh
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=18.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-promotion&target_branch=19.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -51,9 +55,9 @@ fields changes. If you want to extend the list of that fields:
 1. Go to *Settings > Technical > Config parameters*
 2. Add or update the key:
 
-   - For \`sale.order\`: sale_loyalty_auto_refresh.sale_order_triggers
-   - For \`sale.order.line\`:
-     sale_loyalty_auto_refresh.sale_order_line_triggers
+   -  For \`sale.order\`: sale_loyalty_auto_refresh.sale_order_triggers
+   -  For \`sale.order.line\`:
+      sale_loyalty_auto_refresh.sale_order_line_triggers
 
 3. In every add the fields seperated by commas that you want to add to
    the recomputation triggers.
@@ -77,8 +81,8 @@ promotion will be automatically applied.
 Known issues / Roadmap
 ======================
 
-- This module should be ported to OCA in v13 as Odoo released enterprise
-  modules and they are now on the community side.
+-  This module should be ported to OCA in v13 as Odoo released
+   enterprise modules and they are now on the community side.
 
 Bug Tracker
 ===========
@@ -86,7 +90,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-promotion/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_auto_refresh%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/sale-promotion/issues/new?body=module:%20sale_loyalty_auto_refresh%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -102,18 +106,22 @@ Authors
 Contributors
 ------------
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - David Vidal
-  - Pilar Vargas
+   -  David Vidal
+   -  Pilar Vargas
 
-- `Camptocamp <https://www.camptocamp.com>`__:
+-  `Camptocamp <https://www.camptocamp.com>`__:
 
-  - Silvio Gregorini
+   -  Silvio Gregorini
 
-- `Trobz <https://www.trobz.com>`__:
+-  `Trobz <https://www.trobz.com>`__:
 
-  - Nguyen Minh Chien <chien@trobz.com>
+   -  Nguyen Minh Chien <chien@trobz.com>
+
+-  `Studio73 <https://www.studio73.es>`__
+
+   -  Sergio Martínez Llopis
 
 Maintainers
 -----------
@@ -139,6 +147,6 @@ Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-chienandalu| |maintainer-SilvioC2C| 
 
-This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/18.0/sale_loyalty_auto_refresh>`_ project on GitHub.
+This module is part of the `OCA/sale-promotion <https://github.com/OCA/sale-promotion/tree/19.0/sale_loyalty_auto_refresh>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
