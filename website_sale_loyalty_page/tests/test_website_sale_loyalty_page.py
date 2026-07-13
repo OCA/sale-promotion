@@ -14,7 +14,7 @@ class WebsiteSaleHttpCase(HttpCase):
     def setUp(self):
         super().setUp()
         # Ensure portal user exists for the tour login
-        portal_user = self.env.ref("base.demo_user0", raise_if_not_found=False)
+        portal_user = self.env["res.users"].search([("login", "=", "portal")], limit=1)
         if not portal_user:
             self.env["res.users"].create(
                 {
