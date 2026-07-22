@@ -1,0 +1,9 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - David Vidal
+  - Pilar Vargas
+- [Camptocamp](https://www.camptocamp.com):
+  - Silvio Gregorini
+- [Trobz](https://www.trobz.com):
+  - Nguyen Minh Chien \<chien@trobz.com\>
+- [Studio73](https://www.studio73.es)
+  - Sergio Martínez Llopis
