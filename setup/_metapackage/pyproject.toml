@@ -1,0 +1,11 @@
+[project]
+name = "odoo-addons-oca-sale-promotion"
+version = "19.0.20260722.0"
+dependencies = [
+    "odoo-addon-sale_loyalty_auto_refresh==19.0.*",
+]
+classifiers=[
+    "Programming Language :: Python",
+    "Framework :: Odoo",
+    "Framework :: Odoo :: 19.0",
+]
