@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_program_view_form" model="ir.ui.view">
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="model">loyalty.program</field>
+        <field name="arch" type="xml">
+            <field name="currency_id" position="before">
+                <field name="incompatible_promotion_ids" widget="many2many_tags" />
+            </field>
+        </field>
+    </record>
+    <record id="loyalty_program_view_tree" model="ir.ui.view">
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_tree" />
+        <field name="model">loyalty.program</field>
+        <field name="arch" type="xml">
+            <field name="program_type" position="before">
+                <field name="incompatible_promotion_ids" widget="many2many_tags" />
+            </field>
+        </field>
+    </record>
+</odoo>

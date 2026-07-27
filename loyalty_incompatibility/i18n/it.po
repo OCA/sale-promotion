@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* loyalty_incompatibility
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-02-08 10:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: loyalty_incompatibility
+#: model:ir.model.fields,field_description:loyalty_incompatibility.field_loyalty_program__incompatible_promotion_ids
+msgid "Incompatible Promotions"
+msgstr "Promozioni non compatibili"
+
+#. module: loyalty_incompatibility
+#: model:ir.model,name:loyalty_incompatibility.model_loyalty_program
+msgid "Loyalty display on a website"
+msgstr "Programma fedeltà visualizzato su sito web"
