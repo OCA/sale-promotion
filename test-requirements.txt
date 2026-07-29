@@ -1,0 +1,6 @@
+odoo-addon-website_sale_loyalty_suggestion_wizard @ git+https://github.com/OCA/sale-promotion.git@refs/pull/355/head#subdirectory=website_sale_loyalty_suggestion_wizard
+odoo-addon-sale_loyalty_order_suggestion @ git+https://github.com/OCA/sale-promotion.git@refs/pull/335/head#subdirectory=sale_loyalty_order_suggestion
+odoo-addon-website_sale_loyalty_page @ git+https://github.com/OCA/sale-promotion.git@refs/pull/350/head#subdirectory=website_sale_loyalty_page
+odoo-addon-sale_loyalty_order_suggestion_multi_product @ git+https://github.com/OCA/sale-promotion.git@refs/pull/353/head#subdirectory=sale_loyalty_order_suggestion_multi_product
+odoo-addon-loyalty_criteria_multi_product @ git+https://github.com/OCA/sale-promotion.git@refs/pull/314/head#subdirectory=loyalty_criteria_multi_product
+odoo-addon-sale_loyalty_criteria_multi_product @ git+https://github.com/OCA/sale-promotion.git@refs/pull/351/head#subdirectory=sale_loyalty_criteria_multi_product
