@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_program_view_form_inherit" model="ir.ui.view">
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='communications']" position="attributes">
+                <attribute
+                    name="invisible"
+                >program_type != 'coupons' and (applies_on == 'current' or program_type in ('gift_card', 'ewallet'))</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
