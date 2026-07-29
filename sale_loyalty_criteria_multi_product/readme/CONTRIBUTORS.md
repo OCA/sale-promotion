@@ -1,0 +1,10 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+  - David Vidal
+  - Stefan Ungureanu
+  - Pilar Vargas
+- [Domatix](https://www.domatix.com):
+  - Álvaro López Oró
+  - Carolina Ferrer
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
