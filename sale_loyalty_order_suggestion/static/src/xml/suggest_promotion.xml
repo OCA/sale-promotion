@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates>
+    <t t-name="sale_loyalty_order_suggestion.suggestPromotion">
+        <div>
+            <a
+                tabindex="0"
+                t-on-click="viewPromotionsWizard"
+                class="fa fa-gift text-primary"
+                title="Available promotions"
+            />
+        </div>
+    </t>
+</templates>
