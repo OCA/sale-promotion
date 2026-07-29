@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Wizard layout -->
+    <template
+        id="promotion_wizard_reward_card"
+        inherit_id="website_sale_loyalty_suggestion_wizard.promotion_wizard_reward_card"
+    >
+        <xpath
+            expr="//t[@t-if=&quot;reward.reward_type == 'product'&quot;]"
+            position="after"
+        >
+            <t t-if="reward.reward_type == 'multi_gift'">
+                <div class="row">
+                    <t t-foreach="reward.loyalty_multi_gift_ids" t-as="multi_gift_line">
+                        <div
+                            t-if="len(reward.loyalty_multi_gift_ids) > 1"
+                            class="fw-bolder pt-2 pb-1"
+                        >Choose Reward:</div>
+                        <t
+                            t-foreach="multi_gift_line.reward_product_ids"
+                            t-as="product"
+                        >
+                            <t
+                                t-call="website_sale_loyalty_suggestion_wizard.promotion_wizard_reward_product"
+                            >
+                                <t
+                                    t-set="reward_qty"
+                                    t-value="multi_gift_line.reward_product_quantity"
+                                />
+                                <t t-set="product" t-value="product" />
+                                <t t-set="id" t-value="multi_gift_line.id" />
+                                <t
+                                    t-set="optional_product"
+                                    t-value="len(multi_gift_line.reward_product_ids) > 1"
+                                />
+                                <t
+                                    t-set="option_checked"
+                                    t-value="product == multi_gift_line.reward_product_ids[:1]"
+                                />
+                            </t>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
