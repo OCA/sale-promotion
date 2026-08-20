@@ -1,0 +1,32 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_loyalty_order_suggestion_multi_gift
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-02-05 16:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: sale_loyalty_order_suggestion_multi_gift
+#: model:ir.model,name:sale_loyalty_order_suggestion_multi_gift.model_sale_loyalty_reward_wizard
+msgid "Sale Loyalty - Reward Selection Wizard"
+msgstr "Procedura guidata selezione premio - programma fedeltà vendite"
+
+#. module: sale_loyalty_order_suggestion_multi_gift
+#: model:ir.model,name:sale_loyalty_order_suggestion_multi_gift.model_sale_loyalty_reward_product_line_wizard
+msgid "Sale Loyalty Reward Product Line Wizard"
+msgstr "Procedura guidata premio fedeltà vendite linea prodotto"
+
+#. module: sale_loyalty_order_suggestion_multi_gift
+#: model:ir.model,name:sale_loyalty_order_suggestion_multi_gift.model_sale_order
+msgid "Sales Order"
+msgstr "Ordine di vendita"
