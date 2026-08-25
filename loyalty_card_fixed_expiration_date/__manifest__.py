@@ -3,7 +3,7 @@
 {
     "name": "Loyalty Card Fixed Expiration Date",
     "summary": "Set a fixed expiration date for loyalty cards",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "POS",
     "author": "(APSL-Nagarro), Odoo Community Association (OCA)",
     "maintainers": ["peluko00", "BernatObrador"],

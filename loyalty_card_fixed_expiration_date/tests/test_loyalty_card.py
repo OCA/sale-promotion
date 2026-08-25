@@ -3,10 +3,10 @@
 
 from datetime import date, timedelta
 
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestLoyaltyCard(TransactionCase):
+class TestLoyaltyCard(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
