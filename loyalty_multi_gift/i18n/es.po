@@ -1,0 +1,156 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* loyalty_multi_gift
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-17 09:58+0000\n"
+"PO-Revision-Date: 2023-02-17 11:01+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: loyalty_multi_gift
+#: model_terms:ir.ui.view,arch_db:loyalty_multi_gift.loyalty_reward_view_form
+msgid "Default gift"
+msgstr "Regalo por defecto"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__reward_product_ids
+msgid "Gift Options"
+msgstr "Opciones de regalo"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward__loyalty_multi_gift_ids
+msgid "Gift list"
+msgstr "Lista de regalos"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: loyalty_multi_gift
+#: model:ir.model,name:loyalty_multi_gift.model_loyalty_reward_product_line
+msgid "Loyalty Multi Gift"
+msgstr ""
+
+#. module: loyalty_multi_gift
+#: model:ir.model,name:loyalty_multi_gift.model_loyalty_reward
+msgid "Loyalty Reward"
+msgstr ""
+
+#. module: loyalty_multi_gift
+#: model:ir.model,name:loyalty_multi_gift.model_loyalty_program
+msgid "Loyalty display on a website"
+msgstr ""
+
+#. module: loyalty_multi_gift
+#. odoo-python
+#: code:addons/loyalty_multi_gift/models/loyalty_reward.py:0
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward__multi_gift
+#: model:ir.model.fields.selection,name:loyalty_multi_gift.selection__loyalty_reward__reward_type__multi_gift
+#: model_terms:ir.ui.view,arch_db:loyalty_multi_gift.loyalty_reward_view_form
+#, python-format
+msgid "Multi Gift"
+msgstr "Múltiples regalos"
+
+#. module: loyalty_multi_gift
+#. odoo-python
+#: code:addons/loyalty_multi_gift/models/loyalty_reward.py:0
+#, python-format
+msgid "Multi Gift - [%s]"
+msgstr ""
+
+#. module: loyalty_multi_gift
+#: model_terms:ir.ui.view,arch_db:loyalty_multi_gift.loyalty_reward_view_form
+msgid "Qty"
+msgstr "Cant."
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__reward_product_quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__reward_id
+msgid "Reward"
+msgstr "Recompensa"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward_product_line__reward_default_product_id
+msgid "Reward Default Product"
+msgstr "Producto de recompensa por defecto"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,help:loyalty_multi_gift.field_loyalty_reward_product_line__reward_product_ids
+msgid "Reward Product"
+msgstr "Producto de recompensa"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,field_description:loyalty_multi_gift.field_loyalty_reward__reward_type
+msgid "Reward Type"
+msgstr "Tipo de recompensa"
+
+#. module: loyalty_multi_gift
+#: model:ir.model.fields,help:loyalty_multi_gift.field_loyalty_reward_product_line__reward_product_quantity
+msgid "Reward product quantity"
+msgstr "Cantidad de productos de recompensa"
+
+#~ msgid "Coupon Multi Gift"
+#~ msgstr "Promociones multi regalo"
+
+#~ msgid "Coupon Reward"
+#~ msgstr "Cupón de recompensa"
+
+#~ msgid ""
+#~ "Discount - Reward will be provided as discount.\n"
+#~ "Free Product - Free product will be provide as reward \n"
+#~ "Free Shipping - Free shipping will be provided as reward (Need delivery "
+#~ "module)"
+#~ msgstr ""
+#~ "Descuento: La recompensa se otorgará en forma de descuento.\n"
+#~ "Producto gratis: Se otorgará un producto gratuito a modo de recompensa\n"
+#~ "Envío gratis: Se ofrecerá envío gratuito a modo de recompensa (módulo de "
+#~ "entrega requerido)"
+
+#, python-format
+#~ msgid "Free Products - %(name)s"
+#~ msgstr "Productos gratuítos - %(name)s"
