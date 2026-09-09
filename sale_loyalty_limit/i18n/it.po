@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_coupon_limit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-12-06 17:33+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: sale_loyalty_limit
+#: model:ir.model,name:sale_loyalty_limit.model_loyalty_salesmen_limit
+msgid "Loyalty Salesmen limits"
+msgstr "Limiti programma fedeltà venditore"
+
+#. module: sale_loyalty_limit
+#: model:ir.model,name:sale_loyalty_limit.model_loyalty_program
+msgid "Loyalty display on a website"
+msgstr "Programma fedeltà visualizzato su sito web"
+
+#. module: sale_loyalty_limit
+#: model:ir.model,name:sale_loyalty_limit.model_sale_order
+msgid "Sales Order"
+msgstr "Ordine di vendita"
+
+#. module: sale_loyalty_limit
+#. odoo-python
+#: code:addons/sale_loyalty_limit/models/sale_order.py:0
+#, python-format
+msgid ""
+"This promo code was already applied %(count)s times for this customer and "
+"there's an stablished limit of %(max)s for this promotion."
+msgstr ""
+"Questo buono sconto è già stato applicato %(count)s volte per questo cliente "
+"e il limite massimo è di %(max)s per questa promozione."
+
+#. module: sale_loyalty_limit
+#. odoo-python
+#: code:addons/sale_loyalty_limit/models/sale_order.py:0
+#, python-format
+msgid ""
+"This promo code was already applied %(times)s times for this salesman and "
+"there's an stablished limit of %(max)s for this promotion."
+msgstr ""
+"Questo buono sconto è già stato applicato %(times)s volte per questo addetto "
+"alle vendite e il limite massimo è di %(max)s per questa promozione."
+
+#. module: sale_loyalty_limit
+#. odoo-python
+#: code:addons/sale_loyalty_limit/models/sale_order.py:0
+#, python-format
+msgid "This promotion is restricted to the listed salesmen."
+msgstr "Questa promozione è riservata all'addetto alle vendite indicato."
+
+#. module: sale_loyalty_limit
+#. odoo-python
+#: code:addons/sale_loyalty_limit/models/sale_order.py:0
+#, python-format
+msgid ""
+"This promotion was already applied %(count)s times for this customer and "
+"there's an established limit of %(max)s."
+msgstr ""
+"Questa promozione è già stata applicata %(count)s volte per questo cliente e "
+"il limite massimo è di %(max)s."
+
+#~ msgid "Coupon"
+#~ msgstr "Buono sconto"
+
+#~ msgid "Coupon Rule"
+#~ msgstr "Regola buono sconto"
+
+#, python-format
+#~ msgid ""
+#~ "This promotion was already applied %(times)s times for this salesman and "
+#~ "there's an stablished limit of %(max)s."
+#~ msgstr ""
+#~ "Questa promozione è già stata applicata %(times)s volte per questo "
+#~ "addetto alle vendite e il limite massimo è di %(max)s."
