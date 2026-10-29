@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_loyalty_referral_generate_wizard_view_form" model="ir.ui.view">
+        <field name="name">loyalty.referral.generate.wizard.form</field>
+        <field name="model">loyalty.referral.generate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Referral Code">
+                <p class="text-muted">
+                    Select the customers to mint a personal referral code for.
+                    Customers can also opt in themselves from their portal
+                    account.
+                </p>
+                <group>
+                    <field
+                        name="partner_ids"
+                        widget="many2many_tags"
+                        options="{'no_create_edit': True}"
+                    />
+                </group>
+                <footer>
+                    <button
+                        name="action_generate"
+                        string="Generate"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="dynamic_filter_referral_action" model="ir.actions.server">
+        <field name="name">Referral Card</field>
+        <field name="model_id" ref="sale_loyalty.model_loyalty_program" />
+        <field name="state">code</field>
+        <field name="code">
+response = model.env['loyalty.program'].sudo().search_read(
+    [('is_referral', '=', True)], ['display_name'], limit=1
+)
+        </field>
+    </record>
+    <record id="dynamic_filter_referral" model="website.snippet.filter">
+        <field name="name">Referral Card</field>
+        <field name="action_server_id" ref="dynamic_filter_referral_action" />
+        <field name="field_names">display_name</field>
+        <field name="limit" eval="1" />
+    </record>
+</odoo>

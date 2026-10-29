@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="portal_my_home_referral"
+        name="Portal: Referral Card"
+        inherit_id="portal.portal_my_home"
+    >
+        <xpath expr="//div[@id='oe_structure_portal_my_home_2']" position="before">
+            <div
+                t-if="request.env['ir.config_parameter'].sudo().get_param('sale_loyalty_referral.referral_portal_card', True)"
+                class="o_portal container mb-4"
+            >
+                <t t-call="sale_loyalty_referral.referral_portal_card" />
+            </div>
+        </xpath>
+    </template>
+</odoo>

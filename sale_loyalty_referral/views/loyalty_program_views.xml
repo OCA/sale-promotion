@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_program_view_form" model="ir.ui.view">
+        <field name="name">loyalty.program.view.form.referral</field>
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id'][1]" position="after">
+                <field
+                    name="is_referral"
+                    widget="boolean_toggle"
+                    invisible="program_type != 'promo_code'"
+                />
+                <field name="referral_base_url" invisible="not is_referral" />
+                <field name="referral_retention_days" invisible="not is_referral" />
+                <field name="referral_message" invisible="not is_referral" />
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_generate_referral_codes"
+                    string="Generate Referral Code"
+                    class="btn-primary"
+                    type="object"
+                    invisible="not is_referral and not is_default_referral"
+                />
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <field name="is_default_referral" invisible="1" />
+                <widget
+                    name="web_ribbon"
+                    title="Default Referral Program"
+                    invisible="not is_default_referral"
+                />
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="object"
+                    name="action_open_referral_codes"
+                    icon="fa-ticket"
+                    invisible="not is_referral"
+                >
+                    <field
+                        name="referral_code_count"
+                        widget="statinfo"
+                        string="Referral Codes"
+                    />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

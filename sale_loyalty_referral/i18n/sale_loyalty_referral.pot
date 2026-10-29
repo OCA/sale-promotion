@@ -1,0 +1,523 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_loyalty_referral
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-29 11:12+0000\n"
+"PO-Revision-Date: 2026-10-29 11:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid ""
+"<i class=\"fa fa-share-alt me-1\"/>\n"
+"                            <span>Share link</span>"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid "<i class=\"fa fa-share-alt me-1\"/>Invite a friend"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.constraint,message:sale_loyalty_referral.constraint_loyalty_referral_partner_program_uniq
+msgid "A customer can have only one referral code per program."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_program__referral_retention_days
+msgid "Attribution Window (days)"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.sale_loyalty_referral_generate_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__code
+msgid "Code"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model,name:sale_loyalty_referral.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model,name:sale_loyalty_referral.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model,website_form_label:sale_loyalty_referral.model_res_partner
+msgid "Create a Customer"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__create_uid
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral_generate_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__create_date
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral_generate_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.res_config_settings_view_form
+msgid "Customer Referrals"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_sale_order__referred_by_id
+msgid "Customer whose referral code brought this order."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral_generate_wizard__partner_ids
+msgid "Customers"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/loyalty_program.py:0
+msgid ""
+"Customers share a personal link; friends redeem the embedded code on their "
+"first order"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_ir_http__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_program__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral_generate_wizard__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_rule__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_config_settings__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_partner__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_sale_order__daypilot_tooltip
+msgid "Daypilot Tooltip"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_loyalty_program__referral_retention_days
+msgid ""
+"Days a link click keeps attributing orders to the referrer. Set to 0 to keep"
+" attribution for the browser session only."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.loyalty_program_view_form
+msgid "Default Referral Program"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_config_settings__referral_program_id
+msgid ""
+"Discount Code program whose rules mint each customer's personal referral "
+"code."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_ir_http__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_program__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral_generate_wizard__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_rule__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_partner__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_sale_order__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.sale_loyalty_referral_generate_wizard_view_form
+msgid "Generate"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/loyalty_program.py:0
+#: model:ir.actions.server,name:sale_loyalty_referral.action_generate_referral_code
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.loyalty_program_view_form
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.res_partner_view_form
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.sale_loyalty_referral_generate_wizard_view_form
+msgid "Generate Referral Code"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model,name:sale_loyalty_referral.model_loyalty_referral_generate_wizard
+msgid "Generate Referral Codes"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid "Get my referral link"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.res_config_settings_view_form
+msgid ""
+"Give every customer a personal referral link on their portal account. The "
+"code activates a rule of the referral program."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model,name:sale_loyalty_referral.model_ir_http
+msgid "HTTP Routing"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_ir_http__id
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_program__id
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__id
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral_generate_wizard__id
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_rule__id
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_config_settings__id
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_partner__id
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_sale_order__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.snippets
+msgid "Invite a Friend"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_program__is_default_referral
+msgid "Is Default Referral"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_rule__is_referral_rule
+msgid "Is Referral Rule"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_config_settings__referral_base_url
+msgid ""
+"Landing page used in personal referral links. The customer's code is "
+"appended as a ?referral= parameter; any Odoo page works, e.g. / or "
+"/appointment. Defaults to /."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_loyalty_program__referral_base_url
+msgid ""
+"Landing page used in this program's referral links; the partner's code is "
+"appended as a ?referral= parameter. Falls back to the setting in Sales > "
+"Settings > Customer Referrals, then /."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__write_uid
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral_generate_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__write_date
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral_generate_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid "Log in"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model,name:sale_loyalty_referral.model_loyalty_program
+msgid "Loyalty Program"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model,name:sale_loyalty_referral.model_loyalty_rule
+msgid "Loyalty Rule"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_partner__referral_count
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_users__referral_count
+msgid ""
+"Number of distinct customers who bought through this partner's referral "
+"link."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/loyalty_program.py:0
+msgid "Only Discount Code programs can be referral programs."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_loyalty_program__referral_message
+msgid ""
+"Optional guidance shown to visitors whose referral code could not yet be "
+"applied (e.g. 'Add 2 items to unlock your friend's discount')."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model,name:sale_loyalty_referral.model_loyalty_referral
+msgid "Partner Referral Code"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_partner__referral_code
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_users__referral_code
+msgid ""
+"Personal referral code from this partner's first referral link. Doubles as a"
+" promotion code inside the referral loyalty program."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:loyalty.program,portal_point_name:sale_loyalty_referral.referral_program
+msgid "Points"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_config_settings__referral_portal_card
+msgid "Portal referral card"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__program_id
+msgid "Program"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/loyalty_program.py:0
+#: model:loyalty.program,name:sale_loyalty_referral.referral_program
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.res_partner_view_form
+msgid "Referral"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_config_settings__referral_base_url
+msgid "Referral Base URL"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_program__referral_base_url
+msgid "Referral Base Url"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.actions.server,name:sale_loyalty_referral.dynamic_filter_referral_action
+#: model:website.snippet.filter,name:sale_loyalty_referral.dynamic_filter_referral
+msgid "Referral Card"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_partner__referral_code
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_users__referral_code
+msgid "Referral Code"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_program__referral_code_count
+msgid "Referral Code Count"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/loyalty_program.py:0
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_partner__referral_code_ids
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_users__referral_code_ids
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.loyalty_program_view_form
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.loyalty_referral_view_list
+msgid "Referral Codes"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_program__referral_message
+msgid "Referral Message"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_program__is_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_config_settings__referral_program_id
+msgid "Referral Program"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__referral_url
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_partner__referral_url
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_users__referral_url
+msgid "Referral Url"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/sale_order.py:0
+msgid ""
+"Referral code %(code)s could not be applied (unexpected error — see logs)."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/sale_order.py:0
+msgid "Referral code %(code)s was not applied: %(reason)s"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.constraint,message:sale_loyalty_referral.constraint_loyalty_referral_code_uniq
+msgid "Referral codes must be unique."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_sale_order__referred_by_id
+msgid "Referred By"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.res_partner_view_form
+msgid "Referred Customers"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_partner__referral_count
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_res_users__referral_count
+msgid "Referred Friends"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,field_description:sale_loyalty_referral.field_loyalty_referral__rule_id
+msgid "Rule"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model,name:sale_loyalty_referral.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.sale_loyalty_referral_generate_wizard_view_form
+msgid ""
+"Select the customers to mint a personal referral code for.\n"
+"                    Customers can also opt in themselves from their portal\n"
+"                    account."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid ""
+"Share your personal referral link. Friends booking or\n"
+"                        buying through it get a discount — and we know you sent\n"
+"                        them."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_partner__referral_url
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_users__referral_url
+msgid ""
+"Shareable referral link: the configured landing page plus the personal code "
+"as a ?referral= parameter."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_loyalty_rule__is_referral_rule
+msgid ""
+"Shared promotion rule activated by this program's referral codes. Referral "
+"codes live on loyalty.referral records, not on individual rules."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_config_settings__referral_portal_card
+msgid "Show the referral card at the bottom of the portal home page."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_loyalty_referral__rule_id
+msgid "The program's shared promotion rule this code activates."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/sale_order.py:0
+msgid ""
+"The referral reward could not be claimed (unexpected error — see logs)."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/sale_order.py:0
+msgid "This code is invalid (%s)."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_partner__referral_code_ids
+#: model:ir.model.fields,help:sale_loyalty_referral.field_res_users__referral_code_ids
+msgid "This partner's referral links, one per referral program."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_loyalty_program__is_default_referral
+msgid "This program is selected as the referral program in Sales settings."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model:ir.model.fields,help:sale_loyalty_referral.field_loyalty_program__is_referral
+msgid ""
+"This program issues partner referral codes. The program selected in Sales > "
+"Settings > Customer Referrals is the default used by the portal and partner "
+"actions; additional programs can be flagged to mint codes for their own "
+"campaign."
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.s_referral_invite
+msgid ""
+"Your Dynamic Snippet will be displayed here... This message is displayed "
+"because you did not provide enough options to retrieve its content.<br/>"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid "Your code:"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid "friend(s) already joined"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid "or"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#. odoo-python
+#: code:addons/sale_loyalty_referral/models/loyalty_program.py:0
+msgid "program_id"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid "sign up"
+msgstr ""
+
+#. module: sale_loyalty_referral
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_referral.referral_portal_card
+msgid ""
+"to get your personal\n"
+"                        referral link."
+msgstr ""

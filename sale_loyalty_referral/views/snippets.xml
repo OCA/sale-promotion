@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="snippets" inherit_id="website.snippets" name="Referral snippets">
+        <xpath expr="//snippets[@id='snippet_content']" position="inside">
+            <t
+                t-snippet="sale_loyalty_referral.s_referral_invite"
+                string="Invite a Friend"
+                t-thumbnail="/website/static/src/img/snippets_thumbs/s_add_to_cart.svg"
+            />
+        </xpath>
+    </template>
+
+    <template id="s_referral_invite" name="Invite a Friend">
+        <section
+            t-att-data-snippet="'s_referral_invite'"
+            class="s_referral_invite s_dynamic_snippet s_dynamic o_colored_level py-4"
+            data-name="Invite a Friend"
+            t-att-data-filter-id="request.env.ref('sale_loyalty_referral.dynamic_filter_referral').id"
+            data-template-key="sale_loyalty_referral.dynamic_filter_template_loyalty_program_referral_card"
+            data-number-of-elements="1"
+            data-number-of-elements-small-devices="1"
+            data-number-of-records="1"
+            data-carousel-interval="0"
+        >
+            <div class="container">
+                <div class="row s_nb_column_fixed">
+                    <section
+                        class="s_dynamic_snippet_holder d-none px-4 placeholder-glow"
+                    >
+                        <div class="row">
+                            <span class="placeholder col-3 rounded" />
+                            <span class="placeholder col-2 offset-7 rounded" />
+                        </div>
+                    </section>
+                    <section
+                        class="s_dynamic_snippet_content oe_unremovable oe_unmovable o_not_editable col s_col_no_resize"
+                    >
+                        <div class="css_non_editable_mode_hidden">
+                            <div
+                                class="missing_option_warning alert alert-info fade show d-none d-print-none rounded-0"
+                            >
+                                Your Dynamic Snippet will be displayed here... This message is displayed because you did not provide enough options to retrieve its content.<br
+                            />
+                            </div>
+                        </div>
+                        <div class="dynamic_snippet_template">
+                            <t t-out="0" />
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="referral_portal_card" name="Invite a Friend">
+        <t t-set="ref_partner" t-value="request.env.user.partner_id.sudo()" />
+        <t
+            t-set="ref_program"
+            t-value="request.env['res.partner']._get_referral_program()"
+        />
+        <t t-set="ref_link" t-value="ref_partner.referral_code_ids[:1]" />
+        <section
+            t-if="not request.env.user._is_public() and ref_program"
+            class="s_referral_invite o_colored_level py-4"
+        >
+            <div class="container">
+                <div class="d-flex flex-column gap-2 py-3 px-4 rounded bg-100">
+                    <div class="fs-5 fw-normal lh-1">
+                        <i class="fa fa-share-alt me-1" />Invite a friend
+                    </div>
+                    <p class="opacity-75 mb-0">
+                        Share your personal referral link. Friends booking or
+                        buying through it get a discount — and we know you sent
+                        them.
+                    </p>
+                    <t t-if="ref_link">
+                        <div class="input-group">
+                            <input
+                                type="text"
+                                class="form-control"
+                                readonly="readonly"
+                                t-att-value="ref_link.referral_url"
+                                onclick="this.select()"
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            class="btn btn-outline-secondary s_referral_share mt-2 align-self-start"
+                            t-att-data-url="ref_link.referral_url"
+                            t-att-data-text="'Share this link and get a discount: ' + ref_link.referral_url"
+                        >
+                            <i class="fa fa-share-alt me-1" />
+                            <span>Share link</span>
+                        </button>
+                        <div class="small opacity-75">
+                            Your code:
+                            <strong t-out="ref_link.code" />
+                            <t t-if="ref_partner.referral_count">
+                                —
+                                <t t-out="ref_partner.referral_count" />
+                                friend(s) already joined
+                            </t>
+                        </div>
+                    </t>
+                    <form
+                        t-else=""
+                        action="/my/referral/generate"
+                        method="post"
+                        class="d-inline"
+                    >
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            t-att-value="request.csrf_token()"
+                        />
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-sm"
+                        >Get my referral link</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section t-elif="request.env.user._is_public() and ref_program" class="py-4">
+            <div class="container">
+                <div class="d-flex flex-column gap-2 py-3 px-4 rounded bg-100">
+                    <div class="fs-5 fw-normal lh-1">
+                        <i class="fa fa-share-alt me-1" />Invite a friend
+                    </div>
+                    <p class="opacity-75 mb-0">
+                        <a href="/web/login">Log in</a> or
+                        <a href="/web/signup">sign up</a> to get your personal
+                        referral link.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template
+        id="dynamic_filter_template_loyalty_program_referral_card"
+        name="Referral Card (dynamic)"
+    >
+        <t t-call="sale_loyalty_referral.referral_portal_card" />
+    </template>
+</odoo>
