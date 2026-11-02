@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 INVITU (<https://www.invitu.com>)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="loyalty_reward_view_form" model="ir.ui.view">
+        <field name="model">loyalty.reward</field>
+        <field name="inherit_id" ref="loyalty.loyalty_reward_view_form" />
+        <field name="arch" type="xml">
+            <field name="discount_product_tag_id" position="after">
+                <field
+                    name="discount_attribute_value_ids"
+                    widget="many2many_tags"
+                    invisible="discount_applicability == 'cheapest'"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
