@@ -1,0 +1,5 @@
+- \[APSL-Nagarro\](<https://apsl.tech>):
+  - Antoni Marroig \<<amarroig@apsl.net>\>
+  - Bernat Obrador \<<bobrador@apsl.net>\>
+- [Escodoo](https://www.escodoo.com.br):
+  - Kaynnan Lemes \<<kaynnan.lemes@escodoo.com.br>\>
