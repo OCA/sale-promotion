@@ -212,3 +212,36 @@ class TestSaleCouponCriteriaMultiProduct(TransactionCase):
             group_by_fields,
             "The 'loyalty_program_id' field is not included in the GROUP BY clause.",
         )
+
+    def test_06_link_per_reward_in_multi_reward_program(self):
+        """With several rewards in one program, each reward line is linked only to
+        the lines its own reward discounts, not to another reward's products."""
+        reward_a = self.loyalty_program.reward_ids
+        reward_a.discount_product_ids = self.product_a
+        # Sorted after reward_a (loyalty.reward is ordered by required_points), so
+        # it used to be the one deciding which lines every reward line linked to.
+        self.loyalty_program.reward_ids = [
+            (
+                0,
+                0,
+                {
+                    "reward_type": "discount",
+                    "required_points": 2,
+                    "discount": 10,
+                    "discount_mode": "percent",
+                    "discount_applicability": "specific",
+                    "discount_product_ids": self.product_c,
+                },
+            )
+        ]
+        self.sale._update_programs_and_rewards()
+        self.env["sale.loyalty.reward.wizard"].with_context(active_id=self.sale).create(
+            {"selected_reward_id": reward_a.id}
+        ).action_apply()
+        lines = self.sale.order_line
+        reward_line = lines.filtered(lambda x: x.reward_id == reward_a)
+        line_a = lines.filtered(lambda x: x.product_id == self.product_a)
+        line_c = lines.filtered(lambda x: x.product_id == self.product_c)
+        self.assertTrue(reward_line)
+        self.assertEqual(line_a.reward_line_ids, reward_line)
+        self.assertFalse(line_c.reward_line_ids)
