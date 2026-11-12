@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sale_loyalty_order_suggestion.access_sale_loyalty_rule_product_line_wizard,access_sale_loyalty_rule_product_line_wizard,sale_loyalty_order_suggestion.model_sale_loyalty_rule_product_line_wizard,base.group_user,1,1,1,1

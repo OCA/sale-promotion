@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/list">
+                <field name="suggested_reward_ids" column_invisible="1" />
+                <field name="suggested_promotions" column_invisible="1" />
+                <field name="order_id" column_invisible="1" />
+                <field name="is_reward_line" column_invisible="1" />
+                <field
+                    name="id"
+                    nolabel="1"
+                    context="{'active_id': id, 'active_ids': [id]}"
+                    invisible="is_reward_line or not suggested_promotions"
+                    widget="suggest_promotion_widget"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

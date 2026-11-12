@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sale_loyalty_reward_wizard_view_form_suggestion" model="ir.ui.view">
+        <field name="model">sale.loyalty.reward.wizard</field>
+        <field
+            name="inherit_id"
+            ref="sale_loyalty.sale_loyalty_reward_wizard_view_form"
+        />
+        <field name="arch" type="xml">
+            <field name="selected_product_id" position="after">
+                <field name="product_id" invisible="1" />
+                <field name="applicable_program" invisible="1" />
+                <field
+                    name="loyalty_rule_line_description"
+                    colspan="2"
+                    nolabel="1"
+                    invisible="applicable_program or not reward_ids"
+                />
+                <field
+                    name="loyalty_rule_line_ids"
+                    nolabel="1"
+                    colspan="2"
+                    invisible="applicable_program or not reward_ids"
+                >
+                    <list editable="bottom" create="0" delete="0" no_open="1">
+                        <field name="order_id" column_invisible="1" />
+                        <field name="company_id" column_invisible="1" />
+                        <field name="currency_id" column_invisible="1" />
+                        <field name="product_id" options="{'no_open': True}" />
+                        <field name="price_unit" />
+                        <field name="pricelist_id" column_invisible="1" />
+                        <field name="units_included" readonly="1" force_save="1" />
+                        <field name="units_required" readonly="1" />
+                        <field name="units_to_include" widget="numeric_step" />
+                    </list>
+                </field>
+            </field>
+        </field>
+    </record>
+</odoo>
