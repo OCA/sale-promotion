@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_loyalty_order_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-01-18 11:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: sale_loyalty_order_info
+#: model:ir.model.fields,field_description:sale_loyalty_order_info.field_sale_order__program_ids
+msgid "Applied programs"
+msgstr "Programmi applicati"
+
+#. module: sale_loyalty_order_info
+#: model:ir.model.fields,field_description:sale_loyalty_order_info.field_sale_order__generated_coupon_ids
+msgid "Generated Coupons"
+msgstr "Coupon generati"
+
+#. module: sale_loyalty_order_info
+#: model:ir.model.fields,field_description:sale_loyalty_order_info.field_sale_order__promo_codes
+msgid "Promo Codes"
+msgstr "Codici promozionali"
+
+#. module: sale_loyalty_order_info
+#: model:ir.model.fields,field_description:sale_loyalty_order_info.field_sale_order__reward_amount_tax_incl
+msgid "Reward Amount Tax Incl"
+msgstr "Valore premio tasse incluse"
+
+#. module: sale_loyalty_order_info
+#: model:ir.model,name:sale_loyalty_order_info.model_sale_order
+msgid "Sales Order"
+msgstr "Ordine di vendita"
+
+#. module: sale_loyalty_order_info
+#: model:ir.model.fields,help:sale_loyalty_order_info.field_sale_order__generated_coupon_ids
+msgid "The coupons generated from this order."
+msgstr "I coupon generati da questo ordine."
