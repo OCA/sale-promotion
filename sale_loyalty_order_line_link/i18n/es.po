@@ -1,0 +1,84 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_loyalty_order_line_link
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-11-11 15:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model.fields,help:sale_loyalty_order_line_link.field_sale_order_line__reward_line_ids
+msgid "Link on the reward lines applied from this one"
+msgstr "Enlace sobre las líneas de recompensa aplicadas a partir de ésta"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model.fields,help:sale_loyalty_order_line_link.field_sale_order_line__reward_generated_line_ids
+msgid "Link on the reward lines generated meeting this line as criteria"
+msgstr ""
+"Enlace en las líneas de recompensa generadas cumpliendo esta línea como "
+"criterio"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model.fields,field_description:sale_loyalty_order_line_link.field_sale_order_line__loyalty_program_id
+#: model:ir.model.fields,field_description:sale_loyalty_order_line_link.field_sale_report__loyalty_program_id
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_order_line_link.view_order_product_search
+msgid "Loyalty Program"
+msgstr "Programa de fidelización"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model.fields,help:sale_loyalty_order_line_link.field_sale_order_line__reward_origin_generated_line_ids
+msgid ""
+"Origin Link on the reward lines generated meeting this line as criteria"
+msgstr ""
+"Origen Enlace en las líneas de recompensa generadas cumpliendo esta línea "
+"como criterio"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model.fields,field_description:sale_loyalty_order_line_link.field_sale_order_line__reward_origin_generated_line_ids
+msgid "Origin Reward Generated lines"
+msgstr "Origen Recompensa Líneas generadas"
+
+#. module: sale_loyalty_order_line_link
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_order_line_link.view_order_product_search
+msgid "Promotion Lines"
+msgstr "Líneas de Promoción"
+
+#. module: sale_loyalty_order_line_link
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_order_line_link.view_order_form
+msgid "Promotions"
+msgstr "Promociones"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model.fields,field_description:sale_loyalty_order_line_link.field_sale_order_line__reward_generated_line_ids
+msgid "Reward Generated lines"
+msgstr "Líneas Generadas por Recompensa"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model.fields,field_description:sale_loyalty_order_line_link.field_sale_order_line__reward_line_ids
+msgid "Reward lines"
+msgstr "Líneas de recompensa"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model,name:sale_loyalty_order_line_link.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Informe Analítico de Ventas"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model,name:sale_loyalty_order_line_link.model_sale_order
+msgid "Sales Order"
+msgstr "Orden de Venta"
+
+#. module: sale_loyalty_order_line_link
+#: model:ir.model,name:sale_loyalty_order_line_link.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de Orden de Venta"
