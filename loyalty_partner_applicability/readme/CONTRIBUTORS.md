@@ -1,0 +1,6 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pilar Vargas
+- [ACSONE SA/NV](https://acsone.eu):
+  - Laurent Mignon \<laurent.mignon@@acsone.eu\>
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
