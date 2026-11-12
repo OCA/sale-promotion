@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_loyalty_order_type_applicability
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-30 10:46+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: sale_loyalty_order_type_applicability
+#: model_terms:ir.ui.view,arch_db:sale_loyalty_order_type_applicability.loyalty_program_view_form
+msgid "All Sales Order Types"
+msgstr "Tutti i tipi di ordine di vendita"
+
+#. module: sale_loyalty_order_type_applicability
+#: model:ir.model,name:sale_loyalty_order_type_applicability.model_loyalty_program
+msgid "Loyalty display on a website"
+msgstr "Programma fedeltà visualizzato su sito web"
+
+#. module: sale_loyalty_order_type_applicability
+#: model:ir.model.fields,help:sale_loyalty_order_type_applicability.field_loyalty_program__sale_order_type_ids
+msgid "Restrict the loyalty program to those sale order types."
+msgstr "Limita il programma fedeltà a quei tipi di ordini di vendita."
+
+#. module: sale_loyalty_order_type_applicability
+#: model:ir.model,name:sale_loyalty_order_type_applicability.model_sale_order
+msgid "Sales Order"
+msgstr "Ordine di vendita"
+
+#. module: sale_loyalty_order_type_applicability
+#: model:ir.model.fields,field_description:sale_loyalty_order_type_applicability.field_loyalty_program__sale_order_type_ids
+msgid "Sales Order Types"
+msgstr "Tipi di ordine di vendita"
+
+#. module: sale_loyalty_order_type_applicability
+#. odoo-python
+#: code:addons/sale_loyalty_order_type_applicability/models/sale_order.py:0
+msgid "This reward can not be accesed with this order type."
+msgstr "Non si può accedere a questo premio con questo tipo di ordine."
