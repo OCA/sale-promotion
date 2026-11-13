@@ -1,0 +1,173 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* loyalty_limit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-12-06 17:33+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__id
+msgid "ID"
+msgstr "ID"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,help:loyalty_limit.field_loyalty_program__salesmen_strict_limit
+msgid ""
+"If marked, promotion will only be allowed for the list of salesmen with "
+"their quantities"
+msgstr ""
+"Se abilitato, la promozione sarà ammessa solo per gli addetti alla vendita "
+"indicati per le loro relative quantità"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: loyalty_limit
+#: model:ir.model,name:loyalty_limit.model_loyalty_salesmen_limit
+msgid "Loyalty Salesmen limits"
+msgstr "Limiti programma fedeltà venditore"
+
+#. module: loyalty_limit
+#: model:ir.model,name:loyalty_limit.model_loyalty_program
+msgid "Loyalty display on a website"
+msgstr "Programma fedeltà visualizzato su sito web"
+
+#. module: loyalty_limit
+#: model_terms:ir.ui.view,arch_db:loyalty_limit.loyalty_program_view_form
+msgid "Max"
+msgstr "Massimo"
+
+#. module: loyalty_limit
+#: model_terms:ir.ui.view,arch_db:loyalty_limit.loyalty_program_view_form
+msgid "Max. Customer Applications"
+msgstr "Usi massimi per cliente"
+
+#. module: loyalty_limit
+#: model_terms:ir.ui.view,arch_db:loyalty_limit.loyalty_program_view_form
+msgid "Max. Salesmen Applications"
+msgstr "Usi massimi per addetto alle vendite"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_program__max_customer_application
+msgid "Maximum Customer Applications"
+msgstr "Usi massimi per cliente"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__max_salesman_application
+msgid "Maximum Salesman Applications"
+msgstr "Usi massimi per addetto alle vendite"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,help:loyalty_limit.field_loyalty_salesmen_limit__max_salesman_application
+msgid "Maximum times a salesman can apply a program. 0 for no limit."
+msgstr ""
+"Numero massimo di volte un addetto alle vendite può applicare un programma. "
+"0 se illimitato."
+
+#. module: loyalty_limit
+#: model:ir.model.fields,help:loyalty_limit.field_loyalty_program__salesmen_limit_ids
+msgid "Maximum times salesmen can apply a program. Empty for no limit."
+msgstr ""
+"Numero massimo di volte un addetto alle vendite può applicare un programma. "
+"Vuoto se illimitato."
+
+#. module: loyalty_limit
+#: model:ir.model.fields,help:loyalty_limit.field_loyalty_program__max_customer_application
+msgid ""
+"Maximum times that a program can be applied to a customer. 0 for no limit."
+msgstr ""
+"Numero massimo di volte che un programma può essere applicato ad un cliente. "
+"0 se illimitato."
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__program_id
+msgid "Program"
+msgstr "Programma"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__user_id
+msgid "Salesman"
+msgstr "Addetto alle vendite"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_program__salesmen_limit_ids
+msgid "Salesmen Limits"
+msgstr "Limiti addetto alle vendite"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_program__salesmen_limit_count
+msgid "Salesmen maximum promotions"
+msgstr "Massimo promozioni per addetto alle vendite"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_program__salesmen_limit_used_count
+msgid "Salesmen promotions used"
+msgstr "Promozioni usate addetto alle vendite"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_program__salesmen_strict_limit
+msgid "Strict limit"
+msgstr "Limite rigido"
+
+#. module: loyalty_limit
+#: model:ir.model.constraint,message:loyalty_limit.constraint_loyalty_salesmen_limit_user_id_uniq
+msgid "This salesman limit is already configured"
+msgstr "Il limite per questo addetto alle vendite è già configurato"
+
+#. module: loyalty_limit
+#: model_terms:ir.ui.view,arch_db:loyalty_limit.loyalty_program_view_form
+msgid "Total limit"
+msgstr "Limite totale"
+
+#. module: loyalty_limit
+#: model_terms:ir.ui.view,arch_db:loyalty_limit.loyalty_program_view_form
+msgid "Total used"
+msgstr "Totale utilizzati"
+
+#. module: loyalty_limit
+#: model:ir.model.fields,field_description:loyalty_limit.field_loyalty_salesmen_limit__times_used
+msgid "Uses"
+msgstr "Usi"
+
+#. module: loyalty_limit
+#: model_terms:ir.ui.view,arch_db:loyalty_limit.loyalty_program_view_form
+msgid "used already)"
+msgstr "già usati)"
