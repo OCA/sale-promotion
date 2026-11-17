@@ -1,0 +1,2 @@
+odoo-addon-loyalty_multi_gift @ git+https://github.com/OCA/sale-promotion.git@refs/pull/333/head#subdirectory=loyalty_multi_gift
+odoo-addon-sale_loyalty_order_line_link @ git+https://github.com/OCA/sale-promotion.git@refs/pull/328/head#subdirectory=sale_loyalty_order_line_link
