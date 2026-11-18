@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_mail_view_tree_inherit" model="ir.ui.view">
+        <field name="model">loyalty.mail</field>
+        <field name="inherit_id" ref="loyalty.loyalty_mail_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mail_template_id']" position="attributes">
+                <attribute name="invisible">trigger == 'never'</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
