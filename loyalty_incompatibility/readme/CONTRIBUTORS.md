@@ -5,3 +5,5 @@
   - Pilar Vargas
 - [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
   - Bhavesh Heliconia
+- [Escodoo](https://www.escodoo.com.br):
+  - Kaynnan Lemes \<<kaynnan.lemes@escodoo.com.br>\>

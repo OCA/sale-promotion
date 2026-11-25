@@ -153,3 +153,42 @@ class LoyaltyIncompatibilityCase(BaseCommon):
             self.promotion_2.incompatible_promotion_ids,
             "New incompatibility should be bidirectional",
         )
+
+    def test_incompatibility_not_propagated_between_programs(self):
+        """Sharing a counterpart must not make two programs incompatible.
+
+        With A ⊥ {B, C}, setting D ⊥ {B} must leave D incompatible with B
+        only: C is unrelated to D and must stay out of it.
+        """
+        program_b = self.promotion
+        program_c = self.promotion_2
+        program_a = self.coupon_program_with_incompatibility
+        program_d = self.coupon_program_without_incompatibility
+
+        program_a.incompatible_promotion_ids = [
+            Command.set((program_b | program_c).ids)
+        ]
+        program_d.incompatible_promotion_ids = [Command.set(program_b.ids)]
+
+        self.assertEqual(
+            program_d.incompatible_promotion_ids,
+            program_b,
+            "Only the selected program must be incompatible with D.",
+        )
+        self.assertNotIn(
+            program_d,
+            program_c.incompatible_promotion_ids,
+            "C was never selected on D and must not gain it back.",
+        )
+
+    def test_incompatibility_removal_is_symmetric(self):
+        """Removing a counterpart clears the relation on both sides."""
+        program_a = self.coupon_program_with_incompatibility
+        program_b = self.promotion
+
+        self.assertIn(program_b, program_a.incompatible_promotion_ids)
+
+        program_a.incompatible_promotion_ids = [Command.clear()]
+
+        self.assertFalse(program_a.incompatible_promotion_ids)
+        self.assertNotIn(program_a, program_b.incompatible_promotion_ids)
