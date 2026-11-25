@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_referral_view_list" model="ir.ui.view">
+        <field name="name">loyalty.referral.list</field>
+        <field name="model">loyalty.referral</field>
+        <field name="arch" type="xml">
+            <list string="Referral Codes" editable="bottom">
+                <field name="partner_id" />
+                <field name="code" />
+                <field name="program_id" invisible="1" />
+                <field name="referral_url" />
+                <field name="rule_id" invisible="1" />
+            </list>
+        </field>
+    </record>
+
+    <record id="loyalty_referral_view_form" model="ir.ui.view">
+        <field name="name">loyalty.referral.form</field>
+        <field name="model">loyalty.referral</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="partner_id" />
+                        <field name="code" />
+                        <field name="referral_url" widget="url" />
+                        <field name="program_id" />
+                        <field name="rule_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

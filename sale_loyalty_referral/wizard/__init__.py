@@ -1,0 +1,1 @@
+from . import sale_loyalty_referral_generate_wizard

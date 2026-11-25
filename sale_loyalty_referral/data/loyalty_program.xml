@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <!-- Ready-to-use referral program, selected in Sales settings by default
+        (params and the discount reward/product are seeded by the post-init
+        hook so they can adapt to optional product fields). Adjust or replace
+        freely — the record is noupdate. -->
+    <record id="referral_program" model="loyalty.program">
+        <field name="name">Referral</field>
+        <field name="program_type">promo_code</field>
+        <field name="trigger">with_code</field>
+        <field name="is_referral">True</field>
+        <field name="referral_retention_days">31</field>
+    </record>
+</odoo>

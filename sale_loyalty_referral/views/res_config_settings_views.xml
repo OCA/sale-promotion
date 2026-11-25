@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.referral</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <setting id="coupon_settings" position="after">
+                <setting
+                    id="referral_program_setting"
+                    string="Customer Referrals"
+                    help="Give every customer a personal referral link on their portal account. The code activates a rule of the referral program."
+                >
+                    <div class="content-group">
+                        <div class="row mt16">
+                            <label
+                                for="referral_program_id"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field name="referral_program_id" />
+                            <field name="referral_portal_card" />
+                        </div>
+                        <div class="row">
+                            <label
+                                for="referral_base_url"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field name="referral_base_url" placeholder="/" />
+                        </div>
+                    </div>
+                </setting>
+            </setting>
+        </field>
+    </record>
+</odoo>

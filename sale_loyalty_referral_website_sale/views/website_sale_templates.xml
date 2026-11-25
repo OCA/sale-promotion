@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="cart_referral_login_notice"
+        name="Cart: Referral Login Notice"
+        inherit_id="website_sale.cart"
+    >
+        <xpath
+            expr="//div[@id='shop_cart']/div[hasclass('d-flex','align-items-center','mb-3')]"
+            position="after"
+        >
+            <t
+                t-set="referral_partner"
+                t-value="request.env['res.partner']._get_referral_partner()"
+            />
+            <div
+                t-if="referral_partner and request.env.user._is_public()"
+                class="alert alert-info"
+                role="alert"
+            >
+                You are using a friend's referral. Please
+                <a t-attf-href="/web/login?redirect=/shop/cart">log in</a>
+                so it can be applied to your order.
+            </div>
+            <t
+                t-set="ref_program"
+                t-value="request.env['res.partner']._get_referral_program()"
+            />
+            <div
+                t-if="website_sale_order.referred_by_id and not website_sale_order.code_enabled_rule_ids and ref_program.referral_message"
+                class="alert alert-info"
+                role="alert"
+            >
+                <t t-out="ref_program.referral_message" />
+            </div>
+        </xpath>
+    </template>
+</odoo>
