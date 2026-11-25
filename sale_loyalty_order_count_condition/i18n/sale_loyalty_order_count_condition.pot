@@ -1,0 +1,141 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_loyalty_order_count_condition
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-29 08:07+0000\n"
+"PO-Revision-Date: 2026-10-29 08:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_order_count_condition__customer_order_condition__first_ever
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_program__customer_order_condition__first_ever
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_rule__customer_order_condition__first_ever
+msgid "Customer's first order"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_order_count_condition__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_program__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_rule__daypilot_tooltip
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_sale_order__daypilot_tooltip
+msgid "Daypilot Tooltip"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_order_count_condition__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_program__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_rule__display_name
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_sale_order__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_order_count_condition__customer_order_condition__first_use
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_program__customer_order_condition__first_use
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_rule__customer_order_condition__first_use
+msgid "First order using this code"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_order_count_condition__id
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_program__id
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_rule__id
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_sale_order__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model,name:sale_loyalty_order_count_condition.model_loyalty_order_count_condition
+msgid "Loyalty Order Count Condition"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model,name:sale_loyalty_order_count_condition.model_loyalty_program
+msgid "Loyalty Program"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model,name:sale_loyalty_order_count_condition.model_loyalty_rule
+msgid "Loyalty Rule"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model.fields,help:sale_loyalty_order_count_condition.field_loyalty_order_count_condition__customer_order_condition
+#: model:ir.model.fields,help:sale_loyalty_order_count_condition.field_loyalty_program__customer_order_condition
+#: model:ir.model.fields,help:sale_loyalty_order_count_condition.field_loyalty_rule__customer_order_condition
+msgid ""
+"Only apply when the customer's order count matches. Counts confirmed orders "
+"only. 'Using this code' counts orders on which a code of this rule/program "
+"was applied; the customer variants count all orders."
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_order_count_condition__customer_order_condition
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_program__customer_order_condition
+#: model:ir.model.fields,field_description:sale_loyalty_order_count_condition.field_loyalty_rule__customer_order_condition
+msgid "Order Count Condition"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#. odoo-python
+#: code:addons/sale_loyalty_order_count_condition/models/loyalty_order_count_condition.py:0
+msgid "Please log in to use this offer."
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_order_count_condition__customer_order_condition__repeat_ever
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_program__customer_order_condition__repeat_ever
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_rule__customer_order_condition__repeat_ever
+msgid "Repeat order of the customer"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_order_count_condition__customer_order_condition__repeat_use
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_program__customer_order_condition__repeat_use
+#: model:ir.model.fields.selection,name:sale_loyalty_order_count_condition.selection__loyalty_rule__customer_order_condition__repeat_use
+msgid "Repeat order using this code"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#: model:ir.model,name:sale_loyalty_order_count_condition.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#. odoo-python
+#: code:addons/sale_loyalty_order_count_condition/models/sale_order.py:0
+msgid "The reward %(rewards)s was removed: its conditions are no longer met."
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#. odoo-python
+#: code:addons/sale_loyalty_order_count_condition/models/loyalty_order_count_condition.py:0
+msgid "This code can only be used once per customer."
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#. odoo-python
+#: code:addons/sale_loyalty_order_count_condition/models/loyalty_order_count_condition.py:0
+msgid "This code is only valid on a repeat order."
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#. odoo-python
+#: code:addons/sale_loyalty_order_count_condition/models/loyalty_order_count_condition.py:0
+msgid "This offer is only valid for repeat customers."
+msgstr ""
+
+#. module: sale_loyalty_order_count_condition
+#. odoo-python
+#: code:addons/sale_loyalty_order_count_condition/models/loyalty_order_count_condition.py:0
+msgid "This offer is only valid on your first order."
+msgstr ""

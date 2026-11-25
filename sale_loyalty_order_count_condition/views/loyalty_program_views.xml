@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="loyalty_program_view_form" model="ir.ui.view">
+        <field name="name">loyalty.program.view.form.order.count</field>
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_to']" position="after">
+                <field
+                    name="customer_order_condition"
+                    invisible="program_type in ('gift_card', 'ewallet')"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
