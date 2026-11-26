@@ -1,0 +1,175 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_loyalty_order_suggestion
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-25 09:42+0000\n"
+"PO-Revision-Date: 2025-04-25 11:58+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: sale_loyalty_order_suggestion
+#. odoo-python
+#: code:addons/sale_loyalty_order_suggestion/wizard/sale_loyalty_reward_wizard.py:0
+#, python-format
+msgid "<b>* Required quantity:</b> %(units)s units of %(products)s"
+msgstr "<b>* Cantidad necesaria:</b> %(units)s unidades de %(products)s"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_reward_wizard__applicable_program
+msgid "Applicable Program"
+msgstr "Programa aplicable"
+
+#. module: sale_loyalty_order_suggestion
+#. odoo-javascript
+#: code:addons/sale_loyalty_order_suggestion/static/src/xml/suggest_promotion.xml:0
+#, python-format
+msgid "Available promotions"
+msgstr "Promociones disponibles"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__company_id
+msgid "Company"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,help:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__pricelist_id
+msgid "If you change the pricelist, only newly added lines will be affected."
+msgstr ""
+"Si modifica la lista de precios, sólo se verán afectadas las nuevas líneas "
+"añadidas."
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__units_included
+msgid "Included units"
+msgstr "Unidades incluidas"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_reward_wizard__loyalty_rule_line_description
+msgid "Loyalty Rule Line Description"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_reward_wizard__loyalty_rule_line_ids
+msgid "Loyalty Rule Lines"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__order_id
+msgid "Order"
+msgstr "Pedido"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__pricelist_id
+msgid "Pricelist"
+msgstr "Lista de precios"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_reward_wizard__product_id
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__units_required
+msgid "Required units"
+msgstr "Unidades necesarias"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model,name:sale_loyalty_order_suggestion.model_sale_loyalty_reward_wizard
+msgid "Sale Loyalty - Reward Selection Wizard"
+msgstr "Fidelidad de venta - Asistente de selección de recompensas"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model,name:sale_loyalty_order_suggestion.model_sale_loyalty_rule_product_line_wizard
+msgid "Sale Loyalty Rule Product Line Wizard"
+msgstr ""
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model,name:sale_loyalty_order_suggestion.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model,name:sale_loyalty_order_suggestion.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_order_line__suggested_promotion_ids
+msgid "Suggested Promotion"
+msgstr "Promoción recomendada"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_order_line__suggested_promotions
+msgid "Suggested Promotions"
+msgstr "Promociones recomendadas"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_order_line__suggested_reward_ids
+msgid "Suggested Reward"
+msgstr "Recompensa recomendada"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__price_unit
+msgid "Unit Price"
+msgstr "Precio"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__units_to_include
+msgid "Units to include"
+msgstr "Unidades a incluir"
+
+#. module: sale_loyalty_order_suggestion
+#: model:ir.model.fields,field_description:sale_loyalty_order_suggestion.field_sale_loyalty_rule_product_line_wizard__wizard_id
+msgid "Wizard"
+msgstr "Asistente"
