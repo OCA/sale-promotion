@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -41,8 +41,20 @@ msgid ""
 msgstr ""
 
 #. module: loyalty_partner_applicability
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_program__display_name
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: loyalty_partner_applicability
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_loyalty_program__id
+#: model:ir.model.fields,field_description:loyalty_partner_applicability.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: loyalty_partner_applicability
 #: model:ir.model,name:loyalty_partner_applicability.model_loyalty_program
-msgid "Loyalty display on a website"
+msgid "Loyalty Program"
 msgstr ""
 
 #. module: loyalty_partner_applicability
