@@ -1,10 +1,11 @@
 [project]
 name = "odoo-addons-oca-sale-promotion"
-version = "19.0.20261126.0"
+version = "19.0.20261126.1"
 dependencies = [
     "odoo-addon-loyalty_incompatibility==19.0.*",
     "odoo-addon-loyalty_partner_applicability==19.0.*",
     "odoo-addon-sale_loyalty_auto_refresh==19.0.*",
+    "odoo-addon-sale_loyalty_partner_applicability==19.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",
