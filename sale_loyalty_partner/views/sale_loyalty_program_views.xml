@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="loyalty_program_view_form">
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <field name="available_on" position="before">
+                <field name="partner_id" />
+            </field>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="loyalty_program_view_tree">
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_tree" />
+        <field name="arch" type="xml">
+            <field name="coupon_count_display" position="after">
+                <field name="partner_id" optional="show" />
+            </field>
+        </field>
+    </record>
+</odoo>
